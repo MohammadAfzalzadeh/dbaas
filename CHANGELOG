@@ -1,0 +1,6 @@
+# DBaaS
+
+## [0.0.0]
+### feature
+- add docker file for postgresql master & sync/async/potential replica 
+- use all of them into docker compose
