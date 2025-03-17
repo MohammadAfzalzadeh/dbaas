@@ -28,6 +28,8 @@ services:
       POSTGRES_REPLICA_SYNC: my_custom_replica_sync
     volumes:
       - /var/lib/postgresql/docker/pg1:/var/lib/postgresql/data
+    depends_on:
+      - minio
     networks:
       - database
 
@@ -71,6 +73,20 @@ services:
       - /var/lib/postgresql/docker/pg4:/var/lib/postgresql/data
     environment:
       - REPLICA_TYPE=sync
+    networks:
+      - database
+
+  minio:
+    build:
+      context: ./minio
+      dockerfile: Dockerfile
+    ports:
+      - 9090:9090
+    volumes:
+      - ./minio/data:/data
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=admin123
     networks:
       - database
     
