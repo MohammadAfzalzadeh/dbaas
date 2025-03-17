@@ -21,6 +21,17 @@ RUN chown -R postgres:postgres /etc/postgresql/ && \
 # Add the healthcheck
 # HEALTHCHECK --interval=10s --timeout=5s --retries=5 CMD pg_isready -U user --dbname=postgres || exit 1
 
+# WAL_G CONFIG
+COPY ./wal-g /usr/local/bin/wal-gDIR
+
+RUN mv /usr/local/bin/wal-gDIR/wal-g /usr/local/bin/wal-g && \
+    mv /usr/local/bin/wal-gDIR/.walg.env $HOME/.walg.env && \
+    mv /usr/local/bin/wal-gDIR/crontab /etc/cron.d/walg-cron && \
+    rmdir /usr/local/bin/wal-gDIR &&\
+    chmod 0644 /etc/cron.d/walg-cron && \
+    crontab /etc/cron.d/walg-cron &&\
+    export $(cat $HOME/.walg.env | xargs)
+
 EXPOSE 5432
 # Configure the PostgreSQL server with the required settings
 CMD ["postgres" , "-c" , "config_file=/etc/postgresql/postgresql.conf"]
