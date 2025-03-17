@@ -1,0 +1,1 @@
+0 0 * * * /usr/local/bin/wal-g backup-push --config $HOME/.walg.env /var/lib/postgresql/data >> /var/log/cron.log 2>&1
