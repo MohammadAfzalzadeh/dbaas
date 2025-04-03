@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+data:
+  POSTGRES_USER: "user"
+  POSTGRES_DB: "postgres"
+  POSTGRES_PASSWORD: "123"
+  POSTGRES_REPLICA_SYNC: "my_custom_replica_sync"
+  REPLICA_TYPE: "sync"
