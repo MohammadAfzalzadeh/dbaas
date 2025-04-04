@@ -1,0 +1,1 @@
+primary_conninfo = 'host=${MASTER_HOST} port=${MASTER_PORT} user=${REPLICATION_USER} password=${REPLICATION_PASS}'
