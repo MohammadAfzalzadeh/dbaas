@@ -2,8 +2,7 @@
 set -e
 
 rm -rf /var/lib/postgresql/newdata
-
-until pg_basebackup -h postgres_primary --port=5432 -D /var/lib/postgresql/newdata -U replicator -Fp -Xs -P; do
+until PGPASSWORD=$REPLICATION_PASS pg_basebackup -h $MASTER_HOST --port=$MASTER_PORT -D /var/lib/postgresql/newdata -U replicator -Fp -Xs -P; do
   echo 'Waiting for primary to connect...'
   sleep 1s
 done
