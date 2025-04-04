@@ -1,10 +1,10 @@
 wal_level=replica
-max_wal_senders=10
+max_wal_senders=${MAX_WAL_SENDERS}
 # archive_mode=on
 # archive_command='barman-wal-archive -U barman barman_active_backup postgres %p'
 # archive_command = 'rsync -a %p barman@barman_active_backup:/var/lib/barman/postgres_primary/incoming/%f'
 hot_standby=on
-max_replication_slots=10
+max_replication_slots=${MAX_REPLICATION_SLOTS}
 hot_standby_feedback=on
-synchronous_standby_names='1(sync)'#'barmandb'
+synchronous_standby_names='${NUMBER_SYNC_DB}(sync)'#'barmandb'
 synchronous_commit=on
