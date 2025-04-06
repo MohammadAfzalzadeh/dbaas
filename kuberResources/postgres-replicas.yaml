@@ -25,6 +25,15 @@ spec:
           volumeMounts:
             - mountPath: "/var/lib/postgresql/data"
               name: postgres-storage
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                # - "PGPASSWORD="123" psql -h 127.0.0.1 -U user -d postgres -t -A -c "SELECT pg_is_in_recovery();""
+                - "PGPASSWORD=\"123\" psql -h 127.0.0.1 -U user -d postgres -t -A -c \"select count(*) from pg_stat_wal_receiver;\""
+            initialDelaySeconds: 30
+            periodSeconds: 10
       volumes:
         - name: postgres-storage
           persistentVolumeClaim:
