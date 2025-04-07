@@ -30,10 +30,14 @@ spec:
               command:
                 - /bin/sh
                 - -c
-                # - "PGPASSWORD="123" psql -h 127.0.0.1 -U user -d postgres -t -A -c "SELECT pg_is_in_recovery();""
-                - "PGPASSWORD=\"123\" psql -h 127.0.0.1 -U user -d postgres -t -A -c \"select count(*) from pg_stat_wal_receiver;\""
+                - |
+                  result=$(PGPASSWORD="123" psql -h 127.0.0.1 -U user -d postgres -t -A -c "select count(*) from pg_stat_wal_receiver;" 2>/dev/null)
+                  if [ $? -ne 0 ] || [ "$result" -eq 0 ]; then
+                    exit 1
+                  fi
             initialDelaySeconds: 30
             periodSeconds: 10
+            failureThreshold: 1
       volumes:
         - name: postgres-storage
           persistentVolumeClaim:
