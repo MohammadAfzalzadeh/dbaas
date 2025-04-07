@@ -30,7 +30,8 @@ spec:
               command: 
                 - /bin/sh
                 - -c
-                - pg_isready -h 127.0.0.1 -p 5432 -q
+                - | 
+                  pg_isready -h 127.0.0.1 -p "$MASTER_PORT" -q
             initialDelaySeconds: 5
             periodSeconds: 10
             failureThreshold: 1
