@@ -1,0 +1,118 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: minio
+spec:
+  serviceName: minio
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minio
+  template:
+    metadata:
+      labels:
+        app: minio
+    spec:
+      containers:
+      - name: minio
+        image: quay.io/minio/minio
+        imagePullPolicy: Never
+        args:
+          - server
+          - /data
+          - --console-address
+          - ":9001"
+        env:
+        - name: MINIO_ROOT_USER
+          value: minioadmin
+        - name: MINIO_ROOT_PASSWORD
+          value: minioadmin
+        ports:
+        - containerPort: 9000
+        - containerPort: 9001
+        volumeMounts:
+        - name: data
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 5Gi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio
+spec:
+  ports:
+  - port: 9000
+    name: api
+  - port: 9001
+    name: console
+  clusterIP: None
+  selector:
+    app: minio
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: init-minio-scripts
+data:
+  init-minio.sh: |
+    #!/bin/sh
+    set -e
+
+    # Define root credentials
+    ROOT_ACCESS_KEY=minioadmin
+    ROOT_SECRET_KEY=minioadmin
+
+    # Define new user credentials
+    NEW_USER=newuser
+    NEW_PASS=newpassword
+    BUCKET_NAME=mybucket
+
+    # Set mc alias
+    mc alias set myminio http://minio:9000 $ROOT_ACCESS_KEY $ROOT_SECRET_KEY
+
+    # Create new user
+    mc admin user add myminio $NEW_USER $NEW_PASS || echo "User may already exist"
+
+    # Create bucket
+    mc mb myminio/$BUCKET_NAME --ignore-existing
+
+    # Attach readwrite policy to user
+    mc admin policy attach myminio readwrite --user $NEW_USER || echo "Policy may already be attached"
+
+    echo "✅ MinIO setup complete"
+
+---
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-minio-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: init-minio
+        image: docker.arvancloud.ir/minio/mc
+        command: ["/bin/sh", "-c"]
+        args:
+          - sh /scripts/init-minio.sh
+        volumeMounts:
+        - name: script-volume
+          mountPath: /scripts
+      restartPolicy: OnFailure
+      volumes:
+      - name: script-volume
+        configMap:
+          name: init-minio-scripts
+
