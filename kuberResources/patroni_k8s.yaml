@@ -169,6 +169,8 @@ spec:
   ports:
   - port: 5432
     targetPort: 5432
+  - port: 8008
+    targetPort: 8008
 ---
 apiVersion: v1
 kind: Service
@@ -177,16 +179,18 @@ metadata:
   labels:
     application: patroni
     cluster-name:  &cluster_name patronidemo
-    role: master
+    role: primary
 spec:
   type: ClusterIP
   selector:
     application: patroni
     cluster-name: *cluster_name
-    role: master
+    role: primary
   ports:
   - port: 5432
     targetPort: 5432
+  - port: 8008
+    targetPort: 8008
 ---
 apiVersion: v1
 kind: ServiceAccount
