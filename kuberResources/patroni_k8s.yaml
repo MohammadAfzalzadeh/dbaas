@@ -166,11 +166,13 @@ spec:
     application: patroni
     cluster-name: *cluster_name
     role: replica
-  ports:
-  - port: 5432
-    targetPort: 5432
-  - port: 8008
-    targetPort: 8008
+    ports:
+    - name: pg
+      port: 5432
+      targetPort: 5432
+    - name: patroni
+      port: 8008
+      targetPort: 8008
 ---
 apiVersion: v1
 kind: Service
@@ -187,10 +189,12 @@ spec:
     cluster-name: *cluster_name
     role: primary
   ports:
-  - port: 5432
-    targetPort: 5432
-  - port: 8008
-    targetPort: 8008
+    - name: pg
+      port: 5432
+      targetPort: 5432
+    - name: patroni
+      port: 8008
+      targetPort: 8008
 ---
 apiVersion: v1
 kind: ServiceAccount
