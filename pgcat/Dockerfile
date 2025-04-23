@@ -4,3 +4,4 @@ COPY ./pgcat.toml /etc/pgcat/pgcat.toml
 
 WORKDIR /etc/pgcat 
 
+CMD ["pgcat", "/etc/pgcat/pgcat.toml"]
