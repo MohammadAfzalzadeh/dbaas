@@ -2,6 +2,8 @@ FROM debian:bullseye-slim
 
 ENV WALG_VERSION=v3.0.7
 
+COPY .walg.env ~/.walg.env
+
 RUN apt-get update && apt-get install -y \
     gettext \
     bash \
@@ -17,5 +19,4 @@ RUN apt-get update && apt-get install -y \
     rm wal-g-pg-ubuntu-20.04-amd64.tar.gz   &&\
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# ENTRYPOINT ["/bin/bash"]
-CMD [ "/bin/bash" , "-c" , "sleep 360000" ]
+CMD [ "/bin/bash" , "-c" , "sleep infinity" ]
