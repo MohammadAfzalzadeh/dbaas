@@ -166,13 +166,13 @@ spec:
     application: patroni
     cluster-name: *cluster_name
     role: replica
-    ports:
-    - name: pg
-      port: 5432
-      targetPort: 5432
-    - name: patroni
-      port: 8008
-      targetPort: 8008
+  ports:
+  - name: pg
+    port: 5432
+    targetPort: 5432
+  - name: patroni
+    port: 8008
+    targetPort: 8008
 ---
 apiVersion: v1
 kind: Service
