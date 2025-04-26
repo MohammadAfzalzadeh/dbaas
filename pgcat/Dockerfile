@@ -1,7 +1,10 @@
-FROM ghcr.io/postgresml/pgcat
+FROM docker.arvancloud.ir/node:18-slim
 
-COPY ./pgcat.toml /etc/pgcat/pgcat.toml
+WORKDIR /app
 
-WORKDIR /etc/pgcat 
+COPY . .
 
-CMD ["pgcat", "/etc/pgcat/pgcat.toml"]
+RUN npm install --omit=dev
+
+
+CMD ["node", "pgcat-config-watcher.js"]

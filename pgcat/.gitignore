@@ -1,0 +1,16 @@
+# Ignore node modules (always!)
+node_modules
+package-lock.json
+
+# Ignore logs
+logs
+*.log
+
+# Ignore local dev config
+.env
+.env.*
+
+# Ignore temporary files
+*.tmp
+*.swp
+
