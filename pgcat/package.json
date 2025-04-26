@@ -11,6 +11,8 @@
   "description": "",
   "dependencies": {
     "chokidar": "^4.0.3",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
   }
 }
