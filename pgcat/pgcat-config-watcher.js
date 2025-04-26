@@ -38,6 +38,7 @@ function generatePgcatConfig(input) {
 
   let config = `[general]
 host = "0.0.0.0"
+autoreload = 15000
 port = ${general.PGCAT_PORT}
 enable_prometheus_exporter = ${general.ENABLE_PROMETHEUS ?? false}
 prometheus_exporter_port = ${general.PROMETHEUS_EXPORTER_PORT ?? 9930}
