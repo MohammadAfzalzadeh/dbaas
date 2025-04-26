@@ -4,7 +4,9 @@ kind create cluster --config ./kind/kind-config.yaml  --name patroni
 
 docker build -t patroni ./patroni &&  kind load docker-image patroni --name patroni 
 docker build -t wal-g ./wal-g     &&  kind load docker-image wal-g --name patroni 
-docker build -t pgcat ./pgcat     &&  kind load docker-image pgcat --name patroni 
+
+docker build -t pgcat-config-watcher ./pgcat     &&  kind load docker-image pgcat-config-watcher --name patroni 
+kind load docker-image ghcr.io/postgresml/pgcat --name patroni 
 
 
 
