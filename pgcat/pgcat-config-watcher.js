@@ -2,6 +2,7 @@ const fs = require('fs');
 const fsp = fs.promises;
 const chokidar = require('chokidar');
 const yaml = require('js-yaml');
+const {log} = require('./logger');
 
 const CONFIG_PATH = process.env.PGCAT_CONFIG_SOURCE || '/config/pgcat.yaml';
 const OUTPUT_PATH = process.env.PGCAT_CONFIG_DEST || '/etc/pgcat/pgcat.toml';
@@ -29,16 +30,6 @@ DBS:
         REPLICA_HOST: patronidemo-replica
         REPLICA_PORT: '5432'
 `;
-//stop 0.0:log function 
-function log(level, message, extra = {}) {
-  const logEntry = {
-    timestamp: new Date().toISOString(),
-    level,
-    message,
-    ...extra,
-  };
-  console.log(JSON.stringify(logEntry));
-}
 
 //stop 0.1: convert json config to pgcat config format
 function generatePgcatConfig(input) {
