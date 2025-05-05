@@ -8,6 +8,27 @@ metadata:
     cluster-name: patronidemo
 spec:
   clusterIP: None
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: wal-g-credentials
+type: Opaque
+stringData:
+  .walg.env: |
+    PGHOST=localhost
+    PGPORT=5432
+    PGUSER=user
+    PGPASSWORD=123
+    PGDATABASE=postgres
+
+    AWS_ACCESS_KEY_ID=admin
+    AWS_SECRET_ACCESS_KEY=admin123
+    WALG_S3_PREFIX=s3://pgbackup
+    AWS_REGION=UnitedStates
+    WALG_COMPRESSION_METHOD=brotli
+    AWS_ENDPOINT=http://minio:9000
+    AWS_S3_FORCE_PATH_STYLE=true
 
 ---
 apiVersion: apps/v1
@@ -33,7 +54,7 @@ spec:
       serviceAccountName: patronidemo
       containers:
       - name: *cluster_name
-        image: patroni  # docker build -t patroni .
+        image: patroni  
         imagePullPolicy: IfNotPresent
         readinessProbe:
           httpGet:
@@ -51,8 +72,12 @@ spec:
         - containerPort: 5432
           protocol: TCP
         volumeMounts:
-        - mountPath: /home/postgres/pgdata
-          name: pgdata
+        - name: pgdata
+          mountPath: /home/postgres/pgdata
+        - name: wal-g-bin
+          mountPath: /wal-g
+        - name: wal-g-credentials
+          mountPath: /wal-g-credentials
         env:
         - name: PATRONI_KUBERNETES_POD_IP
           valueFrom:
@@ -90,21 +115,40 @@ spec:
           value: '0.0.0.0:5432'
         - name: PATRONI_RESTAPI_LISTEN  
           value: '0.0.0.0:8008'
+
+        # PostgreSQL archiving
+        - name: PATRONI_POSTGRESQL_PARAMETERS
+          value: |
+            wal_level=replica
+            archive_mode=on
+            archive_timeout=60
+            archive_command='/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p'
+            restore_command='/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p'
+
+        - name: PATRONI_BOOTSTRAP
+          value: | 
+            method: wal-g
+            wal-g:
+                command: /wal-g/wal-g backup-fetch --config /wal-g-credentials/.walg.env /home/postgres/pgdata/pgroot/data LATEST
+
       - name: wal-g
         image: wal-g
         imagePullPolicy: Never
-        # envFrom:
-        # - configMapRef:
-        #     name: wal-g-config
         volumeMounts:
-        - name: pgdata
-          mountPath: /home/postgres/pgdata
-        command: ["/bin/sh", "-c" , "sleep 3600000"]
+        - name: wal-g-bin
+          mountPath: /usr/local/bin
+        command: ["/bin/sh", "-c" , "sleep infinity"]
 
       terminationGracePeriodSeconds: 0
       volumes:
       - name: pgdata
         emptyDir: {}
+      - name: wal-g-bin
+        emptyDir: {}
+      - name: wal-g-credentials
+        secret:
+          secretName: wal-g-credentials
+
   #  volumeClaimTemplates:
   #  - metadata:
   #      labels:
@@ -120,28 +164,6 @@ spec:
   #        requests:
   #          storage: 5Gi
 ---
-# apiVersion: v1
-# kind: ConfigMap
-# metadata:
-#   name: wal-g-config
-# data:
-#   PGHOST: "localhost"
-#   PGPORT: "5432"
-#   PGUSER: "user"
-#   PGPASSWORD: "123"
-#   PGDATABASE: "postgres"
-
-
-#   AWS_ENDPOINT: "http://minio:9000"
-#   AWS_ACCESS_KEY_ID: "admin"
-#   AWS_SECRET_ACCESS_KEY: "admin123"
-#   WALG_S3_PREFIX: "s3://pgbackup"
-
-#   AWS_REGION: "UnitedStates"
-#   WALG_COMPRESSION_METHOD: "brotli"
-#   AWS_S3_FORCE_PATH_STYLE : true
-  
-# ---
 apiVersion: v1
 kind: Endpoints
 metadata:
