@@ -2,8 +2,6 @@ FROM debian:bullseye-slim
 
 ENV WALG_VERSION=v3.0.7
 
-COPY .walg.env ~/.walg.env
-
 RUN apt-get update && apt-get install -y \
     gettext \
     bash \
