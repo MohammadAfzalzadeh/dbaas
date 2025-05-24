@@ -14,6 +14,7 @@ kind load docker-image quay.io/minio/minio  --name patroni
 #####apply all resources needed
 # kubectl delete -f ./kuberResources/patroni_k8s.yaml && 
 kubectl apply -f ./kuberResources/patroni_k8s.yaml
+kubectl apply -f ./kuberResources/db_services_k8s.yaml
 # kubectl delete -f ./kuberResources/proxy.yaml &&
 kubectl apply -f ./kuberResources/proxy.yaml
 # kubectl delete -f ./kuberResources/minio_k8s.yaml && 
