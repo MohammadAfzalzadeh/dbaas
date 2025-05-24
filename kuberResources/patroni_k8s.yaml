@@ -137,7 +137,10 @@ spec:
         volumeMounts:
         - name: wal-g-bin
           mountPath: /usr/local/bin
-        command: ["/bin/sh", "-c" , "sleep infinity"]
+        command: ["/bin/sh", "-c" ]
+        args: 
+        - | 
+          cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && chmod +x /usr/local/bin/wal-g && sleep infinity
 
       terminationGracePeriodSeconds: 0
       volumes:
