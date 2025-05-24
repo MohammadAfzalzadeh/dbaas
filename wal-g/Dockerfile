@@ -11,10 +11,8 @@ RUN apt-get update && apt-get install -y \
     tar \
     s3cmd   &&\
     wget https://github.com/wal-g/wal-g/releases/download/${WALG_VERSION}/wal-g-pg-ubuntu-20.04-amd64.tar.gz   &&\
-    tar -zxvf wal-g-pg-ubuntu-20.04-amd64.tar.gz    &&\
-    mv wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g &&\
-    chmod +x /usr/local/bin/wal-g   &&\
+    tar -zxvf wal-g-pg-ubuntu-20.04-amd64.tar.gz  &&\
     rm wal-g-pg-ubuntu-20.04-amd64.tar.gz   &&\
     apt-get clean && rm -rf /var/lib/apt/lists/*
-
-CMD [ "/bin/bash" , "-c" , "sleep infinity" ]
+ENTRYPOINT [ "/bin/bash" ]
+CMD [ "/bin/bash" , "-c" , "cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && chmod +x /usr/local/bin/wal-g   && sleep infinity" ]
