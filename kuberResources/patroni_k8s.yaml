@@ -18,13 +18,13 @@ stringData:
   .walg.env: |
     PGHOST=localhost
     PGPORT=5432
-    PGUSER=user
-    PGPASSWORD=123
+    PGUSER=postgres
+    PGPASSWORD=mmm
     PGDATABASE=postgres
 
-    AWS_ACCESS_KEY_ID=admin
-    AWS_SECRET_ACCESS_KEY=admin123
-    WALG_S3_PREFIX=s3://pgbackup
+    AWS_ACCESS_KEY_ID=minioadmin
+    AWS_SECRET_ACCESS_KEY=minioadmin
+    WALG_S3_PREFIX=s3://mybucket
     AWS_REGION=UnitedStates
     WALG_COMPRESSION_METHOD=brotli
     AWS_ENDPOINT=http://minio:9000
