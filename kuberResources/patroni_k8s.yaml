@@ -166,15 +166,6 @@ spec:
   #      resources:
   #        requests:
   #          storage: 5Gi
----
-apiVersion: v1
-kind: Endpoints
-metadata:
-  name: &cluster_name patronidemo
-  labels:
-    application: patroni
-    cluster-name: *cluster_name
-subsets: []
 
 ---
 apiVersion: v1
