@@ -11,6 +11,9 @@ kind load docker-image wal-g --name patroni
 kind load docker-image pgcat-config-watcher --name patroni 
 kind load docker-image ghcr.io/postgresml/pgcat --name patroni 
 kind load docker-image quay.io/minio/minio  --name patroni
+#######add longhorn storageclass####
+kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.8.1/deploy/longhorn.yaml
+kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v1.8.1/examples/storageclass.yaml
 #####apply all resources needed
 # kubectl delete -f ./kuberResources/patroni_k8s.yaml && 
 kubectl apply -f ./kuberResources/patroni_k8s.yaml

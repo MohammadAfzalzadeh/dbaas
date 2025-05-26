@@ -29,7 +29,18 @@ stringData:
     WALG_COMPRESSION_METHOD=brotli
     AWS_ENDPOINT=http://minio:9000
     AWS_S3_FORCE_PATH_STYLE=true
-
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: longhorn-patroni-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: 20Gi
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -73,7 +84,7 @@ spec:
           protocol: TCP
         volumeMounts:
         - name: pgdata
-          mountPath: /home/postgres/pgdata
+          mountPath: /home/postgres/pgdata/pgroot/data
         - name: wal-g-bin
           mountPath: /wal-g
         - name: wal-g-credentials
@@ -145,28 +156,13 @@ spec:
       terminationGracePeriodSeconds: 0
       volumes:
       - name: pgdata
-        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: longhorn-patroni-pvc
       - name: wal-g-bin
         emptyDir: {}
       - name: wal-g-credentials
         secret:
           secretName: wal-g-credentials
-
-  #  volumeClaimTemplates:
-  #  - metadata:
-  #      labels:
-  #        application: spilo
-  #        spilo-cluster: *cluster_name
-  #      annotations:
-  #        volume.alpha.kubernetes.io/storage-class: anything
-  #      name: pgdata
-  #    spec:
-  #      accessModes:
-  #      - ReadWriteOnce
-  #      resources:
-  #        requests:
-  #          storage: 5Gi
-
 ---
 apiVersion: v1
 kind: ServiceAccount
