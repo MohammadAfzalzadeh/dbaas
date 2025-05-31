@@ -30,18 +30,6 @@ stringData:
     AWS_ENDPOINT=http://minio:9000
     AWS_S3_FORCE_PATH_STYLE=true
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: longhorn-patroni-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: longhorn
-  resources:
-    requests:
-      storage: 20Gi
----
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -84,7 +72,7 @@ spec:
           protocol: TCP
         volumeMounts:
         - name: pgdata
-          mountPath: /home/postgres/pgdata/pgroot/data
+          mountPath: /home/postgres/pgdata
         - name: wal-g-bin
           mountPath: /wal-g
         - name: wal-g-credentials
@@ -136,11 +124,11 @@ spec:
             archive_command='/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p'
             restore_command='/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p'
 
-        - name: PATRONI_BOOTSTRAP
-          value: | 
-            method: wal-g
-            wal-g:
-                command: /wal-g/wal-g backup-fetch --config /wal-g-credentials/.walg.env /home/postgres/pgdata/pgroot/data LATEST
+        # - name: PATRONI_BOOTSTRAP
+        #   value: | 
+        #     method: wal-g
+        #     wal-g:
+        #         command: /wal-g/wal-g backup-fetch --config /wal-g-credentials/.walg.env /home/postgres/pgdata/pgroot/data LATEST
 
       - name: wal-g
         image: wal-g
@@ -155,14 +143,25 @@ spec:
 
       terminationGracePeriodSeconds: 0
       volumes:
-      - name: pgdata
-        persistentVolumeClaim:
-          claimName: longhorn-patroni-pvc
       - name: wal-g-bin
         emptyDir: {}
       - name: wal-g-credentials
         secret:
           secretName: wal-g-credentials
+  volumeClaimTemplates:
+  - metadata:
+      labels:
+        application: spilo
+        spilo-cluster: *cluster_name
+      annotations:
+        volume.alpha.kubernetes.io/storage-class: anything
+      name: pgdata
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 20Gi
 ---
 apiVersion: v1
 kind: ServiceAccount
