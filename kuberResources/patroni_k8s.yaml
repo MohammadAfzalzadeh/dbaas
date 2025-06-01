@@ -72,7 +72,7 @@ spec:
           protocol: TCP
         volumeMounts:
         - name: pgdata
-          mountPath: /home/postgres/pgdata
+          mountPath: /home/postgres/pgdata/pgroot/
         - name: wal-g-bin
           mountPath: /wal-g
         - name: wal-g-credentials
