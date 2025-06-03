@@ -51,6 +51,17 @@ spec:
         cluster-name: *cluster_name
     spec:
       serviceAccountName: patronidemo
+      initContainers: 
+      - name: wal-g
+        image: wal-g
+        imagePullPolicy: Never
+        volumeMounts:
+        - name: wal-g-bin
+          mountPath: /usr/local/bin
+        command: ["/bin/sh", "-c" ]
+        args: 
+        - | 
+          cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && chmod +x /usr/local/bin/wal-g
       containers:
       - name: *cluster_name
         image: patroni  
@@ -130,18 +141,8 @@ spec:
         #     wal-g:
         #         command: /wal-g/wal-g backup-fetch --config /wal-g-credentials/.walg.env /home/postgres/pgdata/pgroot/data LATEST
 
-      - name: wal-g
-        image: wal-g
-        imagePullPolicy: Never
-        volumeMounts:
-        - name: wal-g-bin
-          mountPath: /usr/local/bin
-        command: ["/bin/sh", "-c" ]
-        args: 
-        - | 
-          cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && chmod +x /usr/local/bin/wal-g && sleep infinity
 
-      terminationGracePeriodSeconds: 0
+      terminationGracePeriodSeconds: 30
       volumes:
       - name: wal-g-bin
         emptyDir: {}
