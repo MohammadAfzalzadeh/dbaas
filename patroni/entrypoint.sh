@@ -16,6 +16,21 @@ bootstrap:
       - host all all 0.0.0.0/0 md5
       - host replication ${PATRONI_REPLICATION_USERNAME} ${PATRONI_KUBERNETES_POD_IP}/16 md5
       - host replication ${PATRONI_REPLICATION_USERNAME} 127.0.0.1/32 md5
+      wal_level: replica
+      archive_mode: on
+      archive_timeout: 60
+      archive_command: /wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p
+      restore_command: /wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p
+  method:
+    - clone_with_walg
+    - initdb
+  clone_with_walg:
+      command: /wal-g/wal-g backup-fetch ${PATRONI_POSTGRESQL_DATA_DIR} --config /wal-g-credentials/.walg.env LATEST
+      recovery_conf:
+          restore_command: /wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p
+          recovery_target_timeline: latest
+          recovery_target_action: promote
+          recovery_target_time: '${RECOVERY_TARGET_TIME}'
   initdb:
   - auth-host: md5
   - auth-local: trust
