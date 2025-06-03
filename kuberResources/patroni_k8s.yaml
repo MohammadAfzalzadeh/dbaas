@@ -134,6 +134,9 @@ spec:
             archive_timeout=60
             archive_command='/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p'
             restore_command='/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p'
+        
+        # - name: RECOVERY_TARGET_TIME
+        #   value: ''
 
         # - name: PATRONI_BOOTSTRAP
         #   value: | 
