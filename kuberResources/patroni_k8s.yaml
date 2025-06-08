@@ -61,7 +61,7 @@ spec:
         command: ["/bin/sh", "-c" ]
         args: 
         - | 
-          cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && chmod +x /usr/local/bin/wal-g
+          cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && cp -r /commands /usr/local/bin/ && chmod +x /usr/local/bin/wal-g && chmod +x /usr/local/bin/commands/*.sh 
       containers:
       - name: *cluster_name
         image: patroni  
@@ -129,11 +129,14 @@ spec:
         # PostgreSQL archiving
         - name: PATRONI_POSTGRESQL_PARAMETERS
           value: |
-            wal_level=replica
-            archive_mode=on
-            archive_timeout=60
-            archive_command='/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p'
-            restore_command='/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p'
+            wal_level: replica
+            archive_mode: on
+            archive_timeout: 60
+            archive_command: '/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p'
+            restore_command: '/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p'
+
+        - name: BACKUP_ENABLE
+          value: "false"
         
         # - name: RECOVERY_TARGET_TIME
         #   value: ''
