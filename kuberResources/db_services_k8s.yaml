@@ -9,9 +9,24 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    application: patroni
-    cluster-name: *cluster_name
-    role: replica
+  matchExpressions:
+    - key: application
+      operator: In
+      values:
+        - patroni
+    - key: cluster-name
+      operator: In
+      values:
+        - *cluster_name
+    - key: role
+      operator: In
+      values:
+        - replica
+    - key: type
+      operator: NotIn
+      values:
+        - backup
+
   ports:
   - name: pg
     port: 5432
@@ -31,9 +46,24 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    application: patroni
-    cluster-name: *cluster_name
-    role: primary
+  matchExpressions:
+    - key: application
+      operator: In
+      values:
+        - patroni
+    - key: cluster-name
+      operator: In
+      values:
+        - *cluster_name
+    - key: role
+      operator: In
+      values:
+        - primary
+    - key: type
+      operator: NotIn
+      values:
+        - backup
+
   ports:
     - name: pg
       port: 5432
