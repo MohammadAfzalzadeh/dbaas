@@ -13,19 +13,12 @@ bootstrap:
     postgresql:
       use_pg_rewind: true
       pg_hba:
-      - host all all 0.0.0.0/0 md5
       - host replication ${PATRONI_REPLICATION_USERNAME} ${PATRONI_KUBERNETES_POD_IP}/16 md5
       - host replication ${PATRONI_REPLICATION_USERNAME} 127.0.0.1/32 md5
-      wal_level: replica
-      archive_mode: on
-      archive_timeout: 60
-      archive_command: /wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p
-      restore_command: /wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p
-  method:
-    - clone_with_walg
-    - initdb
+      - host all all 0.0.0.0/0 md5
+  method: clone_with_walg
   clone_with_walg:
-      command: /wal-g/wal-g backup-fetch ${PATRONI_POSTGRESQL_DATA_DIR} --config /wal-g-credentials/.walg.env LATEST
+      command: bash /wal-g/commands/restore_backup.sh ${PATRONI_POSTGRESQL_DATA_DIR} ${BACKUP_ENABLE}
       recovery_conf:
           restore_command: /wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p
           recovery_target_timeline: latest
@@ -41,6 +34,8 @@ restapi:
   connect_address: '${PATRONI_KUBERNETES_POD_IP}:8008'
 postgresql:
   connect_address: '${PATRONI_KUBERNETES_POD_IP}:5432'
+  parameters:
+$(echo -e "$PATRONI_POSTGRESQL_PARAMETERS" | sed 's/^/    /')
   authentication:
     superuser:
       password: '${PATRONI_SUPERUSER_PASSWORD}'
