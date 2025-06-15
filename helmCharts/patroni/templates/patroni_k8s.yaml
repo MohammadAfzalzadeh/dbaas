@@ -1,0 +1,278 @@
+# headless service to avoid deletion of patronimvp-config endpoint
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-patronimvp-config
+  labels:
+    application: patroni
+    cluster-name: patronimvp
+    release-name: {{ .Release.Name }}
+spec:
+  clusterIP: None
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Release.Name }}-wal-g-credentials
+type: Opaque
+stringData:
+  .walg.env: |
+    PGHOST=localhost
+    PGPORT={{ .Values.postgres.pg_port }}
+    PGUSER={{ .Values.postgres.SUPERUSER_USERNAME }}
+    PGPASSWORD={{ .Values.postgres.SUPERUSER_PASSWORD }}
+    PGDATABASE={{ .Values.postgres.DATABASE }}
+
+    AWS_ACCESS_KEY_ID={{ .Values.walg.AWS_ACCESS_KEY_ID }}
+    AWS_SECRET_ACCESS_KEY={{ .Values.walg.AWS_SECRET_ACCESS_KEY }}
+    WALG_S3_PREFIX={{ .Values.walg.WALG_S3_PREFIX }}
+    AWS_REGION={{ .Values.walg.AWS_REGION }}
+    WALG_COMPRESSION_METHOD={{ .Values.walg.WALG_COMPRESSION_METHOD }}
+    AWS_ENDPOINT={{ .Values.walg.AWS_ENDPOINT }}
+    AWS_S3_FORCE_PATH_STYLE={{ .Values.walg.AWS_S3_FORCE_PATH_STYLE }}
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: &cluster_name {{ .Release.Name }}-patronimvp
+  labels:
+    application: patroni
+    cluster-name: *cluster_name
+    release-name: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.postgres.replicaCount }}
+  serviceName: *cluster_name -{{ .Release.Name }}
+  selector:
+    matchLabels:
+      application: patroni
+      cluster-name: *cluster_name 
+      release-name: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        application: patroni
+        cluster-name: *cluster_name
+        release-name: {{ .Release.Name }}
+    spec:
+      serviceAccountName: {{ .Release.Name }}-patronimvp
+      initContainers: 
+      - name: wal-g
+        image: {{ .Values.walg.imageName }}
+        imagePullPolicy: {{ .Values.walg.imagePullPolicy }}
+        volumeMounts:
+        - name: wal-g-bin
+          mountPath: /usr/local/bin
+        command: ["/bin/sh", "-c" ]
+        args: 
+        - | 
+          cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && cp -r /commands /usr/local/bin/ && chmod +x /usr/local/bin/wal-g && chmod +x /usr/local/bin/commands/*.sh 
+      containers:
+      - name: *cluster_name
+        image: {{ .Values.postgres.imageName }}  
+        imagePullPolicy: {{ .Values.postgres.imagePullPolicy }}
+        readinessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /readiness
+            port: {{ .Values.postgres.patroni_port }}
+          initialDelaySeconds: 3
+          periodSeconds: 10
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 3
+        ports:
+        - containerPort: {{ .Values.postgres.pg_port }}
+          protocol: TCP
+        - containerPort: {{ .Values.postgres.patroni_port }}
+          protocol: TCP
+        volumeMounts:
+        - name: pgdata
+          mountPath: /home/postgres/pgdata/pgroot/
+        - name: wal-g-bin
+          mountPath: /wal-g
+        - name: wal-g-credentials
+          mountPath: /wal-g-credentials
+        env:
+        - name: PATRONI_KUBERNETES_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: PATRONI_KUBERNETES_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: PATRONI_KUBERNETES_BYPASS_API_SERVICE
+          value: 'true'
+        - name: PATRONI_KUBERNETES_USE_ENDPOINTS
+          value: 'true'
+        - name: PATRONI_KUBERNETES_LABELS
+          value: '{application: patroni, cluster-name: patronimvp, release-name:  {{ .Release.Name }} }'
+        - name: PATRONI_SUPERUSER_USERNAME
+          value: {{ .Values.postgres.SUPERUSER_USERNAME }}
+        - name: PATRONI_SUPERUSER_PASSWORD
+          value: {{ .Values.postgres.SUPERUSER_PASSWORD }}
+        - name: PATRONI_REPLICATION_USERNAME
+          value: {{ .Values.postgres.REPLICATION_USERNAME }}
+        - name: PATRONI_REPLICATION_PASSWORD
+          value: {{ .Values.postgres.REPLICATION_PASSWORD }}
+        - name: PATRONI_SCOPE
+          value: *cluster_name
+        - name: PATRONI_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: PATRONI_POSTGRESQL_DATA_DIR
+          value: /home/postgres/pgdata/pgroot/data
+        - name: PATRONI_POSTGRESQL_PGPASS
+          value: /tmp/pgpass
+        - name: PATRONI_POSTGRESQL_LISTEN
+          value: '0.0.0.0:{{ .Values.postgres.pg_port }}'
+        - name: PATRONI_RESTAPI_LISTEN  
+          value: '0.0.0.0:{{ .Values.postgres.patroni_port }}'
+
+        # PostgreSQL archiving
+        - name: PATRONI_POSTGRESQL_PARAMETERS
+          value: |
+            wal_level: replica
+            archive_mode: on
+            archive_timeout: 60
+            archive_command: '/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p'
+            restore_command: '/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p'
+
+        - name: BACKUP_ENABLE
+          value: {{ .Values.postgres.BACKUP_ENABLE }}
+
+        - name: BASE_BACKUP_NAME
+          value: {{ .Values.postgres.BASE_BACKUP_NAME }}
+
+        - name: RECOVERY_TARGET_TIME
+          value: {{ .Values.postgres.RECOVERY_TARGET_TIME }} 
+
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: wal-g-bin
+        emptyDir: {}
+      - name: wal-g-credentials
+        secret:
+          secretName: wal-g-credentials
+  volumeClaimTemplates:
+  - metadata:
+      labels:
+        application: spilo
+        spilo-cluster: *cluster_name
+      annotations:
+        volume.alpha.kubernetes.io/storage-class: {{ .Values.postgres.storage-class }}
+      name: pgdata
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: {{ .Values.postgres.storageCapacity }}
+---
+apiVersion: v1
+kind: {{ .Release.Name }}-ServiceAccount
+metadata:
+  name: patronimvp
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ .Release.Name }}-patronimvp
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  verbs:
+  - create
+  - get
+  - list
+  - patch
+  - update
+  - watch
+  # delete and deletecollection are required only for 'patronictl remove'
+  - delete
+  - deletecollection
+- apiGroups:
+  - ""
+  resources:
+  - endpoints
+  verbs:
+  - get
+  - patch
+  - update
+  # the following three privileges are necessary only when using endpoints
+  - create
+  - list
+  - watch
+  # delete and deletecollection are required only for for 'patronictl remove'
+  - delete
+  - deletecollection
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - get
+  - list
+  - patch
+  - update
+  - watch
+# The following privilege is only necessary for creation of headless service
+# for patronimvp-config endpoint, in order to prevent cleaning it up by the
+# k8s master. You can avoid giving this privilege by explicitly creating the
+# service like it is done in this manifest (lines 2..10)
+- apiGroups:
+  - ""
+  resources:
+  - services
+  verbs:
+  - create
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ .Release.Name }}-patronimvp
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ .Release.Name }}-patronimvp
+subjects:
+- kind: ServiceAccount
+  name: {{ .Release.Name }}-patronimvp
+
+# Following privileges are only required if deployed not in the "default"
+# namespace and you want Patroni to bypass kubernetes service
+# (PATRONI_KUBERNETES_BYPASS_API_SERVICE=true)
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ .Release.Name }}-patroni-k8s-ep-access
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - endpoints
+  resourceNames:
+  - kubernetes
+  verbs:
+  - get
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ .Release.Name }}-patroni-k8s-ep-access
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ .Release.Name }}-patroni-k8s-ep-access
+subjects:
+- kind: ServiceAccount
+  name: {{ .Release.Name }}-patronimvp
+# The namespace must be specified explicitly.
+# If deploying to the different namespace you have to change it.
+  namespace: default

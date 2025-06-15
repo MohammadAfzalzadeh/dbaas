@@ -1,0 +1,27 @@
+postgres: 
+  imageName: patroni
+  imagePullPolicy: Never 
+  pg_port: 5432
+  patroni_port: 8008
+  SUPERUSER_USERNAME: postgres
+  SUPERUSER_PASSWORD: mmm
+  REPLICATION_USERNAME: standby
+  REPLICATION_PASSWORD: mmm
+  BACKUP_ENABLE: false
+  storageCapacity: 20Gi
+  storage-class: anything
+  DATABASE: postgres
+  replicaCount: 3
+  BASE_BACKUP_NAME: ''
+  RECOVERY_TARGET_TIME: '2025-06-08 09:06:45' 
+
+walg:
+  imageName: wal-g
+  imagePullPolicy: Never 
+  AWS_ACCESS_KEY_ID: 
+  AWS_SECRET_ACCESS_KEY: 
+  WALG_S3_PREFIX: 
+  AWS_REGION: 
+  WALG_COMPRESSION_METHOD: 
+  AWS_ENDPOINT: 
+  AWS_S3_FORCE_PATH_STYLE: 

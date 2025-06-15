@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: patronidemo-replica
+  labels:
+    application: patroni
+    cluster-name:  &cluster_name patronidemo
+    role: replica
+spec:
+  type: ClusterIP
+  selector:
+  matchExpressions:
+    - key: application
+      operator: In
+      values:
+        - patroni
+    - key: cluster-name
+      operator: In
+      values:
+        - *cluster_name
+    - key: role
+      operator: In
+      values:
+        - replica
+    - key: type
+      operator: NotIn
+      values:
+        - backup
+
+  ports:
+  - name: pg
+    port: 5432
+    targetPort: 5432
+  - name: patroni
+    port: 8008
+    targetPort: 8008
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: patronidemo-master
+  labels:
+    application: patroni
+    cluster-name:  &cluster_name patronidemo
+    role: primary
+spec:
+  type: ClusterIP
+  selector:
+  matchExpressions:
+    - key: application
+      operator: In
+      values:
+        - patroni
+    - key: cluster-name
+      operator: In
+      values:
+        - *cluster_name
+    - key: role
+      operator: In
+      values:
+        - primary
+    - key: type
+      operator: NotIn
+      values:
+        - backup
+
+  ports:
+    - name: pg
+      port: 5432
+      targetPort: 5432
+    - name: patroni
+      port: 8008
+      targetPort: 8008
+---
