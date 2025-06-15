@@ -1,0 +1,16 @@
+replicaCount: 3
+imagePullPolicy: ifNotPresent
+pgcatImageName: ghcr.io/postgresml/pgcat
+pgcatConfigWatcherImageName: pgcat-config-watcher
+pgcatConf: 
+  pgcatPort: 5432
+  superuserUsername: postgres
+  superuserPassword: mmm
+  enablePrometheus: true
+  prometheusExporterPort: 9930
+  db:
+    name: postgres
+    poolMode: session
+    primaryRead: false
+    
+
