@@ -1,0 +1,118 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Release.Name }}-minio-StatefulSet
+spec:
+  serviceName: minio
+  replicas: {{ .Values.minio.replicaCount }}
+  selector:
+    matchLabels:
+      app: minio
+  template:
+    metadata:
+      labels:
+        app: minio
+    spec:
+      containers:
+      - name: minio
+        image: {{ .Values.minio.imageName }}
+        imagePullPolicy: {{ .Values.minio.imagePullPolicy }}
+        args:
+          - server
+          - /data
+          - --console-address
+          - ":{{ .Values.minio.consolePort }}"
+        env:
+        - name: MINIO_ROOT_USER
+          value: {{ .Values.minio.rootUser }}
+        - name: MINIO_ROOT_PASSWORD
+          value: {{ .Values.minio.rootPasword }}
+        ports:
+        - containerPort: {{ .Values.minio.adminPort }}
+        - containerPort: {{ .Values.minio.consolePort }}
+        volumeMounts:
+        - name: data
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: {{ .Values.minio.storageCapacity }}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-minio
+spec:
+  ports:
+  - port: 9000
+    name: api
+  - port: 9001
+    name: console
+  clusterIP: None
+  selector:
+    app: minio
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-init-minio-scripts
+data:
+  init-minio.sh: |
+    #!/bin/sh
+    set -e
+
+    # Define root credentials
+    ROOT_ACCESS_KEY={{ .Values.minio.rootUser }}
+    ROOT_SECRET_KEY={{ .Values.minio.rootPasword }}
+
+    # Define new user credentials
+    NEW_USER={{ .Values.minioInit.backupUser }}
+    NEW_PASS={{ .Values.minioInit.backupPassword }}
+    BUCKET_NAME={{ .Values.minioInit.backupBucketName }}
+
+    # Set mc alias
+    mc alias set myminio http://minio:9000 $ROOT_ACCESS_KEY $ROOT_SECRET_KEY
+
+    # Create new user
+    mc admin user add myminio $NEW_USER $NEW_PASS || echo "User may already exist"
+
+    # Create bucket
+    mc mb myminio/$BUCKET_NAME --ignore-existing
+
+    # Attach readwrite policy to user
+    mc admin policy attach myminio readwrite --user $NEW_USER || echo "Policy may already be attached"
+
+    echo "✅ MinIO setup complete"
+
+---
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Release.Name }}-init-minio-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: init-minio
+        image: {{ .Values.minio.mcImageName }}
+        command: ["/bin/sh", "-c"]
+        args:
+          - sh /scripts/init-minio.sh
+        volumeMounts:
+        - name: script-volume
+          mountPath: /scripts
+      restartPolicy: OnFailure
+      volumes:
+      - name: script-volume
+        configMap:
+          name: {{ .Release.Name }}-init-minio-scripts
+
