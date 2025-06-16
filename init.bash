@@ -14,11 +14,10 @@ kind load docker-image quay.io/minio/minio  --name patroni
 #######add longhorn storageclass####
 # kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.8.1/deploy/longhorn.yaml
 # kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v1.8.1/examples/storageclass.yaml
-#####apply all resources needed
-# kubectl delete -f ./kuberResources/patroni_k8s.yaml && 
-kubectl apply -f ./kuberResources/patroni_k8s.yaml
-kubectl apply -f ./kuberResources/db_services_k8s.yaml
-# kubectl delete -f ./kuberResources/proxy.yaml &&
-kubectl apply -f ./kuberResources/proxy.yaml
-# kubectl delete -f ./kuberResources/minio_k8s.yaml && 
-kubectl apply -f ./kuberResources/minio_k8s.yaml
+#####Install from helm
+#helm uninstall minio-mvc && \ 
+helm install minio-mvc ./helmCharts/minio -f ./helmCharts/minio/values.yaml
+#helm uninstall patroni-mvc && \ 
+helm install patroni-mvc ./helmCharts/patroni -f ./helmCharts/patroni/values-base.yaml
+#helm uninstall pgcat-mvc && \ 
+helm install pgcat-mvc ./helmCharts/pgcat -f ./helmCharts/pgcat/values.yaml
