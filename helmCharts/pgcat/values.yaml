@@ -1,5 +1,5 @@
 replicaCount: 3
-imagePullPolicy: ifNotPresent
+imagePullPolicy: Never
 pgcatImageName: ghcr.io/postgresml/pgcat
 pgcatConfigWatcherImageName: pgcat-config-watcher
 pgcatConf: 

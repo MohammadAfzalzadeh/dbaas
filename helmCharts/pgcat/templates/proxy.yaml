@@ -47,7 +47,7 @@ spec:
           image: {{ .Values.pgcatImageName }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           ports:
-            - containerPort: {{ .Values.pgcatPort }}
+            - containerPort: {{ .Values.pgcatConf.pgcatPort }}
               protocol: TCP
           volumeMounts:
             - name: pgcat-data
