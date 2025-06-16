@@ -1,31 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: patronidemo-replica
+  name: patronimvp-replica
   labels:
     application: patroni
-    cluster-name:  &cluster_name patronidemo
+    cluster-name:  &cluster_name patronimvp
     role: replica
 spec:
   type: ClusterIP
   selector:
-  matchExpressions:
-    - key: application
-      operator: In
-      values:
-        - patroni
-    - key: cluster-name
-      operator: In
-      values:
-        - *cluster_name
-    - key: role
-      operator: In
-      values:
-        - replica
-    - key: type
-      operator: NotIn
-      values:
-        - backup
+    application: patroni
+    cluster-name: *cluster_name
+    role: replica
+    release-name: {{ .Release.Name }}
+
 
   ports:
   - name: pg
@@ -38,31 +26,18 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: patronidemo-master
+  name: patronimvp-master
   labels:
     application: patroni
-    cluster-name:  &cluster_name patronidemo
+    cluster-name:  &cluster_name patronimvp
     role: primary
 spec:
   type: ClusterIP
   selector:
-  matchExpressions:
-    - key: application
-      operator: In
-      values:
-        - patroni
-    - key: cluster-name
-      operator: In
-      values:
-        - *cluster_name
-    - key: role
-      operator: In
-      values:
-        - primary
-    - key: type
-      operator: NotIn
-      values:
-        - backup
+    application: patroni
+    cluster-name: *cluster_name
+    role: primary
+    release-name: {{ .Release.Name }}
 
   ports:
     - name: pg
