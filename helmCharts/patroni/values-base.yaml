@@ -9,7 +9,7 @@ postgres:
   REPLICATION_PASSWORD: mmm
   BACKUP_ENABLE: false
   storageCapacity: 20Gi
-  storage-class: anything
+  storageClass: anything
   DATABASE: postgres
   replicaCount: 3
   BASE_BACKUP_NAME: ''
