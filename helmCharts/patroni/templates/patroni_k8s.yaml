@@ -154,7 +154,7 @@ spec:
         emptyDir: {}
       - name: wal-g-credentials
         secret:
-          secretName: wal-g-credentials
+          secretName: {{ .Release.Name }}-wal-g-credentials
   volumeClaimTemplates:
   - metadata:
       labels:
