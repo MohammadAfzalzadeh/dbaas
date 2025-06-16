@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ .Release.Name }}-minio-StatefulSet
+  name: {{ .Release.Name }}-minio-statefulset
 spec:
   serviceName: minio
   replicas: {{ .Values.minio.replicaCount }}
@@ -71,15 +71,15 @@ data:
 
     # Define root credentials
     ROOT_ACCESS_KEY={{ .Values.minio.rootUser }}
-    ROOT_SECRET_KEY={{ .Values.minio.rootPasword }}
+    ROOT_SECRET_KEY="{{ .Values.minio.rootPasword }}"
 
     # Define new user credentials
     NEW_USER={{ .Values.minioInit.backupUser }}
-    NEW_PASS={{ .Values.minioInit.backupPassword }}
+    NEW_PASS="{{ .Values.minioInit.backupPassword }}"
     BUCKET_NAME={{ .Values.minioInit.backupBucketName }}
 
     # Set mc alias
-    mc alias set myminio http://minio:9000 $ROOT_ACCESS_KEY $ROOT_SECRET_KEY
+    mc alias set myminio http://{{ .Release.Name }}-minio:9000 $ROOT_ACCESS_KEY $ROOT_SECRET_KEY
 
     # Create new user
     mc admin user add myminio $NEW_USER $NEW_PASS || echo "User may already exist"
