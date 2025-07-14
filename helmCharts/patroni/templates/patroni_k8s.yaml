@@ -34,7 +34,7 @@ stringData:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: &cluster_name {{ .Release.Name }}-patronimvp
+  name: {{ .Release.Name }}-patronimvp
   labels:
     application: patroni
     cluster-name: patronimvp
@@ -45,16 +45,18 @@ spec:
   selector:
     matchLabels:
       application: patroni
-      cluster-name: patronimvp 
+      cluster-name: {{ .Release.Name }}-patronimvp
       release-name: {{ .Release.Name }}
   template:
     metadata:
       labels:
         application: patroni
-        cluster-name: patronimvp
+        cluster-name: {{ .Release.Name }}-patronimvp
         release-name: {{ .Release.Name }}
     spec:
       serviceAccountName: {{ .Release.Name }}-patronimvp
+      securityContext:
+        fsGroup: 999 
       initContainers: 
       - name: wal-g
         image: {{ .Values.walg.imageName }}
@@ -65,7 +67,7 @@ spec:
         command: ["/bin/sh", "-c" ]
         args: 
         - | 
-          cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && cp -r /commands /usr/local/bin/ && chmod +x /usr/local/bin/wal-g && chmod +x /usr/local/bin/commands/restore_backup.sh <<EOF
+          cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && chmod +x /usr/local/bin/wal-g && mkdir -p /usr/local/bin/commands && touch /usr/local/bin/commands/restore_backup.sh && chmod +x /usr/local/bin/commands/restore_backup.sh && cat > /usr/local/bin/commands/restore_backup.sh <<EOF
           #!/bin/bash 
           set -x                         
           PGDATA=\${1:-/var/lib/postgresql/data}
@@ -129,7 +131,8 @@ spec:
         - name: PATRONI_KUBERNETES_USE_ENDPOINTS
           value: 'true'
         - name: PATRONI_KUBERNETES_LABELS
-          value: '{application: patroni, cluster-name: patronimvp, release-name:  {{ .Release.Name }} }'
+          # value: '{{ dict "application" "patroni" "cluster-name" "patronimvp" "release-name" .Release.Name | toJson }}'
+          value: '{{ dict "application" "patroni" "cluster-name" (printf "%s-patronimvp" .Release.Name) "release-name" .Release.Name | toJson }}'
         - name: PATRONI_SUPERUSER_USERNAME
           value: {{ .Values.postgres.SUPERUSER_USERNAME }}
         - name: PATRONI_SUPERUSER_PASSWORD
@@ -139,7 +142,7 @@ spec:
         - name: PATRONI_REPLICATION_PASSWORD
           value: {{ .Values.postgres.REPLICATION_PASSWORD }}
         - name: PATRONI_SCOPE
-          value: patronimvp
+          value: {{ .Release.Name }}-patronimvp
         - name: PATRONI_NAME
           valueFrom:
             fieldRef:
