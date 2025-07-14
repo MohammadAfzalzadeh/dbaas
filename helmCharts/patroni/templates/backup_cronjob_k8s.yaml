@@ -1,0 +1,81 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ .Release.Name }}-exec-script-sa
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ .Release.Name }}-pod-exec-role
+rules:
+- apiGroups: [""]
+  resources: ["pods", "pods/exec"]
+  verbs: ["get", "list", "create"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ .Release.Name }}-pod-exec-binding
+subjects:
+- kind: ServiceAccount
+  name: {{ .Release.Name }}-exec-script-sa
+roleRef:
+  kind: Role
+  name: {{ .Release.Name }}-pod-exec-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-my-script
+data:
+  script.sh: |
+    #!/bin/bash
+    /wal-g/wal-g backup-push  {{ .Values.backup.PG_DATA_DIR }} --config /wal-g-credentials/.walg.env 
+
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-exec-script-cronjob
+spec:
+  schedule: {{ .Values.backup.BACKUP_PERIOD }}
+  jobTemplate:
+    spec: 
+      backoffLimit: {{ .Values.backup.BACKOFF_LIMIT }}
+      template:
+        spec:
+          containers:
+          - name: backup
+            image: {{ .Values.backup.IMAGE_NAME }}
+            imagePullPolicy: {{ .Values.backup.RESTART_POLICY }}
+            command:
+            - /bin/bash
+            - -c
+            - |
+              #!/bin/bash
+              SCRIPT_PATH="/scripts/script.sh"
+
+              pods=$(kubectl get pods -l "${LABEL_SELECTOR}" -o jsonpath='{.items[*].metadata.name}')
+              for pod in $pods; do
+                echo "Running script in pod: $pod"
+                kubectl exec $pod -c $CONTAINER_NAME -- bash -c "$(cat $SCRIPT_PATH)"
+              done
+            volumeMounts:
+            - name: script-volume
+              mountPath: /scripts
+            env: 
+            - name: LABEL_SELECTOR
+              value: '{{ .Values.backup.RESTART_POLICY }},release-name={{ .Release.Name }}'
+
+            - name: CONTAINER_NAME
+              value: '{{ .Values.backup.CONTAINER_NAME }}'
+
+          restartPolicy: {{ .Values.backup.RESTART_POLICY }}
+          serviceAccountName: {{ .Release.Name }}-exec-script-sa
+          volumes:
+          - name: script-volume
+            configMap:
+              name: {{ .Release.Name }}-my-script
+  
+
