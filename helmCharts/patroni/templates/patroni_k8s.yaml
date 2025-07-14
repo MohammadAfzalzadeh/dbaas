@@ -164,6 +164,7 @@ spec:
         volume.alpha.kubernetes.io/storage-class: {{ .Values.postgres.storageClass }}
       name: pgdata
     spec:
+      storageClassName: {{ .Values.postgres.storageClass }}
       accessModes:
       - ReadWriteOnce
       resources:
