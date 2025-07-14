@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: patronimvp-replica
+  name: patronimvp-replica-{{ .Release.Name }}
   labels:
     application: patroni
     cluster-name:  &cluster_name patronimvp
@@ -26,10 +26,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: patronimvp-master
+  name: patronimvp-master-{{ .Release.Name }}
   labels:
     application: patroni
-    cluster-name:  &cluster_name patronimvp
+    cluster-name:  &cluster_name {{ .Release.Name }}-patronimvp
     role: primary
 spec:
   type: ClusterIP
