@@ -8,7 +8,7 @@ data:
       PGCAT_PORT: '5432'
       PGCAT_SUPERUSER_USERNAME: postgres
       PGCAT_SUPERUSER_PASSWORD: mmm
-      ENABLE_PROMETHEUS: false
+      ENABLE_PROMETHEUS: true
       PROMETHEUS_EXPORTER_PORT: 9930
     DBS:
       - NAME: postgres
@@ -21,9 +21,9 @@ data:
             POOL_SIZE: 9
             STATEMENT_TIMEOUT: 0
         shards:
-          - MASTER_HOST: patronidemo-master
+          - MASTER_HOST: patronimvp-master-{{ .Values.patroniReleaseName }}
             MASTER_PORT: '5432'
-            REPLICA_HOST: patronidemo-replica
+            REPLICA_HOST: patronimvp-replica-{{ .Values.patroniReleaseName }}
             REPLICA_PORT: '5432'
 ---
 apiVersion: apps/v1
@@ -32,6 +32,7 @@ metadata:
   name: {{ .Release.Name }}-proxy-deployment
   labels:
     app: proxy
+    release-name: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
