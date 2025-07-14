@@ -26,3 +26,13 @@ walg:
   WALG_COMPRESSION_METHOD: brotli
   AWS_ENDPOINT: http://minio-mvp-minio:9000
   AWS_S3_FORCE_PATH_STYLE: true
+
+backup:
+  BACKUP_PERIOD: "0 0 * * *"
+  IMAGE_NAME: docker.arvancloud.ir/bitnami/kubectl:latest
+  IMAGE_PULL_POLICY: IfNotPresent
+  LABEL_SELECTOR: application=patroni,role=primary
+  CONTAINER_NAME: patronimvp
+  PG_DATA_DIR: /home/postgres/pgdata/pgroot/data
+  BACKOFF_LIMIT: 1
+  RESTART_POLICY: OnFailure
