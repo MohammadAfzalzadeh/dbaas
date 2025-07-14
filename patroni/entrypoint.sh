@@ -7,6 +7,13 @@ if [[ $UID -ge 10000 ]]; then
     rm /tmp/passwd
 fi
 
+# Decide bootstrap method based on BACKUP_ENABLE
+if [ "$BACKUP_ENABLE" = "true" ]; then
+  BOOTSTRAP_METHOD="clone_with_walg"
+else
+  BOOTSTRAP_METHOD="initdb"
+fi
+
 cat > /home/postgres/patroni.yml <<__EOF__
 bootstrap:
   dcs:
@@ -16,7 +23,7 @@ bootstrap:
       - host replication ${PATRONI_REPLICATION_USERNAME} ${PATRONI_KUBERNETES_POD_IP}/16 md5
       - host replication ${PATRONI_REPLICATION_USERNAME} 127.0.0.1/32 md5
       - host all all 0.0.0.0/0 md5
-  method: clone_with_walg
+  method: $BOOTSTRAP_METHOD
   clone_with_walg:
       command: bash /wal-g/commands/restore_backup.sh ${PATRONI_POSTGRESQL_DATA_DIR} ${BACKUP_ENABLE}
       recovery_conf:
