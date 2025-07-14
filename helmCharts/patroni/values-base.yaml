@@ -1,6 +1,6 @@
 postgres: 
-  imageName: patroni
-  imagePullPolicy: Never 
+  imageName: docker.arvancloud.ir/afzalzademohammad/patroni:2.0.0
+  imagePullPolicy: IfNotPresent 
   pg_port: 5432
   patroni_port: 8008
   SUPERUSER_USERNAME: postgres
@@ -8,19 +8,20 @@ postgres:
   REPLICATION_USERNAME: standby
   REPLICATION_PASSWORD: mmm
   BACKUP_ENABLE: false
-  storageCapacity: 20Gi
-  storageClass: anything
+  storageCapacity: 5Gi
+  storageClass: standard
   DATABASE: postgres
-  replicaCount: 3
-  BASE_BACKUP_NAME: ''
-  RECOVERY_TARGET_TIME: '2025-06-08 09:06:45' 
+  replicaCount: 2
+  # BASE_BACKUP_NAME: 'base_000000010000000000000006'
+  # RECOVERY_TARGET_TIME: '2025-07-14 12:27:11' #date "+%Y-%m-%d %H:%M:%S"
+
 
 walg:
-  imageName: wal-g
-  imagePullPolicy: Never 
+  imageName: docker.arvancloud.ir/afzalzademohammad/wal-g:2.0.0
+  imagePullPolicy: IfNotPresent 
   AWS_ACCESS_KEY_ID: mamamd
-  AWS_SECRET_ACCESS_KEY: MVq<t@Xl'h,'GNVcz#jYw;}@|AoVeVQB
-  WALG_S3_PREFIX: s3://mybucket
+  AWS_SECRET_ACCESS_KEY: 'adminadmin123'
+  WALG_S3_PREFIX: s3://backup
   AWS_REGION: UnitedStates
   WALG_COMPRESSION_METHOD: brotli
   AWS_ENDPOINT: http://minio-mvp-minio:9000

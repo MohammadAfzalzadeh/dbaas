@@ -1,7 +1,8 @@
-replicaCount: 3
-imagePullPolicy: Never
-pgcatImageName: ghcr.io/postgresml/pgcat
-pgcatConfigWatcherImageName: pgcat-config-watcher
+replicaCount: 1
+imagePullPolicy: IfNotPresent
+pgcatImageName: docker.arvancloud.ir/afzalzademohammad/pgcat:1.0.0
+pgcatConfigWatcherImageName: docker.arvancloud.ir/afzalzademohammad/pgcat-config-watcher:1.0.0
+patroniReleaseName: patroni-mvp
 pgcatConf: 
   pgcatPort: 5432
   superuserUsername: postgres
@@ -12,5 +13,4 @@ pgcatConf:
     name: postgres
     poolMode: session
     primaryRead: false
-    
 
