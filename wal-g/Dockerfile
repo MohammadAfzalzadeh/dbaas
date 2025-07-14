@@ -15,7 +15,5 @@ tar \
     rm wal-g-pg-ubuntu-20.04-amd64.tar.gz   &&\
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-COPY commands /commands
-
 ENTRYPOINT [ "/bin/bash" ]
 CMD [ "/bin/bash" , "-c" , "cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && cp -r /commands /usr/local/bin/ && chmod +x /usr/local/bin/wal-g && chmod +x /usr/local/bin/commands/*.sh" ]
