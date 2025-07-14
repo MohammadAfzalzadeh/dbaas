@@ -75,3 +75,23 @@ spec:
                 path: pgcat.yaml
         - name: pgcat-data
           emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-proxy-service
+  labels:
+    app: proxy
+    release-name: {{ .Release.Name }}
+spec:
+  type: NodePort
+  ports:
+    - name: pgcat
+      port: 5432
+      targetPort: {{ .Values.pgcatConf.pgcatPort }}
+      protocol: TCP
+      nodePort: 30432  # must be between 30000–32767
+  selector:
+    app: proxy
+
+
