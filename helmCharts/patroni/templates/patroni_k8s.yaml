@@ -65,7 +65,30 @@ spec:
         command: ["/bin/sh", "-c" ]
         args: 
         - | 
-          cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && cp -r /commands /usr/local/bin/ && chmod +x /usr/local/bin/wal-g && chmod +x /usr/local/bin/commands/*.sh 
+          cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && cp -r /commands /usr/local/bin/ && chmod +x /usr/local/bin/wal-g && chmod +x /usr/local/bin/commands/restore_backup.sh <<EOF
+          #!/bin/bash 
+          set -x                         
+          PGDATA=\${1:-/var/lib/postgresql/data}
+          BACKUP_ENABLE=\${2:-false}
+
+          while getopts ":-:" optchar; do
+            [[ "${optchar}" == "-" ]] || continue
+            case "${OPTARG}" in
+              scope=* )
+                  SCOPE=${OPTARG#*=}
+                  ;;
+            esac
+          done
+
+          echo "Trying to fetch latest WAL-G backup..."
+          if \$BACKUP_ENABLE ;then                                                                   
+              exec /wal-g/wal-g backup-fetch "\$PGDATA" --config /wal-g-credentials/.walg.env LATEST;
+              echo "Backup restored successfully."
+          else                                   
+              echo "Initializing new database..."
+              exit 1
+          fi
+          EOF
       containers:
       - name: patronimvp
         image: {{ .Values.postgres.imageName }}  
