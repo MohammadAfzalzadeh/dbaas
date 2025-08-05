@@ -1,6 +1,6 @@
-postgres: 
-  imageName: docker.arvancloud.ir/afzalzademohammad/patroni:2.0.0
-  imagePullPolicy: IfNotPresent 
+postgres:
+  imageName: afzalzademohammad/patroni:2.0.0
+  imagePullPolicy: IfNotPresent
   pg_port: 5432
   patroni_port: 8008
   SUPERUSER_USERNAME: postgres
@@ -9,7 +9,7 @@ postgres:
   REPLICATION_PASSWORD: mmm
   BACKUP_ENABLE: false
   storageCapacity: 5Gi
-  storageClass: standard
+  storageClass: rawfile-localpv
   DATABASE: postgres
   replicaCount: 2
   # BASE_BACKUP_NAME: 'base_000000010000000000000006'
