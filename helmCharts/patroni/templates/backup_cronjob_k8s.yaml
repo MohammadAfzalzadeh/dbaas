@@ -48,7 +48,7 @@ spec:
           containers:
           - name: backup
             image: {{ .Values.backup.IMAGE_NAME }}
-            imagePullPolicy: {{ .Values.backup.RESTART_POLICY }}
+            imagePullPolicy: {{ .Values.backup.IMAGE_PULL_POLICY }}
             command:
             - /bin/bash
             - -c
