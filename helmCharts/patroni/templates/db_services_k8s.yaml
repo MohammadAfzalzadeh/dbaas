@@ -4,7 +4,7 @@ metadata:
   name: patronimvp-replica-{{ .Release.Name }}
   labels:
     application: patroni
-    cluster-name:  &cluster_name patronimvp
+    cluster-name:  &cluster_name {{ .Release.Name }}-patronimvp
     role: replica
 spec:
   type: ClusterIP
