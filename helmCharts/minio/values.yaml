@@ -1,7 +1,7 @@
 minio: 
   replicaCount: 1
   imageName: quay.io/minio/minio
-  mcImageName: minio/mc
+  mcImageName: docker.arvancloud.ir/minio/mc
   imagePullPolicy: IfNotPresent
   rootUser: root
   rootPasword: 'adminadmin123'
