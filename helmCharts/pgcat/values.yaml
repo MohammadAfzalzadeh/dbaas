@@ -3,16 +3,28 @@ imagePullPolicy: IfNotPresent
 pgcatImageName: ghcr.io/postgresml/pgcat
 pgcatConfigWatcherImageName: docker.arvancloud.ir/afzalzademohammad/pgcat-config-watcher:1.0.0
 patroniReleaseName: patroni-mvp
-pgcatConf: 
-  pgcatPort: 5432
-  superuserUsername: postgres
-  superuserPassword: mmm
-  enablePrometheus: true
-  prometheusExporterPort: 9930
-  db:
-    name: postgres
-    poolMode: session
-    primaryRead: false
+pgcatconfig:
+  general:
+    PGCAT_PORT: "5432"
+    PGCAT_SUPERUSER_USERNAME: "postgres"
+    PGCAT_SUPERUSER_PASSWORD: "mmm"
+    ENABLE_PROMETHEUS: true
+    PROMETHEUS_EXPORTER_PORT: 9930
+  DBS:
+    - NAME: "postgres"
+      POOL_MODE: "session"
+      PRIMARY_READ: false
+      SHARDING_FUNCTION: "pg_bigint_hash"
+      users:
+        - USER_NAME: "postgres"
+          PASSWORD: "mmm"
+          POOL_SIZE: 9
+          STATEMENT_TIMEOUT: 0
+      shards:
+        - MASTER_HOST: "patronimvp-master-patroni-mvp"
+          MASTER_PORT: "5432"
+          REPLICA_HOST: "patronimvp-replica-patroni-mvp"
+          REPLICA_PORT: "5432"
 pgadmin:
   email: mohammad.afzalzadeh.3@gmail.com
   pass: mmm

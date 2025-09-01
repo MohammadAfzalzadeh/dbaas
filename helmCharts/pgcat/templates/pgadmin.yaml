@@ -97,7 +97,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: {{ .Release.Name }}-pgadmin
+  name:  {{ .Release.Name }}-pgadmin
 spec:
   entryPoints:
     - web
@@ -105,5 +105,5 @@ spec:
   - match: Host(`pgadmin.dbaas.site`)
     kind: Rule
     services:
-    - name: pgadmin-service
+    - name:  {{ .Release.Name }}-pgadmin-service
       port: 80

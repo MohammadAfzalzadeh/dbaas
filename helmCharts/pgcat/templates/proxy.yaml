@@ -1,30 +1,11 @@
 apiVersion: v1
-kind: ConfigMap
+kind: Secret
 metadata:
-  name: pgcat-config
-data:
+  name: {{ .Release.Name }}-pgcat-config
+type: Opaque
+stringData:
   pgcat.yaml: |
-    general:
-      PGCAT_PORT: '5432'
-      PGCAT_SUPERUSER_USERNAME: postgres
-      PGCAT_SUPERUSER_PASSWORD: mmm
-      ENABLE_PROMETHEUS: true
-      PROMETHEUS_EXPORTER_PORT: 9930
-    DBS:
-      - NAME: postgres
-        POOL_MODE: session
-        PRIMARY_READ: false
-        SHARDING_FUNCTION: pg_bigint_hash
-        users:
-          - USER_NAME: postgres
-            PASSWORD: mmm
-            POOL_SIZE: 9
-            STATEMENT_TIMEOUT: 0
-        shards:
-          - MASTER_HOST: patronimvp-master-{{ .Values.patroniReleaseName }}
-            MASTER_PORT: '5432'
-            REPLICA_HOST: patronimvp-replica-{{ .Values.patroniReleaseName }}
-            REPLICA_PORT: '5432'
+{{ .Values.pgcatconfig | toYaml | indent 4 }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -48,7 +29,7 @@ spec:
           image: {{ .Values.pgcatImageName }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           ports:
-            - containerPort: {{ .Values.pgcatConf.pgcatPort }}
+            - containerPort: {{ .Values.pgcatconfig.general.PGCAT_PORT }}
               protocol: TCP
           volumeMounts:
             - name: pgcat-data
@@ -69,8 +50,8 @@ spec:
               mountPath: /etc/pgcat # Writable target
       volumes:
         - name: pgcat-config
-          configMap:
-            name: pgcat-config
+          secret:
+            secretName: {{ .Release.Name }}-pgcat-config
             items:
               - key: pgcat.yaml
                 path: pgcat.yaml
@@ -88,9 +69,8 @@ spec:
   ports:
     - name: pgcat
       port: 5432
-      targetPort: {{ .Values.pgcatConf.pgcatPort }}
+      targetPort: {{ .Values.pgcatconfig.general.PGCAT_PORT }}
       protocol: TCP
-      nodePort: 30432  # must be between 30000–32767
   selector:
     app: proxy
 
