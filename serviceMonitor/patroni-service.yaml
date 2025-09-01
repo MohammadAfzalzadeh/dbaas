@@ -1,0 +1,36 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: patroni
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack   # must match your Prometheus release name
+spec:
+  selector:
+    matchLabels:
+      application: patroni
+      type: monitoring
+  namespaceSelector:
+    matchNames:
+      - dbaas
+  endpoints:
+    - port: metrics
+      interval: 30s
+      path: /metrics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: patroni-metrics
+  namespace: dbaas
+  labels:
+    application: patroni
+    type: monitoring
+spec:
+  ports:
+    - name: metrics
+      port: 8008
+      targetPort: 8008
+  selector:
+    application: patroni
+

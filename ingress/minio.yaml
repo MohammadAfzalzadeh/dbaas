@@ -1,0 +1,14 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: minio
+  namespace: dbaas
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`minio.dbaas.site`)
+    kind: Rule
+    services:
+    - name: minio-mvp-minio
+      port: 9001

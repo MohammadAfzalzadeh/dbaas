@@ -1,0 +1,35 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: pgcat
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack   # match your Prometheus release name
+spec:
+  selector:
+    matchLabels:
+      application: pgcat
+      type: monitoring
+  namespaceSelector:
+    matchNames:
+      - dbaas   # namespace where pgcat is running
+  endpoints:
+    - port: metrics
+      interval: 30s
+      path: /metrics   # pgcat metrics path
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgcat-metrics
+  namespace: dbaas
+  labels:
+    application: pgcat
+    type: monitoring
+spec:
+  ports:
+    - name: metrics
+      port: 9898       # pgcat default metrics port
+      targetPort: 9898
+  selector:
+    app: proxy

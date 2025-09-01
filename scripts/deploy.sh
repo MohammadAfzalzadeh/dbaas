@@ -34,7 +34,7 @@ done
 #fi
 
 # Paths to your custom Helm chart directories
-PATRONI_CHART_PATH="../helmCharts/patroni"
+PATRONI_CHART_PATH="./helmCharts/patroni"
 PGCAT_CHART_PATH="./helmCharts/pgcat"
 MINIO_CHART_PATH="./helmCharts/minio"
 
@@ -44,7 +44,7 @@ deploy_chart() {
   local release=$1
   local chart_path=$2
   echo "📦 Installing or upgrading Helm release: $release from $chart_path"
-  helm upgrade --install "$release" "$chart_path" -f "$chart_path/values.yaml"
+  helm upgrade --install "$release" "$chart_path" -f "$chart_path/values.yaml" --namespace dbaas  --create-namespace
 }
 
 wait_for_jobs_success() {

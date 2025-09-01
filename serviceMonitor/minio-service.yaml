@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: minio
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack   # must match your Prometheus release name
+spec:
+  selector:
+    matchLabels:
+      app: minio
+  namespaceSelector:
+    matchNames:
+      - dbaas
+  endpoints:
+    - port: api
+      interval: 30s
+      path: /minio/metrics/v3
+

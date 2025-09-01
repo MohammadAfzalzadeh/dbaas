@@ -1,0 +1,11 @@
+grafana:
+  enabled: true
+
+loki:
+  persistence:
+    enabled: true
+    storageClassName: rawfile-localpv
+    size: 10Gi
+
+promtail:
+  enabled: false
