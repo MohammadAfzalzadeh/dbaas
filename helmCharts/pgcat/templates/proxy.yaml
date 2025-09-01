@@ -85,7 +85,6 @@ metadata:
     app: proxy
     release-name: {{ .Release.Name }}
 spec:
-  type: NodePort
   ports:
     - name: pgcat
       port: 5432

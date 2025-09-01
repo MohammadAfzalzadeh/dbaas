@@ -13,4 +13,6 @@ pgcatConf:
     name: postgres
     poolMode: session
     primaryRead: false
-
+pgadmin:
+  email: mohammad.afzalzadeh.3@gmail.com
+  pass: mmm
