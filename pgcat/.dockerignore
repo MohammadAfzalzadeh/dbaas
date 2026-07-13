@@ -1,0 +1,24 @@
+# Ignore node modules (always!)
+node_modules
+package-lock.json
+
+# Ignore logs
+logs
+*.log
+
+# Ignore local dev config
+.env
+.env.*
+
+# Ignore temporary files
+*.tmp
+*.swp
+
+# Ignore git stuff
+.git
+.gitignore
+
+# Ignore Docker-related leftovers
+Dockerfile
+docker-compose.yml
+.dockerignore

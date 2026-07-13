@@ -1,0 +1,16 @@
+minio: 
+  replicaCount: 1
+  imageName: quay.io/minio/minio
+  mcImageName: docker.arvancloud.ir/minio/mc
+  imagePullPolicy: IfNotPresent
+  rootUser: root
+  rootPasword: 'adminadmin123'
+  storageCapacity: 5Gi
+  storageClass: rawfile-localpv
+  consolePort: 9001
+  adminPort: 9000
+minioInit: 
+  backupUser: mamamd
+  backupPassword: 'adminadmin123'
+  backupBucketName: backup
+

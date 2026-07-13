@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Release.Name }}-pgcat-config
+type: Opaque
+stringData:
+  pgcat.yaml: |
+{{ .Values.pgcatconfig | toYaml | indent 4 }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-proxy-deployment
+  labels:
+    app: proxy
+    release-name: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: proxy
+  template:
+    metadata:
+      labels:
+        app: proxy
+    spec:
+      containers:
+        - name: proxy
+          image: {{ .Values.pgcatImageName }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.pgcatconfig.general.PGCAT_PORT }}
+              protocol: TCP
+          volumeMounts:
+            - name: pgcat-data
+              mountPath: /etc/pgcat
+        - name: pgcat-config-watcher
+          image: {{ .Values.pgcatConfigWatcherImageName }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          env:
+            - name: PGCAT_CONFIG_SOURCE
+              value: "/config/pgcat.yaml"
+            - name: PGCAT_CONFIG_DEST
+              value: "/etc/pgcat/pgcat.toml"
+          volumeMounts:
+            - name: pgcat-config
+              mountPath: /config  # Read-only source
+              readOnly: true
+            - name: pgcat-data
+              mountPath: /etc/pgcat # Writable target
+      volumes:
+        - name: pgcat-config
+          secret:
+            secretName: {{ .Release.Name }}-pgcat-config
+            items:
+              - key: pgcat.yaml
+                path: pgcat.yaml
+        - name: pgcat-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-proxy-service
+  labels:
+    app: proxy
+    release-name: {{ .Release.Name }}
+spec:
+  ports:
+    - name: pgcat
+      port: 5432
+      targetPort: {{ .Values.pgcatconfig.general.PGCAT_PORT }}
+      protocol: TCP
+  selector:
+    app: proxy
+
+

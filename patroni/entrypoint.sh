@@ -1,0 +1,55 @@
+#!/bin/bash
+
+if [[ $UID -ge 10000 ]]; then
+    GID=$(id -g)
+    sed -e "s/^postgres:x:[^:]*:[^:]*:/postgres:x:$UID:$GID:/" /etc/passwd > /tmp/passwd
+    cat /tmp/passwd > /etc/passwd
+    rm /tmp/passwd
+fi
+
+# Decide bootstrap method based on BACKUP_ENABLE
+if [ "$BACKUP_ENABLE" = "true" ]; then
+  BOOTSTRAP_METHOD="clone_with_walg"
+else
+  BOOTSTRAP_METHOD="initdb"
+fi
+
+cat > /home/postgres/patroni.yml <<__EOF__
+bootstrap:
+  dcs:
+    postgresql:
+      use_pg_rewind: true
+      pg_hba:
+      - host replication ${PATRONI_REPLICATION_USERNAME} ${PATRONI_KUBERNETES_POD_IP}/16 md5
+      - host replication ${PATRONI_REPLICATION_USERNAME} 127.0.0.1/32 md5
+      - host all all 0.0.0.0/0 md5
+  method: $BOOTSTRAP_METHOD
+  clone_with_walg:
+      command: bash /wal-g/commands/restore_backup.sh ${PATRONI_POSTGRESQL_DATA_DIR} ${BACKUP_ENABLE}
+      recovery_conf:
+          restore_command: /wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p
+          recovery_target_timeline: latest
+          recovery_target_action: promote
+          recovery_target_time: '${RECOVERY_TARGET_TIME}'
+  initdb:
+  - auth-host: md5
+  - auth-local: trust
+  - encoding: UTF8
+  - locale: en_US.UTF-8
+  - data-checksums
+restapi:
+  connect_address: '${PATRONI_KUBERNETES_POD_IP}:8008'
+postgresql:
+  connect_address: '${PATRONI_KUBERNETES_POD_IP}:5432'
+  parameters:
+$(echo -e "$PATRONI_POSTGRESQL_PARAMETERS" | sed 's/^/    /')
+  authentication:
+    superuser:
+      password: '${PATRONI_SUPERUSER_PASSWORD}'
+    replication:
+      password: '${PATRONI_REPLICATION_PASSWORD}'
+__EOF__
+
+unset PATRONI_SUPERUSER_PASSWORD PATRONI_REPLICATION_PASSWORD
+
+exec /usr/bin/python3 /usr/local/bin/patroni /home/postgres/patroni.yml

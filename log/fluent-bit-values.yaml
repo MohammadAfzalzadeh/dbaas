@@ -1,0 +1,15 @@
+backend:
+  type: loki
+  loki:
+    host: http://loki.logging.svc.cluster.local:3100
+
+input:
+  tail:
+    path: /var/log/containers/*.log
+    parser: docker
+    tag: kube.*
+
+filters:
+  kubernetes:
+    kube_meta_cache_ttl: 300s
+    merge_log: true

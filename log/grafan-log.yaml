@@ -1,0 +1,7 @@
+grafana:
+  additionalDataSources:
+    - name: Loki-Logging
+      type: loki
+      url: http://loki.logging.svc.cluster.local:3100
+      access: proxy
+      isDefault: false
