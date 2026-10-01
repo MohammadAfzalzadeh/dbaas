@@ -9,7 +9,7 @@ postgres:
   REPLICATION_PASSWORD: mmm
   BACKUP_ENABLE: false
   storageCapacity: 5Gi
-  storageClass: rawfile-localpv
+  storageClass: standard
   DATABASE: postgres
   replicaCount: 2
   # BASE_BACKUP_NAME: 'base_000000010000000000000006'
@@ -17,7 +17,7 @@ postgres:
 
 
 walg:
-  imageName: docker.arvancloud.ir/afzalzademohammad/wal-g:2.0.0
+  imageName: afzalzademohammad/wal-g:2.0.0
   imagePullPolicy: IfNotPresent 
   AWS_ACCESS_KEY_ID: mamamd
   AWS_SECRET_ACCESS_KEY: 'adminadmin123'
@@ -29,7 +29,7 @@ walg:
 
 backup:
   BACKUP_PERIOD: "0 0 * * *"
-  IMAGE_NAME: docker.arvancloud.ir/bitnami/kubectl:latest
+  IMAGE_NAME: bitnami/kubectl:latest
   IMAGE_PULL_POLICY: IfNotPresent
   LABEL_SELECTOR: application=patroni,role=primary
   CONTAINER_NAME: patronimvp
