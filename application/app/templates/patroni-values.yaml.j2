@@ -1,0 +1,47 @@
+postgres:
+  # images/ports from your chart defaults; override only what UI controls
+  replicaCount: {{ postgresql.pgReplicas | int }}
+  storageCapacity: "{{ postgresql.pgStorageCapacity }}Gi"
+  {% if postgresql.superuser %}
+  SUPERUSER_USERNAME: "{{ postgresql.superuser.username }}"
+  SUPERUSER_PASSWORD: "{{ postgresql.superuser.password }}"
+  {% endif %}
+  {% if postgresql.replication %}
+  REPLICATION_USERNAME: "{{ postgresql.replication.username }}"
+  REPLICATION_PASSWORD: "{{ postgresql.replication.password }}"
+  {% endif %}
+  BACKUP_ENABLE: {{ 'true' if walg and walg.backup and walg.backup.enablePITR else 'false' }}
+  DATABASE: "{{ (databases[0].name if databases and databases[0].name else 'postgres') }}"
+
+{% if walg or (project.enableMinio and minio) %}
+walg:
+{% if project.enableMinio %}
+  AWS_ACCESS_KEY_ID: {{ minio.backupUser | tojson }}
+  AWS_SECRET_ACCESS_KEY: {{ minio.backupPassword | tojson }}
+  AWS_ENDPOINT: "http://{{ release }}-minio-minio:9000"
+  AWS_S3_FORCE_PATH_STYLE: true
+  WALG_S3_PREFIX: {{ ('s3://' ~ minio.backupBucket) | tojson }}
+{% else %}
+{% if walg and walg.s3 and walg.s3.accessKey %}
+  AWS_ACCESS_KEY_ID: {{ walg.s3.accessKey | tojson }}
+{% endif %}
+{% if walg and walg.s3 and walg.s3.secretKey %}
+  AWS_SECRET_ACCESS_KEY: {{ walg.s3.secretKey | tojson }}
+{% endif %}
+{% if walg and walg.s3 and walg.s3.endpoint %}
+  AWS_ENDPOINT: {{ walg.s3.endpoint | tojson }}
+  AWS_S3_FORCE_PATH_STYLE: true
+{% endif %}
+{% if walg and walg.s3 and walg.s3.bucketName %}
+  WALG_S3_PREFIX: {{ ('s3://' ~ walg.s3.bucketName) | tojson }}
+{% endif %}
+{% endif %}
+{% if walg.backup %}
+  WALG_COMPRESSION_METHOD: "{{ walg.backup.compressionMethod | default('brotli') }}"
+{% endif %}
+{% endif %}
+
+backup:
+  BACKUP_PERIOD: "{{ (walg.backup.backupSchedule if walg and walg.backup and walg.backup.backupSchedule else '0 2 * * *') }}"
+  IMAGE_NAME: docker.arvancloud.ir/bitnami/kubectl:latest
+  IMAGE_PULL_POLICY: IfNotPresent
