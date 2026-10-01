@@ -1,0 +1,39 @@
+# tie pgcat to patroni release (we pass _patroniRelease from the API)
+patroniReleaseName: "{{ _patroniRelease }}"
+replicaCount: 1
+imagePullPolicy: IfNotPresent
+pgcatImageName: ghcr.io/postgresml/pgcat
+pgcatConfigWatcherImageName: docker.arvancloud.ir/afzalzademohammad/pgcat-config-watcher:1.0.0
+
+pgadmin:
+  email: "admin@example.com"
+  pass: "adminpass"
+
+# Construct pgcat.yaml from your form data
+pgcatconfig:
+  general:
+    PGCAT_PORT: "5432"
+    PGCAT_SUPERUSER_USERNAME: "{{ (postgresql.superuser.username if postgresql.superuser else 'postgres') }}"
+    PGCAT_SUPERUSER_PASSWORD: "{{ (postgresql.superuser.password if postgresql.superuser else 'postgres') }}"
+    ENABLE_PROMETHEUS: true
+    PROMETHEUS_EXPORTER_PORT: 9930
+
+  DBS:
+  {% for db in databases %}
+    - NAME: "{{ db.name }}"
+      POOL_MODE: "{{ db.poolMode or "session" }}"
+      PRIMARY_READ: {{ (db.primaryReadMode or false) | lower }}
+      SHARDING_FUNCTION: "pg_bigint_hash"
+      users:
+        {% for u in users %}
+        - USER_NAME: "{{ u.username }}"
+          PASSWORD: "{{ u.password }}"
+          POOL_SIZE: {{ (u.connectionLimit or 10) | int }}
+          STATEMENT_TIMEOUT: 0
+        {% endfor %}
+      shards:
+        - MASTER_HOST:  "patronimvp-master-{{ _patroniRelease }}"
+          MASTER_PORT:  "5432"
+          REPLICA_HOST: "patronimvp-replica-{{ _patroniRelease }}"
+          REPLICA_PORT: "5432"
+  {% endfor %}
