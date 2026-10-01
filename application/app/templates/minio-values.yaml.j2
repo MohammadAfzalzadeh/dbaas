@@ -1,0 +1,12 @@
+{% if minio %}
+minio:
+  rootUser: {{ minio.rootUser | tojson }}
+  rootPassword: {{ minio.rootPassword | tojson }}
+  storageCapacity: "{{ minio.storageCapacity }}Gi"
+minioInit:
+  backupUser: {{ minio.backupUser | tojson }}
+  backupPassword: {{ minio.backupPassword | tojson }}
+  backupBucketName: {{ minio.backupBucket | tojson }}
+{% else %}
+# MinIO disabled or not provided
+{% endif %}
