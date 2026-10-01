@@ -1,12 +1,12 @@
 minio: 
   replicaCount: 1
-  imageName: quay.io/minio/minio
-  mcImageName: docker.arvancloud.ir/minio/mc
+  imageName: docker.arvancloud.ir/minio/minio:latest
+  mcImageName: docker.arvancloud.ir/minio/mc:latest
   imagePullPolicy: IfNotPresent
   rootUser: root
   rootPasword: 'adminadmin123'
   storageCapacity: 5Gi
-  storageClass: rawfile-localpv
+  storageClass: standard
   consolePort: 9001
   adminPort: 9000
 minioInit: 
