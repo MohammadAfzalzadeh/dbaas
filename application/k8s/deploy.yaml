@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbaas-backend
+  namespace: dbaas
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: dbaas-backend }
+  template:
+    metadata:
+      labels: { app: dbaas-backend }
+    spec:
+      serviceAccountName: dbaas-backend
+      containers:
+        - name: api
+          image: YOUR_REGISTRY/dbaas-backend:0.1.0
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet: { path: "/healthz", port: 8000 }
+          livenessProbe:
+            httpGet: { path: "/healthz", port: 8000 }
+          securityContext:
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dbaas-backend
+  namespace: dbaas
+spec:
+  selector: { app: dbaas-backend }
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8000
