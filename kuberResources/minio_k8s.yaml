@@ -103,7 +103,7 @@ spec:
     spec:
       containers:
       - name: init-minio
-        image: docker.arvancloud.ir/minio/mc
+        image: minio/mc
         command: ["/bin/sh", "-c"]
         args:
           - sh /scripts/init-minio.sh
