@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PostgreSQL Database Configuration</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;padding:20px}
+    .dashboard-container{max-width:1200px;margin:0 auto;background:#fff;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.1);overflow:hidden}
+    .dashboard-header{background:linear-gradient(135deg,#2c3e50 0%,#34495e 100%);color:#fff;padding:30px;text-align:center}
+    .dashboard-header h1{font-size:2.5rem;font-weight:300;margin-bottom:10px}
+    .dashboard-header p{opacity:.9;font-size:1.1rem}
+    .form-container{padding:40px}
+    .config-section{margin-bottom:30px;border:1px solid #e1e8ed;border-radius:8px;overflow:hidden;transition:all .3s ease}
+    .config-section.collapsed{border-color:#f1f3f4}
+    .config-section.disabled{opacity:.6;pointer-events:none}
+    .section-header{background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);padding:20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e1e8ed;transition:all .3s ease}
+    .section-header:hover{background:linear-gradient(135deg,#e9ecef 0%,#dee2e6 100%)}
+    .section-header h3{color:#2c3e50;font-size:1.3rem;font-weight:600}
+    .section-toggle{font-size:1.2rem;color:#6c757d;transition:transform .3s ease}
+    .config-section.collapsed .section-toggle{transform:rotate(-90deg)}
+    .section-content{padding:30px;display:block;transition:all .3s ease}
+    .config-section.collapsed .section-content{display:none}
+    .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:25px}
+    .form-group{display:flex;flex-direction:column}
+    .form-group label{font-weight:600;color:#2c3e50;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .required{color:#e74c3c}
+    .help-icon{width:16px;height:16px;background:#6c757d;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;cursor:help;position:relative}
+    .tooltip{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);background:#2c3e50;color:#fff;padding:8px 12px;border-radius:4px;font-size:12px;white-space:normal;text-align:center;opacity:0;visibility:hidden;transition:all .3s ease;z-index:1000;max-width:200px}
+    .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#2c3e50}
+    .help-icon:hover .tooltip{opacity:1;visibility:visible}
+    .form-input{padding:12px 16px;border:2px solid #e1e8ed;border-radius:6px;font-size:14px;transition:all .3s ease;background:#fff}
+    .form-input:focus{outline:none;border-color:#667eea;box-shadow:0 0 0 3px rgba(102,126,234,.1)}
+    .form-input.error{border-color:#e74c3c;box-shadow:0 0 0 3px rgba(231,76,60,.1)}
+    .form-input:disabled{background:#f8f9fa;color:#6c757d;cursor:not-allowed}
+    .error-message{color:#e74c3c;font-size:12px;margin-top:5px;display:none}
+    .form-input.error + .error-message{display:block}
+    .field-hint{color:#6c757d;font-size:12px;margin-top:5px}
+    .switch-container{display:flex;align-items:center;gap:12px}
+    .switch{position:relative;width:50px;height:24px;background:#ccc;border-radius:12px;cursor:pointer;transition:all .3s ease}
+    .switch.active{background:#667eea}
+    .switch-handle{position:absolute;top:2px;left:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:all .3s ease;box-shadow:0 2px 4px rgba(0,0,0,.2)}
+    .switch.active .switch-handle{transform:translateX(26px)}
+    .switch-label{font-size:14px;color:#6c757d}
+    .submit-section{margin-top:40px;padding-top:30px;border-top:2px solid #e1e8ed;text-align:center}
+    .submit-btn{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:15px 40px;border:none;border-radius:8px;font-size:16px;font-weight:600;cursor:pointer;transition:all .3s ease;box-shadow:0 4px 15px rgba(102,126,234,.3)}
+    .submit-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(102,126,234,.4)}
+    .submit-btn:active{transform:translateY(0)}
+    .item-list{border:1px solid #e1e8ed;border-radius:6px;background:#f8f9fa;padding:20px;margin-top:15px}
+    .item-list-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+    .item-list-header h4{color:#2c3e50;font-size:1.1rem}
+    .add-btn{background:#28a745;color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;font-size:14px;transition:all .3s ease}
+    .add-btn:hover{background:#218838}
+    .item{background:#fff;border:1px solid #dee2e6;border-radius:6px;padding:15px;margin-bottom:10px;display:grid;gap:15px;align-items:center;overflow:hidden}
+    .db-item{grid-template-columns:3fr 1fr 1fr auto}
+    .user-item{grid-template-columns:2fr 2fr 1fr 1.5fr auto}
+    .access-item{grid-template-columns:2fr 2fr 2fr 1fr auto}
+    .item:last-child{margin-bottom:0}
+    .input-group{display:flex;flex-direction:column;min-width:0}
+    .input-group label{font-size:12px;color:#6c757d;margin-bottom:4px;font-weight:500}
+    .input-group input,.input-group select{padding:8px 12px;border:1px solid #ced4da;border-radius:4px;font-size:14px;min-width:0;width:100%}
+    .input-group input:disabled,.input-group select:disabled{background:#f8f9fa;color:#6c757d;cursor:not-allowed}
+    .remove-btn{background:#dc3545;color:#fff;border:none;padding:8px 12px;border-radius:4px;cursor:pointer;font-size:12px;transition:all .3s ease;white-space:nowrap}
+    .remove-btn:hover{background:#c82333}
+    .empty-list{text-align:center;color:#6c757d;font-style:italic;padding:20px}
+    .info-note{background:#e3f2fd;border:1px solid #bbdefb;border-radius:6px;padding:12px;margin-bottom:20px;color:#1565c0;font-size:14px;white-space:pre-wrap}
+    .info-note strong{color:#0d47a1}
+    .sub-section{background:#f8f9fa;border:1px solid #e9ecef;border-radius:6px;padding:20px;margin-bottom:20px}
+    .sub-section h4{color:#495057;font-size:1.1rem;margin-bottom:15px;font-weight:600}
+    .warning-note{background:#fff3cd;border:1px solid #ffeaa7;border-radius:6px;padding:12px;margin-bottom:15px;color:#856404;font-size:14px}
+    .validation-summary{background:#fff3cd;border:1px solid #ffeaa7;border-radius:6px;padding:15px;margin-bottom:20px;display:none}
+    .validation-summary.show{display:block}
+    .validation-summary h4{color:#856404;margin-bottom:10px}
+    .validation-summary ul{color:#856404;margin-left:20px}
+    @media(max-width:1024px){
+      .db-item{grid-template-columns:1fr 1fr 1fr;gap:10px}
+      .user-item{grid-template-columns:1fr 1fr;gap:10px}
+      .access-item{grid-template-columns:1fr 1fr;gap:10px}
+    }
+    @media(max-width:768px){
+      .dashboard-header{padding:20px}
+      .dashboard-header h1{font-size:2rem}
+      .form-container{padding:20px}
+      .form-grid{grid-template-columns:1fr;gap:20px}
+      .section-content{padding:20px}
+      .db-item,.user-item,.access-item{grid-template-columns:1fr;gap:10px}
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="dashboard-header">
+      <h1>PostgreSQL Database Configuration</h1>
+      <p>Configure and provision your PostgreSQL database system with backup and monitoring capabilities</p>
+    </div>
+
+    <div class="form-container">
+      <div class="validation-summary" id="validationSummary">
+        <h4>Please fix the following errors:</h4>
+        <ul id="validationList"></ul>
+      </div>
+
+      <form id="postgresqlConfigForm">
+        <!-- Project -->
+        <div class="config-section" data-section="project">
+          <div class="section-header">
+            <h3>Project Information</h3>
+            <span class="section-toggle">▼</span>
+          </div>
+          <div class="section-content">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="releaseName">Project Name <span class="required">*</span>
+                  <span class="help-icon">?<span class="tooltip">Unique identifier for your database release</span></span>
+                </label>
+                <input type="text" id="releaseName" name="releaseName" class="form-input" required>
+                <span class="error-message">Release name is required</span>
+              </div>
+
+              <div class="form-group">
+                <label for="namespace">Namespace <span class="required">*</span></label>
+                <input type="text" id="namespace" name="namespace" class="form-input" value="dbaas" required>
+                <span class="error-message">Namespace is required</span>
+              </div>
+
+              <div class="form-group">
+                <label>Enable MinIO Storage
+                  <span class="help-icon">?<span class="tooltip">Enable MinIO object storage for backups and file storage</span></span>
+                </label>
+                <div class="switch-container">
+                  <div class="switch" data-input="enableMinio" data-section-toggle="minio"><div class="switch-handle"></div></div>
+                  <span class="switch-label">Disabled</span>
+                </div>
+                <input type="hidden" id="enableMinio" name="enableMinio" value="false">
+              </div>
+
+              <div class="form-group">
+                <label>Enable PgCat
+                  <span class="help-icon">?<span class="tooltip">Enables PostgreSQL connection pooler and proxy</span></span>
+                </label>
+                <div class="switch-container">
+                  <div class="switch" data-input="enablePgCat"><div class="switch-handle"></div></div>
+                  <span class="switch-label">Disabled</span>
+                </div>
+                <input type="hidden" id="enablePgCat" name="enablePgCat" value="false">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PostgreSQL -->
+        <div class="config-section" data-section="postgresql">
+          <div class="section-header">
+            <h3>PostgreSQL Configuration</h3>
+            <span class="section-toggle">▼</span>
+          </div>
+          <div class="section-content">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="pgReplicas">Number of Replicas <span class="required">*</span>
+                  <span class="help-icon">?<span class="tooltip">Number of read replicas</span></span>
+                </label>
+                <input type="number" id="pgReplicas" name="pgReplicas" class="form-input" min="0" max="10" value="1" required>
+                <span class="error-message">Number of replicas must be between 0 and 10</span>
+              </div>
+
+              <div class="form-group">
+                <label for="pgStorageCapacity">Storage Capacity (GB) <span class="required">*</span></label>
+                <input type="number" id="pgStorageCapacity" name="pgStorageCapacity" class="form-input" min="1" value="20" required>
+                <span class="error-message">Storage capacity must be at least 1 GB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DB & Users -->
+        <div class="config-section" data-section="database-management">
+          <div class="section-header">
+            <h3>Database & User Management</h3>
+            <span class="section-toggle">▼</span>
+          </div>
+          <div class="section-content">
+            <div class="sub-section">
+              <h4>Database Definitions</h4>
+              <div class="item-list">
+                <div class="item-list-header">
+                  <h4>Database Definitions</h4>
+                  <button type="button" class="add-btn" id="addDbBtn">+ Add Database</button>
+                </div>
+                <div id="databaseList">
+                  <div class="empty-list">No databases configured. Click "Add Database" to create database definitions.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sub-section">
+              <h4>User Definitions</h4>
+              <div class="item-list">
+                <div class="item-list-header">
+                  <h4>User Definitions</h4>
+                  <button type="button" class="add-btn" id="addUserBtn">+ Add User</button>
+                </div>
+                <div id="userList">
+                  <div class="empty-list">No users configured. Click "Add User" to create user definitions.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sub-section">
+              <h4>Access Management</h4>
+              <div class="warning-note"><strong>Note:</strong> Create databases and users first, then grant access.</div>
+              <div class="item-list">
+                <div class="item-list-header">
+                  <h4>User Database Access</h4>
+                  <button type="button" class="add-btn" id="addAccessBtn">+ Add Access Rule</button>
+                </div>
+                <div id="databaseAccessList">
+                  <div class="empty-list">No access rules configured. Click "Add Access Rule" to grant users access to databases.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MinIO -->
+        <div class="config-section" data-section="minio" id="minioFields" style="display:none;">
+          <div class="section-header">
+            <h3>MinIO Configuration</h3>
+            <span class="section-toggle">▼</span>
+          </div>
+          <div class="section-content">
+            <div class="form-grid" style="margin-top:20px;">
+              <div class="form-group">
+                <label for="minioRootUser">Root User <span class="required">*</span></label>
+                <input type="text" id="minioRootUser" name="minioRootUser" class="form-input">
+                <span class="error-message">Root user is required when MinIO is enabled</span>
+              </div>
+              <div class="form-group">
+                <label for="minioRootPassword">Root Password <span class="required">*</span></label>
+                <input type="password" id="minioRootPassword" name="minioRootPassword" class="form-input" minlength="8">
+                <span class="error-message">Root password must be at least 8 characters</span>
+                <small class="field-hint">MinIO requires at least 8 characters.</small>
+              </div>
+              <div class="form-group">
+                <label for="minioStorageCapacity">Storage Capacity (GB) <span class="required">*</span></label>
+                <input type="number" id="minioStorageCapacity" name="minioStorageCapacity" class="form-input" min="1">
+                <span class="error-message">Storage capacity must be at least 1 GB</span>
+              </div>
+              <div class="form-group">
+                <label for="minioBackupUser">Backup User <span class="required">*</span></label>
+                <input type="text" id="minioBackupUser" name="minioBackupUser" class="form-input">
+                <span class="error-message">Backup user must be different from the MinIO root user</span>
+                <small class="field-hint">Use a separate account; WAL-G will use this user and its password.</small>
+              </div>
+              <div class="form-group">
+                <label for="minioBackupPassword">Backup Password <span class="required">*</span></label>
+                <input type="password" id="minioBackupPassword" name="minioBackupPassword" class="form-input" minlength="8">
+                <span class="error-message">Backup password must be at least 8 characters</span>
+                <small class="field-hint">MinIO requires at least 8 characters.</small>
+              </div>
+              <div class="form-group">
+                <label for="minioBackupBucket">Backup Bucket Name <span class="required">*</span></label>
+                <input type="text" id="minioBackupBucket" name="minioBackupBucket" class="form-input">
+                <span class="error-message">Backup bucket name is required when MinIO is enabled</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WAL-G -->
+        <div class="config-section" data-section="walg">
+          <div class="section-header">
+            <h3>WAL-G Configuration</h3>
+            <span class="section-toggle">▼</span>
+          </div>
+          <div class="section-content">
+            <div id="minioEnabledNote" class="info-note" style="display:none;">
+              <strong>Note:</strong> MinIO is enabled above. S3 credentials will use MinIO settings automatically.
+            </div>
+
+            <div class="sub-section" id="s3ConfigSection" style="display:none;">
+              <h4>S3 Storage Credentials</h4>
+              <div class="form-grid">
+                <div class="form-group" id="s3UserGroup">
+                  <label for="s3AccessKey">S3 Access Key / User <span class="required">*</span>
+                    <span class="help-icon">?<span class="tooltip">AWS Access Key ID or MinIO user</span></span>
+                  </label>
+                  <input type="text" id="s3AccessKey" name="s3AccessKey" required class="form-input">
+                  <span class="error-message">S3 access key is required</span>
+                </div>
+                <div class="form-group" id="s3PasswordGroup">
+                  <label for="s3SecretKey">S3 Secret Key / Password <span class="required">*</span>
+                    <span class="help-icon">?<span class="tooltip">AWS Secret Key or MinIO password</span></span>
+                  </label>
+                  <input type="password" id="s3SecretKey" name="s3SecretKey" required class="form-input">
+                  <span class="error-message">S3 secret key is required</span>
+                </div>
+                <div class="form-group" id="s3EndpointGroup">
+                  <label for="s3Endpoint">S3 Endpoint <span class="required">*</span>
+                    <span class="help-icon">?<span class="tooltip">e.g., https://s3.amazonaws.com or https://minio.example.com</span></span>
+                  </label>
+                  <input type="url" id="s3Endpoint" name="s3Endpoint" class="form-input" placeholder="https://s3.amazonaws.com" required>
+                  <span class="error-message">Valid S3 endpoint URL is required</span>
+                </div>
+                <div class="form-group">
+                  <label for="s3BucketName">Backup Bucket Name <span class="required">*</span>
+                    <span class="help-icon">?<span class="tooltip">Bucket where WAL-G backups will be stored</span></span>
+                  </label>
+                  <input type="text" id="s3BucketName" name="s3BucketName" required class="form-input">
+                  <span class="error-message">Backup bucket name is required</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="sub-section">
+              <h4>Backup Configuration</h4>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Enable Point-in-Time Recovery (PITR)
+                    <span class="help-icon">?<span class="tooltip">Recover to any point in time within retention</span></span>
+                  </label>
+                  <div class="switch-container">
+                    <div class="switch" data-input="enablePITR"><div class="switch-handle"></div></div>
+                    <span class="switch-label">Disabled</span>
+                  </div>
+                  <input type="hidden" id="enablePITR" name="enablePITR" value="false">
+                </div>
+                <div class="form-group">
+                  <label for="compressionMethod">Compression Method <span class="required">*</span>
+                    <span class="help-icon">?<span class="tooltip">Compression algorithm for backup files</span></span>
+                  </label>
+                  <select id="compressionMethod" name="compressionMethod" class="form-input" required>
+                    <option value="lzma">lzma (slow, best ratio)</option>
+                    <option value="brotli" selected>brotli (balanced)</option>
+                    <option value="zstd">zstd (balanced)</option>
+                    <option value="lz4">lz4 (fastest, lowest ratio)</option>
+                  </select>
+                  <span class="error-message">Compression method is required</span>
+                </div>
+                <div class="form-group">
+                  <label for="backupSchedule">Automatic Backup Schedule <span class="required">*</span>
+                    <span class="help-icon">?<span class="tooltip">Cron: min hour day month weekday (e.g., 0 2 * * *)</span></span>
+                  </label>
+                  <input type="text" id="backupSchedule" name="backupSchedule" class="form-input" placeholder="0 2 * * *" required>
+                  <span class="error-message">Valid crontab format required (e.g., 0 2 * * *)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Monitoring -->
+        <div class="config-section" data-section="monitoring">
+          <div class="section-header">
+            <h3>Monitoring</h3>
+            <span class="section-toggle">▼</span>
+          </div>
+          <div class="section-content">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Enable Log Monitoring</label>
+                <div class="switch-container">
+                  <div class="switch" data-input="enableLogMonitoring"><div class="switch-handle"></div></div>
+                  <span class="switch-label">Disabled</span>
+                </div>
+                <input type="hidden" id="enableLogMonitoring" name="enableLogMonitoring" value="false">
+              </div>
+              <div class="form-group">
+                <label>Enable System Monitoring</label>
+                <div class="switch-container">
+                  <div class="switch" data-input="enableSystemMonitoring"><div class="switch-handle"></div></div>
+                  <span class="switch-label">Disabled</span>
+                </div>
+                <input type="hidden" id="enableSystemMonitoring" name="enableSystemMonitoring" value="false">
+              </div>
+              <div class="form-group">
+                <label>Monitoring Documentation Provided</label>
+                <div class="switch-container">
+                  <div class="switch" data-input="monitoringDocsProvided"><div class="switch-handle"></div></div>
+                  <span class="switch-label">No</span>
+                </div>
+                <input type="hidden" id="monitoringDocsProvided" name="monitoringDocsProvided" value="false">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="submit-section">
+          <button type="submit" class="submit-btn" id="submitBtn">Deploy PostgreSQL Configuration</button>
+          <pre id="output" class="info-note" style="margin-top:16px;"></pre>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // ---- counters ----
+    let dbCounter = 0, userCounter = 0, accessCounter = 0;
+
+    // ---- collapsible ----
+    document.addEventListener('click', (e) => {
+      const header = e.target.closest('.section-header');
+      if (header) header.parentElement.classList.toggle('collapsed');
+    });
+
+    // ---- DB/User helpers ----
+    function getAvailableDatabases(){
+      const xs=[]; document.querySelectorAll('#databaseList .db-item input[name*="[name]"]').forEach(i=>{ if(i.value.trim()) xs.push(i.value.trim());}); return xs;
+    }
+    function getAvailableUsers(){
+      const xs=[]; document.querySelectorAll('#userList .user-item input[name*="[username]"]').forEach(i=>{ if(i.value.trim()) xs.push(i.value.trim());}); return xs;
+    }
+    function updateAccessDropdowns(){
+      const dbs=getAvailableDatabases(), us=getAvailableUsers();
+      document.querySelectorAll('#databaseAccessList .access-item').forEach(item=>{
+        const u=item.querySelector('select[name*="[username]"]');
+        const d=item.querySelector('select[name*="[database]"]');
+        if(u){ const cur=u.value; u.innerHTML='<option value="">Select User</option>'+us.map(x=>`<option value="${x}" ${x===cur?'selected':''}>${x}</option>`).join(''); }
+        if(d){ const cur=d.value; d.innerHTML='<option value="">Select Database</option>'+dbs.map(x=>`<option value="${x}" ${x===cur?'selected':''}>${x}</option>`).join(''); }
+      });
+    }
+
+    // ---- S3 fields toggle ----
+    function updateS3Fields(minioEnabled){
+      const s3Sec=document.getElementById('s3ConfigSection');
+      const note=document.getElementById('minioEnabledNote');
+      const ak=document.getElementById('s3AccessKey');
+      const sk=document.getElementById('s3SecretKey');
+      const ep=document.getElementById('s3Endpoint');
+      const bn=document.getElementById('s3BucketName');
+
+      if(minioEnabled){
+        s3Sec.style.display='none'; note.style.display='block';
+        [ak,sk,ep,bn].forEach(i=>{i.removeAttribute('required'); i.classList.remove('error');});
+        const u=document.getElementById('minioBackupUser').value;
+        const p=document.getElementById('minioBackupPassword').value;
+        const b=document.getElementById('minioBackupBucket').value;
+        if(u) ak.value=u; if(p) sk.value=p; if(b) bn.value=b;
+        ep.value='http://minio:9000';
+      } else {
+        s3Sec.style.display='block'; note.style.display='none';
+        [ak,sk,ep,bn].forEach(i=>i.setAttribute('required','required'));
+        ep.value='';
+      }
+    }
+
+    // ---- PgCat deps ----
+    function updatePgCatDependentFields(enabled){
+      document.querySelectorAll('.pgcat-dependent').forEach(el=>{
+        el.style.display=enabled?'block':'none';
+        el.querySelectorAll('input,select,textarea').forEach(c=>c.disabled=!enabled);
+      });
+    }
+
+    // ---- switches ----
+    document.querySelectorAll('.switch').forEach(sw=>{
+      sw.addEventListener('click',()=>{
+        const name=sw.dataset.input, hidden=document.getElementById(name), label=sw.parentElement.querySelector('.switch-label');
+        sw.classList.toggle('active'); const on=sw.classList.contains('active'); hidden.value=String(on);
+        label.textContent = (name==='monitoringDocsProvided') ? (on?'Yes':'No') : (on?'Enabled':'Disabled');
+        if(name==='enableMinio'){
+          const m=document.getElementById('minioFields');
+          if(on){ m.style.display='grid'; m.querySelectorAll('input').forEach(i=>{if(i.type!=='hidden') i.setAttribute('required','required');}); }
+          else{ m.style.display='none'; m.querySelectorAll('input').forEach(i=>{i.removeAttribute('required'); i.classList.remove('error');}); }
+          updateS3Fields(on);
+        }
+        if(name==='enablePgCat'){ updatePgCatDependentFields(on); }
+      });
+    });
+
+    // auto-sync MinIO creds → S3
+    ['minioBackupUser','minioBackupPassword','minioBackupBucket'].forEach(id=>{
+      const map={minioBackupUser:'s3AccessKey',minioBackupPassword:'s3SecretKey',minioBackupBucket:'s3BucketName'};
+      document.getElementById(id).addEventListener('input',(e)=>{
+        if(document.getElementById('enableMinio').value==='true'){ document.getElementById(map[id]).value=e.target.value; }
+      });
+    });
+
+    // ---- add/remove DB ----
+    function addDatabase(){
+      const container=document.getElementById('databaseList'); const empty=container.querySelector('.empty-list'); if(empty) empty.remove();
+      const pgcatOn=document.getElementById('enablePgCat').value==='true';
+      const item=document.createElement('div'); item.className='db-item item';
+      item.innerHTML=`
+        <div class="input-group">
+          <label>Database Name <span class="required">*</span></label>
+          <input type="text" name="databases[${dbCounter}][name]" placeholder="e.g., myapp_db" required>
+        </div>
+        <div class="input-group pgcat-dependent" style="display:${pgcatOn?'block':'none'}">
+          <label>Pool Mode</label>
+          <select name="databases[${dbCounter}][poolMode]" ${pgcatOn?'':'disabled'}>
+            <option value="">Default</option>
+            <option value="session">Session</option>
+            <option value="transaction">Transaction</option>
+            <option value="statement">Statement</option>
+          </select>
+        </div>
+        <div class="input-group pgcat-dependent" style="display:${pgcatOn?'block':'none'}">
+          <label>Primary Read Mode</label>
+          <select name="databases[${dbCounter}][primaryReadMode]" ${pgcatOn?'':'disabled'}>
+            <option value="false">Disabled</option>
+            <option value="true">Enabled</option>
+          </select>
+        </div>
+        <button type="button" class="remove-btn">Remove</button>
+      `;
+      item.querySelector('.remove-btn').addEventListener('click',()=>{
+        item.remove();
+        if(!container.children.length) container.innerHTML='<div class="empty-list">No databases configured. Click "Add Database" to create database definitions.</div>';
+        updateAccessDropdowns();
+      });
+      item.querySelector('input[name*="[name]"]').addEventListener('input', updateAccessDropdowns);
+      container.appendChild(item); dbCounter++; updateAccessDropdowns();
+    }
+
+    // ---- add/remove User ----
+    function addUser(){
+      const container=document.getElementById('userList'); const empty=container.querySelector('.empty-list'); if(empty) empty.remove();
+      const item=document.createElement('div'); item.className='user-item item';
+      item.innerHTML=`
+        <div class="input-group"><label>Username <span class="required">*</span></label><input type="text" name="users[${userCounter}][username]" placeholder="e.g., app_user" required></div>
+        <div class="input-group"><label>Password <span class="required">*</span></label><input type="password" name="users[${userCounter}][password]" required></div>
+        <div class="input-group"><label>Connection Limit</label><input type="number" name="users[${userCounter}][connectionLimit]" placeholder="10" min="1"></div>
+        <div class="input-group"><label>Valid Until</label><input type="date" name="users[${userCounter}][validUntil]"></div>
+        <button type="button" class="remove-btn">Remove</button>
+      `;
+      item.querySelector('.remove-btn').addEventListener('click',()=>{
+        item.remove();
+        if(!container.children.length) container.innerHTML='<div class="empty-list">No users configured. Click "Add User" to create user definitions.</div>';
+        updateAccessDropdowns();
+      });
+      item.querySelector('input[name*="[username]"]').addEventListener('input', updateAccessDropdowns);
+      container.appendChild(item); userCounter++; updateAccessDropdowns();
+    }
+
+    // ---- add/remove Access Rule ----
+    function addDatabaseAccess(){
+      const container=document.getElementById('databaseAccessList'); const empty=container.querySelector('.empty-list'); if(empty) empty.remove();
+      const pgcatOn=document.getElementById('enablePgCat').value==='true';
+      const dbs=getAvailableDatabases(), us=getAvailableUsers();
+      const item=document.createElement('div'); item.className='access-item item';
+      item.innerHTML=`
+        <div class="input-group">
+          <label>User <span class="required">*</span></label>
+          <select name="databaseAccess[${accessCounter}][username]" required>
+            <option value="">Select User</option>${us.map(u=>`<option value="${u}">${u}</option>`).join('')}
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Database <span class="required">*</span></label>
+          <select name="databaseAccess[${accessCounter}][database]" required>
+            <option value="">Select Database</option>${dbs.map(d=>`<option value="${d}">${d}</option>`).join('')}
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Access Level <span class="required">*</span></label>
+          <select name="databaseAccess[${accessCounter}][accessLevel]" required>
+            <option value="read" selected>Read Only</option>
+            <option value="read_exec">Read Only + Execute Functions</option>
+            <option value="write">Read/Write</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <div class="input-group pgcat-dependent" style="display:${pgcatOn?'block':'none'}">
+          <label>Max Connections</label>
+          <input type="number" name="databaseAccess[${accessCounter}][maxConnections]" placeholder="10" min="1" ${pgcatOn?'':'disabled'}>
+        </div>
+        <button type="button" class="remove-btn">Remove</button>
+      `;
+      item.querySelector('.remove-btn').addEventListener('click',()=>{
+        item.remove();
+        if(!container.children.length) container.innerHTML='<div class="empty-list">No access rules configured. Click "Add Access Rule" to grant users access to databases.</div>';
+      });
+      container.appendChild(item); accessCounter++;
+    }
+
+    // buttons
+    document.getElementById('addDbBtn').addEventListener('click', addDatabase);
+    document.getElementById('addUserBtn').addEventListener('click', addUser);
+    document.getElementById('addAccessBtn').addEventListener('click', addDatabaseAccess);
+
+    // ---- validation ----
+    function validateCrontab(cron){
+      const rx=/^(\*|([0-5]?\d)) (\*|([01]?\d|2[0-3])) (\*|([01]?\d|[12]\d|3[01])) (\*|([1-9]|1[0-2])) (\*|([0-6]))$/;
+      return rx.test(cron.trim());
+    }
+    function validateForm(){
+      const errs=[]; let ok=true;
+      document.querySelectorAll('.form-input, input, select').forEach(i=>i.classList.remove('error'));
+      document.querySelectorAll('[required]').forEach(f=>{
+        const vis=f.offsetParent!==null;
+        if(vis && !String(f.value||'').trim()){
+          f.classList.add('error');
+          const label=f.closest('.form-group,.input-group')?.querySelector('label')?.textContent||f.name;
+          errs.push(`${label.replace('*','').trim()} is required`); ok=false;
+        }
+      });
+      document.querySelectorAll('input[type="password"][minlength]').forEach(f=>{
+        const min=Number(f.getAttribute('minlength'));
+        if(f.offsetParent!==null && f.value && f.value.length<min){
+          f.classList.add('error');
+          const label=f.closest('.form-group,.input-group')?.querySelector('label')?.textContent||f.name;
+          errs.push(`${label.replace('*','').trim()} must be at least ${min} characters`); ok=false;
+        }
+      });
+      const minioEnabled=document.getElementById('enableMinio').value==='true';
+      const rootUser=document.getElementById('minioRootUser').value.trim();
+      const backupUser=document.getElementById('minioBackupUser').value.trim();
+      if(minioEnabled && rootUser && backupUser && rootUser===backupUser){
+        const backupUserInput=document.getElementById('minioBackupUser');
+        backupUserInput.classList.add('error');
+        errs.push('MinIO backup user must be different from the root user'); ok=false;
+      }
+      const cron=document.getElementById('backupSchedule');
+      if(cron.value && !validateCrontab(cron.value)){ cron.classList.add('error'); errs.push('Backup schedule must be in valid crontab format'); ok=false; }
+      document.querySelectorAll('input[type="number"]').forEach(f=>{
+        if(f.value && f.offsetParent!==null){
+          const v=parseInt(f.value,10), min=parseInt(f.getAttribute('min')||'0',10), max=f.getAttribute('max')?parseInt(f.getAttribute('max'),10):null;
+          if(isNaN(v)||v<min||(max!==null&&v>max)){
+            f.classList.add('error');
+            const label=f.closest('.form-group,.input-group')?.querySelector('label')?.textContent||f.name;
+            errs.push(max?`${label.replace('*','').trim()} must be between ${min} and ${max}`:`${label.replace('*','').trim()} must be at least ${min}`); ok=false;
+          }
+        }
+      });
+      const ep=document.getElementById('s3Endpoint');
+      if(ep.hasAttribute('required') && ep.value){
+        try{ new URL(ep.value);}catch{ ep.classList.add('error'); errs.push('S3 Endpoint must be a valid URL'); ok=false; }
+      }
+      const summary=document.getElementById('validationSummary'), list=document.getElementById('validationList');
+      if(!ok){ list.innerHTML=errs.map(x=>`<li>${x}</li>`).join(''); summary.classList.add('show'); summary.scrollIntoView({behavior:'smooth',block:'center'}); }
+      else summary.classList.remove('show');
+      return ok;
+    }
+
+    // live validations
+    document.getElementById('backupSchedule').addEventListener('input', e=>{
+      e.target.classList.toggle('error', !!e.target.value && !validateCrontab(e.target.value));
+    });
+    document.addEventListener('input', e=>{
+      if(e.target.type==='number'){
+        const f=e.target,v=parseInt(f.value,10),min=parseInt(f.getAttribute('min')||'0',10),max=f.getAttribute('max')?parseInt(f.getAttribute('max'),10):null;
+        f.classList.toggle('error', !!f.value && (isNaN(v)||v<min||(max!==null&&v>max)));
+      }
+    });
+    document.getElementById('s3Endpoint').addEventListener('input', e=>{
+      const i=e.target;
+      if(i.hasAttribute('required') && i.value){ try{ new URL(i.value); i.classList.remove('error'); }catch{ i.classList.add('error'); } }
+      else i.classList.remove('error');
+    });
+
+    // ---- build payload ----
+    function buildNestedConfig(fd){
+      const cfg={project:{},postgresql:{},databases:[],users:[],databaseAccess:[],minio:{},walg:{s3:{},backup:{}},monitoring:{}};
+      for(let [k,v] of fd.entries()){
+        if(k.startsWith('databases[')){ const m=k.match(/databases\[(\d+)\]\[(\w+)\]/); if(!m) continue; const i=+m[1],f=m[2]; cfg.databases[i]??={}; cfg.databases[i][f]=(f==='primaryReadMode')?(v==='true'):v; continue; }
+        if(k.startsWith('users[')){ const m=k.match(/users\[(\d+)\]\[(\w+)\]/); if(!m) continue; const i=+m[1],f=m[2]; cfg.users[i]??={}; cfg.users[i][f]=(f==='connectionLimit')?(v?parseInt(v,10):null):v; continue; }
+        if(k.startsWith('databaseAccess[')){ const m=k.match(/databaseAccess\[(\d+)\]\[(\w+)\]/); if(!m) continue; const i=+m[1],f=m[2]; cfg.databaseAccess[i]??={}; cfg.databaseAccess[i][f]=(f==='maxConnections')?(v?parseInt(v,10):null):v; continue; }
+        switch(k){
+          case 'releaseName': case 'storageClass': cfg.project[k]=v; break;
+          case 'enablePgCat': case 'enableMinio': cfg.project[k]=(v==='true'); break;
+          case 'pgReplicas': case 'pgStorageCapacity': cfg.postgresql[k]=parseInt(v,10); break;
+          case 'minioRootUser': case 'minioRootPassword': case 'minioStorageCapacity':
+          case 'minioBackupUser': case 'minioBackupPassword': case 'minioBackupBucket': {
+            const mk=k.replace('minio',''); const prop=mk.charAt(0).toLowerCase()+mk.slice(1);
+            cfg.minio[prop]=(k==='minioStorageCapacity')?parseInt(v,10):v; break;
+          }
+          case 's3AccessKey': case 's3SecretKey': case 's3Endpoint': case 's3BucketName': {
+            const sk=k.replace('s3',''); const prop=sk.charAt(0).toLowerCase()+sk.slice(1); cfg.walg.s3[prop]=v; break;
+          }
+          case 'enablePITR': cfg.walg.backup.enablePITR=(v==='true'); break;
+          case 'compressionMethod': case 'backupSchedule': cfg.walg.backup[k]=v; break;
+          case 'enableLogMonitoring': case 'enableSystemMonitoring': case 'monitoringDocsProvided': cfg.monitoring[k]=(v==='true'); break;
+          case 'namespace': cfg.namespace=v; break;
+          default: cfg[k]=v; break;
+        }
+      }
+      cfg.databases=cfg.databases.filter(x=>x&&x.name);
+      cfg.users=cfg.users.filter(x=>x&&x.username);
+      cfg.databaseAccess=cfg.databaseAccess.filter(x=>x&&x.username&&x.database);
+      return cfg;
+    }
+      if (cfg.project.enableMinio) {
+    payload.minio = {
+      rootUser: cfg.minio.rootUser,
+      rootPassword: cfg.minio.rootPassword,
+      storageCapacity: Number(cfg.minio.storageCapacity || 10),
+      backupUser: cfg.minio.backupUser,
+      backupPassword: cfg.minio.backupPassword,
+      backupBucket: cfg.minio.backupBucket
+    };
+    }
+    // ---- smart response parser (fixes your JSON bug) ----
+    async function readBodySmart(res){
+      const ct=res.headers.get('content-type')||'';
+      if(ct.includes('application/json')){
+        try { return await res.json(); } catch {}
+      }
+      return await res.text();
+    }
+
+    // ---- submit ----
+    document.getElementById('postgresqlConfigForm').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      if(!validateForm()) return;
+
+      const output=document.getElementById('output');
+      output.textContent='Deploying…';
+
+      const fd=new FormData(e.target);
+      const cfg=buildNestedConfig(fd);
+
+      const payload={
+        namespace:(cfg.namespace||'dbaas').trim(),
+        project:{ releaseName:cfg.project.releaseName, enableMinio:!!cfg.project.enableMinio, enablePgCat:!!cfg.project.enablePgCat },
+        postgresql:{ pgReplicas:Number(cfg.postgresql.pgReplicas||1), pgStorageCapacity:Number(cfg.postgresql.pgStorageCapacity||20) },
+        databases:cfg.databases||[],
+        users:cfg.users||[],
+        databaseAccess:cfg.databaseAccess||[],
+        walg:(cfg.walg && (Object.keys(cfg.walg.s3||{}).length || Object.keys(cfg.walg.backup||{}).length)) ? cfg.walg : null
+      };
+
+      try{
+        const res=await fetch('/api/deploy',{ method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+        const body=await readBodySmart(res);
+
+        if(!res.ok){
+          let msg = (typeof body==='string') ? body : (body && body.detail) || res.statusText;
+          if(msg && msg.length>4000) msg = msg.slice(0,4000)+'…';
+          throw new Error(msg || 'Deployment failed');
+        }
+
+        const data=(typeof body==='string')?{ ok:true, message:body }:body;
+        output.textContent = `✅ Release ${data.release || payload.project.releaseName} in namespace ${data.namespace || payload.namespace} created/updated.\n\n` + (data.output || data.message || '');
+      }catch(err){
+        output.textContent = '❌ ' + (err.message || String(err));
+      }
+    });
+
+    // ---- init ----
+    function init(){ updateS3Fields(false); updatePgCatDependentFields(false); }
+    init();
+  </script>
+ <script>
+function handleSubmit(e){
+  e.preventDefault();                      // stop native form submit
+  const form = e.currentTarget;
+  const output = document.getElementById('output');
+
+  // client-side validation
+  if (typeof validateForm === "function" && !validateForm()) {
+    return;
+  }
+
+  // build cfg object from form fields
+  const formData = new FormData(form);
+  const cfg = (typeof buildNestedConfig === "function")
+    ? buildNestedConfig(formData)
+    : Object.fromEntries(formData.entries()); // fallback
+
+  // construct payload EXACTLY as backend expects
+  const payload = {
+    namespace: (cfg.namespace || 'dbaas').trim(),
+    project: {
+      releaseName: cfg.project?.releaseName || cfg.releaseName || '',
+      enableMinio: !!(cfg.project?.enableMinio ?? (cfg.enableMinio === true || cfg.enableMinio === 'true')),
+      enablePgCat: !!(cfg.project?.enablePgCat ?? (cfg.enablePgCat === true || cfg.enablePgCat === 'true')),
+    },
+    postgresql: {
+      pgReplicas: Number(cfg.postgresql?.pgReplicas ?? cfg.pgReplicas ?? 1),
+      pgStorageCapacity: Number(cfg.postgresql?.pgStorageCapacity ?? cfg.pgStorageCapacity ?? 20),
+    },
+    databases: Array.isArray(cfg.databases) ? cfg.databases : [],
+    users: Array.isArray(cfg.users) ? cfg.users : [],
+    databaseAccess: Array.isArray(cfg.databaseAccess) ? cfg.databaseAccess : [],
+    // include wal-g if present
+    walg: (cfg.walg && (Object.keys(cfg.walg.s3||{}).length || Object.keys(cfg.walg.backup||{}).length)) ? cfg.walg : null,
+    // include minio only when enabled and provided
+    minio: ( (cfg.project?.enableMinio ?? (cfg.enableMinio === 'true' || cfg.enableMinio === true)) && cfg.minio )
+      ? {
+          rootUser: cfg.minio.rootUser,
+          rootPassword: cfg.minio.rootPassword,
+          storageCapacity: Number(cfg.minio.storageCapacity || 10),
+          backupUser: cfg.minio.backupUser,
+          backupPassword: cfg.minio.backupPassword,
+          backupBucket: cfg.minio.backupBucket
+        }
+      : null
+  };
+
+  // quick sanity logs in browser console
+  console.log("Submitting payload:", payload);
+
+  // robust body reader (json or text)
+  async function readBodySmart(res){
+    const ct = res.headers.get("content-type") || "";
+    if (ct.includes("application/json")) {
+      try { return await res.json(); } catch { /* fallthrough */ }
+    }
+    return await res.text();
+  }
+
+  (async () => {
+    output.textContent = "Deploying…";
+    try{
+      const res = await fetch("/api/deploy", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const body = await readBodySmart(res);
+
+      if (!res.ok) {
+        let msg = (typeof body === "string") ? body : (body && body.detail) || res.statusText;
+        if (msg && msg.length > 4000) msg = msg.slice(0, 4000) + "…";
+        throw new Error(msg || "Deployment failed");
+      }
+
+      const data = (typeof body === "string") ? { ok: true, message: body } : body;
+      output.textContent =
+        `✅ Release ${data.release || payload.project.releaseName} in namespace ${data.namespace || payload.namespace} created/updated.\n\n` +
+        (data.output || data.message || "");
+    }catch(err){
+      output.textContent = "❌ " + (err.message || String(err));
+      console.error(err);
+    }
+  })();
+}
+
+// attach handler AFTER DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("postgresqlConfigForm");
+  if (!form) return console.error("postgresqlConfigForm not found");
+  form.addEventListener("submit", handleSubmit);
+  console.log("submit handler attached");
+});
+</script>
+
+</body>
+</html>
