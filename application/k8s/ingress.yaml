@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dbaas-backend
+  namespace: dbaas
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    cert-manager.io/cluster-issuer: letsencrypt    # if you use cert-manager
+spec:
+  rules:
+    - host: dbaas.example.com                       # <-- set your DNS
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dbaas-backend
+                port:
+                  number: 80
+  tls:
+    - secretName: dbaas-tls
+      hosts: ["dbaas.example.com"]
