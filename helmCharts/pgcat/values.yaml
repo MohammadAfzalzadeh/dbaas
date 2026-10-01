@@ -1,7 +1,7 @@
 replicaCount: 1
 imagePullPolicy: IfNotPresent
 pgcatImageName: ghcr.io/postgresml/pgcat
-pgcatConfigWatcherImageName: docker.arvancloud.ir/afzalzademohammad/pgcat-config-watcher:1.0.0
+pgcatConfigWatcherImageName: afzalzademohammad/pgcat-config-watcher:1.0.0
 patroniReleaseName: patroni-mvp
 pgcatconfig:
   general:
