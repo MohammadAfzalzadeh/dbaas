@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: patronimvp-replica-{{ .Release.Name }}
+  labels:
+    application: patroni
+    cluster-name:  &cluster_name {{ .Release.Name }}-patronimvp
+    role: replica
+spec:
+  type: ClusterIP
+  selector:
+    application: patroni
+    cluster-name: *cluster_name
+    role: replica
+    release-name: {{ .Release.Name }}
+
+
+  ports:
+  - name: pg
+    port: 5432
+    targetPort: 5432
+  - name: patroni
+    port: 8008
+    targetPort: 8008
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: patronimvp-master-{{ .Release.Name }}
+  labels:
+    application: patroni
+    cluster-name:  &cluster_name {{ .Release.Name }}-patronimvp
+    role: primary
+spec:
+  type: ClusterIP
+  selector:
+    application: patroni
+    cluster-name: *cluster_name
+    role: primary
+    release-name: {{ .Release.Name }}
+
+  ports:
+    - name: pg
+      port: 5432
+      targetPort: 5432
+    - name: patroni
+      port: 8008
+      targetPort: 8008
+---
