@@ -34,11 +34,11 @@ done
 #fi
 
 # Paths to your custom Helm chart directories
-PATRONI_CHART_PATH="./helmCharts/patroni"
-PGCAT_CHART_PATH="./helmCharts/pgcat"
-MINIO_CHART_PATH="./helmCharts/minio"
+PATRONI_CHART_PATH="./../helmCharts/patroni"
+PGCAT_CHART_PATH="./../helmCharts/pgcat"
+MINIO_CHART_PATH="./../helmCharts/minio"
 
-meta.helm.sh/release-name
+# meta.helm.sh/release-name
 # Helm deploy functions
 deploy_chart() {
   local release=$1
@@ -49,7 +49,7 @@ deploy_chart() {
 
 wait_for_jobs_success() {
   local release=$1
-  local namespace="default"
+  local namespace="dbaas"
   echo "⏳ Waiting for jobs with annotation 'meta.helm.sh/release-name=$release' in namespace '$namespace'..."
 
   # Get job names with matching annotation
@@ -77,7 +77,7 @@ wait_for_jobs_success() {
 # Wait for Patroni StatefulSet to be fully ready
 wait_for_patroni_statefulset_ready() {
   local release=$1
-  local namespace="default"
+  local namespace="dbaas"
   echo "🔍 Checking StatefulSet with labels application=patroni, release-name=$release..."
 
   local statefulset_name
