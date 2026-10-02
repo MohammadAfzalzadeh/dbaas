@@ -60,7 +60,7 @@ spec:
     spec:
       containers:
         - name: pgadmin
-          image: dpage/pgadmin4
+          image: docker-mirror.liara.ir/dpage/pgadmin4
           ports:
             - containerPort: 80
           env:
