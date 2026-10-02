@@ -10,7 +10,7 @@ postgres:
   REPLICATION_USERNAME: "{{ postgresql.replication.username }}"
   REPLICATION_PASSWORD: "{{ postgresql.replication.password }}"
   {% endif %}
-  BACKUP_ENABLE: {{ 'true' if walg and walg.backup and walg.backup.enablePITR else 'false' }}
+  BACKUP_ENABLE: 'false'
   DATABASE: "{{ (databases[0].name if databases and databases[0].name else 'postgres') }}"
 
 {% if walg or (project.enableMinio and minio) %}
