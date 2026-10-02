@@ -302,6 +302,7 @@ def deploy(spec: DeploySpec):
         "walg": spec.walg.model_dump() if spec.walg else None,
         "monitoring": spec.monitoring.model_dump() if spec.monitoring else None,
         "access": [a.model_dump() for a in spec.databaseAccess],
+        "patroniRelease" : release + '-patroni'
     }
     if log.isEnabledFor(logging.DEBUG):
         log.debug("Template ctx (redacted): %s", json.dumps(redact(ctx), ensure_ascii=False))

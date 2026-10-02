@@ -1,5 +1,5 @@
-# tie pgcat to patroni release (we pass _patroniRelease from the API)
-patroniReleaseName: "{{ _patroniRelease }}"
+# tie pgcat to patroni release (we pass patroniRelease from the API)
+patroniReleaseName: "{{ patroniRelease }}"
 replicaCount: 1
 imagePullPolicy: IfNotPresent
 pgcatImageName: ghcr.io/postgresml/pgcat
@@ -32,8 +32,8 @@ pgcatconfig:
           STATEMENT_TIMEOUT: 0
         {% endfor %}
       shards:
-        - MASTER_HOST:  "patronimvp-master-{{ _patroniRelease }}"
+        - MASTER_HOST:  "patronimvp-master-{{ patroniRelease }}"
           MASTER_PORT:  "5432"
-          REPLICA_HOST: "patronimvp-replica-{{ _patroniRelease }}"
+          REPLICA_HOST: "patronimvp-replica-{{ patroniRelease }}"
           REPLICA_PORT: "5432"
   {% endfor %}
