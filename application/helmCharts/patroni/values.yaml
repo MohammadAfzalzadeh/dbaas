@@ -12,6 +12,38 @@ postgres:
   storageClass: standard
   DATABASE: postgres
   replicaCount: 2
+  initDbConfig: 
+    databases:
+      - name: mmm
+        poolMode: session
+        primaryReadMode: false
+      - name: app
+        poolMode: transaction
+        primaryReadMode: false
+
+    users:
+      - username: test
+        password: "123"
+        connectionLimit: 10
+        validUntil: "2025-08-21"
+      - username: app
+        password: "123"
+        connectionLimit: null
+        validUntil: ""
+
+    databaseAccess:
+      - username: test
+        database: mmm
+        accessLevel: admin
+        maxConnections: 10
+      - username: test
+        database: app
+        accessLevel: write
+        maxConnections: null
+      - username: app
+        database: app
+        accessLevel: read
+        maxConnections: null
   # BASE_BACKUP_NAME: 'base_000000010000000000000006'
   # RECOVERY_TARGET_TIME: '2025-07-14 12:27:11' #date "+%Y-%m-%d %H:%M:%S"
 

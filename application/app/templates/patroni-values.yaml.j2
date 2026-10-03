@@ -12,6 +12,29 @@ postgres:
   {% endif %}
   BACKUP_ENABLE: 'false'
   DATABASE: "{{ (databases[0].name if databases and databases[0].name else 'postgres') }}"
+  initDbConfig: 
+    databases:
+{% for db in databases %}
+    - name: {{ db.name }}
+      poolMode: {{ db.poolMode | default('session', true) }}
+      primaryReadMode: {{ db.primaryReadMode | default(false) }}
+{% endfor %}
+
+    users:
+{% for user in users %}
+    - username: {{ user.username }}
+      password: "{{ user.password }}"
+      connectionLimit: {{ user.connectionLimit | default('null', true) }}
+      validUntil: "{{ user.validUntil | default('', true) }}"
+{% endfor %}
+
+    databaseAccess:
+{% for access in access %}
+    - username: {{ access.username }}
+      database: {{ access.database }}
+      accessLevel: {{ access.accessLevel }}
+      maxConnections: {{ access.maxConnections | default('null', true) }}
+{% endfor %}
 
 {% if walg or (project.enableMinio and minio) %}
 walg:
