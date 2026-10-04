@@ -1,0 +1,49 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: remote-ingest
+  namespace: monitoring
+  ingressClassName: traefik
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.middlewares: monitoring-ingest-auth@kubernetescrd
+spec:
+  tls:
+    - hosts:
+        - remote.adakpro.com
+      secretName: remote-adak-tls
+  rules:
+    - host: remote.adakpro.com
+      http:
+        paths:
+          - path: /loki/api/v1/push
+            pathType: Prefix
+            backend:
+              service:
+                name: loki-write
+                port:
+                  number: 3100
+          - path: /prometheus/api/v1/push
+            pathType: Prefix
+            backend:
+              service:
+                name: mimir-distributor
+                port:
+                  number: 8080
+          - path: /tempo
+            pathType: Prefix
+            backend:
+              service:
+                name: tempo-distributor
+                port:
+                  number: 3100
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: tempo-distributor
+                port:
+                  number: 4317   # OTLP/gRPC

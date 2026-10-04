@@ -1,0 +1,74 @@
+
+replicas: 1
+
+adminPassword: "adminadmin123"
+
+# Ingress کاملاً سازگار با ورژن 10.x
+ingress:
+  enabled: true
+  ingressClassName: traefik
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+  hosts:
+    - grafana.dbaas.site
+  tls:
+    - hosts:
+        - grafana.dbaas.site
+      secretName: grafana-tls
+
+# این دو خط حیاتی هستن (بدون اینا همون ارور قبلی می‌ده)
+sidecar:
+  datasources:
+    enabled: true
+    label: grafana_datasource
+    labelValue: "1"
+  dashboards:
+    enabled: true
+    label: grafana_dashboard
+    labelValue: "1"
+
+# دیتاسورس‌های Mimir + Loki + Tempo
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: Mimir
+        type: prometheus
+        url: http://mimir-gateway.monitoring.svc.cluster.local/prometheus
+        access: proxy
+        isDefault: true
+      - name: Loki
+        type: loki
+        url: http://loki-gateway.monitoring.svc.cluster.local
+        access: proxy
+        jsonData:
+          httpHeaderName1: "X-Scope-OrgID"
+        secureJsonData:
+          httpHeaderValue1: "1"
+      - name: Tempo
+        type: tempo
+        url: http://tempo-query-frontend.monitoring.svc.cluster.local:3200
+
+# تنظیمات اضافی برای پایداری و زیبایی
+grafana.ini:
+  server:
+    root_url: https://grafana.dbaas.site
+  auth:
+    disable_login_form: false
+  security:
+    disable_gravatar: true
+
+persistence:
+  enabled: true
+  storageClassName: standard
+  size: 1Gi
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 1Gi
+  requests:
+    cpu: 500m
+    memory: 512Mi

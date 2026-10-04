@@ -1,0 +1,16 @@
+minio:
+  enabled: false
+tempo:
+  storage:
+    trace:
+      backend: s3
+      s3:
+        bucket: tempo-traces
+        endpoint: minio.monitoring.svc:9000
+        insecure: true
+traces:
+  otlp:
+    grpc:
+      enabled: true
+    http:
+      enabled: true
