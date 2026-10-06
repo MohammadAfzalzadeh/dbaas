@@ -1,0 +1,88 @@
+{
+  "uid": "dbaas-backup-recovery",
+  "title": "DBaaS / backup-recovery",
+  "schemaVersion": 39,
+  "version": 1,
+  "tags": [
+    "dbaas",
+    "lab-evidence"
+  ],
+  "timezone": "utc",
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "refresh": "10s",
+  "templating": {
+    "list": [
+      {
+        "name": "DS_PROMETHEUS",
+        "type": "datasource",
+        "query": "prometheus",
+        "current": {
+          "text": "Prometheus",
+          "value": "prometheus"
+        }
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 99,
+      "type": "text",
+      "title": "Scope",
+      "gridPos": {
+        "x": 0,
+        "y": 24,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "Disposable lab metric scope. PostgreSQL panels use Patroni, not a SQL exporter. Backup panels show Job outcomes, not backup age or recoverability. API panels show replica readiness, not HTTP operation health."
+      }
+    },
+    {
+      "id": 1,
+      "title": "Backup Job completions (Kubernetes)",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "kube_job_status_succeeded{job_name=~\"lab-backup-.*\"}"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Backup Job failures (Kubernetes)",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "kube_job_status_failed{job_name=~\"lab-backup-.*\"}"
+        }
+      ]
+    }
+  ]
+}

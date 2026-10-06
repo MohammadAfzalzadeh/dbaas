@@ -1,0 +1,88 @@
+{
+  "uid": "dbaas-dbaas-control-plane",
+  "title": "DBaaS / dbaas-control-plane",
+  "schemaVersion": 39,
+  "version": 1,
+  "tags": [
+    "dbaas",
+    "lab-evidence"
+  ],
+  "timezone": "utc",
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "refresh": "10s",
+  "templating": {
+    "list": [
+      {
+        "name": "DS_PROMETHEUS",
+        "type": "datasource",
+        "query": "prometheus",
+        "current": {
+          "text": "Prometheus",
+          "value": "prometheus"
+        }
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 99,
+      "type": "text",
+      "title": "Scope",
+      "gridPos": {
+        "x": 0,
+        "y": 24,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "Disposable lab metric scope. PostgreSQL panels use Patroni, not a SQL exporter. Backup panels show Job outcomes, not backup age or recoverability. API panels show replica readiness, not HTTP operation health."
+      }
+    },
+    {
+      "id": 1,
+      "title": "API deployment available replicas",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "kube_deployment_status_replicas_available{deployment=\"dbaas-backend\"}"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "API desired replicas",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "kube_deployment_spec_replicas{deployment=\"dbaas-backend\"}"
+        }
+      ]
+    }
+  ]
+}

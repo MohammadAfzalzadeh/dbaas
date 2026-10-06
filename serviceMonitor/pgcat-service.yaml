@@ -17,19 +17,3 @@ spec:
     - port: metrics
       interval: 30s
       path: /metrics   # pgcat metrics path
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: pgcat-metrics
-  namespace: dbaas
-  labels:
-    application: pgcat
-    type: monitoring
-spec:
-  ports:
-    - name: metrics
-      port: 9898       # pgcat default metrics port
-      targetPort: 9898
-  selector:
-    app: proxy

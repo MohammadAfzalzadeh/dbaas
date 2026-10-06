@@ -10,27 +10,11 @@ spec:
     matchLabels:
       application: patroni
       type: monitoring
+      monitoring-role: member
   namespaceSelector:
     matchNames:
       - dbaas
   endpoints:
-    - port: metrics
+    - port: patroni
       interval: 30s
       path: /metrics
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: patroni-metrics
-  namespace: dbaas
-  labels:
-    application: patroni
-    type: monitoring
-spec:
-  ports:
-    - name: metrics
-      port: 8008
-      targetPort: 8008
-  selector:
-    application: patroni
-

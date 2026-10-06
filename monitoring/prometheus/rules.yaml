@@ -1,0 +1,67 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: dbaas-platform
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  groups:
+    - name: dbaas-platform
+      rules:
+        - alert: PostgreSQLProcessUnavailable
+          expr: patroni_postgres_running == 0
+          for: 2m
+          labels:
+            severity: critical
+          annotations:
+            summary: Patroni reports that PostgreSQL is not running
+            runbook_url: docs/operations/monitoring-runbooks.md
+        - alert: PatroniNoLeader
+          expr: sum by (scope) (patroni_primary * patroni_postgres_running) == 0
+          for: 2m
+          labels:
+            severity: critical
+          annotations:
+            summary: No running primary among scraped members
+            runbook_url: docs/operations/monitoring-runbooks.md
+        - alert: PatroniReplicaNotStreaming
+          expr: (patroni_replica == 1) and (patroni_postgres_streaming == 0)
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: Replica is not streaming; inspect archive recovery and timeline
+            runbook_url: docs/operations/monitoring-runbooks.md
+        - alert: PgCatUnavailable
+          expr: kube_deployment_status_replicas_available{deployment=~".*pgcat-proxy-deployment"} < 1
+          for: 2m
+          labels:
+            severity: critical
+          annotations:
+            summary: No ready PgCat deployment replica; readiness includes a SQL check
+            runbook_url: docs/operations/monitoring-runbooks.md
+        - alert: PgCatMetricsUnavailable
+          expr: up{service=~".*pgcat.*", endpoint="metrics"} == 0
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: PgCat metrics endpoint cannot be scraped; SQL availability needs a separate check
+            runbook_url: docs/operations/monitoring-runbooks.md
+        - alert: BackupJobFailed
+          expr: kube_job_status_failed{job_name=~".*backup.*|.*exec-script.*"} > 0
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: A backup Job reports a failed pod; inspect completion and WAL-G catalog
+            runbook_url: docs/operations/monitoring-runbooks.md
+        - alert: ControlPlaneReplicaUnavailable
+          expr: kube_deployment_status_replicas_available{deployment="dbaas-backend"} < 1
+          for: 2m
+          labels:
+            severity: critical
+          annotations:
+            summary: No available DBaaS API deployment replica
+            runbook_url: docs/operations/monitoring-runbooks.md
