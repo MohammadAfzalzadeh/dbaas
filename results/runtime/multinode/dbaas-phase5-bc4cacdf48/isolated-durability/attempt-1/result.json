@@ -1,0 +1,28 @@
+{
+  "archive_reads_disabled": true,
+  "archive_writes_disabled": true,
+  "classification": "LIVE VALIDATED",
+  "lifecycle": [
+    "bootstrap restore",
+    "reach target",
+    "promote",
+    "detach from source archive",
+    "independent operation"
+  ],
+  "replica_state": "NOT APPLICABLE: one-member restore target",
+  "restarts": [
+    {
+      "classification": "LIVE VALIDATED",
+      "duration_seconds": 13.900558183901012,
+      "restart": "graceful"
+    },
+    {
+      "classification": "LIVE VALIDATED",
+      "duration_seconds": 11.970331574906595,
+      "restart": "abrupt"
+    }
+  ],
+  "source_future_row_excluded": true,
+  "source_unchanged": true,
+  "target": "isolated-48556a"
+}

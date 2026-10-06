@@ -1,0 +1,11 @@
+{
+  "scope": "staged diagnostic lab",
+  "inotify_original": 128,
+  "temporary_limit": 1024,
+  "bootstrap_repairs": [
+    "Workers containerd/kubelet restarted after inotify adjustment",
+    "Calico manifest reapplied without workload namespace override"
+  ],
+  "harness_fixed_for_future_runs": true,
+  "premature_baseline_invocation": "Failed because client pod was not yet created; rerun only after provision stage completed"
+}

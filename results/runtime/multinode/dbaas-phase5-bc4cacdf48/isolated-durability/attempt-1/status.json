@@ -1,0 +1,7 @@
+{
+  "wal": {
+    "detail": "Switched segment observed in pg_stat_archiver and object storage",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:57:03.419644+00:00"
+  }
+}

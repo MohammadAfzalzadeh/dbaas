@@ -1,0 +1,66 @@
+{
+  "backup": {
+    "detail": "Official CronJob-derived Job, WAL-G listing and S3 objects verified",
+    "duration_seconds": 3.21,
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:43:21.351067+00:00"
+  },
+  "backup_during_writes": {
+    "status": "NOT RUN"
+  },
+  "connectivity": {
+    "detail": "kube-proxy/CoreDNS available; API ready",
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:40:49.717942+00:00"
+  },
+  "network_policy": {
+    "status": "NOT RUN"
+  },
+  "node_drain": {
+    "status": "NOT RUN"
+  },
+  "patroni": {
+    "detail": "Exactly one primary and one streaming replica; role endpoints match",
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:43:14.803979+00:00"
+  },
+  "pgcat": {
+    "detail": "Independent client authenticated through PgCat Service; backend observations recorded",
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:43:17.209205+00:00"
+  },
+  "pgcat_restart": {
+    "status": "NOT RUN"
+  },
+  "pitr": {
+    "status": "FAIL",
+    "timestamp": "2026-10-03T09:48:28.327478+00:00"
+  },
+  "postgresql": {
+    "detail": "Readiness observation after API completion; not total bootstrap time",
+    "duration_seconds": 0.211,
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:43:14.282281+00:00"
+  },
+  "primary_failover": {
+    "status": "NOT RUN"
+  },
+  "provisioning": {
+    "duration_seconds": 144.184,
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:43:13.902297+00:00"
+  },
+  "replica_failure": {
+    "status": "NOT RUN"
+  },
+  "sql": {
+    "detail": "Baseline row matches through PgCat, primary and replica",
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:43:17.955430+00:00"
+  },
+  "wal": {
+    "detail": "Switched segment observed in pg_stat_archiver and object storage",
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:43:26.877828+00:00"
+  }
+}

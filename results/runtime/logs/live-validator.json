@@ -1,0 +1,4 @@
+{
+  "output": "cluster: PASS dbaas-smoke/smoke-patroni\n",
+  "status": "PASS"
+}

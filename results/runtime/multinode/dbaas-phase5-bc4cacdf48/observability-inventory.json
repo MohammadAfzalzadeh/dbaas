@@ -1,0 +1,174 @@
+[
+  {
+    "component": "PostgreSQL process/WAL state",
+    "metrics": [
+      "patroni_postgres_running",
+      "patroni_xlog_replayed_location"
+    ],
+    "missing": [],
+    "status": "AVAILABLE"
+  },
+  {
+    "component": "Patroni member state",
+    "metrics": [
+      "patroni_primary",
+      "patroni_postgres_streaming",
+      "patroni_dcs_last_seen"
+    ],
+    "missing": [],
+    "status": "AVAILABLE"
+  },
+  {
+    "component": "PgCat transactions/queries",
+    "metrics": [
+      "pgcat_stats_total_xact_count",
+      "pgcat_stats_total_query_count"
+    ],
+    "missing": [],
+    "status": "AVAILABLE"
+  },
+  {
+    "component": "Backup Job outcomes",
+    "metrics": [
+      "kube_job_status_succeeded",
+      "kube_job_status_failed"
+    ],
+    "missing": [],
+    "status": "AVAILABLE"
+  },
+  {
+    "component": "FastAPI deployment readiness",
+    "metrics": [
+      "kube_deployment_status_replicas_available"
+    ],
+    "missing": [],
+    "status": "AVAILABLE"
+  },
+  {
+    "component": "Kubernetes workloads",
+    "metrics": [
+      "kube_pod_status_ready",
+      "kube_deployment_spec_replicas"
+    ],
+    "missing": [],
+    "status": "AVAILABLE"
+  },
+  {
+    "component": "MinIO requests/health",
+    "metrics": [
+      "minio_api_requests_total",
+      "minio_cluster_erasure_set_health"
+    ],
+    "missing": [],
+    "status": "AVAILABLE"
+  },
+  {
+    "component": "PVC byte usage",
+    "metrics": [
+      "kubelet_volume_stats_used_bytes"
+    ],
+    "missing": [
+      "kubelet_volume_stats_used_bytes"
+    ],
+    "status": "MISSING"
+  },
+  {
+    "component": "PostgreSQL SQL exporter",
+    "status": "NOT IMPLEMENTED"
+  },
+  {
+    "component": "FastAPI HTTP operation metrics",
+    "status": "NOT IMPLEMENTED"
+  },
+  {
+    "component": "Backup age/recoverability gauge",
+    "status": "NOT IMPLEMENTED"
+  },
+  {
+    "component": "Loki/Fluent Bit delivery",
+    "status": "NOT IMPLEMENTED"
+  },
+  {
+    "component": "Unhealthy scrape targets",
+    "status": "BROKEN",
+    "targets": [
+      {
+        "error": "Get \"https://172.21.0.8:10257/metrics\": dial tcp 172.21.0.8:10257: connect: connection refused",
+        "labels": {
+          "endpoint": "http-metrics",
+          "instance": "172.21.0.8:10257",
+          "job": "kube-controller-manager",
+          "namespace": "kube-system",
+          "pod": "kube-controller-manager-dbaas-phase5-bc4cacdf48-control-plane",
+          "service": "obs-kube-prometheus-stack-kube-controller-manager"
+        }
+      },
+      {
+        "error": "Get \"http://172.21.0.8:2381/metrics\": dial tcp 172.21.0.8:2381: connect: connection refused",
+        "labels": {
+          "endpoint": "http-metrics",
+          "instance": "172.21.0.8:2381",
+          "job": "kube-etcd",
+          "namespace": "kube-system",
+          "pod": "etcd-dbaas-phase5-bc4cacdf48-control-plane",
+          "service": "obs-kube-prometheus-stack-kube-etcd"
+        }
+      },
+      {
+        "error": "Get \"http://172.21.0.8:10249/metrics\": dial tcp 172.21.0.8:10249: connect: connection refused",
+        "labels": {
+          "endpoint": "http-metrics",
+          "instance": "172.21.0.8:10249",
+          "job": "kube-proxy",
+          "namespace": "kube-system",
+          "pod": "kube-proxy-mmrbs",
+          "service": "obs-kube-prometheus-stack-kube-proxy"
+        }
+      },
+      {
+        "error": "Get \"http://172.21.0.5:10249/metrics\": dial tcp 172.21.0.5:10249: connect: connection refused",
+        "labels": {
+          "endpoint": "http-metrics",
+          "instance": "172.21.0.5:10249",
+          "job": "kube-proxy",
+          "namespace": "kube-system",
+          "pod": "kube-proxy-65nj4",
+          "service": "obs-kube-prometheus-stack-kube-proxy"
+        }
+      },
+      {
+        "error": "Get \"http://172.21.0.6:10249/metrics\": dial tcp 172.21.0.6:10249: connect: connection refused",
+        "labels": {
+          "endpoint": "http-metrics",
+          "instance": "172.21.0.6:10249",
+          "job": "kube-proxy",
+          "namespace": "kube-system",
+          "pod": "kube-proxy-fnwpp",
+          "service": "obs-kube-prometheus-stack-kube-proxy"
+        }
+      },
+      {
+        "error": "Get \"http://172.21.0.7:10249/metrics\": dial tcp 172.21.0.7:10249: connect: connection refused",
+        "labels": {
+          "endpoint": "http-metrics",
+          "instance": "172.21.0.7:10249",
+          "job": "kube-proxy",
+          "namespace": "kube-system",
+          "pod": "kube-proxy-jd6r6",
+          "service": "obs-kube-prometheus-stack-kube-proxy"
+        }
+      },
+      {
+        "error": "Get \"https://172.21.0.8:10259/metrics\": dial tcp 172.21.0.8:10259: connect: connection refused",
+        "labels": {
+          "endpoint": "http-metrics",
+          "instance": "172.21.0.8:10259",
+          "job": "kube-scheduler",
+          "namespace": "kube-system",
+          "pod": "kube-scheduler-dbaas-phase5-bc4cacdf48-control-plane",
+          "service": "obs-kube-prometheus-stack-kube-scheduler"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "output": "{\"source\": \"cluster-a-patroni\", \"target\": \"review-clone\", \"namespace\": \"review\", \"backup\": \"base_000000010000000000000007\", \"target_utc\": \"2026-10-04T09:55:10+00:00\", \"source_mutations\": false, \"target_archiving\": false, \"execute\": true}\nTarget ready with source archive reads/writes disabled. Data verification and cutover remain separate operator actions.\n",
+  "rows": [
+    [
+      "A"
+    ]
+  ],
+  "target": "2026-10-04 09:55:10",
+  "source_rows": [
+    [
+      "A"
+    ],
+    [
+      "A-after-target"
+    ]
+  ]
+}

@@ -1,0 +1,21 @@
+NAME                                           READY   STATUS        RESTARTS   AGE     IP                NODE                                    NOMINATED NODE   READINESS GATES
+dbaas-backend-7948fcc64-77zwx                  1/1     Running       0          5m38s   192.168.173.197   dbaas-phase5-bc4cacdf48-control-plane   <none>           <none>
+lab-minio-minio-statefulset-0                  1/1     Running       0          5m31s   192.168.183.2     dbaas-phase5-bc4cacdf48-worker3         <none>           <none>
+lab-object-client                              1/1     Running       0          3s      192.168.173.198   dbaas-phase5-bc4cacdf48-control-plane   <none>           <none>
+lab-patroni-patronimvp-0                       1/1     Running       0          2m11s   192.168.200.69    dbaas-phase5-bc4cacdf48-worker          <none>           <none>
+lab-patroni-patronimvp-1                       1/1     Running       0          2m38s   192.168.71.6      dbaas-phase5-bc4cacdf48-worker2         <none>           <none>
+lab-patroni-patronimvp-2                       1/1     Running       0          2m25s   192.168.183.5     dbaas-phase5-bc4cacdf48-worker3         <none>           <none>
+lab-pgcat-pgadmin-deployment-5c849f7d5-7stcr   1/1     Running       0          3m52s   192.168.200.68    dbaas-phase5-bc4cacdf48-worker          <none>           <none>
+lab-pgcat-proxy-deployment-5584b97bbd-7lpft    2/2     Running       0          98s     192.168.183.7     dbaas-phase5-bc4cacdf48-worker3         <none>           <none>
+lab-pgcat-proxy-deployment-5584b97bbd-ltpp5    2/2     Running       0          119s    192.168.200.70    dbaas-phase5-bc4cacdf48-worker          <none>           <none>
+lab-pgcat-proxy-deployment-69cd79c4cc-k7l7z    2/2     Terminating   0          3m52s   192.168.71.5      dbaas-phase5-bc4cacdf48-worker2         <none>           <none>
+lab-sql-client                                 1/1     Running       0          3s      192.168.173.199   dbaas-phase5-bc4cacdf48-control-plane   <none>           <none>
+persistent-client                              1/1     Running       0          1s      192.168.173.200   dbaas-phase5-bc4cacdf48-control-plane   <none>           <none>
+NAME                                    STATUS   ROLES           AGE     VERSION
+dbaas-phase5-bc4cacdf48-control-plane   Ready    control-plane   9m39s   v1.30.0
+dbaas-phase5-bc4cacdf48-worker          Ready    <none>          9m19s   v1.30.0
+dbaas-phase5-bc4cacdf48-worker2         Ready    <none>          9m19s   v1.30.0
+dbaas-phase5-bc4cacdf48-worker3         Ready    <none>          9m19s   v1.30.0
+NAME                  MIN AVAILABLE   MAX UNAVAILABLE   ALLOWED DISRUPTIONS   AGE
+lab-patroni-patroni   N/A             1                 1                     4m37s
+lab-pgcat-pgcat       N/A             1                 1                     119s

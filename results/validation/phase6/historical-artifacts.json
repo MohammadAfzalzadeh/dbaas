@@ -1,0 +1,1678 @@
+[
+  {
+    "path": "results/runtime/summary.md",
+    "sha256": "f0745ea020df0208efe4c3be5e15bc6951243468ecaa4ffe564f4df191de728c"
+  },
+  {
+    "path": "results/runtime/status.json",
+    "sha256": "377ad90a07328567175330f2fb54d8e5dbb6d76817749edc6faf2ad95d23d096"
+  },
+  {
+    "path": "results/runtime/environment.json",
+    "sha256": "7a3098268405ec731d94083c69475b29bbe6f10a873d62e1b06c9a21db54a47a"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/mixed-25-pgcat.txt",
+    "sha256": "b9f5a3b177b77933722572f9a4865ede81dff54da2a13bd69da3b4a9a7e49861"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/failover-load.json",
+    "sha256": "58afd4c4d39db1782979e0e5436e3952bda55924d241a28c9fb3eddb03cbe682"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/read-heavy-25-direct.txt",
+    "sha256": "63849e2316c4e690577a55baf7cfb29e87220eb3e58c6264ae90ffb75935bbd5"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/write-heavy-25-pgcat.txt",
+    "sha256": "a318f5ff304ee08c8e4c7e24449a6b03e491e4888bf11665dc66636f6968d10e"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/write-heavy-50-direct.txt",
+    "sha256": "f1a672555786f3905aa1d26e1fd8a37f306f78a65078ff0209f135e9b262e7f5"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/read-heavy-1-direct.txt",
+    "sha256": "f611a8d84027d868b0bc801adc7ef2323bd5936806341db5c3a8a2ed34c57d1d"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/restore-sizes.json",
+    "sha256": "e7c57360cd8250fc1e770ca6916b5aeb9d5ff2a3aa297467a86b9bcd79679d3c"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/read-heavy-25-pgcat.txt",
+    "sha256": "e42d133485305dc0dce35ac3e2a49e1d0c84a219c32a1ceb355ec7550fca1f34"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/mixed-1-direct.txt",
+    "sha256": "1c2a201773079489a22f21b4d1f68a07c997cb3440a97f978068251977ca1415"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/read-heavy-50-direct.txt",
+    "sha256": "a17da8081fc2db24848592c76aa9b64f0c0c47e3abe9edb464233088932a1a37"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/backup-impact.json",
+    "sha256": "d068389d12e9a932c6516285acf880d0120ba7574d6734b0af39fd6c090c4901"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/backup-impact-False.txt",
+    "sha256": "b340e3bdaa82caf19795dba85d9604363fcd54924c11f9b0080eacb4384e64a9"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/mixed-25-direct.txt",
+    "sha256": "97a7780f11dce53380ebf6a64ef2da21daba3f302f7f4deb55e4ee6c08160fa8"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/read-heavy-1-pgcat.txt",
+    "sha256": "45c6dbff4289cb57356c84bf4b9e0c6920feb8a11ccbfa67420af21a2c07dbd0"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/write-heavy-1-pgcat.txt",
+    "sha256": "df5c44e1957b8a05d5cf2e138ef3b5807c96ff0d829786478a23e6da814bddd1"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/write-heavy-25-direct.txt",
+    "sha256": "ad953f6a0e01cb41db8d1d904134b83cf05b44fcbefcb1ef2db62357a19b907c"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/pgbench.json",
+    "sha256": "e5ca4a63438818271199b26e45f7a083c85f5c26d7fc4f690cca74d49134d972"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/mixed-50-pgcat.txt",
+    "sha256": "41d768d291881089732aaf0df6130c3ee50680462f824d7ed08ebda5a10523b7"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/mixed-10-pgcat.txt",
+    "sha256": "2e465dbc1b30413eeee22a22a17f017fa8e5d155178a6951bf000a04c939d880"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/backup-impact-True.txt",
+    "sha256": "318cf962e75b752cba1595303ee04560eb43daf2622bb63d5510452d62b0fbe1"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/read-heavy-10-direct.txt",
+    "sha256": "f2646b53983ccfe7a4c8a916f744418496faaa9d1d314840f2e8575c3ed45f2c"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/read-heavy-10-pgcat.txt",
+    "sha256": "e417e6428b6af2ff20e737519e6fbd2c246e557daa9ea0dd6ef760583adba5a0"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/write-heavy-10-direct.txt",
+    "sha256": "2b0e3488fa3efcd00afd3284ad047ad4c1cc1cf0d55bf5c6952a9cd6d0ff6008"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/write-heavy-50-pgcat.txt",
+    "sha256": "db2013a94832a012e541574ed70c4f92362878a94dfa649e2b54e27fe05bae89"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/mixed-1-pgcat.txt",
+    "sha256": "d8fb33b242566b2848613020a7b323ffe6b69624c4383977f84ef1e310130331"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/read-heavy-50-pgcat.txt",
+    "sha256": "0eea30d5b3d199c840e386da7afb4fc3ab79956d11b391cf9eb9a4373c7ccee8"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/write-heavy-1-direct.txt",
+    "sha256": "100051820969499ab80f936734f77b71f4900b1d3c63c6e5502cde8e23a85d2a"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/write-heavy-10-pgcat.txt",
+    "sha256": "2c6d4bb41f6a29cb8f033b24e09cfb2f6fc9edcb3994dad4b9fc0aac95c7a629"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/mixed-50-direct.txt",
+    "sha256": "e502ab84a3b118cfe81264fad125597e9078677f4f278662ae3a13bbe3e51b2b"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/mixed-10-direct.txt",
+    "sha256": "f76a47899737c2a0241831888c0a81b113ef451ba269d1fb04f0e281ec9d1370"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-25-pgcat.txt",
+    "sha256": "4433ca84e40affe66a7af9138710da6f1b0e27bca777d78db1a72ef9990d52b0"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-25-direct.txt",
+    "sha256": "6d907a56857eb7fdac8b6b2faac21aa2f2d51a06072a80ba1f98592e829cd5ed"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-25-pgcat.txt",
+    "sha256": "224b9096d1bb8dcf392e3473cf0ef56b0f423b409832eac8faff15fee649da82"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-50-direct.txt",
+    "sha256": "3c2d2e4041ef28b108495b363b73c4e4e0313c0d0c2c25d652713f7a7030f874"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-1-direct.txt",
+    "sha256": "f60a35a8e3843aeaa62c04b5d2a70f94b0cdeea56fdb279874e1ad1355204878"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-25-pgcat.txt",
+    "sha256": "621c69d92330bcdcfb84701dc47183f247801a6d6d541f3c7821cd812322332f"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/backup-resource-metrics.json",
+    "sha256": "b7739eaede44ef23145f3fd9d8a054bbd9be6b74554f19d99916136c7ec4e5fa"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-1-direct.txt",
+    "sha256": "b1cd25d01b3d39cee0880b427b22163d778b80d6ebbb9d58c2b80258f9886ddb"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-50-direct.txt",
+    "sha256": "0fdf4cb372711d64e47b1aee6a46545024e60c83773b02ecabe7962da6d45119"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/backup-impact.json",
+    "sha256": "4dfab82abcbee297fe439531684ca5084c95bd4aacecc08b7ea6b8a8bbf6ad75"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/backup-impact-False.txt",
+    "sha256": "763acafd6fd242979555e931b676d822b53d8b45e9521a168645fbaabe07bda6"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-25-direct.txt",
+    "sha256": "9a51c5ea0a8193509450aac8a41593c2e6031e769d96500baffd6cdd70cc9e09"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-1-pgcat.txt",
+    "sha256": "a7ee7806fafc04d7586d2dd682d712de4e2328377b12b24d2c490621b889b4de"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-1-pgcat.txt",
+    "sha256": "b83c3b73ca55e7efed4c8fabf7ebf272a6f0cf96536d0bd47bde6297a9f82dee"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-25-direct.txt",
+    "sha256": "a09655542a01e1f7fb9a539cbdc3a1d4a91b7c160812e63b3740394fd87aea62"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/pgbench.json",
+    "sha256": "751d96d38cc5131a05c39aa1e35d5eb6e10747d69fccf2e4d8240d5f31bae4bb"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-50-pgcat.txt",
+    "sha256": "14f6ba15d7eaf7f18104819c399b41138755870ff5005bb9655e1afa7cdd2fee"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-10-pgcat.txt",
+    "sha256": "cbd62874686ae581f8651bda57fa3003fbb7846019b5f9858be890cad3dca1d8"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/backup-impact-True.txt",
+    "sha256": "1c2ede261da58388b66ced9049a8efb0ca819f755fc4b982e0bba1faf050df2b"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-10-direct.txt",
+    "sha256": "43ac9faadde154b2bc2f5676fcc12cc407d58b61cdaed2ef87477a9c5f0ed1d2"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-10-pgcat.txt",
+    "sha256": "1525e44e4f2805eb91f73348203149ef5f3e8d9a41dd1d5b3d2f492e3c83dcfe"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-10-direct.txt",
+    "sha256": "376a3a00ebf550d144d043c5e2c503391d0212382fc79ba7d90e3ad8c383b479"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-50-pgcat.txt",
+    "sha256": "db654984950e310cac77a24ee06ca3faa8e2527ad29c514c9388f7f4d0d320d1"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-1-pgcat.txt",
+    "sha256": "33a690c3fe351777e05f7e46c8e30e164f62c7a6db9b133a8b09cff67419a635"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-50-pgcat.txt",
+    "sha256": "59f91a384253caf530ef32df861cff654179161d456adb0268c4ba0b827a95a1"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-1-direct.txt",
+    "sha256": "8ce2699ef8a12cd64f6269e5d96a53cce596a7d23730ee8a23026ea031c089ba"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-10-pgcat.txt",
+    "sha256": "30e048bdd47358c7bb9019632ef5630512372f9ed138fa1d3030575b20a61d42"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-50-direct.txt",
+    "sha256": "5380474166f9f896d3dad1e329bdd885adebfbb9ed5693b8c419f022b4a03031"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-10-direct.txt",
+    "sha256": "8c0bc620d47abb10ac44801126fc88914367e5fdb6f068c4983b242ee7242b3c"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/attempts/session-mode/read-heavy-1-direct.txt",
+    "sha256": "b3552b8c83a12e0c9d91b37a983d6dc32b8fac4fefe977e479254f0164943a09"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/attempts/session-mode/session-mode-reproduction.txt",
+    "sha256": "333756dc30c6a84f14639ed68b45b5557674c8bda02f2710f470f8ea75ce90b2"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/attempts/session-mode/read-heavy-1-pgcat.txt",
+    "sha256": "34c5cfde220eb781fb787584be1b3aa1edaa3ed936797d2dd3684aec22c2097e"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/attempts/session-mode/read-heavy-10-direct.txt",
+    "sha256": "f34217575f501e4faa39dd6df31a3bf4e5bfc0c5f5d63d25a7d002760f4e48c1"
+  },
+  {
+    "path": "results/benchmarks/dbaas-phase5-8a3ad9f385/attempts/session-mode/partial.json",
+    "sha256": "7e6c120d2239a6929f89e404bee49bf9abe950d222a8174811d24b3a8bfb3030"
+  },
+  {
+    "path": "results/runtime/patroni/primary-endpoints.json",
+    "sha256": "fdbf7016d8f20fabf7e4f556377f34f94663e84a32170c4f467aae38c09bfc4c"
+  },
+  {
+    "path": "results/runtime/patroni/replication.json",
+    "sha256": "be70a3462dc028d58ec08a059e1b40dfe447eeacb03bf0a0ff67f29b47951d1c"
+  },
+  {
+    "path": "results/runtime/patroni/members.json",
+    "sha256": "9e1c32782ac8acb7446677cd6fdc2c6f4b45b90593a78cb48471dedc8b55cf33"
+  },
+  {
+    "path": "results/runtime/patroni/replica-endpoints.json",
+    "sha256": "54296ca7609a009be9e407ede755ba84b0242fdaeb46ca161356d8083de54daf"
+  },
+  {
+    "path": "results/runtime/patroni/readiness.json",
+    "sha256": "b31370b36f3d1ff831491e974430a3a74c88df766617e7951d44f73bfe6f49c7"
+  },
+  {
+    "path": "results/runtime/pitr/result.json",
+    "sha256": "18f71f8bc49b959a0c5ea7ddb4f6ed9ee40210a2b4bb78034603a59fefb1cb1f"
+  },
+  {
+    "path": "results/runtime/pitr/command.json",
+    "sha256": "b6913d835b8361b1f64764d45342e426e1598528b690e0197e6f7f61ffbd7e9a"
+  },
+  {
+    "path": "results/runtime/pitr/attempt.json",
+    "sha256": "143fe0d1fd265aae22dd52f4eff711a637afad0978ffeb871518090e2b3d4fb7"
+  },
+  {
+    "path": "results/runtime/phase5-continuation/previous-evidence-sha256.json",
+    "sha256": "41936cef618cc179d5323621866719e50e7fa345b5653e7a95f74b8a354f7aa8"
+  },
+  {
+    "path": "results/runtime/attempts/README.md",
+    "sha256": "17551fd0afef5c922983959cd90a72259bb38f2dd72f33186e92a46714265fff"
+  },
+  {
+    "path": "results/runtime/sql/expected-final.json",
+    "sha256": "3d4b500da11509e5f61592872cceb383cafe1fccce048527033c1c4460ab50a1"
+  },
+  {
+    "path": "results/runtime/sql/routing.json",
+    "sha256": "366cc1062b984571ffe0a4047528f7499a477eabf535870d78eac0ac3d8306a0"
+  },
+  {
+    "path": "results/runtime/sql/expected-baseline.json",
+    "sha256": "03416572acb2a8fe2c00cacc86c87c9582107c9a214e39c7acccee5593233ca0"
+  },
+  {
+    "path": "results/runtime/provisioning/api-response.json",
+    "sha256": "a381f5910c854a28d7252a05e1eb52b0b034ebd20f21733a8683ea27ec77c287"
+  },
+  {
+    "path": "results/runtime/provisioning/releases.json",
+    "sha256": "be424dfc5987df70de0e6b1bad33ee94b1fa09b1a60a6facb034dc2cae29ef3a"
+  },
+  {
+    "path": "results/runtime/provisioning/secret-names.json",
+    "sha256": "ae49269064fe672d133902b2ac772f81fab95b78c63344e469297e49c8cef4d6"
+  },
+  {
+    "path": "results/runtime/provisioning/resources.json",
+    "sha256": "06b1fd38d50b39a547c5cae27935c8782413fba70934701e5ef228bfc06415e8"
+  },
+  {
+    "path": "results/runtime/backup/during-writes-job.txt",
+    "sha256": "4073726867099d3048311e6c526e1f2cbe124f095e23d46fbb1595150919ce01"
+  },
+  {
+    "path": "results/runtime/backup/wal.json",
+    "sha256": "d6c5bda8848ca81d466dd7c54a1717d56d3a5fb38640cefbc7de9db2eabec14f"
+  },
+  {
+    "path": "results/runtime/backup/during-writes.json",
+    "sha256": "f7fce905ee78275bb1b3cbe56f3cd3c3f43e33b7e4aa8d44d78a97367e394495"
+  },
+  {
+    "path": "results/runtime/backup/baseline-job.txt",
+    "sha256": "0655171c61bd6d5ec55ef3eb1f22e3f346a9e95eb11a0a0226c783739fc90b90"
+  },
+  {
+    "path": "results/runtime/backup/baseline.json",
+    "sha256": "bce4d7f133db4af7eff93c195776ec73695f572cfe7acd2b786d7499ae173040"
+  },
+  {
+    "path": "results/runtime/backup/concurrent-writes.json",
+    "sha256": "1c9ec192b81f888940626e8a24fc47ad2c28f7fc8377229b985a699529251d50"
+  },
+  {
+    "path": "results/runtime/backup/objects.json",
+    "sha256": "6af55f8d0d0dda81bf40661576829e7deb00b40797f1e9cf0c6081dafcc57154"
+  },
+  {
+    "path": "results/runtime/logs/cleanup.json",
+    "sha256": "865be0b9e149b8211f09519abfd4ea361dde755b48011e63d09fe3610edb8e54"
+  },
+  {
+    "path": "results/runtime/logs/api-connectivity-after.json",
+    "sha256": "699f564fdd2bb551fb848e308a55c17aa3ced46df2d888f8911a776188a6916e"
+  },
+  {
+    "path": "results/runtime/logs/validation.json",
+    "sha256": "bdfae32a564315c99aad461a897dd859a21c84f8f84a64ba1542bd896f3afd4a"
+  },
+  {
+    "path": "results/runtime/logs/live-validator.json",
+    "sha256": "5528c5dca7f3f18a61dd6d5773221a298ec2a5ad91e6dd1f6c1b7ddf8ef074b1"
+  },
+  {
+    "path": "results/runtime/logs/image-builds.json",
+    "sha256": "d8a692749680480238e58ae135f3d0a30168bdccc499050f78d3c0f125e15c93"
+  },
+  {
+    "path": "results/runtime/logs/recovery-service-recreation.json",
+    "sha256": "84e348da8522757de749560109bbaf1ec0f854f0538716d90713e714a01675bb"
+  },
+  {
+    "path": "results/runtime/logs/api-connectivity-before.json",
+    "sha256": "2bcbbab7a29338165810d4571241f626695b3a53fd2a0710bfc6c0857232ddc9"
+  },
+  {
+    "path": "results/runtime/logs/inotify-root-cause.json",
+    "sha256": "24e77206aa8126ccdacc52fd2359b71438b91e77418f83bbe2d8267f5c4a19de"
+  },
+  {
+    "path": "results/runtime/logs/kube-proxy-before.txt",
+    "sha256": "b4206185112b39b1442295a5f6450f09c0643c7e40ffe2aa894a05a742f80399"
+  },
+  {
+    "path": "results/runtime/logs/api-rbac.json",
+    "sha256": "b6d65130c3b70a4bf179fcc8d34171f7cfc3ea8e46686ea03c103b0996970278"
+  },
+  {
+    "path": "results/runtime/failover/pgcat_restart.csv",
+    "sha256": "dbd8a6ea3cc88bf924630bed98b5a8ce7e81034bdcc685877035d434c0a28c1c"
+  },
+  {
+    "path": "results/runtime/failover/primary_failover.json",
+    "sha256": "b94ab8e61bfeaaa9dfa2a5a3196c848c119c06b521160813e6445a09a9ab9b83"
+  },
+  {
+    "path": "results/runtime/failover/primary_failover.csv",
+    "sha256": "cdd2c0521de9ac8d502cac37aa7a787294cc0d3f6a88f5ad5273e19e49f36e6f"
+  },
+  {
+    "path": "results/runtime/failover/replica_failure.json",
+    "sha256": "0bd7def3e86d6ec6abde593e68684161482095be1e1a91798947042091ccffb6"
+  },
+  {
+    "path": "results/runtime/failover/pgcat_restart.json",
+    "sha256": "e735f1b96ea74401c4274fdec1b06d0def0080ea33fb6bc9216bb5392fcb2c03"
+  },
+  {
+    "path": "results/runtime/failover/replica_failure.csv",
+    "sha256": "acb23257880dfeb6a99e209ff93b5b2a858f78e2837641d4302573490e466236"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/pgcat-abrupt.json",
+    "sha256": "774ededd93914a8cb2b1dcba41b9a89b3cbb4d5f997b9ec2ddcf9cf327637c6e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/final-topology.txt",
+    "sha256": "7c36f742a444a063123a838999f021303aed553257cce8490127417a915ff825"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/cleanup.json",
+    "sha256": "6e0aff76e178edd10b864b93ed973698f65ec21b3ceb9cb779c164247169c55f"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/bootstrap-notes.json",
+    "sha256": "e82451dce84f95a53e7ec4555b2ddcd5ec1b37e3c1832bafb909ec4b937a9cf4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/after-manual-reinitialization.json",
+    "sha256": "adf41a4324a536fc150487b999cac4044e366bdaf7156d293c3fb1a176461e42"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/persistent-pgcat-abrupt.json",
+    "sha256": "6a332d440954d8156017c6077e5b1941915a1b54135e9b05d10cc9706b3cccb4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/lab-patroni-patronimvp-1-recovery-errors.json",
+    "sha256": "dfe7332272237dd2784f1809769e015a6c11ba897f645c1010cbf613e69f025a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/before-drain-primary.txt",
+    "sha256": "b6e70f50f01ad56d4ee0bb39aa5bc2eca13542f132c9f50a08379b0be4e2b710"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/persistent-node-loss.json",
+    "sha256": "f11a228a8265e51a2f6a98c49b9b29a9c03a05fd22aebd1c961faf0a82ded693"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/benchmark-pool-mode.json",
+    "sha256": "d004b1b8dba01690cb2763b42c437fb89ee3bc972e7fb4bbbd585a0d983d79ce"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/prometheus-targets.json",
+    "sha256": "08701983e90d2651eede27315b9057a1e6ea05a68fff93b15ae42f1b804bf874"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/isolated-423c29-patronimvp-0-recovery-errors.json",
+    "sha256": "426de854b750fdabf58965aaf394f2ab8874f645cbbd2884212ed1c7fe35965d"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/metric-families.json",
+    "sha256": "8474ae3928b6cf017454a67f9e9a894569f88555b74e32af11dba081450364dd"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/isolated-restart.json",
+    "sha256": "dfcb967648202369d61cbb1dd77ab27a8f75ff35ecbaf8887c66696be19dbd67"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/prometheus-rules.json",
+    "sha256": "8857351b35ab199c0a29b4084874bd47a9891cb58000233096c5971bd602ae4e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/metrics-pgcat.txt",
+    "sha256": "68a5de9aac47c3894e317373c7f910f0cedd2d067e3653ec181e56dd534380a0"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/before-drain-primary.json",
+    "sha256": "e46bf128dc768474563f84ededdcc0a01c9e1f9beb76da5aee7bda178ec3009b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/cni-source.json",
+    "sha256": "d69631d01e14d71b4fb0d303917c7ca312111d1406075181d3296598d9b6d6b7"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/persistent-pgcat-delete.json",
+    "sha256": "b11b0c3b68da64779a2e8d960791dbdad922d54bc9bc3d07f3b1ed7963c9cbb6"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/provisioning.json",
+    "sha256": "d86d8d0919b81dcd952336903ee932ea4c08a80aaf8f242bdfd08add0bc88a62"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/drain-replica.json",
+    "sha256": "8da6102473c6bd8d9a6624c968ad9e5a27c61f0d195588d9b29ef1ab7d5c0c5e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/alert-transitions.json",
+    "sha256": "1079a03e9dbf5a525b51f4f3c2e81881f6e777f374ed0f7ef2975a4c8ac9c86f"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/persistent-drain-primary.json",
+    "sha256": "54c817504e6cd8be157cc5aa65a0d0dfeb87bd56f832bb882a7cb018356aa965"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/summary.md",
+    "sha256": "1ae2e06bd1ae663857026a969cce44f46ea2eca5eb9f8b415ba5c9aed649f8c0"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/isolated-restore.json",
+    "sha256": "296fb0e1116edcb34d93d93419de436bc52e70f73d11b96f322ab10635467965"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/status.json",
+    "sha256": "f62e0a7a5f57bfe33738322f4b67fb29794e036e3174d153f2f00a2b95399eb8"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/final-topology.json",
+    "sha256": "e975b7359b52f7c40ad8bd572ab037154e93c57cf4d8fc0a70cd065f41cf96fa"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/servicemonitors.json",
+    "sha256": "1f61221204d2f833b14dc76ecf38da1b3382d4a4b3e29e32bfc3953d3a6d30be"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/baseline.json",
+    "sha256": "a1fc4d447d02f1cb90ddb4619bb2ee81200493de34f91f0a87607da9b4cb01b5"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/metrics-patroni.txt",
+    "sha256": "a3c0b7cc6c6478a85bb76064fd20eaca3bb2e46b6d0cbac198adcdffe31aaaf4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/pgcat-ha.json",
+    "sha256": "8bd2bed3985fd79edb572d1eeebbdb25d3f5b2795cc6f56ead6e3051d9e80cad"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/initial-topology.txt",
+    "sha256": "b3d74bb9c00a9c5dde6e6d9fc94b2ef4bf0e3991354254e9cc7bf65a23ddd83b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/replica-recovery-diagnostic.json",
+    "sha256": "4962d7fb569a8670b18e7102d731d6e79575104fee845301ea01ec4b609771bb"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/service-distribution.json",
+    "sha256": "03ce79a3cedd0d77d8e4d7dc4149146e075a0f36193337adab3e5a8608181aec"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/after-manual-reinitialization.txt",
+    "sha256": "3e4c7bf1ce59dda515e4221e94334d6563adf44be23360df852ec37e1bda286b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/before-drain-replica.json",
+    "sha256": "f6892d683f85f8840c310aa7a74f3f5e1957f8e997e829ca337c1b6b72b247b6"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/upgrades.json",
+    "sha256": "79a12b05ab29f4c5a78a9d10502688e2eee0a5edea22a2db4022ed056db3025c"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/environment.json",
+    "sha256": "c96474e884d16cca058c2145ecf3cb4a6c090c4bad2a59bf9f51d4ae84f28b14"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/node-loss.json",
+    "sha256": "9d92a308dac80e6dd5549a1084d740592a5ae99c3fd43e5efd2f9f3d0aa57aab"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/observability-inventory.json",
+    "sha256": "81882d56e6ad197c3c578da5833f5bb3af028eae5b8e8f38183b7f1c7dd80073"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/persistent-drain-replica.json",
+    "sha256": "86bb29813fbcb20366db42d9f70cf509ca484d675d1a850204f27b9db1be28c4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/grafana-loaded-dashboards.json",
+    "sha256": "8ec490fd862aff24631121de1cd6ee4b9764060f663cc6da0e1b94a2f50e427b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/initial-topology.json",
+    "sha256": "a07b8c760133fb5d71174b11d27bb252fee13c7ce0f3bd80b4c233a7e99c4ab3"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/persistent-revision-rollout.json",
+    "sha256": "66db09bd02579b93c652d874d9f82277741cb2fb171e5957855b941350931256"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/network-policy.json",
+    "sha256": "22348afc27980a34a96d0c10e12641a861151c7a7fc992724f7b3602cb6cf6e6"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/dashboard-queries.json",
+    "sha256": "afed63f1f7b251256ea4d8168e6fce78270c671509c1eb854d74f62f5fe9caf6"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/rotation.json",
+    "sha256": "9680970f478be4708fe58c720a733a6bf08f5b11f99af86d8ded6d220b3523df"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/drain-primary.json",
+    "sha256": "2eeb425612cc5ca3df50de7b52831bf922a4716d712a2065423243dc7e29a21e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/before-drain-replica.txt",
+    "sha256": "c09441b0350d27ee619edf7bd432c268597680d7035ea80db1f40f04157a77e9"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/recovery-followup.json",
+    "sha256": "af9961fc05fb591919cfcce12209d53f892f1955e77a4ec564118688c215e4b9"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/final-topology.txt",
+    "sha256": "18a78c5c2a8296f6881c7fcfc40b7b18ad66d1da27820b26ed3028e27b41fe96"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/cleanup.json",
+    "sha256": "78089012558f38e748d02d5f4ddbf28a869054fff7c5809bf92a557e5ba24fbb"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/watcher-exit-codes.json",
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-graceful-process-states.json",
+    "sha256": "d66573157ea497e476e0c37d4fd588110f4c86c8e88e5e691387b0af43117082"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/setup-minio-retry.json",
+    "sha256": "8cd94d113955bf5f3c39c3bb4474b80c91f6ccc019e969b52b526dab87808eb0"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/redaction-notes.json",
+    "sha256": "9c652431b54925e9c4d75ddb59d212b4ef76af571256af44452d19aef19cb49a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/benchmark-capacity.json",
+    "sha256": "083a5a26645ef5e56faf011850b8ef929158c6411bd16e493be5e128f7b63edb"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/final-metric-families.json",
+    "sha256": "1ca524a332becf8727da592dd4b08f74232d1d528a2dda75d00e963725c8e0f7"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/admission-validation.json",
+    "sha256": "3220d12e6b1fee66ea48514792f605ff03f6e5dfa0e04739f47864a59c5d3e62"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/prometheus-targets.json",
+    "sha256": "3327c48b231f420cfce7c8b7098b8cd8d382c184b3f0c37d8e8ab75992f3c65b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-termination-initial.json",
+    "sha256": "d978242fb85a912cdb8a75b0daebcad1c89b4a68af50a5021cd400eca7defb1e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/metric-families.json",
+    "sha256": "d942ccad5d5a8c6a9fcd7386c8076fb0a1641509c9a1b17db0cb9f85034c9885"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/metrics-pgcat.txt",
+    "sha256": "e0bf94d491f51b0bdb0f7ffcf8f3ef6bcb25f8db5bedcf0aa42af82ff6da3018"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/cni-source.json",
+    "sha256": "d69631d01e14d71b4fb0d303917c7ca312111d1406075181d3296598d9b6d6b7"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/failover-windows.json",
+    "sha256": "4d0dd044ebf51748b7b62476ebf05b990fe47eb43113c6ee1c14a0d4d1efd74a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/provisioning.json",
+    "sha256": "5fce849a0b63ad261beaaf2d4f3b9550b7615ca91610caa4e09eb23b51baea31"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-transitions.json",
+    "sha256": "ab3c20b49502c8d9868544973a58ee9b493d5ee67c344656b6e76ecb4fafa790"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/final-prometheus-targets.json",
+    "sha256": "14e98357618b7df91f50aa06b82542d318a423db5daf3e5c7cf0f1f5613f05fd"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/evidence-index.json",
+    "sha256": "7c4c1fc4dccc1bd53e2a1c26ae3601a1f84b5a0bc5b8f1f79dca181435e0e86a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/summary.md",
+    "sha256": "f8f7c2ada7bf98366816ef00bd86ea8b3bf71174846f4b4be0d6ed3b017d8b4c"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-exit-codes.json",
+    "sha256": "569c8fc283d3f26be61417e852abccc958ebaf91e24581a468fa86c4b2427f14"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/isolated-restore.json",
+    "sha256": "e1af254177f601aa83ecc3b315522594acafdf4d2737e3b11b944890fd4e35c5"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/status.json",
+    "sha256": "8ff577328ae0b2e097811aee5d3cdb250ffd8296a7e6f96103a17f25760c4a39"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/final-topology.json",
+    "sha256": "06030b182394b079b9191c6b7494c9d5152cfcfd5fb9d166a0515d1aeb9cb416"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/servicemonitors.json",
+    "sha256": "2b006340454cdbdd253c9c0a3ac940c96b02b784b4a2c5102bd9d85ef968cb5e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/baseline.json",
+    "sha256": "c423ff6dd4b91b90c56c992470f2cb2865b9e4dbe3a69f99c42a3ff19ef80dd8"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/metrics-patroni.txt",
+    "sha256": "85fd98548c25687a7a1f2d41bad3cffd795f91b9d94098d159f6358e6b00b01e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/initial-topology.txt",
+    "sha256": "63e379912767918c361f6c1d026d16484d5602411ed126e9c93b2ed357ae6128"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/service-distribution.json",
+    "sha256": "c2e059cc353942124679517ac8f79f3d162e653093c541ae64afe68a01d89bdf"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/environment.json",
+    "sha256": "68ddd4504b4ac2927764ac07b4b4e5c38fc8aeeb004a1fedf9e30e60d9e3b9d3"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-termination-log.json",
+    "sha256": "a163b5e923dab9c2bb56327d725b32514d31f0402be517ca688a74ccf987cf83"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/final-clone-check.json",
+    "sha256": "9fff81c9e96ea8a1b099601ae9d0baea0584611cdb5b62b65d5eafdb07162ba4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/observability-inventory.json",
+    "sha256": "4c081a16e19cab88f200cab6baca3224d5c050f83ea985fd4952c4e5f1992dca"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/grafana-loaded-dashboards.json",
+    "sha256": "8ec490fd862aff24631121de1cd6ee4b9764060f663cc6da0e1b94a2f50e427b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/initial-topology.json",
+    "sha256": "41d5efb38b588ba347677ec0a1ae49de5b72f2896073099296b3f21e8db8ad0f"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/network-policy.json",
+    "sha256": "913f301eacfa443d6ac0c24fdbcc60da4adbaf7147c61556752cb5d45433bd6e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/dashboard-queries.json",
+    "sha256": "bb94a57486a9dece8b231a1699838f2ac1357142a0c0ddb0e17cec5b414b136a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/promtool-regression.json",
+    "sha256": "991cddaa7bca82e3e6983ea304f700e8d04f91eb05d9eb677b323fdae71484e2"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/validation/python.txt",
+    "sha256": "59de6a1d73a7e7b2f07ffc2b7585992b3f5b679d9463f604c38dc759b4e179de"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/validation/static.txt",
+    "sha256": "0c078c4c88641a99b44b4cf4b9e78fd076279944e5f10de5d4392f92a3f64edb"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/validation/image-builds.txt",
+    "sha256": "74397a665fc07f7e2371f8412e2c535435936de07d2540099254b7e9e8d9e7bd"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/validation/initial-scanner-findings.txt",
+    "sha256": "7f87bf3c77b9afac42e6f77edb42262076f9e34f1a0e3d449e1195505700a6b0"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/validation/summary.json",
+    "sha256": "0b9e5c1c1d426966c84227743faf05f4e7eb46e753b34be125e23dfd61f14940"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/validation/readiness.txt",
+    "sha256": "f2f62cd60fb0236f0445edcea669dd06eae7fcbb12efbf26030d627ac859195e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/validation/mermaid.txt",
+    "sha256": "db2806004fd0bab1386996575082327a5a1b7879a3d4d9a66186ff6ca810d5fd"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/validation/node.txt",
+    "sha256": "ec8e34f60af78bd45457aa9b0eab2a898ca3308fab635f2f1ddf78f0937ba667"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/validation/secret-history.txt",
+    "sha256": "4d97bc2a56133aea602f4ed77f8058b97d594cf40c448a5b9971ae7d2dbd2f9e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/validation/secret-worktree.txt",
+    "sha256": "7dddd55ee9e38e086a37ff0765f7795e401a950fc7372a07e9d6e7c5af080074"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/backup/wal.json",
+    "sha256": "567ffcc94bcb888a70cdc2de5612ac0a74beec27402bc57649bd9f9fdf794ee5"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/backup/network.json",
+    "sha256": "f80fb9519ab5b6728d2c5ba0e24f625c907cf0227f1d3830477ed1391de4284e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/backup/impact-4fadcf-job.txt",
+    "sha256": "82e79ccc8d8c2ef85dfc48c345a8f9caa2c7cba64568928a6d6965fde5c90f6d"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/backup/baseline-job.txt",
+    "sha256": "a63a5460cb8e6f72dd5fdf82ff72948863c134c0a00b263877c7acfee3677d67"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/backup/baseline.json",
+    "sha256": "63af8fd429829ae14e79ffaff4c94f6bdf91f3c531d63c7bf197bf7a007160a9"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/backup/network-job.txt",
+    "sha256": "84f37b8be8dd977f85dd1be0049f0cdef2efe3a32e098f164264199efdf8fc29"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/backup/impact-4fadcf.json",
+    "sha256": "fe182d225b67889110ebc8744298083df4b4deea3d83b0c259e5f0a61f658a72"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-rehearsal/attempt-1/failure.json",
+    "sha256": "d07d09665f956872fb2ef11c5d45a1caa42693f772c2b4d7d35330ee762f7c19"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-rehearsal/attempt-1/result.json",
+    "sha256": "9850941d80a6b9b981cb31b9594ca781332c872220dca286610e93fd0ce1ceff"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-rehearsal/attempt-1/leader-rule-diagnosis.json",
+    "sha256": "0a514734717122614ca729eec09a3de3a6c9668d52f86557d79e4cca314fea48"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-rehearsal/attempt-1/transitions.json",
+    "sha256": "9bb4e25640feda5193de08a104e187d5e58a7494883a5ba3dcf39973fa58c3c0"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-rehearsal/attempt-3/failed-backup.log",
+    "sha256": "5538a64d42c3a93973308362ba15c36470e5e4c9a7811a64422bc2a485ac4dc2"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-rehearsal/attempt-3/result.json",
+    "sha256": "1a63c3bf6d17581dbd6d9c3eccda4864b21a88ffb569d1cbb100dd611ff98e96"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-rehearsal/attempt-3/failed-backup-job.json",
+    "sha256": "5b03910ba6a757e506e6fb5562ede313147d508177dcb4e3c832e1496cbfd5ed"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-rehearsal/attempt-3/transitions.json",
+    "sha256": "c569f87d341c1ec58b8b742cc1e1d8ae1de62a875a9470207adeae7fca2cdf98"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-rehearsal/attempt-2/result.json",
+    "sha256": "852f70616a535a0c073824a458d98c97f0a6dea200bb6a851f1da836aabab2d6"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-rehearsal/attempt-2/failed-backup-job.json",
+    "sha256": "a1da416b35273394224e1ae79786b89caa5a673f60e523575694c0fd3c41dec1"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-rehearsal/attempt-2/collection-failure.md",
+    "sha256": "d83c0f001ac326a209fbf161c7257b6528fe4463bafaaa65db8eeb9b8ef3e375"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-rehearsal/attempt-2/transitions.json",
+    "sha256": "8e93c9864dc364be384b33fdca0b1c5b73387e6b9aedb1cf0298e3c1a2543547"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/metrics-alert/attempt-1/failure.txt",
+    "sha256": "b7fb4785f6997cf37f65888284ce3a15ecf0883b6dc91f7062b5dd9dd344fabf"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/metrics-alert/attempt-1/transitions.json",
+    "sha256": "ab3c20b49502c8d9868544973a58ee9b493d5ee67c344656b6e76ecb4fafa790"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/isolated-durability/attempt-1/result.json",
+    "sha256": "d889a590c85b524179e4c63c78faa070103738e2a012cb7f3effd55921cebec1"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/isolated-durability/attempt-1/summary.md",
+    "sha256": "91dfe41b9ffd4ec8388fb592606d045736274ec4720090d9b5b2c53abf136bab"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/isolated-durability/attempt-1/status.json",
+    "sha256": "f5d78ee616ea921a3a328eedb5ee7e37984ac8a878b75bdb31df6edf4a2f209c"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/isolated-durability/attempt-1/after-graceful.json",
+    "sha256": "fce501f91579cdd86d5761a51b48328087753c3d566da51f9ad01fdee04af2de"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/isolated-durability/attempt-1/before.json",
+    "sha256": "a40fb1f180935b4eb3f91ae43616ef3f035ccc1802b8d41fd7e47ab12f40b648"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/isolated-durability/attempt-1/after-abrupt.json",
+    "sha256": "2a972d0f8fbf752c3189fe29f1a92b2c11a187ce8bd95e9920602bac026effbe"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/isolated-durability/attempt-1/backup/wal.json",
+    "sha256": "5ccb3e85badca221b4964415c62cb7a319efc91ebeefd54bbb3c0c9f038c9b85"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-shutdown/attempt-1/persistent-graceful-proxy.json",
+    "sha256": "c890c024867bc19cbdafe4b731b77c3ed7c51c14e9f67476d8ffad9b13c5c0cb"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-shutdown/attempt-1/result.json",
+    "sha256": "5ccc663098d1cacb030ab6b384451022f09accf6b101b62dc32cc68bf1922457"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-shutdown/attempt-1/endpoints.json",
+    "sha256": "9ac5c9ee94c30b5cb96c3317387a79363cb49434d377a1be5ef9650282a64e34"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-shutdown/attempt-1/measurement-limitations.md",
+    "sha256": "88384360c0bde72ac42c2ec97231a69bb44690741c9b0124537cac615600bbb6"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-shutdown/attempt-1/process-states.json",
+    "sha256": "5baad858bacc88f01beb476b0d53c3859899bf54b26c95df1570e7917c9554bd"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-shutdown/attempt-2/persistent-graceful-proxy.json",
+    "sha256": "f0d6f12b7ec342641c28df417f1d3001603d3a492e71089f8ad2a92e80c9314b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-shutdown/attempt-2/result.json",
+    "sha256": "b4b5e922cd4fff8a46c1d2d4685419c0da9efce04b19346165efac851841d77e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-shutdown/attempt-2/endpoints.json",
+    "sha256": "5693e4c3855580d2057bcfd6f912c37666c62a430d0d325955454c4da56346e5"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-shutdown/attempt-2/process-states.json",
+    "sha256": "ab7991c8130851d8c3ff38a06b9d62371583864210e79d82ffd6474644cfc88a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/promtool/attempt-1/result.json",
+    "sha256": "eda54f54cc3b28d939f4df4afb6885f15f7a0e29b85b1811bf54504eb077abd7"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-1/result.json",
+    "sha256": "1e3aacae5e085d9b2df53252749c469318f1300a661b02c6a8bdf99cd376586b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-1/summary.md",
+    "sha256": "4e84cda473cf979f13a86ac5b9ec247420c99f54d298c2a0d80c8b740e0e9df1"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-1/status.json",
+    "sha256": "bea294da8d0b9255d0593a3b784cdd41819e652601b1afa739cf220b4380f7c7"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-2/result.json",
+    "sha256": "7d790165e19483904a69b3477b72b95a0944fa64022f3d4664b2a07f64318444"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-2/summary.md",
+    "sha256": "4e84cda473cf979f13a86ac5b9ec247420c99f54d298c2a0d80c8b740e0e9df1"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-2/status.json",
+    "sha256": "f0a3c29baae548f29f982a8707554a19f8c961567114ee5b1e1023bff9fd3bf6"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-2/backup/wal.json",
+    "sha256": "50b07b9822a46360bcb09f7c7f0cd7241147934fa46b9af134e27bc7a591603c"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-2/backup/size-440000-1e3da7-job.txt",
+    "sha256": "40c43057462de3b43aa07ef5af24f80eb0f60d91a21ba2d05709a18b86a49a6e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-2/backup/size-440000-1e3da7.json",
+    "sha256": "c25e28777bd266dc4046f42363fdf264972d63db6a2b7d8dfeb25d48d1eaf0bc"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-1/backup/wal.json",
+    "sha256": "392f7149be3636fcedb8293168fcdabce379fce66d6f34a8c0c50e806be626a8"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-1/backup/size-100000-24623e.json",
+    "sha256": "c3f975307e9322edc0c35042b5bfc6153ec58fefd0424a5805960839e79dcddf"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-1/backup/size-100000-24623e-job.txt",
+    "sha256": "3bc2fc615ebeca66e891b792703fa38c3d882708187f04e93ee71797aae3dade"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/persistent-node-loss.json",
+    "sha256": "55df53bfb15e369c3317a1a0668ab3fa2bdec4d37ed553f4d55b5325c3508f37"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/result.json",
+    "sha256": "62a440192c8f31387f442761a1601c23c853c4eb85a27ce06c99b0d213de94ca"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/during-lab-patroni-patronimvp-0.json",
+    "sha256": "fd3487f567bc0b5098c9708ee0be526e83a420d02c9578f149b8e84701eb1ef8"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/during-lab-patroni-patronimvp-1.json",
+    "sha256": "3c1cc1f18771bbfc38e97b0bb1cec10b14a4ff611890c61dd2686879bf9099ed"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/persistent-node-loss-2.json",
+    "sha256": "a3aef33b1c3e0bc71747ccd416f1ca6d368d1339491cbe17ba26ad78edfbbdc1"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/during-lab-patroni-patronimvp-2.json",
+    "sha256": "535e78bc8631f77203fa70510ba39cf6771b6514db6273f8c8f08a9f545c7189"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/result.json",
+    "sha256": "41ea42948aca78ea8b2c0c08c2fe50e88a23b36f937b125a9c8cb49f7ddf161b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/persistent-node-loss-3.json",
+    "sha256": "9880c0c395cf9cc3cc21ea1d175cce9b317ca30730c25b43fb00a5517c4a50fd"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/persistent-node-loss-1.json",
+    "sha256": "5d7436d440b4652195dc72b0778a5a29a999622437b774f31634e39083f2241d"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/persistent-node-loss-4.json",
+    "sha256": "16b2cd0d72644f29f370bb37c6f9fdb2e5935dcbe2329d6a87b70b799ff2c64c"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/during-lab-patroni-patronimvp-1.json",
+    "sha256": "0fcb0732249fe102104a04cd67e1ce748768d9f3e5dafca807c58334e0b28d63"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/persistent-node-loss.json",
+    "sha256": "173f0f785f52ccf640c5ab46acd742801a24d2711695798b00beb09b5aaf531b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/during-lab-patroni-patronimvp-2.json",
+    "sha256": "47836bb377561b78a6a298c77712029c8dad0a4851912a31bab542385a9bec0a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/result.json",
+    "sha256": "e56da7e5e478857a2634f4dd0b6d3e54d1636ce3ed4c6ed1edb96dad7aad4e2a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/during-lab-patroni-patronimvp-0.json",
+    "sha256": "0a5d9460f2863cb80bb24565933e00dfb0cd90606d63f9fd66d7a0c22049312e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/before/lab-patroni-patronimvp-1.log",
+    "sha256": "168c94833d9cd60e7148c4eda01a7f30c6d617c5506626d283bd069a3c091d7d"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/before/lab-patroni-patronimvp-2.log",
+    "sha256": "bc501f6b4a2cdaaae5314bcd7dcdc3a6b9a15140bc6cc87db0be0233ceb4c01f"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/before/lab-patroni-patronimvp-1.json",
+    "sha256": "6ae53a919d6295a0aa972c3104f6260efc42e3693748a145052b1039191ac4f7"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/before/placement.json",
+    "sha256": "8d29f6d30ecd253a9d5d95c6b3584fd13848739369d7f3742c0266782cced8f9"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/before/lab-patroni-patronimvp-2.json",
+    "sha256": "b5fc0600e5726810749c55a092bd2903246d192f372459e24c50fa57a21af4ad"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/before/lab-patroni-patronimvp-0.log",
+    "sha256": "fc9a71cba6a78bc64729dcf59298bae535f2ea5df538f3dcfb36496c57c4f20f"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/before/lab-patroni-patronimvp-0.json",
+    "sha256": "aaa1222bd4dd274b31e3e64449d169b5ccca0cda6a8b7e130291c722f87984c4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/after/lab-patroni-patronimvp-1.log",
+    "sha256": "5724e6f12b04016186ffebd56c7bed28dba1e9de6d704f4dda3d9747a8690763"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/after/lab-patroni-patronimvp-2.log",
+    "sha256": "32c945f477a0918217b532d0d6362ee70636789441fff0b20d78181e9f6e2677"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/after/lab-patroni-patronimvp-1.json",
+    "sha256": "5442da088881dcb2bfd96f58cf84cd025d74084f9aea1699c764dfcf17c9a8df"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/after/placement.json",
+    "sha256": "ebd937fd7718074b661906e260935934e3dc7894065c8a97138a9cca7db26c22"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/after/lab-patroni-patronimvp-2.json",
+    "sha256": "0c989ce01c139ef20a2452076ce0cc8f43e3a9e4f4bc81dbe58d25e4bf0a39e0"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/after/lab-patroni-patronimvp-0.log",
+    "sha256": "00d1859023d0408fc6bbc06793e8dc616f5ff14f92c9174edc4e5dd9c600cd2c"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-2/after/lab-patroni-patronimvp-0.json",
+    "sha256": "4abaf9f43593d83f669d1940f773cb11d2b80e8cce0479e798d2277ef4c7c687"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/before/lab-patroni-patronimvp-1.log",
+    "sha256": "7afd92cba93ef7c36a6b36740453c60a253735a5b8fb09b59424016ca321fc7d"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/before/lab-patroni-patronimvp-2.log",
+    "sha256": "74992ed596e6a9a4f21cf4711efc9f8dc9454224d3e3e0cba9478203058ca1cd"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/before/lab-patroni-patronimvp-1.json",
+    "sha256": "1c5b5dea5c1ec35791d58f2c276efc0b442aea3f456d8bdd1645d22ca69b030c"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/before/placement.json",
+    "sha256": "b542883810a7c9687e603a600aa073b7376614da7b00ae85b8a0b8d2a6290616"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/before/lab-patroni-patronimvp-2.json",
+    "sha256": "71b00e5c3c5abed0946f63c9ddc974a30c826c333b11cd7a1954ac187115847e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/before/lab-patroni-patronimvp-0.log",
+    "sha256": "3c23e3d420d5e8bd085e3d5af2dd27033c810a2d5707de7c26f599dc5407f27f"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/before/lab-patroni-patronimvp-0.json",
+    "sha256": "1e46405b3731c3dc7c9eeed478ab696b700b2c82e6119eb94a406a260ac49476"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/after/lab-patroni-patronimvp-1.log",
+    "sha256": "0cf11cfc2199c3bb46f2ab60ba7903dba6bfd4f1718f43c65c4bb3c2b5c8e2bb"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/after/lab-patroni-patronimvp-2.log",
+    "sha256": "15eed38f3334e9464944de4f689f940f25c67f40b06bf2051fb9b6330545f79f"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/after/lab-patroni-patronimvp-1.json",
+    "sha256": "987d4aa3ebc9cfddf06e18fdf3f493d453d228c08588c960bbdb51fe4f30735c"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/after/placement.json",
+    "sha256": "aad6b1badf8bf9697f95863e0598c2f44373aaf98514f1136f299abefa33d1f1"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/after/lab-patroni-patronimvp-2.json",
+    "sha256": "73b858ede00afc946dfdf05ca6b876aa7ec410ec8c4c281c1484e6f007992a4a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/after/lab-patroni-patronimvp-0.log",
+    "sha256": "378421df61afb8c928288ec5ae4f721dbcd8b6102e4e38ddf0e3bd346a4187a3"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/after/lab-patroni-patronimvp-0.json",
+    "sha256": "48ea4bc749b92f543197c388f55503c1f8c0553d23bd4320c8cfd4371df0d1d7"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/before/lab-patroni-patronimvp-1.log",
+    "sha256": "e0234f36cff77e4eac5beaa8d74a08cd3f995a577c9f9cfc13c4efe3bb23f87e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/before/lab-patroni-patronimvp-2.log",
+    "sha256": "56f275485e128d06196a765b526eb0d075b6e8d60eda755edbd33d48d321e7d3"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/before/lab-patroni-patronimvp-1.json",
+    "sha256": "60281282fd6e749427915c2c6602c30c8a9ba55f72fa7f3c857befd3583f2eab"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/before/placement.json",
+    "sha256": "6dc0c5f6b727cd12354297f12f4fdfbb353bf18aa6c5e34d887c8f5945bf4030"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/before/lab-patroni-patronimvp-2.json",
+    "sha256": "e3a00b3535d20e3fb4b3357886836a623dc0690d611005bbeb984d4531535375"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/before/lab-patroni-patronimvp-0.log",
+    "sha256": "9b4696bbf830e772764b856f68fcacea5566302aa80cdc17ba4da2699f4f90a5"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/before/lab-patroni-patronimvp-0.json",
+    "sha256": "02cf83603f85ff8320180fb408a17bbde0caed960881e4a71410290f5864ad6d"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/after/lab-patroni-patronimvp-1.log",
+    "sha256": "04d9d67846d4e481d1c34be7bdfb6ab56b09b49419e64fa741cd6e8941b5eb47"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/after/lab-patroni-patronimvp-2.log",
+    "sha256": "b450cbbe2347f5758976ce83669b755d833464507dc2003d4eb004767651ee99"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/after/lab-patroni-patronimvp-1.json",
+    "sha256": "3200816f319b91574c6fd418d2e844c881e846ecca8ae65ac9835f7d596587ca"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/after/placement.json",
+    "sha256": "9df6fa491104eb3e37c0684c717c36e684617fbefa300aa6a66c836296b98180"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/after/lab-patroni-patronimvp-2.json",
+    "sha256": "477a1bfc8c966f84aa3f022a8c22a9294443fe07ca3c3018bd3ab3746fe14b81"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/after/lab-patroni-patronimvp-0.log",
+    "sha256": "af7aca24c6f572b938fad54262450fff20cfb2b992d88c0b9f3e7de3152e13b1"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-1/after/lab-patroni-patronimvp-0.json",
+    "sha256": "293c99d8eeaa542b7275d449c6a95dad9b3fd3fc0b4ceec2dce15fde1e468fd0"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/rotation-reload/attempt-1/existing-sessions.json",
+    "sha256": "cca0f80470ba30861e60324ca4988d8efb9118c044b0266d9b196d60cde06730"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/rotation-reload/attempt-1/result.json",
+    "sha256": "c32391b047f47d8180227840754657a19e4e862e4d9c550ef8313d5aae15608e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/rotation-reload/attempt-1/sequence.json",
+    "sha256": "c89d2e5eb81d3342da299d7f41022a1b343972848a203fed3b125a1247923280"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/python.txt",
+    "sha256": "6b46720b75b2b9057a587df409385b7fe3fba12cf65ef859a1fadc874a32d5d4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/static.txt",
+    "sha256": "8aa83dda9bca35a7bcd5a2eb5166a4a924f6d4360ad8772ed0da3163ab1a9888"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/image-builds.txt",
+    "sha256": "99dd54b9617980d4ecbcf3441b73290ee195a20e8a5c2d038bf8f8aaf4bd8e29"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/summary.json",
+    "sha256": "23b35b6d9949069005399ab5c3b34994cbd81bb247c55cfbd27f3bbb47c07b76"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/node.txt",
+    "sha256": "201823d4bb663733bbfe677f35b05da1e2b2127ee0646937989b4a1e35a58e2f"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/secret-history.txt",
+    "sha256": "36c62fc83a8e6b7c6f0eecf37a563918a15eef6795a7841be0d5d63ca86fef7e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/secret-worktree.txt",
+    "sha256": "c2028395d638ca15e59450c3b4bb53f0001ca689d10a7e7571562cb077c76e08"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/npm-ci.txt",
+    "sha256": "a0cbd68a75f223ef9d90a14ce4ebcb565f067003276fab9a849e88185c779484"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/harness-findings.json",
+    "sha256": "58a117010316c079e9266079ac16235122648258cdbe45e67a4989dac1ecfda9"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/impact-job.txt",
+    "sha256": "0e38a9edb1a1fa2cafd6fe06cb692ba986997df6ca662de88737595006757474"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/impact.json",
+    "sha256": "576af81f181ee6d6b0af21fd237d15ef5f38505ac0625385a6d80fa380d122a7"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/wal.json",
+    "sha256": "25e76b1965ce7a7e09e7bad7ee3ce6c11cfe8b420974057e7808f564016ef59a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/network.json",
+    "sha256": "c73afe3c7f4f59d4718e0916cac20880dbfbb88fb638cd6300e59e8217c6e757"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/size100.json",
+    "sha256": "bfa5d4b32f290728897fe35ec2251926d40b52c4dccd7ce95550e6cc4961d641"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/size100-job.txt",
+    "sha256": "ca97dffa96dc9288a6a12e5ea518fa7bf1f77e5f4725af0311e7eadd4cb80ad6"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/baseline-job.txt",
+    "sha256": "bc0e6e2384fdf5d0f46b0fe2f1abdb907aeef62d9b1adfa9853ea65a20e77d9d"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/baseline.json",
+    "sha256": "f93bd8a2761cd8e7e19d99ff0401a1d797637e582159943ebdad2cca18b0936a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/network-job.txt",
+    "sha256": "3e12e0b129713dc732c45a4a51c753778cf5d9ac7b94a1647eabb221a85e0973"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/alert-existing-connections/result.json",
+    "sha256": "d80e4119005e3b90f0203bc61cc0fa536e33a8d6cc0566d8451f48cafd06a061"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/proxy-first-bounded/pgcat-abrupt.json",
+    "sha256": "9d03fff5dff0068a738aae3b1d53908dd65dbe5c42d0b13c86567084357c13c9"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/proxy-first-bounded/persistent-pgcat-abrupt.json",
+    "sha256": "f2e4f81fc20fa218f3e47a7afb2f5cfa7c22d16db097710d05d7be865482eef7"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/restore-before-archive-isolation/result.json",
+    "sha256": "fc2c88687318b936aaaf658cb39c31af01762948a3cd5faded72e8987151ff6c"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/persistent-pgcat-delete.json",
+    "sha256": "7c3a3367111ac017601bc2c73b13b7f68e66c8dcd0461486a40102baaec88a4d"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/drain-replica.json",
+    "sha256": "cfdcb4f1d048fd6d1adb6612439145798d581e0580c507fe8b763a634a4182df"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/summary.md",
+    "sha256": "2791cca1e32a24b60281e7cdd61ea9d124e284a1bb417447a18de9119843c7e4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/status.json",
+    "sha256": "1720b8ee023f419f7e3308d090830555bbb9e86561e4f6d11fe3fe0aecf6c07b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/pgcat-ha.json",
+    "sha256": "a3d2c7d87ce7c78fb9f82a83d8e614f89091d7825aacc4c4ff031f047d0311b8"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/before-drain-replica.json",
+    "sha256": "69d603468cabba2f105789fa03bfd052eb2eb3c4d5dae1fd379f0706291e795a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/persistent-drain-replica.json",
+    "sha256": "b2312bb175ba21c4ac8075ceb53195fded512187614e4284c8d484e7458184c9"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/before-drain-replica.txt",
+    "sha256": "d02126ec24751067f6f54fb5a30abf4b1d49f03360e75c78951f9708467a0663"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/summary.md",
+    "sha256": "d1104e20b7ef6ca52821f2adaa514e376e2dcec826e378d655167b28f53db4a4"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/status.json",
+    "sha256": "a1fe1f83e8d6bca357164eb89d266a42b776039a5a772300d5dd90c9025b2e06"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/environment.json",
+    "sha256": "e1ea05e30b09d9c577b54cce6c7340b400a194974091bf4e854558324558546d"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/summary.md",
+    "sha256": "e5702411fbe0a23fafe806d9165f4ff8f2e08b9ac01621ceae328d9a8e78b96d"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/status.json",
+    "sha256": "793e8716f523245bfc0b207b011ddba0c868399aecec480e6b52c97094441f82"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/environment.json",
+    "sha256": "f852baa4be68f266af56c70a6135e001f716fd65c0d1e6e89a678789d8300c34"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/summary.md",
+    "sha256": "ca3b538b64f3a66723a7a084c23f3c16836128c4fd736b3b205d449ca8038d52"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/status.json",
+    "sha256": "422941239ee368acebab7746187567a350109d6644cefe39a540a6212883cb99"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/environment.json",
+    "sha256": "0f3ef3e188436cd9fd954a8cbbf1d59d8643a2e1f698d0671a256b0e480aa4fd"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/patroni/primary-endpoints.json",
+    "sha256": "2bb2f00165426024e56ab4844c18d5defc66cf99e89da56d376b92fdd0c9e53c"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/patroni/replication.json",
+    "sha256": "be70a3462dc028d58ec08a059e1b40dfe447eeacb03bf0a0ff67f29b47951d1c"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/patroni/members.json",
+    "sha256": "9e1c32782ac8acb7446677cd6fdc2c6f4b45b90593a78cb48471dedc8b55cf33"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/patroni/replica-endpoints.json",
+    "sha256": "759b46d929ea3d4e4b9f9488ca0aa5c3afcb717b0e6d4174c11c862522b2536f"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/patroni/readiness.json",
+    "sha256": "7fbb48653abaec6542ac2df64f072ca900ae189621d667a82731083ce78d2434"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/pitr/command.json",
+    "sha256": "1a20d8ada1d2f6ab193070ac7c49dedb5d6e8042674b9d98fd5ead618cd2d053"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/pitr/attempt.json",
+    "sha256": "2785fb7b06cbf6791618db6f76c22379221acbc2fe9fa1ce39ae6647ef341b45"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/sql/routing.json",
+    "sha256": "56d54a5e71ea40263f635cb994d4e26788a1fa96f174252ca3585d60422b65da"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/sql/expected-baseline.json",
+    "sha256": "03416572acb2a8fe2c00cacc86c87c9582107c9a214e39c7acccee5593233ca0"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/provisioning/api-response.json",
+    "sha256": "a381f5910c854a28d7252a05e1eb52b0b034ebd20f21733a8683ea27ec77c287"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/provisioning/releases.json",
+    "sha256": "bd6a9e02cee7a82e5ad91537912f72a9a62b065b51c6aac62b1cac84611d991b"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/provisioning/secret-names.json",
+    "sha256": "ae49269064fe672d133902b2ac772f81fab95b78c63344e469297e49c8cef4d6"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/provisioning/images.json",
+    "sha256": "3f503b9230b863acdda283d9a75936984fa99fcf0665e456a98ac5eac9f02aa5"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/provisioning/resources.json",
+    "sha256": "e8d49cb1536e727bc7c95ea97c327a2f7be5f61e9169f7740a6fe7e5c22b49a3"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/backup/wal.json",
+    "sha256": "be2d4e096e0e2cc60ea9ce51e2c1cbb38739a56a031f0e1abe3bf7666d784b36"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/backup/baseline-job.txt",
+    "sha256": "a282b95b255c6118fc38a9946813d65f65e75a6d909a850dcb1ad98de91f5fe1"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/backup/baseline.json",
+    "sha256": "491c9768715b8bcba5d5d572265559324713466d9b5974506b17629b61233fe6"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/backup/objects.json",
+    "sha256": "b70ba4f56098e4b21a38de0bf6cf273a601d83bae15885ea3ef59ff8ab0aa0fc"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/patroni/primary-endpoints.json",
+    "sha256": "f853ba1dca0d64356822a33085604c6b0197608ac237f7ff384f2289d6be74f7"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/patroni/replication.json",
+    "sha256": "321419a9441270b4482a3d7897d8834b838bf1a6c068c697c04f6ad4dfc40726"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/patroni/members.json",
+    "sha256": "9e1c32782ac8acb7446677cd6fdc2c6f4b45b90593a78cb48471dedc8b55cf33"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/patroni/replica-endpoints.json",
+    "sha256": "395f9bcbc6e281493efa15eaa9d41cfc3a0e7e5ff9cdbd3df6ae311640962267"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/pitr/result.json",
+    "sha256": "beaa246c2e4dfc151ee257cd9d372beb54df3331a4a867505f8f8a38c7a0ac4e"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/pitr/command.json",
+    "sha256": "e6325cb88598811026779b0a8ec10adb4b68c846fea07efbd5aafcc7d93ccd07"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/pitr/attempt.json",
+    "sha256": "265818a1c6d5d9a09fcfdd9c7098ec0555b510dc0e30aa44795b82a1b808c0c3"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/sql/expected-final.json",
+    "sha256": "c60529e842253550851d1dc8bb98a1f964674a9e3d3b6fa7d7ed76f9bcdb1e7e"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/sql/routing.json",
+    "sha256": "6128092d0ad6c7aeb9e3d73b7b9a788b24f7554059487ec02db736dd8e6b167c"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/sql/expected-baseline.json",
+    "sha256": "03416572acb2a8fe2c00cacc86c87c9582107c9a214e39c7acccee5593233ca0"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/provisioning/api-response.json",
+    "sha256": "a381f5910c854a28d7252a05e1eb52b0b034ebd20f21733a8683ea27ec77c287"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/backup/during-writes-job.txt",
+    "sha256": "060367fa4e0fc5c43f2c514c507bba1ce086f856f2a0ee5a3d715f845d6a4e62"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/backup/wal.json",
+    "sha256": "2309d856cdca92f73b2623c64a172f6f84743420bf684f7783e3208a26053d3a"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/backup/during-writes.json",
+    "sha256": "e29e4c763dc544e67fae02a65c89d829730801ed804c748bd28deaebba9309c5"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/backup/baseline-job.txt",
+    "sha256": "879e1af11c7b46787171b629e12dd60dee4ee259a0df736acd1eac4112255768"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/backup/baseline.json",
+    "sha256": "c17b4b4f2acf1dd242816ef938c0da29516fb96a6ba62c4b6b0dfa5492532771"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/backup/concurrent-writes.json",
+    "sha256": "8680633090232de871572a2413fbed8d830560096d1cb4958e96665409264dc7"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/backup/objects.json",
+    "sha256": "f8cbf6d1d74be29c71a0dcf7a024dbbaa0bd60367b345c729d0c8248e56116b4"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/failover/pgcat_restart.csv",
+    "sha256": "ca10b63876df93e805e8463bf03f299694fb711c3f8ee5e9e7cf63bcfc9bf9ef"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/failover/primary_failover.json",
+    "sha256": "85f8a997cba42f0c948872a5cb3f88593004c6453ee2581e293acb94b4b59c7a"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/failover/primary_failover.csv",
+    "sha256": "399010a1589d3f62f3f10fac5297a3f17f3c602a30028cc0e3810a8e28523f1f"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/failover/replica_failure.json",
+    "sha256": "d39e600efc8f6151f7bdd61d83b2779421d6870b8de3779726cc076d1d7e275b"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/failover/pgcat_restart.json",
+    "sha256": "3ac78844814ccc1c8dd498a5250cf3c46e9c3953c76ccc72b677f8e39177a025"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/failover/replica_failure.csv",
+    "sha256": "8b9db3f5c7fdfe26ea188877f462d75a9430806ac2237cdb32710481a6e12509"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/patroni/primary-endpoints.json",
+    "sha256": "194e4f8d2f32948c2459c2b28d49a4721a1c76b82d62ec0d78b3292e60c79806"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/patroni/replication.json",
+    "sha256": "be70a3462dc028d58ec08a059e1b40dfe447eeacb03bf0a0ff67f29b47951d1c"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/patroni/members.json",
+    "sha256": "9e1c32782ac8acb7446677cd6fdc2c6f4b45b90593a78cb48471dedc8b55cf33"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/patroni/replica-endpoints.json",
+    "sha256": "d78cdfe91539c1185ba1d36f2fa5e1ae994311014c6f23638ec716c350551ef4"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/patroni/readiness.json",
+    "sha256": "db907539396699dbbe8ab153440b7685079cabd209a1b042bfe0205a70a83401"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/pitr/result.json",
+    "sha256": "e1d7ffe86c7953401a32515400576e9d76716c85f5f59d4d349c98210f0a6e2c"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/pitr/command.json",
+    "sha256": "5a39b55b05a9b811ced07a31eb6b1e436afa4e9c8bc2dace8199fe0a4dd69d99"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/pitr/attempt.json",
+    "sha256": "eff3bff0e26200fffe3fa9cedfd4317f5bdd3b09035d9fa57a1eca3c0b3b9152"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/sql/routing.json",
+    "sha256": "03bcc841dc6ae45927257034aef1ee8882463c0b9a2ced8d721678384cb739e0"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/sql/expected-baseline.json",
+    "sha256": "03416572acb2a8fe2c00cacc86c87c9582107c9a214e39c7acccee5593233ca0"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/provisioning/api-response.json",
+    "sha256": "a381f5910c854a28d7252a05e1eb52b0b034ebd20f21733a8683ea27ec77c287"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/provisioning/releases.json",
+    "sha256": "3034d23ab1327a98c2f2704ff1aef58c4308ff286ccb16cd90069fbdf23a9bde"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/provisioning/secret-names.json",
+    "sha256": "ae49269064fe672d133902b2ac772f81fab95b78c63344e469297e49c8cef4d6"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/provisioning/resources.json",
+    "sha256": "f6e30e54fdd8dfad0844ae0f2f621574ed4eff72e586b922e2cba138348ca710"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/backup/wal.json",
+    "sha256": "b46f5056b3db82861aa7e4cdd857071b99ae4801f99405bc63c9091660c893dd"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/backup/baseline-job.txt",
+    "sha256": "538ebfc1beb423f0ae5bc4767deee99c20b7bd6f5210e5e5966e9457fba2b62d"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/backup/baseline.json",
+    "sha256": "0a1533f9363a07a0ba5f016119e42149488192a4091c703d93bdeabf83144d98"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/backup/objects.json",
+    "sha256": "5baa8fd3717d86123a202b28115eea5d6ad08993c145470b701120f133ada5fb"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/failover/primary_failover.json",
+    "sha256": "5e476225a0d929a43b1dc9a5c6deea6fd58b125cebb50fe8cd5d3ca04d15c6b6"
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/failover/primary_failover.csv",
+    "sha256": "10cba3a28229b7268559efd058493b5020fbd22e92812ac942c7e24b7a23ee38"
+  },
+  {
+    "path": "results/validation/monitoring-harness/attempt-1/python.txt",
+    "sha256": "58188342a10014cb5d47751b76b205b268fa03ab98488390c0c58a9010084717"
+  },
+  {
+    "path": "results/validation/monitoring-harness/attempt-1/static.txt",
+    "sha256": "57c830707625a329beacd31e1aacc13dc2693628c84dcce5cc6d8c8a7e07d783"
+  },
+  {
+    "path": "results/validation/monitoring-harness/attempt-1/summary.json",
+    "sha256": "f43dccf419f9fabb378de6aac8975c57d66cc295d7563b8b469fbb303a0f758d"
+  }
+]

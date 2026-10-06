@@ -1,0 +1,779 @@
+{
+  "acknowledged_transactions": 95,
+  "failed_transactions": 1,
+  "interval_seconds": 0.1,
+  "longest_success_gap_seconds": 0.203097,
+  "missing_acknowledged_ids": [],
+  "reconnects": 1,
+  "samples": [
+    {
+      "connections": 1,
+      "elapsed_seconds": 3.1e-05,
+      "id": "cb335607c25344a2913681b0260ab351-0",
+      "latency_seconds": 0.003145,
+      "success": true,
+      "timestamp": "2026-10-03T12:23:59.091513+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.10332,
+      "id": "cb335607c25344a2913681b0260ab351-1",
+      "latency_seconds": 0.001238,
+      "success": true,
+      "timestamp": "2026-10-03T12:23:59.194802+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.204689,
+      "id": "cb335607c25344a2913681b0260ab351-2",
+      "latency_seconds": 0.001601,
+      "success": true,
+      "timestamp": "2026-10-03T12:23:59.296171+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.306421,
+      "id": "cb335607c25344a2913681b0260ab351-3",
+      "latency_seconds": 0.001502,
+      "success": true,
+      "timestamp": "2026-10-03T12:23:59.397902+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.408051,
+      "id": "cb335607c25344a2913681b0260ab351-4",
+      "latency_seconds": 0.001414,
+      "success": true,
+      "timestamp": "2026-10-03T12:23:59.499532+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.509586,
+      "id": "cb335607c25344a2913681b0260ab351-5",
+      "latency_seconds": 0.001396,
+      "success": true,
+      "timestamp": "2026-10-03T12:23:59.601068+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.611111,
+      "id": "cb335607c25344a2913681b0260ab351-6",
+      "latency_seconds": 0.00129,
+      "success": true,
+      "timestamp": "2026-10-03T12:23:59.702592+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.71254,
+      "id": "cb335607c25344a2913681b0260ab351-7",
+      "latency_seconds": 0.001872,
+      "success": true,
+      "timestamp": "2026-10-03T12:23:59.804021+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.814587,
+      "id": "cb335607c25344a2913681b0260ab351-8",
+      "latency_seconds": 0.001783,
+      "success": true,
+      "timestamp": "2026-10-03T12:23:59.906071+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.916548,
+      "id": "cb335607c25344a2913681b0260ab351-9",
+      "latency_seconds": 0.001852,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:00.008031+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.018554,
+      "id": "cb335607c25344a2913681b0260ab351-10",
+      "latency_seconds": 0.001352,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:00.110036+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.120044,
+      "id": "cb335607c25344a2913681b0260ab351-11",
+      "latency_seconds": 0.001423,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:00.211526+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.221601,
+      "id": "cb335607c25344a2913681b0260ab351-12",
+      "latency_seconds": 0.001703,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:00.313082+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.323447,
+      "id": "cb335607c25344a2913681b0260ab351-13",
+      "latency_seconds": 0.007755,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:00.414931+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.431345,
+      "id": "cb335607c25344a2913681b0260ab351-14",
+      "latency_seconds": 0.001351,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:00.522826+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.532801,
+      "id": "cb335607c25344a2913681b0260ab351-15",
+      "latency_seconds": 0.001472,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:00.624283+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.634406,
+      "id": "cb335607c25344a2913681b0260ab351-16",
+      "latency_seconds": 0.001461,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:00.725887+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.736,
+      "id": "cb335607c25344a2913681b0260ab351-17",
+      "latency_seconds": 0.00142,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:00.827482+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.837552,
+      "id": "cb335607c25344a2913681b0260ab351-18",
+      "latency_seconds": 0.001741,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:00.929034+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.939419,
+      "id": "cb335607c25344a2913681b0260ab351-19",
+      "latency_seconds": 0.001603,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:01.030900+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 2.041157,
+      "id": "cb335607c25344a2913681b0260ab351-20",
+      "latency_seconds": 0.001675,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:01.132640+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 2.142965,
+      "id": "cb335607c25344a2913681b0260ab351-21",
+      "latency_seconds": 0.001446,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:01.234446+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 2.244551,
+      "id": "cb335607c25344a2913681b0260ab351-22",
+      "latency_seconds": 0.001577,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:01.336033+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 2.346313,
+      "error": "OperationalError",
+      "id": "cb335607c25344a2913681b0260ab351-23",
+      "latency_seconds": 0.000276,
+      "success": false,
+      "timestamp": "2026-10-03T12:24:01.437798+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.446744,
+      "id": "cb335607c25344a2913681b0260ab351-24",
+      "latency_seconds": 0.002481,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:01.538227+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.549355,
+      "id": "cb335607c25344a2913681b0260ab351-25",
+      "latency_seconds": 0.001471,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:01.640837+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.650978,
+      "id": "cb335607c25344a2913681b0260ab351-26",
+      "latency_seconds": 0.001622,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:01.742460+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.752748,
+      "id": "cb335607c25344a2913681b0260ab351-27",
+      "latency_seconds": 0.001301,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:01.844231+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.854191,
+      "id": "cb335607c25344a2913681b0260ab351-28",
+      "latency_seconds": 0.001396,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:01.945674+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.955724,
+      "id": "cb335607c25344a2913681b0260ab351-29",
+      "latency_seconds": 0.00149,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:02.047206+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.057357,
+      "id": "cb335607c25344a2913681b0260ab351-30",
+      "latency_seconds": 0.001688,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:02.148840+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.159202,
+      "id": "cb335607c25344a2913681b0260ab351-31",
+      "latency_seconds": 0.001368,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:02.250684+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.260708,
+      "id": "cb335607c25344a2913681b0260ab351-32",
+      "latency_seconds": 0.001444,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:02.352190+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.362291,
+      "id": "cb335607c25344a2913681b0260ab351-33",
+      "latency_seconds": 0.001524,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:02.453773+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.463948,
+      "id": "cb335607c25344a2913681b0260ab351-34",
+      "latency_seconds": 0.001537,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:02.555429+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.565638,
+      "id": "cb335607c25344a2913681b0260ab351-35",
+      "latency_seconds": 0.001868,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:02.657120+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.667666,
+      "id": "cb335607c25344a2913681b0260ab351-36",
+      "latency_seconds": 0.001443,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:02.759149+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.769248,
+      "id": "cb335607c25344a2913681b0260ab351-37",
+      "latency_seconds": 0.001295,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:02.860729+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.870678,
+      "id": "cb335607c25344a2913681b0260ab351-38",
+      "latency_seconds": 0.001489,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:02.962161+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.972311,
+      "id": "cb335607c25344a2913681b0260ab351-39",
+      "latency_seconds": 0.001352,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:03.063792+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.073802,
+      "id": "cb335607c25344a2913681b0260ab351-40",
+      "latency_seconds": 0.001336,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:03.165284+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.175274,
+      "id": "cb335607c25344a2913681b0260ab351-41",
+      "latency_seconds": 0.001418,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:03.266755+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.276805,
+      "id": "cb335607c25344a2913681b0260ab351-42",
+      "latency_seconds": 0.001475,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:03.368288+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.378417,
+      "id": "cb335607c25344a2913681b0260ab351-43",
+      "latency_seconds": 0.001423,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:03.469899+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.479974,
+      "id": "cb335607c25344a2913681b0260ab351-44",
+      "latency_seconds": 0.001783,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:03.571456+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.58194,
+      "id": "cb335607c25344a2913681b0260ab351-45",
+      "latency_seconds": 0.002095,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:03.673424+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.684274,
+      "id": "cb335607c25344a2913681b0260ab351-46",
+      "latency_seconds": 0.00141,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:03.775756+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.785798,
+      "id": "cb335607c25344a2913681b0260ab351-47",
+      "latency_seconds": 0.001449,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:03.877279+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.887372,
+      "id": "cb335607c25344a2913681b0260ab351-48",
+      "latency_seconds": 0.001435,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:03.978854+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.988942,
+      "id": "cb335607c25344a2913681b0260ab351-49",
+      "latency_seconds": 0.001398,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:04.080424+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.090482,
+      "id": "cb335607c25344a2913681b0260ab351-50",
+      "latency_seconds": 0.002404,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:04.181965+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.193043,
+      "id": "cb335607c25344a2913681b0260ab351-51",
+      "latency_seconds": 0.001342,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:04.284524+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.294514,
+      "id": "cb335607c25344a2913681b0260ab351-52",
+      "latency_seconds": 0.001399,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:04.385995+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.396041,
+      "id": "cb335607c25344a2913681b0260ab351-53",
+      "latency_seconds": 0.001509,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:04.487522+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.497679,
+      "id": "cb335607c25344a2913681b0260ab351-54",
+      "latency_seconds": 0.001407,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:04.589160+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.599207,
+      "id": "cb335607c25344a2913681b0260ab351-55",
+      "latency_seconds": 0.001642,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:04.690692+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.701001,
+      "id": "cb335607c25344a2913681b0260ab351-56",
+      "latency_seconds": 0.001439,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:04.792482+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.802569,
+      "id": "cb335607c25344a2913681b0260ab351-57",
+      "latency_seconds": 0.001383,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:04.894050+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.904089,
+      "id": "cb335607c25344a2913681b0260ab351-58",
+      "latency_seconds": 0.001395,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:04.995571+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.005619,
+      "id": "cb335607c25344a2913681b0260ab351-59",
+      "latency_seconds": 0.001374,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:05.097101+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.107127,
+      "id": "cb335607c25344a2913681b0260ab351-60",
+      "latency_seconds": 0.001492,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:05.198609+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.208753,
+      "id": "cb335607c25344a2913681b0260ab351-61",
+      "latency_seconds": 0.001282,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:05.300235+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.310172,
+      "id": "cb335607c25344a2913681b0260ab351-62",
+      "latency_seconds": 0.001154,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:05.401653+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.411455,
+      "id": "cb335607c25344a2913681b0260ab351-63",
+      "latency_seconds": 0.00138,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:05.502936+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.512971,
+      "id": "cb335607c25344a2913681b0260ab351-64",
+      "latency_seconds": 0.001207,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:05.604454+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.614314,
+      "id": "cb335607c25344a2913681b0260ab351-65",
+      "latency_seconds": 0.001362,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:05.705795+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.715808,
+      "id": "cb335607c25344a2913681b0260ab351-66",
+      "latency_seconds": 0.001272,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:05.807291+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.817208,
+      "id": "cb335607c25344a2913681b0260ab351-67",
+      "latency_seconds": 0.001152,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:05.908690+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.918494,
+      "id": "cb335607c25344a2913681b0260ab351-68",
+      "latency_seconds": 0.001159,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:06.009976+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.019792,
+      "id": "cb335607c25344a2913681b0260ab351-69",
+      "latency_seconds": 0.001092,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:06.111273+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.12101,
+      "id": "cb335607c25344a2913681b0260ab351-70",
+      "latency_seconds": 0.001196,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:06.212491+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.222334,
+      "id": "cb335607c25344a2913681b0260ab351-71",
+      "latency_seconds": 0.001224,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:06.313815+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.323687,
+      "id": "cb335607c25344a2913681b0260ab351-72",
+      "latency_seconds": 0.001424,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:06.415169+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.425242,
+      "id": "cb335607c25344a2913681b0260ab351-73",
+      "latency_seconds": 0.001219,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:06.516723+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.526597,
+      "id": "cb335607c25344a2913681b0260ab351-74",
+      "latency_seconds": 0.001217,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:06.618078+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.627946,
+      "id": "cb335607c25344a2913681b0260ab351-75",
+      "latency_seconds": 0.001056,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:06.719427+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.729139,
+      "id": "cb335607c25344a2913681b0260ab351-76",
+      "latency_seconds": 0.001069,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:06.820620+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.830334,
+      "id": "cb335607c25344a2913681b0260ab351-77",
+      "latency_seconds": 0.001241,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:06.921817+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.931708,
+      "id": "cb335607c25344a2913681b0260ab351-78",
+      "latency_seconds": 0.001518,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:07.023189+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.033373,
+      "id": "cb335607c25344a2913681b0260ab351-79",
+      "latency_seconds": 0.001274,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:07.124857+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.134802,
+      "id": "cb335607c25344a2913681b0260ab351-80",
+      "latency_seconds": 0.001171,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:07.226284+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.236108,
+      "id": "cb335607c25344a2913681b0260ab351-81",
+      "latency_seconds": 0.001143,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:07.327590+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.337382,
+      "id": "cb335607c25344a2913681b0260ab351-82",
+      "latency_seconds": 0.001283,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:07.428864+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.438796,
+      "id": "cb335607c25344a2913681b0260ab351-83",
+      "latency_seconds": 0.001122,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:07.530277+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.540041,
+      "id": "cb335607c25344a2913681b0260ab351-84",
+      "latency_seconds": 0.001135,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:07.631523+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.641304,
+      "id": "cb335607c25344a2913681b0260ab351-85",
+      "latency_seconds": 0.001255,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:07.732785+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.742697,
+      "id": "cb335607c25344a2913681b0260ab351-86",
+      "latency_seconds": 0.001357,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:07.834179+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.844182,
+      "id": "cb335607c25344a2913681b0260ab351-87",
+      "latency_seconds": 0.001263,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:07.935663+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.945573,
+      "id": "cb335607c25344a2913681b0260ab351-88",
+      "latency_seconds": 0.001233,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:08.037054+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 9.046939,
+      "id": "cb335607c25344a2913681b0260ab351-89",
+      "latency_seconds": 0.001303,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:08.138421+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 9.148405,
+      "id": "cb335607c25344a2913681b0260ab351-90",
+      "latency_seconds": 0.001169,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:08.239887+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 9.249709,
+      "id": "cb335607c25344a2913681b0260ab351-91",
+      "latency_seconds": 0.001283,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:08.341191+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 9.351129,
+      "id": "cb335607c25344a2913681b0260ab351-92",
+      "latency_seconds": 0.001227,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:08.442611+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 9.452482,
+      "id": "cb335607c25344a2913681b0260ab351-93",
+      "latency_seconds": 0.001129,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:08.543963+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 9.553744,
+      "id": "cb335607c25344a2913681b0260ab351-94",
+      "latency_seconds": 0.001295,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:08.645226+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 9.655165,
+      "id": "cb335607c25344a2913681b0260ab351-95",
+      "latency_seconds": 0.001137,
+      "success": true,
+      "timestamp": "2026-10-03T12:24:08.746646+00:00"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+[
+  {
+    "timestamp": "2026-10-03T14:22:23.380033+00:00",
+    "profile": "mixed",
+    "concurrency": 10,
+    "duration_seconds": 15,
+    "wall_seconds": 15.114,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 1231.639869,
+    "average_latency_ms": 8.119,
+    "failed_transactions": 0,
+    "transactions": 18480,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "with_backup": false,
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "backup": []
+  },
+  {
+    "timestamp": "2026-10-03T14:22:38.518777+00:00",
+    "profile": "mixed",
+    "concurrency": 10,
+    "duration_seconds": 15,
+    "wall_seconds": 15.138,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 1152.865316,
+    "average_latency_ms": 8.674,
+    "failed_transactions": 0,
+    "transactions": 17299,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "with_backup": true,
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "backup": [
+      {
+        "started": "2026-10-03T14:22:23.380456+00:00",
+        "completed": "2026-10-03T14:22:29.143284+00:00",
+        "duration_seconds": 5.763,
+        "job": "lab-backup-impact-4fadcf",
+        "backups": [
+          {
+            "backup_name": "base_000000020000000000000008",
+            "time": "2026-10-03T12:46:43.437Z",
+            "wal_file_name": "000000020000000000000008",
+            "storage_name": "default",
+            "start_time": "2026-10-03T12:46:42.625274Z",
+            "finish_time": "2026-10-03T12:46:43.408623Z",
+            "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+            "hostname": "lab-patroni-patronimvp-2",
+            "data_dir": "/home/postgres/pgdata/pgroot/data",
+            "pg_version": 160006,
+            "start_lsn": 134217768,
+            "finish_lsn": 134217984,
+            "is_permanent": false,
+            "system_identifier": 7692420561553522720,
+            "uncompressed_size": 23629599,
+            "compressed_size": 2795137
+          },
+          {
+            "backup_name": "base_00000002000000000000000B",
+            "time": "2026-10-03T12:47:06.423Z",
+            "wal_file_name": "00000002000000000000000B",
+            "storage_name": "default",
+            "start_time": "2026-10-03T12:47:06.085612Z",
+            "finish_time": "2026-10-03T12:47:06.401825Z",
+            "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+            "hostname": "lab-patroni-patronimvp-2",
+            "data_dir": "/home/postgres/pgdata/pgroot/data",
+            "pg_version": 160006,
+            "start_lsn": 184549416,
+            "finish_lsn": 184549632,
+            "is_permanent": false,
+            "system_identifier": 7692420561553522720,
+            "uncompressed_size": 23789299,
+            "compressed_size": 2812481
+          },
+          {
+            "backup_name": "base_000000060000000000000049",
+            "time": "2026-10-03T14:22:26.295Z",
+            "wal_file_name": "000000060000000000000049",
+            "storage_name": "default",
+            "start_time": "2026-10-03T14:22:24.452644Z",
+            "finish_time": "2026-10-03T14:22:26.203619Z",
+            "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+            "hostname": "lab-patroni-patronimvp-0",
+            "data_dir": "/home/postgres/pgdata/pgroot/data",
+            "pg_version": 160006,
+            "start_lsn": 1224785336,
+            "finish_lsn": 1230197840,
+            "is_permanent": false,
+            "system_identifier": 7692420561553522720,
+            "uncompressed_size": 126898982,
+            "compressed_size": 9932901
+          }
+        ]
+      }
+    ]
+  }
+]

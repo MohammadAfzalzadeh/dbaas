@@ -1,0 +1,15 @@
+{
+  "dirty": true,
+  "docker": {
+    "cpus": 12,
+    "memory_bytes": 32881127424
+  },
+  "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+  "kubernetes": "v1.30.0",
+  "node_topology": "1 control-plane + 3 workers",
+  "patroni": "4.0.4",
+  "pgcat": "1.2.0",
+  "postgresql": "16.6",
+  "storage": "kind local-path RWO; node-affine",
+  "timestamp": "2026-10-03T11:26:16.637376+00:00"
+}

@@ -1,0 +1,68 @@
+{
+  "archive_mode": "off",
+  "duration_seconds": 15.451,
+  "output": "{\"source\": \"lab-patroni\", \"target\": \"isolated-423c29\", \"namespace\": \"resilience\", \"backup\": \"base_000000020000000000000008\", \"target_utc\": \"2026-10-03T11:26:52+00:00\", \"source_mutations\": false, \"target_archiving\": false, \"execute\": true}\nTarget ready. Data verification and any cutover remain separate operator actions.\n",
+  "restored_rows": [
+    {
+      "id": 1,
+      "phase": "baseline",
+      "value": 100
+    }
+  ],
+  "source_unchanged": true,
+  "target": "isolated-423c29",
+  "target_pvcs": [
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "annotations": {
+          "pv.kubernetes.io/bind-completed": "yes",
+          "pv.kubernetes.io/bound-by-controller": "yes",
+          "volume.alpha.kubernetes.io/storage-class": "standard",
+          "volume.beta.kubernetes.io/storage-provisioner": "rancher.io/local-path",
+          "volume.kubernetes.io/selected-node": "dbaas-phase5-8a3ad9f385-worker3",
+          "volume.kubernetes.io/storage-provisioner": "rancher.io/local-path"
+        },
+        "creationTimestamp": "2026-10-03T11:28:14Z",
+        "finalizers": [
+          "kubernetes.io/pvc-protection"
+        ],
+        "labels": {
+          "application": "patroni",
+          "cluster-name": "isolated-423c29-patronimvp",
+          "release-name": "isolated-423c29",
+          "spilo-cluster": "patronimvp"
+        },
+        "name": "pgdata-isolated-423c29-patronimvp-0",
+        "namespace": "resilience",
+        "resourceVersion": "3114",
+        "uid": "86d04de2-73c8-4b31-890c-9117a693df2f"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "2Gi"
+          }
+        },
+        "storageClassName": "standard",
+        "volumeMode": "Filesystem",
+        "volumeName": "pvc-86d04de2-73c8-4b31-890c-9117a693df2f"
+      },
+      "status": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "capacity": {
+          "storage": "2Gi"
+        },
+        "phase": "Bound"
+      }
+    }
+  ],
+  "target_utc": "2026-10-03 11:26:52",
+  "writable": true
+}

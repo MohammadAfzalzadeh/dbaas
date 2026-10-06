@@ -1,0 +1,324 @@
+{
+  "archiver": [
+    {
+      "archived_count": 0,
+      "failed_count": 0,
+      "last_archived_time": null,
+      "last_archived_wal": null,
+      "last_failed_time": null,
+      "last_failed_wal": null,
+      "stats_reset": "2026-10-03 12:48:55.222744+00:00"
+    }
+  ],
+  "checkpoint": [
+    {
+      "checkpoint_lsn": "0/B000060",
+      "checkpoint_time": "2026-10-03 12:47:06+00:00",
+      "full_page_writes": true,
+      "newest_commit_ts_xid": "0",
+      "next_multi_offset": "0",
+      "next_multixact_id": "1",
+      "next_oid": 24581,
+      "next_xid": "0:746",
+      "oldest_active_xid": "746",
+      "oldest_commit_ts_xid": "0",
+      "oldest_multi_dbid": 1,
+      "oldest_multi_xid": "1",
+      "oldest_xid": "723",
+      "oldest_xid_dbid": 1,
+      "prev_timeline_id": 2,
+      "redo_lsn": "0/B000028",
+      "redo_wal_file": "00000002000000000000000B",
+      "timeline_id": 2
+    }
+  ],
+  "cluster": {
+    "members": [
+      {
+        "api_url": "http://192.168.200.69:8008/patroni",
+        "host": "192.168.200.69",
+        "name": "lab-patroni-patronimvp-0",
+        "port": 5432,
+        "role": "leader",
+        "state": "running",
+        "timeline": 4
+      },
+      {
+        "api_url": "http://192.168.71.6:8008/patroni",
+        "host": "192.168.71.6",
+        "lag": 25608,
+        "name": "lab-patroni-patronimvp-1",
+        "port": 5432,
+        "role": "replica",
+        "state": "running",
+        "timeline": 3
+      },
+      {
+        "api_url": "http://192.168.183.10:8008/patroni",
+        "host": "192.168.183.10",
+        "lag": 0,
+        "name": "lab-patroni-patronimvp-2",
+        "port": 5432,
+        "role": "replica",
+        "state": "streaming",
+        "timeline": 4
+      }
+    ],
+    "scope": "lab-patroni-patronimvp"
+  },
+  "config": {
+    "postgresql": {
+      "pg_hba": [
+        "host replication standby 192.168.200.67/16 md5",
+        "host replication standby 127.0.0.1/32 md5",
+        "host all all 0.0.0.0/0 md5"
+      ],
+      "use_pg_rewind": true
+    }
+  },
+  "local_patroni_configuration": {
+    "bootstrap": {
+      "clone_with_walg": {
+        "command": "bash /wal-g/commands/restore_backup.sh /home/postgres/pgdata/pgroot/data false",
+        "recovery_conf": {
+          "recovery_target_action": "promote",
+          "recovery_target_time": "",
+          "recovery_target_timeline": "latest",
+          "restore_command": "/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p"
+        }
+      },
+      "dcs": {
+        "postgresql": {
+          "pg_hba": [
+            "host replication standby 192.168.183.10/16 md5",
+            "host replication standby 127.0.0.1/32 md5",
+            "host all all 0.0.0.0/0 md5"
+          ],
+          "use_pg_rewind": true
+        }
+      },
+      "initdb": [
+        {
+          "auth-host": "md5"
+        },
+        {
+          "auth-local": "trust"
+        },
+        {
+          "encoding": "UTF8"
+        },
+        {
+          "locale": "en_US.UTF-8"
+        },
+        "data-checksums"
+      ],
+      "method": "initdb"
+    },
+    "postgresql": {
+      "authentication": {
+        "replication": {
+          "password": "[REDACTED]"
+        },
+        "superuser": {
+          "password": "[REDACTED]"
+        }
+      },
+      "connect_address": "192.168.183.10:5432",
+      "parameters": {
+        "archive_command": "/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p",
+        "archive_mode": true,
+        "archive_timeout": 60,
+        "restore_command": "/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p",
+        "wal_level": "replica"
+      }
+    },
+    "restapi": {
+      "connect_address": "192.168.183.10:8008"
+    }
+  },
+  "patroni": {
+    "database_system_identifier": "7692420561553522720",
+    "dcs_last_seen": 1791031946,
+    "patroni": {
+      "name": "lab-patroni-patronimvp-2",
+      "scope": "lab-patroni-patronimvp",
+      "version": "4.0.4"
+    },
+    "postmaster_start_time": "2026-10-03 12:48:54.964743+00:00",
+    "replication_state": "streaming",
+    "role": "replica",
+    "server_version": 160006,
+    "state": "running",
+    "timeline": 4,
+    "xlog": {
+      "paused": false,
+      "received_location": 251713448,
+      "replayed_location": 251713448,
+      "replayed_timestamp": "2026-10-03 12:52:31.994257+00:00"
+    }
+  },
+  "primary_conninfo": {
+    "application_name": "lab-patroni-patronimvp-2",
+    "dbname": "postgres",
+    "host": "192.168.200.69",
+    "passfile": "/tmp/pgpass",
+    "port": "5432",
+    "sslmode": "prefer",
+    "user": "standby"
+  },
+  "replay": [
+    {
+      "pg_is_in_recovery": true,
+      "pg_last_wal_receive_lsn": "0/F00D7A8",
+      "pg_last_wal_replay_lsn": "0/F00D7A8",
+      "pg_last_xact_replay_timestamp": "2026-10-03 12:52:31.994257+00:00"
+    }
+  ],
+  "replication": [],
+  "settings": [
+    {
+      "name": "archive_command",
+      "setting": "/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p",
+      "source": "configuration file",
+      "sourcefile": "/home/postgres/pgdata/pgroot/data/postgresql.conf",
+      "sourceline": 5
+    },
+    {
+      "name": "archive_mode",
+      "setting": "on",
+      "source": "configuration file",
+      "sourcefile": "/home/postgres/pgdata/pgroot/data/postgresql.conf",
+      "sourceline": 6
+    },
+    {
+      "name": "data_checksums",
+      "setting": "on",
+      "source": "default",
+      "sourcefile": null,
+      "sourceline": null
+    },
+    {
+      "name": "max_slot_wal_keep_size",
+      "setting": "-1",
+      "source": "default",
+      "sourcefile": null,
+      "sourceline": null
+    },
+    {
+      "name": "recovery_target_action",
+      "setting": "pause",
+      "source": "default",
+      "sourcefile": null,
+      "sourceline": null
+    },
+    {
+      "name": "recovery_target_time",
+      "setting": "",
+      "source": "configuration file",
+      "sourcefile": "/home/postgres/pgdata/pgroot/data/postgresql.conf",
+      "sourceline": 31
+    },
+    {
+      "name": "recovery_target_timeline",
+      "setting": "latest",
+      "source": "configuration file",
+      "sourcefile": "/home/postgres/pgdata/pgroot/data/postgresql.conf",
+      "sourceline": 32
+    },
+    {
+      "name": "restore_command",
+      "setting": "/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p",
+      "source": "configuration file",
+      "sourcefile": "/home/postgres/pgdata/pgroot/data/postgresql.conf",
+      "sourceline": 34
+    },
+    {
+      "name": "wal_keep_size",
+      "setting": "128",
+      "source": "configuration file",
+      "sourcefile": "/home/postgres/pgdata/pgroot/data/postgresql.conf",
+      "sourceline": 19
+    },
+    {
+      "name": "wal_level",
+      "setting": "replica",
+      "source": "command line",
+      "sourcefile": null,
+      "sourceline": null
+    },
+    {
+      "name": "wal_log_hints",
+      "setting": "on",
+      "source": "command line",
+      "sourcefile": null,
+      "sourceline": null
+    }
+  ],
+  "signals": {
+    "recovery.signal": false,
+    "standby.signal": true
+  },
+  "slots": [
+    {
+      "active": false,
+      "restart_lsn": "0/F006A88",
+      "slot_name": "lab_patroni_patronimvp_0",
+      "slot_type": "physical",
+      "wal_status": "reserved"
+    },
+    {
+      "active": false,
+      "restart_lsn": "0/F000680",
+      "slot_name": "lab_patroni_patronimvp_1",
+      "slot_type": "physical",
+      "wal_status": "reserved"
+    }
+  ],
+  "system": [
+    {
+      "catalog_version_no": 202307071,
+      "pg_control_last_modified": "2026-10-03 12:48:55+00:00",
+      "pg_control_version": 1300,
+      "system_identifier": 7692420561553522720
+    }
+  ],
+  "timeline_history": {
+    "00000002.history": "1\t0/60000A0\tno recovery target specified\n",
+    "00000003.history": "1\t0/60000A0\tno recovery target specified\n\n2\t0/C0087F8\tno recovery target specified\n",
+    "00000004.history": "1\t0/60000A0\tno recovery target specified\n\n2\t0/C0087F8\tno recovery target specified\n\n3\t0/F0068F8\tno recovery target specified\n"
+  },
+  "wal_files": [
+    "000000010000000000000004",
+    "000000010000000000000005",
+    "000000010000000000000006",
+    "00000002.history",
+    "000000020000000000000006",
+    "000000020000000000000007",
+    "000000020000000000000008",
+    "000000020000000000000009",
+    "00000002000000000000000A",
+    "00000002000000000000000B",
+    "00000002000000000000000C",
+    "00000002000000000000000C.partial",
+    "00000003.history",
+    "00000003000000000000000C",
+    "00000003000000000000000D",
+    "00000003000000000000000E",
+    "00000003000000000000000F",
+    "00000004.history",
+    "00000004000000000000000F"
+  ],
+  "wal_receiver": [
+    {
+      "flushed_lsn": "0/F00D7A8",
+      "latest_end_lsn": "0/F00D7A8",
+      "receive_start_lsn": "0/F000000",
+      "receive_start_tli": 4,
+      "received_tli": 4,
+      "sender_host": "192.168.200.69",
+      "slot_name": "lab_patroni_patronimvp_2",
+      "status": "streaming",
+      "written_lsn": "0/F00D7A8"
+    }
+  ]
+}

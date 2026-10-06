@@ -1,0 +1,904 @@
+[
+  {
+    "path": "README.md",
+    "lines": 142,
+    "sha256": "48d509f0e55f9df8f78111630effd1532a291c809ca72629a769b2e5d28e8217",
+    "headings": [
+      "# Cloud-Native PostgreSQL Database-as-a-Service Platform",
+      "## Overview",
+      "## Architecture",
+      "## What Makes This a DBaaS",
+      "## Core Capabilities",
+      "## Provisioning Flow",
+      "## High Availability",
+      "## PgCat Connection Layer",
+      "## Backup and WAL Archiving",
+      "## PITR",
+      "## Isolated Restore",
+      "## Security Model",
+      "## Multi-Node Reliability",
+      "## Network Isolation",
+      "## Observability",
+      "## Failure Testing",
+      "## Benchmark Results",
+      "## Backup Impact",
+      "## Recovery Measurements",
+      "## Known Failures / Limitations",
+      "## Quick Start",
+      "## Repository Structure",
+      "## Documentation",
+      "## Evidence",
+      "## Research / Engineering Lessons"
+    ]
+  },
+  {
+    "path": "application/README.md",
+    "lines": 61,
+    "sha256": "6d60be00e3463db5f64143ebe7e6cec43a28ac60760896b73882374fd5fad38f",
+    "headings": [
+      "# FastAPI provisioning control plane",
+      "## API flow",
+      "## Browser and authentication",
+      "## API lifecycle",
+      "## Helm and Secrets",
+      "## Errors and temporary files",
+      "## Configuration",
+      "## Local checks and development",
+      "## Validation and limitations"
+    ]
+  },
+  {
+    "path": "docs/README.md",
+    "lines": 16,
+    "sha256": "20ebd82a4b82e6975ecab24cea435ea7e46b28ef331eabe9ce2d133589217df4",
+    "headings": [
+      "# Documentation",
+      "## Review paths",
+      "## Reading historical material"
+    ]
+  },
+  {
+    "path": "docs/architecture/README.md",
+    "lines": 39,
+    "sha256": "c30bd59d9bae3c41a944c64970650f2aa1d4bdc5bf1f033dd02bd322a7603bba",
+    "headings": [
+      "# Architecture guide",
+      "## Diagram catalog",
+      "## Design decisions"
+    ]
+  },
+  {
+    "path": "docs/audit/dbaas-capability-matrix.md",
+    "lines": 119,
+    "sha256": "9ea6f13f2114876bdd465208efbe02adc69c6ba232e6699598453d5b0cd04c20",
+    "headings": [
+      "# DBaaS capability matrix",
+      "## Validation evidence",
+      "## Lifecycle and configuration",
+      "## Fields that overstate current behavior",
+      "## Conclusion",
+      "## Historical Phase 3 reliability boundary (superseded by Phase 4)",
+      "## Infrastructure validation",
+      "## Phase 5 evidence update (2026-10-03)",
+      "## Phase 5 continuation"
+    ]
+  },
+  {
+    "path": "docs/audit/monitoring-harness-followup.md",
+    "lines": 24,
+    "sha256": "24d11cdac75036b5f7840b0d443395b59128598b641a8386fbfb6ad81cc65df4",
+    "headings": [
+      "# Monitoring evidence follow-up",
+      "## Changes",
+      "## Validation",
+      "## Remaining issues"
+    ]
+  },
+  {
+    "path": "docs/audit/phase1-correctness-report.md",
+    "lines": 140,
+    "sha256": "1bcfee57198f92be44bcefcaf17bd427d6357867855153fa0033af1935b73b4c",
+    "headings": [
+      "# Phase 1 correctness report",
+      "## Implementation plan",
+      "## Correctness Issues Fixed",
+      "### FastAPI provisioning and generated values",
+      "### Backup execution",
+      "### Helm, namespaces and isolation",
+      "### PgCat generation and metrics",
+      "### Recovery prerequisites and restore bootstrap",
+      "### Browser contract",
+      "## Validation results",
+      "### STATICALLY VALIDATED",
+      "### MOCK-VALIDATED",
+      "## Compatibility and operator requirements",
+      "## Remaining Correctness Risks",
+      "## Requires Live Validation",
+      "## Deferred to Security Phase",
+      "## Deferred to Reliability Phase"
+    ]
+  },
+  {
+    "path": "docs/audit/phase2-security-reproducibility-report.md",
+    "lines": 92,
+    "sha256": "96ad3ddc18445a37b05a74bea7c3338bc75483f738bda79d5e6cc93e18944446",
+    "headings": [
+      "# Phase 2 security and reproducibility report",
+      "## Implementation plan",
+      "## Security Issues Fixed",
+      "## Reproducibility Issues Fixed",
+      "## Authentication Model",
+      "## Secret Handling Model",
+      "## Version Pinning Changes",
+      "## Tests Added",
+      "## Validation Results",
+      "## Remaining Security Risks",
+      "## Requires Credential Rotation",
+      "## Deferred to Phase 3"
+    ]
+  },
+  {
+    "path": "docs/audit/phase3-reliability-report.md",
+    "lines": 139,
+    "sha256": "211059cc46207f82311555ef2defbf52b16a4a26367b69efa78266ea8b325e1e",
+    "headings": [
+      "# Phase 3 reliability report",
+      "## Pre-edit implementation plan",
+      "# Reliability Improvements",
+      "# Kubernetes Hardening",
+      "# Scheduling Model",
+      "# Probe Model",
+      "# Storage Safety",
+      "# Backup Reliability",
+      "# Recovery Reliability",
+      "# Image Build Results",
+      "# Smoke Test Results",
+      "# Static Validation Results",
+      "# Immutable-Field Migration Risks",
+      "# Remaining Single Points of Failure",
+      "# Not Yet Live Validated",
+      "# Deferred to Phase 4",
+      "# Files Changed in Phase 3"
+    ]
+  },
+  {
+    "path": "docs/audit/phase4-runtime-validation-report.md",
+    "lines": 151,
+    "sha256": "de26981a3cd52cc653fc3e431b84b2a60a1b347371ba045217d94d02d35e54d8",
+    "headings": [
+      "# Phase 4 runtime validation report",
+      "## Kubernetes API EOF Root Cause",
+      "## Fix",
+      "## Test Environment",
+      "## Provisioning Result",
+      "## PostgreSQL/Patroni Result",
+      "## PgCat Result",
+      "## SQL Result",
+      "## Backup Result",
+      "## WAL Archiving Result",
+      "## PITR Result",
+      "## Primary Failover Result",
+      "## Replica Failure Result",
+      "## PgCat Failure Result",
+      "## Network Policy Result",
+      "## Runtime Defects Found and Fixed",
+      "## Changed Files and Design Decisions",
+      "## Measured Timings",
+      "## Remaining Runtime Risks",
+      "## Remaining SPOFs",
+      "## Not Yet Tested",
+      "## Final clean run \u2014 LIVE VALIDATED",
+      "## Final validation and cleanup"
+    ]
+  },
+  {
+    "path": "docs/audit/phase5-continuation-report.md",
+    "lines": 132,
+    "sha256": "25130250ca551760d3ccd7020d21319343aec208bf18f4c6e00f43cdee9825c2",
+    "headings": [
+      "# Phase 5 continuation \u2014 2026-10-03",
+      "## Automatic replica recovery",
+      "## Isolated restore durability",
+      "## PgCat shutdown",
+      "## Credential rotation",
+      "## Monitoring changes",
+      "## Validation history",
+      "## Alert corrections and outcomes",
+      "## Four-client failover under writes",
+      "## Backup alert",
+      "## Evidence sanitization",
+      "## Benchmark and backup-impact rerun",
+      "## Recovery-size measurements",
+      "## Changed files and design decisions",
+      "## Final validation and cleanup",
+      "## Remaining issues"
+    ]
+  },
+  {
+    "path": "docs/audit/phase5-resilience-evidence-report.md",
+    "lines": 97,
+    "sha256": "4b2a3d296c48c2bec43018167ecc06183405890ff0f59e033e8742ad1de480a0",
+    "headings": [
+      "# Phase 5 \u2014 Resilience and Evidence Report",
+      "# Multi-Node Validation",
+      "# PostgreSQL HA",
+      "# PgCat HA",
+      "# Node Drain",
+      "# Node Failure",
+      "# Network Policies",
+      "# Isolated Restore",
+      "# Off-Site Recovery",
+      "# Credential Rotation",
+      "# Upgrade Validation",
+      "# Persistent Client Results",
+      "# Observability",
+      "# Alerts",
+      "# Performance Benchmarks",
+      "# Failover Under Load",
+      "# Backup Impact",
+      "# Recovery Benchmarks",
+      "# Evidence Generated",
+      "# Remaining Risks",
+      "# Production Gaps",
+      "## Changed files and design decisions",
+      "## Validation and cleanup"
+    ]
+  },
+  {
+    "path": "docs/audit/phase6-package-report.md",
+    "lines": 38,
+    "sha256": "6a235c7ae5cecb115537ba344feecdad9b034d975223818137d54ead8fe401d4",
+    "headings": [
+      "# Phase 6 \u2014 Final engineering package",
+      "## Outcome",
+      "## Changed files",
+      "## Design decisions",
+      "## Validation",
+      "## Unresolved issues"
+    ]
+  },
+  {
+    "path": "docs/audit/repository-map.md",
+    "lines": 98,
+    "sha256": "ef08799ddbe759a3aca8d330efac7b73ff3241929220a637afcab83754694b14",
+    "headings": [
+      "# Repository map",
+      "## Paths and responsibilities",
+      "## Entry points",
+      "## Chart lookup and drift",
+      "## Namespace map",
+      "## Evidence boundaries"
+    ]
+  },
+  {
+    "path": "docs/audit/runtime-risk-register.md",
+    "lines": 150,
+    "sha256": "0819a0f4e6f340c3304759d1e5ca617242757dc45ad8274b6a1ea525f0e63ee2",
+    "headings": [
+      "# Runtime risk register",
+      "## Reading the register",
+      "## Phase 1 status \u2014 2026-10-01",
+      "## Baseline confirmed and probable defects",
+      "## Important corrections and unverified concerns",
+      "### Recovery PVC selector is not a confirmed no-op",
+      "### Other integration risks",
+      "## Baseline highest-risk groups",
+      "## Baseline local evidence collected",
+      "## Phase 4 runtime status \u2014 2026-10-03",
+      "## Phase 5 findings (2026-10-03)"
+    ]
+  },
+  {
+    "path": "docs/audit/technical-audit.md",
+    "lines": 556,
+    "sha256": "a4ed3b8b76214e139cc6d7220e732c791e8b3319a5fd6ab41c985db0b6dacaea",
+    "headings": [
+      "# Cloud-native PostgreSQL platform: technical audit",
+      "## Phase 1 amendment \u2014 current working tree",
+      "## Baseline audit (historical)",
+      "## Executive assessment",
+      "### Companion documents",
+      "### Scope and evidence rules",
+      "## 1. System architecture",
+      "### Architecture source",
+      "## 2. Existing DBaaS capability",
+      "## 3. Provisioning flow",
+      "### HTTP surface",
+      "### Request models and validation",
+      "### Browser behavior",
+      "### Actual sequence",
+      "### Failures, status, and rollback",
+      "## 4. Control plane assessment",
+      "## 5. PostgreSQL high availability",
+      "### Bootstrap and coordination",
+      "### Replication and failover",
+      "### Service discovery",
+      "### Availability boundaries",
+      "## 6. PgCat routing and configuration",
+      "### Confirmed name propagation defect",
+      "### Metrics and reload",
+      "## 7. Backup architecture",
+      "### CronJob correctness",
+      "## 8. Point-in-time recovery",
+      "### Implemented operator path",
+      "### Paths, namespaces, and PVCs",
+      "### Recovery risk classification",
+      "## 9. Helm architecture and 10. Namespace model",
+      "## 11. Secrets and security",
+      "### Classification",
+      "### Exposure paths",
+      "## 12. Image and dependency reproducibility",
+      "### Image inventory",
+      "### Packages and downloads",
+      "## 13. Kubernetes workload reliability",
+      "### Probes, resources, and security",
+      "### Persistence, shutdown, and updates",
+      "### PostgreSQL-specific implications",
+      "## 14. Observability",
+      "## 15. Runtime bug inventory",
+      "## 16. Production readiness",
+      "## 17. Portfolio assessment and implementation order",
+      "### Currently defensible claims",
+      "### Claims requiring fixes",
+      "### Claims requiring runtime testing",
+      "### Claims that should not currently be made",
+      "### Recommended wording",
+      "### Planned implementation phases",
+      "## 18. Validation record and remaining work",
+      "### Performed locally",
+      "### Not established"
+    ]
+  },
+  {
+    "path": "docs/evidence/README.md",
+    "lines": 62,
+    "sha256": "358b646008400221beefc30ecc16bef2e65ea8a5f13a59692c014fdbd4512775",
+    "headings": [
+      "# Authoritative evidence index",
+      "## Environments",
+      "## Capability register",
+      "## Attempt history and supporting detail"
+    ]
+  },
+  {
+    "path": "docs/evidence/claims-register.md",
+    "lines": 38,
+    "sha256": "b2623253a9dc893c0ab9da6f46b442427f48933e48c88c62b804586fc280bfb0",
+    "headings": [
+      "# Claims register"
+    ]
+  },
+  {
+    "path": "docs/evidence/final-validation-summary.md",
+    "lines": 65,
+    "sha256": "f250b3be77b0058c5b3a60ac716289712cb53cbe640fde8f4620670fcf08c506",
+    "headings": [
+      "# Final validation summary",
+      "## Current Phase 6 checks",
+      "## Reproducibility commands and limits",
+      "## Historical checks \u2014 not rerun or added to current counts",
+      "## Security interpretation",
+      "## Scope and repository state"
+    ]
+  },
+  {
+    "path": "docs/evidence/phase5-continuation.md",
+    "lines": 38,
+    "sha256": "3d38d62046606c57c5f5aa4c2fdb5ab682f225c489dea1f6f54018f2da8444bf",
+    "headings": [
+      "# Phase 5 continuation evidence",
+      "## Scenario results",
+      "## Supporting evidence",
+      "## Benchmark matrix and backup impact"
+    ]
+  },
+  {
+    "path": "docs/evidence/project-status.md",
+    "lines": 39,
+    "sha256": "63be3f445a8a8bb198c1e8101590bdd177c7fcf2b6a896497b242f77658b98a1",
+    "headings": [
+      "# Project status"
+    ]
+  },
+  {
+    "path": "docs/operations/credential-rotation.md",
+    "lines": 24,
+    "sha256": "9d093b4922f3d1de87879dc5c8fd2ca7016e1549574baef6d72775e638b9bf9c",
+    "headings": [
+      "# Credential rotation rehearsal",
+      "## Rehearsal",
+      "## Continuation reload rehearsal"
+    ]
+  },
+  {
+    "path": "docs/operations/external-object-storage.md",
+    "lines": 33,
+    "sha256": "1517b59d58faaf39bc8e897bc8013432a7147e6d0ca861f9b2d32f8a1d791b59",
+    "headings": [
+      "# Provider-neutral S3-compatible backup storage",
+      "# Review the non-secret settings; add --apply to write the output Secret.",
+      "## Integration drill without source-cluster access"
+    ]
+  },
+  {
+    "path": "docs/operations/migration-phase3.md",
+    "lines": 21,
+    "sha256": "a59ec1bbeb1b82fc388c77e9a4af3cdce276603795f1140df7550736cd3ac4fd",
+    "headings": [
+      "# Phase 3 migration and immutable fields"
+    ]
+  },
+  {
+    "path": "docs/operations/monitoring-runbooks.md",
+    "lines": 29,
+    "sha256": "0e01078556d09dd5e8821ccf216370b5b44a5b7a7a0afc7a04c339569d7f61ba",
+    "headings": [
+      "# Monitoring scope and response",
+      "## Missing coverage",
+      "## Safe alert rehearsal",
+      "## Member discovery"
+    ]
+  },
+  {
+    "path": "docs/operations/phase5-continuation.md",
+    "lines": 22,
+    "sha256": "9d0bec90ab94189b50404bf68210dbac466445f6d45f2a18db9b4557b9a1102d",
+    "headings": [
+      "# Reproduce continuation checks",
+      "## Scrape-alert diagnostic follow-up"
+    ]
+  },
+  {
+    "path": "docs/operations/reliability.md",
+    "lines": 75,
+    "sha256": "5c6ce91e4d25572437a446945a706ed8036be046fab03952639f1ba70709ad34",
+    "headings": [
+      "# Reliability model",
+      "## Workloads and resources",
+      "## Scheduling and disruption",
+      "## Probe semantics",
+      "## Termination",
+      "## Network policies and RBAC",
+      "## Backup/recovery and remaining failure domains"
+    ]
+  },
+  {
+    "path": "docs/operations/restore-cutover.md",
+    "lines": 34,
+    "sha256": "59e38c635aea124f9b404682186c1e4f1c8a65278ae572ce076caa14645b23db",
+    "headings": [
+      "# Isolated restore and controlled cutover",
+      "# Review the plan, then repeat with --execute.",
+      "## Planned cutover procedure",
+      "## External recovery",
+      "## Clone archive isolation after promotion"
+    ]
+  },
+  {
+    "path": "docs/operations/storage.md",
+    "lines": 11,
+    "sha256": "f78c177406d0422a857fbbfce4b7abd67face5e38446d3cce2d07a444c4d3e0c",
+    "headings": [
+      "# Storage safety"
+    ]
+  },
+  {
+    "path": "docs/operations/upgrades.md",
+    "lines": 14,
+    "sha256": "dc693c82fd8c81f0a8fa9e7792b900464fd4a348a67558e4cec79d06d5acaeb5",
+    "headings": [
+      "# Controlled upgrades"
+    ]
+  },
+  {
+    "path": "docs/operations/version-matrix.md",
+    "lines": 51,
+    "sha256": "7feb2ba23337f1fe54ec9c75db2f90b8b734fa23f144eb48cc660d466ccb654b",
+    "headings": [
+      "# Version matrix",
+      "## Selection evidence and compatibility boundary",
+      "## Builds and reproducibility limits"
+    ]
+  },
+  {
+    "path": "docs/portfolio/interview-stories.md",
+    "lines": 63,
+    "sha256": "6146e3c9105ffe5971dfa97d9156155205ff6d7221d93bf2f2a3be6e804a82b0",
+    "headings": [
+      "# STAR interview stories",
+      "## 1. Kubernetes API EOF and host inotify exhaustion",
+      "## 2. Backup false-success risk",
+      "## 3. PITR and archive separation",
+      "## 4. Persistent-client failover",
+      "## 5. Historical replica recovery anomaly"
+    ]
+  },
+  {
+    "path": "docs/portfolio/interview-talking-points.md",
+    "lines": 119,
+    "sha256": "be4739e3ffffc053cdca9fafbccd9d414a7e5199a241cc8ae1792d4a1145c5a0",
+    "headings": [
+      "# Interview talking points",
+      "## Why Patroni instead of a StatefulSet alone?",
+      "## How does leader election work?",
+      "## How does Patroni prevent split brain?",
+      "## What happens when the primary node disappears?",
+      "## Why did one historical replica fail to recover?",
+      "## What do you know and not know about that failure?",
+      "## Why PgCat?",
+      "## What happens when PgCat dies?",
+      "## How were acknowledged writes validated?",
+      "## Promotion time versus client recovery time?",
+      "## How does WAL archiving work?",
+      "## How does PITR work?",
+      "## Why did isolated restore remain coupled to source WAL?",
+      "## How was archive separation corrected?",
+      "## Why is isolated restore operationally safer than in-place restore?",
+      "## How does backup affect performance?",
+      "## What does the benchmark prove?",
+      "## What doesn't the benchmark prove?",
+      "## What caused the Kubernetes API EOF problem?",
+      "## Why did inotify exhaustion affect kube-proxy?",
+      "## What are current single points of failure?",
+      "## What remains before production?",
+      "## How would you redesign this using an Operator?",
+      "## How would you support multi-tenancy?",
+      "## How would you design off-site disaster recovery?",
+      "## How would you define RPO and RTO?",
+      "## Do current numbers represent an SLA?",
+      "## Source map"
+    ]
+  },
+  {
+    "path": "docs/portfolio/linkedin-carousel.md",
+    "lines": 67,
+    "sha256": "c1289ae0313f8ba4d1dbe573b5c8497b8d767f282f27a7014c52804be856261d",
+    "headings": [
+      "# LinkedIn carousel outline",
+      "## Slide 1: What I built",
+      "## Slide 2: Architecture",
+      "## Slide 3: Provisioning/control plane",
+      "## Slide 4: HA and Patroni",
+      "## Slide 5: Backup and PITR",
+      "## Slide 6: Failure testing",
+      "## Slide 7: What broke",
+      "## Slide 8: Measured results",
+      "## Slide 9: What I learned",
+      "## Slide 10: Remaining production gaps",
+      "## Evidence and export notes"
+    ]
+  },
+  {
+    "path": "docs/portfolio/linkedin-project.md",
+    "lines": 43,
+    "sha256": "81e77392b2ff7f3dd5786489513cff093da03857b791275e1734038c229825cc",
+    "headings": [
+      "# LinkedIn project package",
+      "## Recommended titles",
+      "## A. Short project description",
+      "## B. Technical post draft",
+      "## C. Publishing assets"
+    ]
+  },
+  {
+    "path": "docs/portfolio/resume-project.md",
+    "lines": 17,
+    "sha256": "5856b66ef0ca26fbab67c7914e4708fce07ca12d117b16084e464906698de50b",
+    "headings": [
+      "# Kubernetes-Native PostgreSQL DBaaS Prototype",
+      "## Evidence and positioning"
+    ]
+  },
+  {
+    "path": "docs/report/engineering-report.md",
+    "lines": 177,
+    "sha256": "d911ec926de863ccb13607ef5d13d6450a67d784a0979b546513d71581b7bcff",
+    "headings": [
+      "# Executive Summary",
+      "# 1. Problem Statement",
+      "# 2. Project Goals",
+      "# 3. System Requirements",
+      "# 4. Architecture",
+      "# 5. Control Plane",
+      "# 6. Kubernetes Resource Model",
+      "# 7. PostgreSQL and Patroni",
+      "# 8. Leader Election and Failure Recovery",
+      "# 9. PgCat",
+      "# 10. Backup and WAL Archiving",
+      "# 11. Point-in-Time Recovery",
+      "# 12. Isolated Restore",
+      "# 13. Security Architecture",
+      "# 14. Kubernetes Reliability",
+      "# 15. Scheduling and Failure Domains",
+      "# 16. Network Isolation",
+      "# 17. Observability",
+      "# 18. Testing Methodology",
+      "# 19. Failure Experiments",
+      "# 20. Persistent Client Testing",
+      "# 21. Credential Rotation",
+      "# 22. Benchmark Methodology",
+      "# 23. Performance Results",
+      "# 24. Backup Impact",
+      "# 25. Recovery Measurements",
+      "# 26. Failures Found During Development",
+      "# 27. Production Readiness Gap Analysis",
+      "# 28. Limitations",
+      "# 29. Future Work",
+      "# 30. Lessons Learned",
+      "# 31. Conclusion"
+    ]
+  },
+  {
+    "path": "docs/report/executive-summary.md",
+    "lines": 51,
+    "sha256": "4881cd5c417f1571f5b85af16f08ed6b307714da6667066bbf4ec9a0c7455202",
+    "headings": [
+      "# Executive summary",
+      "## A database service, tested beyond deployment",
+      "## Architecture and its limits",
+      "## What the evidence establishes",
+      "## Selected disposable-lab measurements",
+      "## What broke, and why it matters",
+      "## Remaining work and portfolio value"
+    ]
+  },
+  {
+    "path": "docs/report/failure-engineering.md",
+    "lines": 54,
+    "sha256": "082e330f30fbe65c252cc4fcb8992b3546875eec6423fea5516565b692d4220b",
+    "headings": [
+      "# Failure engineering",
+      "## Method and safety boundary",
+      "## Experiment register",
+      "## The unresolved replica recovery anomaly",
+      "## Development defects and regression evidence",
+      "## Interpreting success"
+    ]
+  },
+  {
+    "path": "docs/report/observability-gaps.md",
+    "lines": 23,
+    "sha256": "4cc9bbd762dc44169697e6b961de075a231edbbd70a5b3a439de2accee01a3da",
+    "headings": [
+      "# Observability gaps",
+      "## Follow-up criteria \u2014 Planned"
+    ]
+  },
+  {
+    "path": "docs/report/performance-results.md",
+    "lines": 69,
+    "sha256": "ddf77aa29093c579d915b82e79e58b90d114bf7ba6dd4305242e7c74669167bd",
+    "headings": [
+      "# Performance results",
+      "## Environment and methodology",
+      "## Direct PostgreSQL and PgCat matrix",
+      "## Failover under load",
+      "## Backup impact",
+      "## Restore and PITR measurements",
+      "## Historical context"
+    ]
+  },
+  {
+    "path": "docs/report/production-gap-analysis.md",
+    "lines": 45,
+    "sha256": "5247c09fadee7099e9705c6268f8a61bc17c584b41464725ade5fb10812ab2ab",
+    "headings": [
+      "# Production gap analysis",
+      "## CRITICAL BEFORE PRODUCTION",
+      "## HIGH PRIORITY",
+      "## MEDIUM",
+      "## OPTIONAL",
+      "## Exit principle"
+    ]
+  },
+  {
+    "path": "docs/security/api-security.md",
+    "lines": 29,
+    "sha256": "c248ac3b32ad5de75840950f9b7c81858e14863639e1409dbb33b1b477b210f2",
+    "headings": [
+      "# API security",
+      "## Authentication",
+      "## Authorization and transport",
+      "## Errors, subprocesses and inputs",
+      "## Rotation"
+    ]
+  },
+  {
+    "path": "docs/security/secret-inventory.md",
+    "lines": 24,
+    "sha256": "3bf2cdcbc77dc323430a060bb67f00e92a804936f118c9ebbb97ee3e293857c4",
+    "headings": [
+      "# Secret inventory"
+    ]
+  },
+  {
+    "path": "docs/security/secrets-management.md",
+    "lines": 46,
+    "sha256": "d827c44c87928a8e356a3160d3c4481b4bc6e70d9a93875123d66cfe3cb0b262",
+    "headings": [
+      "# Secrets management",
+      "## Secret contract",
+      "## Provisioning and migration",
+      "## Development-only inline compatibility",
+      "## Lifecycle and limitations"
+    ]
+  },
+  {
+    "path": "docs/security/security-model.md",
+    "lines": 27,
+    "sha256": "e5671ea45b3ab03221120f540164655679fc3cd27664ab7f19aaf782212830d8",
+    "headings": [
+      "# Security model",
+      "## Trust boundaries",
+      "## Present protections",
+      "## Remaining risks",
+      "## Git history and scanning"
+    ]
+  },
+  {
+    "path": "docs/testing/phase5-plan.md",
+    "lines": 22,
+    "sha256": "e5ab44ef0ff6fdc2820e39a7f1353488f08c8ff48326d9a7540a9b370795fddf",
+    "headings": [
+      "# Phase 5 execution plan"
+    ]
+  },
+  {
+    "path": "docs/testing/resilience-validation.md",
+    "lines": 49,
+    "sha256": "0e8ca98ebda3c92792ccf2be643568f06bf146eeb36c4fcf44dda8a8f044d277",
+    "headings": [
+      "# Phase 5 resilience laboratory",
+      "## Reproduce",
+      "## Interpretation",
+      "## Benchmark boundary",
+      "## Pooling mode and additional evidence"
+    ]
+  },
+  {
+    "path": "docs/testing/runtime-validation.md",
+    "lines": 46,
+    "sha256": "04961670f8a9d82b9c2b9f736afd464102a4ba8562d8b88a30535ce7c09e70e1",
+    "headings": [
+      "# Runtime validation",
+      "## Prerequisites and the EOF diagnosis",
+      "## In-pod diagnostics and credentials",
+      "## Run and retain evidence",
+      "## What the measurements mean"
+    ]
+  },
+  {
+    "path": "docs/testing/smoke-testing.md",
+    "lines": 49,
+    "sha256": "94dd9803dd36ff627da0f706117a521bdd9e94bb6f0c6ffba32fc8a6a21f21ea",
+    "headings": [
+      "# Smoke testing and live checks",
+      "## Disposable kind workflow",
+      "# Independently opt into destructive recovery, inside that new disposable cluster only:",
+      "## Read-only checks against an existing test cluster",
+      "## Phase 4 failure-test entrypoints",
+      "## Offline validation"
+    ]
+  },
+  {
+    "path": "monitoring/README.md",
+    "lines": 21,
+    "sha256": "dcb4c9e9eebde4d0ade47631a97e8ae4775303b843fe8448cd9aeef64601d446",
+    "headings": [
+      "# Monitoring evidence"
+    ]
+  },
+  {
+    "path": "results/runtime/attempts/20261003T093946719584Z/summary.md",
+    "lines": 21,
+    "sha256": "e5702411fbe0a23fafe806d9165f4ff8f2e08b9ac01621ceae328d9a8e78b96d",
+    "headings": [
+      "# Runtime validation summary"
+    ]
+  },
+  {
+    "path": "results/runtime/attempts/20261003T095314656680Z/summary.md",
+    "lines": 21,
+    "sha256": "ca3b538b64f3a66723a7a084c23f3c16836128c4fd736b3b205d449ca8038d52",
+    "headings": [
+      "# Runtime validation summary"
+    ]
+  },
+  {
+    "path": "results/runtime/attempts/20261003T100030579634Z/summary.md",
+    "lines": 21,
+    "sha256": "d1104e20b7ef6ca52821f2adaa514e376e2dcec826e378d655167b28f53db4a4",
+    "headings": [
+      "# Runtime validation summary"
+    ]
+  },
+  {
+    "path": "results/runtime/attempts/README.md",
+    "lines": 9,
+    "sha256": "17551fd0afef5c922983959cd90a72259bb38f2dd72f33186e92a46714265fff",
+    "headings": [
+      "# Earlier runtime attempts"
+    ]
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/summary.md",
+    "lines": 14,
+    "sha256": "2791cca1e32a24b60281e7cdd61ea9d124e284a1bb417447a18de9119843c7e4",
+    "headings": [
+      "# Runtime validation summary"
+    ]
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/summary.md",
+    "lines": 28,
+    "sha256": "1ae2e06bd1ae663857026a969cce44f46ea2eca5eb9f8b415ba5c9aed649f8c0",
+    "headings": [
+      "# Runtime validation summary"
+    ]
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/alert-rehearsal/attempt-2/collection-failure.md",
+    "lines": 3,
+    "sha256": "d83c0f001ac326a209fbf161c7257b6528fe4463bafaaa65db8eeb9b8ef3e375",
+    "headings": [
+      "# Partial rehearsal"
+    ]
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/isolated-durability/attempt-1/summary.md",
+    "lines": 7,
+    "sha256": "91dfe41b9ffd4ec8388fb592606d045736274ec4720090d9b5b2c53abf136bab",
+    "headings": [
+      "# Runtime validation summary"
+    ]
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/proxy-shutdown/attempt-1/measurement-limitations.md",
+    "lines": 3,
+    "sha256": "88384360c0bde72ac42c2ec97231a69bb44690741c9b0124537cac615600bbb6",
+    "headings": [
+      "# Measurement correction"
+    ]
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-1/summary.md",
+    "lines": 17,
+    "sha256": "4e84cda473cf979f13a86ac5b9ec247420c99f54d298c2a0d80c8b740e0e9df1",
+    "headings": [
+      "# Runtime validation summary"
+    ]
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-2/summary.md",
+    "lines": 17,
+    "sha256": "4e84cda473cf979f13a86ac5b9ec247420c99f54d298c2a0d80c8b740e0e9df1",
+    "headings": [
+      "# Runtime validation summary"
+    ]
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/summary.md",
+    "lines": 18,
+    "sha256": "f8f7c2ada7bf98366816ef00bd86ea8b3bf71174846f4b4be0d6ed3b017d8b4c",
+    "headings": [
+      "# Runtime validation summary"
+    ]
+  },
+  {
+    "path": "results/runtime/summary.md",
+    "lines": 21,
+    "sha256": "f0745ea020df0208efe4c3be5e15bc6951243468ecaa4ffe564f4df191de728c",
+    "headings": [
+      "# Runtime validation summary"
+    ]
+  },
+  {
+    "path": "tools/reporting/README.md",
+    "lines": 19,
+    "sha256": "dd383255f6268bc04916b69aaec613dd11a6794a6ad8dcb5b9ede90428191109",
+    "headings": [
+      "# Reproducible reporting",
+      "## Final package"
+    ]
+  }
+]

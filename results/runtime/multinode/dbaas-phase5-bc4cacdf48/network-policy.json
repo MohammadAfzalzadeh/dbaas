@@ -1,0 +1,515 @@
+{
+  "api_to_kubernetes": "PASS",
+  "cni": "Calico v3.28.2",
+  "logging": "NOT IMPLEMENTED",
+  "members": {
+    "members": [
+      {
+        "api_url": "http://192.168.200.69:8008/patroni",
+        "host": "192.168.200.69",
+        "lag": 0,
+        "name": "lab-patroni-patronimvp-0",
+        "port": 5432,
+        "role": "replica",
+        "state": "streaming",
+        "timeline": 2
+      },
+      {
+        "api_url": "http://192.168.71.6:8008/patroni",
+        "host": "192.168.71.6",
+        "lag": 0,
+        "name": "lab-patroni-patronimvp-1",
+        "port": 5432,
+        "role": "replica",
+        "state": "streaming",
+        "timeline": 2
+      },
+      {
+        "api_url": "http://192.168.183.5:8008/patroni",
+        "host": "192.168.183.5",
+        "name": "lab-patroni-patronimvp-2",
+        "port": 5432,
+        "role": "leader",
+        "state": "running",
+        "timeline": 2
+      }
+    ],
+    "scope": "lab-patroni-patronimvp"
+  },
+  "policies": {
+    "apiVersion": "v1",
+    "items": [
+      {
+        "apiVersion": "networking.k8s.io/v1",
+        "kind": "NetworkPolicy",
+        "metadata": {
+          "annotations": {
+            "meta.helm.sh/release-name": "lab-minio",
+            "meta.helm.sh/release-namespace": "resilience"
+          },
+          "creationTimestamp": "2026-10-03T12:46:53Z",
+          "generation": 1,
+          "labels": {
+            "app.kubernetes.io/managed-by": "Helm"
+          },
+          "name": "lab-minio-workloads",
+          "namespace": "resilience",
+          "resourceVersion": "2964",
+          "uid": "b7862167-c41e-46d3-8f02-d92edbe17fcd"
+        },
+        "spec": {
+          "egress": [
+            {
+              "ports": [
+                {
+                  "port": 53,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 53,
+                  "protocol": "UDP"
+                }
+              ],
+              "to": [
+                {
+                  "namespaceSelector": {
+                    "matchLabels": {
+                      "kubernetes.io/metadata.name": "kube-system"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 443,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 6443,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "ipBlock": {
+                    "cidr": "10.96.0.1/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.8/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.7/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.5/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.6/32"
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 9000,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "lab-minio"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "ingress": [
+            {
+              "from": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "application": "patroni"
+                    }
+                  }
+                },
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "lab-minio"
+                    }
+                  }
+                },
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "dbaas-client": "allowed"
+                    }
+                  }
+                },
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "dbaas-monitor": "true"
+                    }
+                  }
+                }
+              ],
+              "ports": [
+                {
+                  "port": 9000,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 9001,
+                  "protocol": "TCP"
+                }
+              ]
+            }
+          ],
+          "podSelector": {
+            "matchLabels": {
+              "release-name": "lab-minio"
+            }
+          },
+          "policyTypes": [
+            "Ingress",
+            "Egress"
+          ]
+        }
+      },
+      {
+        "apiVersion": "networking.k8s.io/v1",
+        "kind": "NetworkPolicy",
+        "metadata": {
+          "annotations": {
+            "meta.helm.sh/release-name": "lab-patroni",
+            "meta.helm.sh/release-namespace": "resilience"
+          },
+          "creationTimestamp": "2026-10-03T12:46:53Z",
+          "generation": 1,
+          "labels": {
+            "app.kubernetes.io/managed-by": "Helm"
+          },
+          "name": "lab-patroni-workloads",
+          "namespace": "resilience",
+          "resourceVersion": "2954",
+          "uid": "f02bdd39-6b6c-4e80-be4f-768ea84b64da"
+        },
+        "spec": {
+          "egress": [
+            {
+              "ports": [
+                {
+                  "port": 53,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 53,
+                  "protocol": "UDP"
+                }
+              ],
+              "to": [
+                {
+                  "namespaceSelector": {
+                    "matchLabels": {
+                      "kubernetes.io/metadata.name": "kube-system"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 443,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 6443,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "ipBlock": {
+                    "cidr": "10.96.0.1/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.8/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.7/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.5/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.6/32"
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 8008,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "lab-patroni"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 9000,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "lab-minio"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "ingress": [
+            {
+              "from": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "lab-patroni"
+                    }
+                  }
+                },
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "lab-pgcat"
+                    }
+                  }
+                },
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "dbaas-client": "allowed"
+                    }
+                  }
+                },
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "dbaas-monitor": "true"
+                    }
+                  }
+                }
+              ],
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 8008,
+                  "protocol": "TCP"
+                }
+              ]
+            }
+          ],
+          "podSelector": {
+            "matchLabels": {
+              "release-name": "lab-patroni"
+            }
+          },
+          "policyTypes": [
+            "Ingress",
+            "Egress"
+          ]
+        }
+      },
+      {
+        "apiVersion": "networking.k8s.io/v1",
+        "kind": "NetworkPolicy",
+        "metadata": {
+          "annotations": {
+            "meta.helm.sh/release-name": "lab-pgcat",
+            "meta.helm.sh/release-namespace": "resilience"
+          },
+          "creationTimestamp": "2026-10-03T12:46:53Z",
+          "generation": 1,
+          "labels": {
+            "app.kubernetes.io/managed-by": "Helm"
+          },
+          "name": "lab-pgcat-workloads",
+          "namespace": "resilience",
+          "resourceVersion": "2960",
+          "uid": "255287c5-1fd4-41b7-86bb-f2f565c4e226"
+        },
+        "spec": {
+          "egress": [
+            {
+              "ports": [
+                {
+                  "port": 53,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 53,
+                  "protocol": "UDP"
+                }
+              ],
+              "to": [
+                {
+                  "namespaceSelector": {
+                    "matchLabels": {
+                      "kubernetes.io/metadata.name": "kube-system"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "lab-patroni"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "ingress": [
+            {
+              "from": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "dbaas-client": "allowed"
+                    }
+                  }
+                }
+              ],
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                }
+              ]
+            },
+            {
+              "from": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "dbaas-monitor": "true"
+                    }
+                  }
+                }
+              ],
+              "ports": [
+                {
+                  "port": 9930,
+                  "protocol": "TCP"
+                }
+              ]
+            }
+          ],
+          "podSelector": {
+            "matchLabels": {
+              "release-name": "lab-pgcat"
+            }
+          },
+          "policyTypes": [
+            "Ingress",
+            "Egress"
+          ]
+        }
+      }
+    ],
+    "kind": "List",
+    "metadata": {
+      "resourceVersion": ""
+    }
+  },
+  "probes": [
+    {
+      "connected": true,
+      "expected": true,
+      "host": "patronimvp-master-lab-patroni",
+      "pod": "persistent-client",
+      "port": 5432
+    },
+    {
+      "connected": true,
+      "expected": true,
+      "host": "lab-minio-minio",
+      "pod": "persistent-client",
+      "port": 9000
+    },
+    {
+      "connected": false,
+      "error": "TimeoutError",
+      "expected": false,
+      "host": "patronimvp-master-lab-patroni",
+      "pod": "unrelated-probe",
+      "port": 5432
+    },
+    {
+      "connected": false,
+      "error": "TimeoutError",
+      "expected": false,
+      "host": "lab-minio-minio",
+      "pod": "unrelated-probe",
+      "port": 9000
+    }
+  ],
+  "replication": "PASS",
+  "walg_to_minio": "PASS"
+}

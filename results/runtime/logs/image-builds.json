@@ -1,0 +1,51 @@
+[
+  {
+    "tags": [
+      "dbaas/wal-g:3.0.7"
+    ],
+    "image_id": "sha256:769df1e70f0d35faea61b7c5014dde4a277749a75e605ef364e1f1abd36b00eb",
+    "build": "PASS"
+  },
+  {
+    "tags": [
+      "dbaas/patroni:2.1.0"
+    ],
+    "image_id": "sha256:0527cf2b32fb30bca2027e59bf399ad429b7c4c2f3e85f6282da87b1dfe6ed9a",
+    "build": "PASS"
+  },
+  {
+    "tags": [
+      "dbaas/pgcat-config-watcher:1.1.0"
+    ],
+    "image_id": "sha256:f9818f9b0f4186938401fbc655f4a708a9b3fa2863a2784fb6655f3d54878b95",
+    "build": "PASS"
+  },
+  {
+    "tags": [
+      "dbaas/minio:RELEASE.2025-04-22T22-12-26Z"
+    ],
+    "image_id": "sha256:a8d327ce87949072c97198c54341c4953288afa4ea568666bc7cb9a4c771e2f8",
+    "build": "PASS"
+  },
+  {
+    "tags": [
+      "dbaas/mc:RELEASE.2025-04-16T18-13-26Z"
+    ],
+    "image_id": "sha256:e6028f3968025db8739c1b6e8083f386e698a7a6eeac7523da8d63559624fb5c",
+    "build": "PASS"
+  },
+  {
+    "tags": [
+      "dbaas/kubectl:1.30.0"
+    ],
+    "image_id": "sha256:8db4afcfca85b87e6315f3371a0d8863f48bcaa136f8f9819bf3b47eb887adf3",
+    "build": "PASS"
+  },
+  {
+    "tags": [
+      "dbaas/backend:0.2.0"
+    ],
+    "image_id": "sha256:1503156e73aec0094858c37b5b0d8ea29875d06ef9566f986e8da2f9bedb2980",
+    "build": "PASS"
+  }
+]

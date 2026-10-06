@@ -1,0 +1,63 @@
+{
+  "dynamic": {},
+  "defaults": {
+    "ttl": 30,
+    "loop_wait": 10,
+    "retry_timeout": 10,
+    "maximum_lag_on_failover": null,
+    "synchronous_mode": null,
+    "synchronous_mode_strict": null,
+    "failsafe_mode": null,
+    "watchdog": null
+  },
+  "postgres_dynamic": {
+    "use_pg_rewind": true,
+    "pg_hba": [
+      "host replication standby 192.168.182.11/16 md5",
+      "host replication standby 127.0.0.1/32 md5",
+      "host all all 0.0.0.0/0 md5"
+    ]
+  },
+  "sql_settings": [
+    [
+      "archive_mode",
+      "on"
+    ],
+    [
+      "archive_timeout",
+      "60"
+    ],
+    [
+      "data_checksums",
+      "on"
+    ],
+    [
+      "full_page_writes",
+      "on"
+    ],
+    [
+      "max_slot_wal_keep_size",
+      "-1"
+    ],
+    [
+      "restore_command",
+      ""
+    ],
+    [
+      "synchronous_commit",
+      "on"
+    ],
+    [
+      "synchronous_standby_names",
+      ""
+    ],
+    [
+      "wal_keep_size",
+      "128"
+    ],
+    [
+      "wal_level",
+      "replica"
+    ]
+  ]
+}

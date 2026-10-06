@@ -1,0 +1,44 @@
+{
+  "backups": [
+    {
+      "backup_name": "base_000000020000000000000008",
+      "compressed_size": 2796078,
+      "data_dir": "/home/postgres/pgdata/pgroot/data",
+      "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+      "finish_lsn": 134217984,
+      "finish_time": "2026-10-03T11:26:48.063687Z",
+      "hostname": "lab-patroni-patronimvp-1",
+      "is_permanent": false,
+      "pg_version": 160006,
+      "start_lsn": 134217768,
+      "start_time": "2026-10-03T11:26:47.649676Z",
+      "storage_name": "default",
+      "system_identifier": 7692400328505016352,
+      "time": "2026-10-03T11:26:48.104Z",
+      "uncompressed_size": 23629599,
+      "wal_file_name": "000000020000000000000008"
+    },
+    {
+      "backup_name": "base_00000002000000000000000B",
+      "compressed_size": 2812976,
+      "data_dir": "/home/postgres/pgdata/pgroot/data",
+      "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+      "finish_lsn": 184549632,
+      "finish_time": "2026-10-03T11:29:31.232426Z",
+      "hostname": "lab-patroni-patronimvp-1",
+      "is_permanent": false,
+      "pg_version": 160006,
+      "start_lsn": 184549416,
+      "start_time": "2026-10-03T11:29:30.826469Z",
+      "storage_name": "default",
+      "system_identifier": 7692400328505016352,
+      "time": "2026-10-03T11:29:31.252Z",
+      "uncompressed_size": 23789298,
+      "wal_file_name": "00000002000000000000000B"
+    }
+  ],
+  "completed": "2026-10-03T11:29:33.242075+00:00",
+  "duration_seconds": 3.219,
+  "job": "lab-backup-network",
+  "started": "2026-10-03T11:29:30.023152+00:00"
+}

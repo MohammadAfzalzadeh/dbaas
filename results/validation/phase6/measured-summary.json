@@ -1,0 +1,21 @@
+{
+  "source_matrix": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/pgbench.json",
+  "sample_count": 24,
+  "failed_transactions": 0,
+  "backup_tps_percent_change": -6.3959080070994485,
+  "backup_latency_percent_change": 6.835817218869322,
+  "backup_baseline_tps": 1231.639869,
+  "backup_during_tps": 1152.865316,
+  "restore_samples": [
+    {
+      "bytes": 119349248,
+      "mib": 113.8203125,
+      "seconds": 15.180688766995445
+    },
+    {
+      "bytes": 524992512,
+      "mib": 500.671875,
+      "seconds": 16.498788162018172
+    }
+  ]
+}

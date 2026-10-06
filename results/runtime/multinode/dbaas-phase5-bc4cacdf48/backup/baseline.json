@@ -1,0 +1,26 @@
+{
+  "backups": [
+    {
+      "backup_name": "base_000000020000000000000008",
+      "compressed_size": 2795137,
+      "data_dir": "/home/postgres/pgdata/pgroot/data",
+      "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+      "finish_lsn": 134217984,
+      "finish_time": "2026-10-03T12:46:43.408623Z",
+      "hostname": "lab-patroni-patronimvp-2",
+      "is_permanent": false,
+      "pg_version": 160006,
+      "start_lsn": 134217768,
+      "start_time": "2026-10-03T12:46:42.625274Z",
+      "storage_name": "default",
+      "system_identifier": 7692420561553522720,
+      "time": "2026-10-03T12:46:43.437Z",
+      "uncompressed_size": 23629599,
+      "wal_file_name": "000000020000000000000008"
+    }
+  ],
+  "completed": "2026-10-03T12:46:46.651571+00:00",
+  "duration_seconds": 4.759,
+  "job": "lab-backup-baseline",
+  "started": "2026-10-03T12:46:41.892920+00:00"
+}

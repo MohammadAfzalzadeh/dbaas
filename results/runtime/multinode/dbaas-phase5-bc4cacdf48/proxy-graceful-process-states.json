@@ -1,0 +1,503 @@
+{
+  "observations": [
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 0.14949490095023066
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 5.2267017379635945
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 10.314524670946412
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 15.40614217997063
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 20.489236823981628
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 25.569235205999576
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 30.663579315994866
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 35.75193027500063
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 40.851659820997156
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 45.9358198819682
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 51.018581180949695
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 56.11008475499693
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 61.19666826899629
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 66.28887215198483
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 71.37089062703308
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 76.45953610003926
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 81.54680527397431
+    },
+    {
+      "containers": [
+        {
+          "exitCode": 0,
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "pgcat-config-watcher"
+          },
+          "reason": "",
+          "startedAt": "2026-10-03T12:48:38.575939904Z",
+          "state": "CONTAINER_RUNNING"
+        },
+        {
+          "exitCode": 0,
+          "finishedAt": "2026-10-03T12:54:44.952182709Z",
+          "metadata": {
+            "attempt": 1,
+            "name": "proxy"
+          },
+          "reason": "Completed",
+          "startedAt": "2026-10-03T12:48:38.489546027Z",
+          "state": "CONTAINER_EXITED"
+        }
+      ],
+      "elapsed_seconds": 86.63561222993303
+    },
+    {
+      "containers": [],
+      "elapsed_seconds": 91.72711719002109
+    },
+    {
+      "containers": [],
+      "elapsed_seconds": 96.81409479503054
+    },
+    {
+      "containers": [],
+      "elapsed_seconds": 101.90125011093915
+    }
+  ],
+  "pod": "lab-pgcat-proxy-deployment-5584b97bbd-7lpft"
+}

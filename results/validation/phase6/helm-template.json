@@ -1,0 +1,32 @@
+[
+  {
+    "chart": "helmCharts/minio",
+    "rendered_documents": 4,
+    "result": "PASS"
+  },
+  {
+    "chart": "helmCharts/patroni",
+    "rendered_documents": 15,
+    "result": "PASS"
+  },
+  {
+    "chart": "helmCharts/pgcat",
+    "rendered_documents": 5,
+    "result": "PASS"
+  },
+  {
+    "chart": "application/helmCharts/minio",
+    "rendered_documents": 4,
+    "result": "PASS"
+  },
+  {
+    "chart": "application/helmCharts/patroni",
+    "rendered_documents": 15,
+    "result": "PASS"
+  },
+  {
+    "chart": "application/helmCharts/pgcat",
+    "rendered_documents": 5,
+    "result": "PASS"
+  }
+]

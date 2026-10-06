@@ -1,0 +1,862 @@
+[
+  {
+    "image": "dbaas/wal-g:3.0.7",
+    "id": "sha256:54a4228b7888ce908f39414bb3a306649f68a8442fbe65da96be8114480a9f53",
+    "size_bytes": 98382569,
+    "architecture": "amd64",
+    "user": null,
+    "entrypoint": null,
+    "cmd": [
+      "/wal-g-pg-ubuntu-20.04-amd64",
+      "--version"
+    ],
+    "healthcheck": null,
+    "environment": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "WALG_VERSION=v3.0.7"
+    ],
+    "history": [
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:55:02+03:30",
+        "CreatedBy": "CMD [\"/wal-g-pg-ubuntu-20.04-amd64\" \"--version\"]",
+        "CreatedSince": "25 hours ago",
+        "ID": "sha256:54a4228b7888ce908f39414bb3a306649f68a8442fbe65da96be8114480a9f53",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:55:02+03:30",
+        "CreatedBy": "RUN /bin/sh -c apt-get update && apt-get install -y gettext bash wget ca-certificates postgresql-client tar     s3cmd   &&    wget --https-only https://github.com/wal-g/wal-g/releases/download/${WALG_VERSION}/wal-g-pg-ubuntu-20.04-amd64.tar.gz   &&    tar -zxvf wal-g-pg-ubuntu-20.04-amd64.tar.gz  &&    rm wal-g-pg-ubuntu-20.04-amd64.tar.gz   &&    apt-get clean && rm -rf /var/lib/apt/lists/* # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "245MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:55:02+03:30",
+        "CreatedBy": "ENV WALG_VERSION=v3.0.7",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "debuerreotype 0.15",
+        "CreatedAt": "2025-02-24T03:30:00+03:30",
+        "CreatedBy": "# debian.sh --arch 'amd64' out/ 'bookworm' '@1740355200'",
+        "CreatedSince": "19 months ago",
+        "ID": "<missing>",
+        "Size": "85.2MB"
+      }
+    ]
+  },
+  {
+    "image": "dbaas/patroni:2.1.0",
+    "id": "sha256:ee06a15fce44ee4b7ac30a3b9b907dc93f6ac4c3355908690d3363fee1cf43ab",
+    "size_bytes": 193551358,
+    "architecture": "amd64",
+    "user": "postgres",
+    "entrypoint": [
+      "docker-entrypoint.sh"
+    ],
+    "cmd": [
+      "/bin/bash",
+      "/entrypoint.sh"
+    ],
+    "healthcheck": null,
+    "environment": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/postgresql/16/bin",
+      "GOSU_VERSION=1.17",
+      "LANG=en_US.UTF-8",
+      "PG_MAJOR=16",
+      "PG_VERSION=16.6-1.pgdg120+1",
+      "PGDATA=/var/lib/postgresql/data",
+      "LC_ALL=en_US.UTF-8"
+    ],
+    "history": [
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:50:38+03:30",
+        "CreatedBy": "CMD [\"/bin/bash\" \"/entrypoint.sh\"]",
+        "CreatedSince": "25 hours ago",
+        "ID": "sha256:ee06a15fce44ee4b7ac30a3b9b907dc93f6ac4c3355908690d3363fee1cf43ab",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:50:38+03:30",
+        "CreatedBy": "WORKDIR /home/postgres",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "4.1kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:50:38+03:30",
+        "CreatedBy": "USER postgres",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:50:38+03:30",
+        "CreatedBy": "STOPSIGNAL SIGTERM",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:50:38+03:30",
+        "CreatedBy": "ENV LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:50:38+03:30",
+        "CreatedBy": "EXPOSE [5432/tcp 8008/tcp]",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:50:38+03:30",
+        "CreatedBy": "COPY entrypoint.sh / # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "8.19kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:50:38+03:30",
+        "CreatedBy": "RUN /bin/sh -c apt-get update && apt-get install -y --no-install-recommends python3 python3-pip locales ca-certificates &&     localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 &&     pip3 install --break-system-packages --no-cache-dir -r /tmp/patroni-requirements.txt &&     mkdir -p /home/postgres && chown postgres:postgres /home/postgres &&     sed -i 's|/var/lib/postgresql.*|/home/postgres:/bin/bash|' /etc/passwd &&     chmod 775 /home/postgres && chmod 664 /etc/passwd &&     rm -rf /var/lib/apt/lists/* /tmp/patroni-requirements.txt # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "135MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:50:13+03:30",
+        "CreatedBy": "COPY requirements.txt /tmp/patroni-requirements.txt # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "12.3kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "CMD [\"postgres\"]",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "EXPOSE map[5432/tcp:{}]",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "STOPSIGNAL SIGINT",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "ENTRYPOINT [\"docker-entrypoint.sh\"]",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "RUN /bin/sh -c ln -sT docker-ensure-initdb.sh /usr/local/bin/docker-enforce-initdb.sh # buildkit",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "16.4kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "COPY docker-entrypoint.sh docker-ensure-initdb.sh /usr/local/bin/ # buildkit",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "36.9kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "VOLUME [/var/lib/postgresql/data]",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "RUN /bin/sh -c install --verbose --directory --owner postgres --group postgres --mode 1777 \"$PGDATA\" # buildkit",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "20.5kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "ENV PGDATA=/var/lib/postgresql/data",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "RUN /bin/sh -c install --verbose --directory --owner postgres --group postgres --mode 3777 /var/run/postgresql # buildkit",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "12.3kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "RUN /bin/sh -c set -eux;  dpkg-divert --add --rename --divert \"/usr/share/postgresql/postgresql.conf.sample.dpkg\" \"/usr/share/postgresql/$PG_MAJOR/postgresql.conf.sample\";  cp -v /usr/share/postgresql/postgresql.conf.sample.dpkg /usr/share/postgresql/postgresql.conf.sample;  ln -sv ../postgresql.conf.sample \"/usr/share/postgresql/$PG_MAJOR/\";  sed -ri \"s!^#?(listen_addresses)\\s*=\\s*\\S+.*!\\1 = '*'!\" /usr/share/postgresql/postgresql.conf.sample;  grep -F \"listen_addresses = '*'\" /usr/share/postgresql/postgresql.conf.sample # buildkit",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "106kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "RUN /bin/sh -c set -ex;   export PYTHONDONTWRITEBYTECODE=1;   dpkgArch=\"$(dpkg --print-architecture)\";  aptRepo=\"[ signed-by=/usr/local/share/keyrings/postgres.gpg.asc ] http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main $PG_MAJOR\";  case \"$dpkgArch\" in   amd64 | arm64 | ppc64el | s390x)    echo \"deb $aptRepo\" > /etc/apt/sources.list.d/pgdg.list;    apt-get update;    ;;   *)    echo \"deb-src $aptRepo\" > /etc/apt/sources.list.d/pgdg.list;       savedAptMark=\"$(apt-mark showmanual)\";       tempDir=\"$(mktemp -d)\";    cd \"$tempDir\";       apt-get update;    apt-get install -y --no-install-recommends dpkg-dev;    echo \"deb [ trusted=yes ] file://$tempDir ./\" > /etc/apt/sources.list.d/temp.list;    _update_repo() {     dpkg-scanpackages . > Packages;     apt-get -o Acquire::GzipIndexes=false update;    };    _update_repo;       nproc=\"$(nproc)\";    export DEB_BUILD_OPTIONS=\"nocheck parallel=$nproc\";    apt-get build-dep -y postgresql-common pgdg-keyring;    apt-get source --compile postgresql-common pgdg-keyring;    _update_repo;    apt-get build-dep -y \"postgresql-$PG_MAJOR=$PG_VERSION\";    apt-get source --compile \"postgresql-$PG_MAJOR=$PG_VERSION\";          apt-mark showmanual | xargs apt-mark auto > /dev/null;    apt-mark manual $savedAptMark;       ls -lAFh;    _update_repo;    grep '^Package: ' Packages;    cd /;    ;;  esac;   apt-get install -y --no-install-recommends postgresql-common;  sed -ri 's/#(create_main_cluster) .*$/\\1 = false/' /etc/postgresql-common/createcluster.conf;  apt-get install -y --no-install-recommends   \"postgresql-$PG_MAJOR=$PG_VERSION\"  ;   rm -rf /var/lib/apt/lists/*;   if [ -n \"$tempDir\" ]; then   apt-get purge -y --auto-remove;   rm -rf \"$tempDir\" /etc/apt/sources.list.d/temp.list;  fi;   find /usr -name '*.pyc' -type f -exec bash -c 'for pyc; do dpkg -S \"$pyc\" &> /dev/null || rm -vf \"$pyc\"; done' -- '{}' +;   postgres --version # buildkit",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "327MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "ENV PG_VERSION=16.6-1.pgdg120+1",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/postgresql/16/bin",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "ENV PG_MAJOR=16",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "RUN /bin/sh -c set -ex;  key='B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8';  export GNUPGHOME=\"$(mktemp -d)\";  mkdir -p /usr/local/share/keyrings/;  gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\";  gpg --batch --export --armor \"$key\" > /usr/local/share/keyrings/postgres.gpg.asc;  gpgconf --kill all;  rm -rf \"$GNUPGHOME\" # buildkit",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "24.6kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "RUN /bin/sh -c mkdir /docker-entrypoint-initdb.d # buildkit",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "8.19kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "RUN /bin/sh -c set -eux;  apt-get update;  apt-get install -y --no-install-recommends   libnss-wrapper   xz-utils   zstd  ;  rm -rf /var/lib/apt/lists/* # buildkit",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "3.61MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "ENV LANG=en_US.utf8",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "RUN /bin/sh -c set -eux;  if [ -f /etc/dpkg/dpkg.cfg.d/docker ]; then   grep -q '/usr/share/locale' /etc/dpkg/dpkg.cfg.d/docker;   sed -ri '/\\/usr\\/share\\/locale/d' /etc/dpkg/dpkg.cfg.d/docker;   ! grep -q '/usr/share/locale' /etc/dpkg/dpkg.cfg.d/docker;  fi;  apt-get update; apt-get install -y --no-install-recommends locales; rm -rf /var/lib/apt/lists/*;  echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen;  locale-gen;  locale -a | grep 'en_US.utf8' # buildkit",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "26.9MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "RUN /bin/sh -c set -eux;  savedAptMark=\"$(apt-mark showmanual)\";  apt-get update;  apt-get install -y --no-install-recommends ca-certificates wget;  rm -rf /var/lib/apt/lists/*;  dpkgArch=\"$(dpkg --print-architecture | awk -F- '{ print $NF }')\";  wget -O /usr/local/bin/gosu \"https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch\";  wget -O /usr/local/bin/gosu.asc \"https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch.asc\";  export GNUPGHOME=\"$(mktemp -d)\";  gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4;  gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu;  gpgconf --kill all;  rm -rf \"$GNUPGHOME\" /usr/local/bin/gosu.asc;  apt-mark auto '.*' > /dev/null;  [ -z \"$savedAptMark\" ] || apt-mark manual $savedAptMark > /dev/null;  apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false;  chmod +x /usr/local/bin/gosu;  gosu --version;  gosu nobody true # buildkit",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "4.27MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "ENV GOSU_VERSION=1.17",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "RUN /bin/sh -c set -ex;  apt-get update;  apt-get install -y --no-install-recommends   gnupg   less  ;  rm -rf /var/lib/apt/lists/* # buildkit",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "10.8MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-02-04T04:25:44+03:30",
+        "CreatedBy": "RUN /bin/sh -c set -eux;  groupadd -r postgres --gid=999;  useradd -r -g postgres --uid=999 --home-dir=/var/lib/postgresql --shell=/bin/bash postgres;  install --verbose --directory --owner postgres --group postgres --mode 1777 /var/lib/postgresql # buildkit",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "53.2kB"
+      },
+      {
+        "Comment": "debuerreotype 0.15",
+        "CreatedAt": "2025-02-03T03:30:00+03:30",
+        "CreatedBy": "# debian.sh --arch 'amd64' out/ 'bookworm' '@1738540800'",
+        "CreatedSince": "20 months ago",
+        "ID": "<missing>",
+        "Size": "85.2MB"
+      }
+    ]
+  },
+  {
+    "image": "dbaas/pgcat-config-watcher:1.1.1",
+    "id": "sha256:f2da5a3a705cd6dd362ce5c5cf210e1d7f3ffd5bab1db1b15bd9c2fbe0e0d86a",
+    "size_bytes": 89561755,
+    "architecture": "amd64",
+    "user": null,
+    "entrypoint": [
+      "docker-entrypoint.sh"
+    ],
+    "cmd": [
+      "node",
+      "pgcat-config-watcher.js"
+    ],
+    "healthcheck": null,
+    "environment": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "NODE_VERSION=18.20.8",
+      "YARN_VERSION=1.22.22"
+    ],
+    "history": [
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T16:29:55+03:30",
+        "CreatedBy": "CMD [\"node\" \"pgcat-config-watcher.js\"]",
+        "CreatedSince": "21 hours ago",
+        "ID": "sha256:f2da5a3a705cd6dd362ce5c5cf210e1d7f3ffd5bab1db1b15bd9c2fbe0e0d86a",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T16:29:55+03:30",
+        "CreatedBy": "COPY pgcat-config-watcher.js pgcat-health.js logger.js ./ # buildkit",
+        "CreatedSince": "21 hours ago",
+        "ID": "<missing>",
+        "Size": "24.6kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T12:08:21+03:30",
+        "CreatedBy": "RUN /bin/sh -c npm ci --omit=dev --ignore-scripts && npm cache clean --force # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "10.9MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T12:08:19+03:30",
+        "CreatedBy": "COPY package.json package-lock.json ./ # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "28.7kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:51:12+03:30",
+        "CreatedBy": "WORKDIR /app",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "8.19kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:51:12+03:30",
+        "CreatedBy": "RUN /bin/sh -c apt-get update && apt-get install -y --no-install-recommends postgresql-client && rm -rf /var/lib/apt/lists/* # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "78MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-03-27T17:53:08+03:30",
+        "CreatedBy": "CMD [\"node\"]",
+        "CreatedSince": "18 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-03-27T17:53:08+03:30",
+        "CreatedBy": "ENTRYPOINT [\"docker-entrypoint.sh\"]",
+        "CreatedSince": "18 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-03-27T17:53:08+03:30",
+        "CreatedBy": "COPY docker-entrypoint.sh /usr/local/bin/ # buildkit",
+        "CreatedSince": "18 months ago",
+        "ID": "<missing>",
+        "Size": "20.5kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-03-27T17:53:08+03:30",
+        "CreatedBy": "RUN /bin/sh -c set -ex   && savedAptMark=\"$(apt-mark showmanual)\"   && apt-get update && apt-get install -y ca-certificates curl wget gnupg dirmngr --no-install-recommends   && rm -rf /var/lib/apt/lists/*   && export GNUPGHOME=\"$(mktemp -d)\"   && for key in     6A010C5166006599AA17F08146C2130DFD2497F5   ; do     gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$key\" ||     gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" ;   done   && curl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz\"   && curl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz.asc\"   && gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz   && gpgconf --kill all   && rm -rf \"$GNUPGHOME\"   && mkdir -p /opt   && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz   && apt-mark auto '.*' > /dev/null   && { [ -z \"$savedAptMark\" ] || apt-mark manual $savedAptMark > /dev/null; }   && find /usr/local -type f -executable -exec ldd '{}' ';'     | awk '/=>/ { so = $(NF-1); if (index(so, \"/usr/local/\") == 1) { next }; gsub(\"^/(usr/)?\", \"\", so); print so }'     | sort -u     | xargs -r dpkg-query --search     | cut -d: -f1     | sort -u     | xargs -r apt-mark manual   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false   && yarn --version   && rm -rf /tmp/* # buildkit",
+        "CreatedSince": "18 months ago",
+        "ID": "<missing>",
+        "Size": "7.32MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-03-27T17:53:08+03:30",
+        "CreatedBy": "ENV YARN_VERSION=1.22.22",
+        "CreatedSince": "18 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-03-27T17:53:08+03:30",
+        "CreatedBy": "RUN /bin/sh -c ARCH= OPENSSL_ARCH= && dpkgArch=\"$(dpkg --print-architecture)\"     && case \"${dpkgArch##*-}\" in       amd64) ARCH='x64' OPENSSL_ARCH='linux-x86_64';;       ppc64el) ARCH='ppc64le' OPENSSL_ARCH='linux-ppc64le';;       s390x) ARCH='s390x' OPENSSL_ARCH='linux*-s390x';;       arm64) ARCH='arm64' OPENSSL_ARCH='linux-aarch64';;       armhf) ARCH='armv7l' OPENSSL_ARCH='linux-armv4';;       i386) ARCH='x86' OPENSSL_ARCH='linux-elf';;       *) echo \"unsupported architecture\"; exit 1 ;;     esac     && set -ex     && apt-get update && apt-get install -y ca-certificates curl wget gnupg dirmngr xz-utils libatomic1 --no-install-recommends     && rm -rf /var/lib/apt/lists/*     && export GNUPGHOME=\"$(mktemp -d)\"     && for key in       C0D6248439F1D5604AAFFB4021D900FFDB233756       DD792F5973C6DE52C432CBDAC77ABFA00DDBF2B7       CC68F5A3106FF448322E48ED27F5E38D5B0A215F       8FCCA13FEF1D0C2E91008E09770F7A9A5AE15600       890C08DB8579162FEE0DF9DB8BEAB4DFCF555EF4       C82FA3AE1CBEDC6BE46B9360C43CEC45C17AB93C       108F52B48DB57BB0CC439B2997B01419BD92F80A       A363A499291CBBC940DD62E41F10027AF002F8B0     ; do       gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$key\" ||       gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" ;     done     && curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$ARCH.tar.xz\"     && curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc\"     && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc     && gpgconf --kill all     && rm -rf \"$GNUPGHOME\"     && grep \" node-v$NODE_VERSION-linux-$ARCH.tar.xz\\$\" SHASUMS256.txt | sha256sum -c -     && tar -xJf \"node-v$NODE_VERSION-linux-$ARCH.tar.xz\" -C /usr/local --strip-components=1 --no-same-owner     && rm \"node-v$NODE_VERSION-linux-$ARCH.tar.xz\" SHASUMS256.txt.asc SHASUMS256.txt     && find /usr/local/include/node/openssl/archs -mindepth 1 -maxdepth 1 ! -name \"$OPENSSL_ARCH\" -exec rm -rf {} \\;     && apt-mark auto '.*' > /dev/null     && find /usr/local -type f -executable -exec ldd '{}' ';'       | awk '/=>/ { so = $(NF-1); if (index(so, \"/usr/local/\") == 1) { next }; gsub(\"^/(usr/)?\", \"\", so); print so }'       | sort -u       | xargs -r dpkg-query --search       | cut -d: -f1       | sort -u       | xargs -r apt-mark manual     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false     && ln -s /usr/local/bin/node /usr/local/bin/nodejs     && node --version     && npm --version # buildkit",
+        "CreatedSince": "18 months ago",
+        "ID": "<missing>",
+        "Size": "118MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-03-27T17:53:08+03:30",
+        "CreatedBy": "ENV NODE_VERSION=18.20.8",
+        "CreatedSince": "18 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2025-03-27T17:53:08+03:30",
+        "CreatedBy": "RUN /bin/sh -c groupadd --gid 1000 node   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node # buildkit",
+        "CreatedSince": "18 months ago",
+        "ID": "<missing>",
+        "Size": "69.6kB"
+      },
+      {
+        "Comment": "debuerreotype 0.15",
+        "CreatedAt": "2025-03-27T17:53:08+03:30",
+        "CreatedBy": "# debian.sh --arch 'amd64' out/ 'bookworm' '@1747699200'",
+        "CreatedSince": "18 months ago",
+        "ID": "<missing>",
+        "Size": "85.2MB"
+      }
+    ]
+  },
+  {
+    "image": "dbaas/minio:RELEASE.2025-04-22T22-12-26Z",
+    "id": "sha256:b440a11f6d711ba2bb9d3e77cc61bb763f20f48c9eb62e967a352970da3ad142",
+    "size_bytes": 101464145,
+    "architecture": "amd64",
+    "user": null,
+    "entrypoint": [
+      "minio"
+    ],
+    "cmd": null,
+    "healthcheck": null,
+    "environment": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    ],
+    "history": [
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:58:04+03:30",
+        "CreatedBy": "ENTRYPOINT [\"minio\"]",
+        "CreatedSince": "25 hours ago",
+        "ID": "sha256:b440a11f6d711ba2bb9d3e77cc61bb763f20f48c9eb62e967a352970da3ad142",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:58:04+03:30",
+        "CreatedBy": "EXPOSE [9000/tcp 9001/tcp]",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:58:04+03:30",
+        "CreatedBy": "COPY /minio /usr/local/bin/minio # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "159MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:55:28+03:30",
+        "CreatedBy": "RUN /bin/sh -c apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/* # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "10.4MB"
+      },
+      {
+        "Comment": "debuerreotype 0.15",
+        "CreatedAt": "2025-02-24T03:30:00+03:30",
+        "CreatedBy": "# debian.sh --arch 'amd64' out/ 'bookworm' '@1740355200'",
+        "CreatedSince": "19 months ago",
+        "ID": "<missing>",
+        "Size": "85.2MB"
+      }
+    ]
+  },
+  {
+    "image": "dbaas/mc:RELEASE.2025-04-16T18-13-26Z",
+    "id": "sha256:fa4dde287c9786c4f2fdf7e78dfbe87c1017f8e1ac3463e14be323438b92f6c2",
+    "size_bytes": 53389568,
+    "architecture": "amd64",
+    "user": null,
+    "entrypoint": [
+      "mc"
+    ],
+    "cmd": null,
+    "healthcheck": null,
+    "environment": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    ],
+    "history": [
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:59:05+03:30",
+        "CreatedBy": "ENTRYPOINT [\"mc\"]",
+        "CreatedSince": "25 hours ago",
+        "ID": "sha256:fa4dde287c9786c4f2fdf7e78dfbe87c1017f8e1ac3463e14be323438b92f6c2",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:59:05+03:30",
+        "CreatedBy": "COPY /mc /usr/local/bin/mc # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "43.5MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:55:28+03:30",
+        "CreatedBy": "RUN /bin/sh -c apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/* # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "10.4MB"
+      },
+      {
+        "Comment": "debuerreotype 0.15",
+        "CreatedAt": "2025-02-24T03:30:00+03:30",
+        "CreatedBy": "# debian.sh --arch 'amd64' out/ 'bookworm' '@1740355200'",
+        "CreatedSince": "19 months ago",
+        "ID": "<missing>",
+        "Size": "85.2MB"
+      }
+    ]
+  },
+  {
+    "image": "dbaas/kubectl:1.30.0",
+    "id": "sha256:8ed978a1170c24224fbf97f055f7e3715516db601f30fdc568cf1ca123650544",
+    "size_bytes": 48764538,
+    "architecture": "amd64",
+    "user": null,
+    "entrypoint": null,
+    "cmd": [
+      "kubectl",
+      "version",
+      "--client"
+    ],
+    "healthcheck": null,
+    "environment": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    ],
+    "history": [
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:59:25+03:30",
+        "CreatedBy": "CMD [\"kubectl\" \"version\" \"--client\"]",
+        "CreatedSince": "25 hours ago",
+        "ID": "sha256:8ed978a1170c24224fbf97f055f7e3715516db601f30fdc568cf1ca123650544",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:59:25+03:30",
+        "CreatedBy": "RUN |1 KUBECTL_VERSION=v1.30.0 /bin/sh -c apt-get update && apt-get install -y --no-install-recommends curl ca-certificates bash &&     curl -fsSL \"https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl\" -o /usr/local/bin/kubectl &&     curl -fsSL \"https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl.sha256\" -o /tmp/kubectl.sha256 &&     echo \"$(cat /tmp/kubectl.sha256)  /usr/local/bin/kubectl\" | sha256sum -c - &&     chmod +x /usr/local/bin/kubectl && rm /tmp/kubectl.sha256 &&     apt-get purge -y curl && apt-get autoremove -y && rm -rf /var/lib/apt/lists/* # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "63.2MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:59:25+03:30",
+        "CreatedBy": "ARG KUBECTL_VERSION=v1.30.0",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "debuerreotype 0.15",
+        "CreatedAt": "2025-02-24T03:30:00+03:30",
+        "CreatedBy": "# debian.sh --arch 'amd64' out/ 'bookworm' '@1740355200'",
+        "CreatedSince": "19 months ago",
+        "ID": "<missing>",
+        "Size": "85.2MB"
+      }
+    ]
+  },
+  {
+    "image": "dbaas/backend:0.2.0",
+    "id": "sha256:6295e8ffa6b91e3820662c2b8522bd0b41b2e79b5a101ba83cbf0770c6f9c2bb",
+    "size_bytes": 95356150,
+    "architecture": "amd64",
+    "user": "10001:10001",
+    "entrypoint": null,
+    "cmd": [
+      "uvicorn",
+      "app.main:app",
+      "--host=0.0.0.0",
+      "--port=8000"
+    ],
+    "healthcheck": null,
+    "environment": [
+      "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "LANG=C.UTF-8",
+      "GPG_KEY=[PUBLIC-SIGNING-FINGERPRINT-OMITTED]",
+      "PYTHON_VERSION=3.12.7",
+      "PYTHON_SHA256=24887b92e2afd4a2ac602419ad4b596372f67ac9b077190f459aba390faf5550",
+      "HOME=/home/app",
+      "HELM_CACHE_HOME=/home/app/.cache/helm",
+      "HELM_CONFIG_HOME=/home/app/.config/helm",
+      "HELM_DATA_HOME=/home/app/.local/share/helm"
+    ],
+    "history": [
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-04T13:05:55+03:30",
+        "CreatedBy": "CMD [\"uvicorn\" \"app.main:app\" \"--host=0.0.0.0\" \"--port=8000\"]",
+        "CreatedSince": "4 minutes ago",
+        "ID": "sha256:6295e8ffa6b91e3820662c2b8522bd0b41b2e79b5a101ba83cbf0770c6f9c2bb",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-04T13:05:55+03:30",
+        "CreatedBy": "EXPOSE [8000/tcp]",
+        "CreatedSince": "4 minutes ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-04T13:05:55+03:30",
+        "CreatedBy": "USER 10001:10001",
+        "CreatedSince": "4 minutes ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-04T13:05:55+03:30",
+        "CreatedBy": "RUN /bin/sh -c mkdir -p $HELM_CACHE_HOME $HELM_CONFIG_HOME $HELM_DATA_HOME && chown -R app:app /home/app # buildkit",
+        "CreatedSince": "4 minutes ago",
+        "ID": "<missing>",
+        "Size": "41kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-04T13:05:55+03:30",
+        "CreatedBy": "ENV HOME=/home/app HELM_CACHE_HOME=/home/app/.cache/helm HELM_CONFIG_HOME=/home/app/.config/helm HELM_DATA_HOME=/home/app/.local/share/helm",
+        "CreatedSince": "4 minutes ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-04T13:05:54+03:30",
+        "CreatedBy": "RUN /bin/sh -c groupadd -g 10001 app && useradd -u 10001 -g 10001 -m -d /home/app app &&     chown -R app:app /app /home/app # buildkit",
+        "CreatedSince": "4 minutes ago",
+        "ID": "<missing>",
+        "Size": "365kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-04T13:05:54+03:30",
+        "CreatedBy": "COPY helmCharts/ ./helmCharts/ # buildkit",
+        "CreatedSince": "4 minutes ago",
+        "ID": "<missing>",
+        "Size": "152kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-04T13:05:54+03:30",
+        "CreatedBy": "COPY static/ ./static/ # buildkit",
+        "CreatedSince": "4 minutes ago",
+        "ID": "<missing>",
+        "Size": "61.4kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-04T13:05:54+03:30",
+        "CreatedBy": "COPY app/ ./app/ # buildkit",
+        "CreatedSince": "4 minutes ago",
+        "ID": "<missing>",
+        "Size": "98.3kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:52:10+03:30",
+        "CreatedBy": "RUN /bin/sh -c pip install --no-cache-dir -r requirements.txt # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "52.9MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:51:56+03:30",
+        "CreatedBy": "COPY app/requirements.txt . # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "12.3kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:51:56+03:30",
+        "CreatedBy": "WORKDIR /app",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "8.19kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2026-10-03T11:51:56+03:30",
+        "CreatedBy": "RUN /bin/sh -c apt-get update && apt-get install -y curl ca-certificates gnupg &&     curl -fsSLO https://get.helm.sh/helm-v3.15.4-linux-amd64.tar.gz &&     curl -fsSLO https://get.helm.sh/helm-v3.15.4-linux-amd64.tar.gz.sha256sum &&     sha256sum -c helm-v3.15.4-linux-amd64.tar.gz.sha256sum &&     tar zxf helm-v3.15.4-linux-amd64.tar.gz && rm helm-v3.15.4-linux-amd64.tar.gz* &&     mv linux-amd64/helm /usr/local/bin/helm && rm -rf linux-amd64 &&     curl -fsSL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.30.0/bin/linux/amd64/kubectl &&     curl -fsSL -o /tmp/kubectl.sha256 https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl.sha256 &&     echo \"$(cat /tmp/kubectl.sha256)  /usr/local/bin/kubectl\" | sha256sum -c - && rm /tmp/kubectl.sha256 &&     chmod +x /usr/local/bin/kubectl &&     apt-get purge -y curl gnupg && apt-get autoremove -y && rm -rf /var/lib/apt/lists/* # buildkit",
+        "CreatedSince": "25 hours ago",
+        "ID": "<missing>",
+        "Size": "108MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2024-10-19T02:53:40+03:30",
+        "CreatedBy": "CMD [\"python3\"]",
+        "CreatedSince": "23 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2024-10-19T02:53:40+03:30",
+        "CreatedBy": "RUN /bin/sh -c set -eux;  for src in idle3 pip3 pydoc3 python3 python3-config; do   dst=\"$(echo \"$src\" | tr -d 3)\";   [ -s \"/usr/local/bin/$src\" ];   [ ! -e \"/usr/local/bin/$dst\" ];   ln -svT \"$src\" \"/usr/local/bin/$dst\";  done # buildkit",
+        "CreatedSince": "23 months ago",
+        "ID": "<missing>",
+        "Size": "16.4kB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2024-10-19T02:53:40+03:30",
+        "CreatedBy": "RUN /bin/sh -c set -eux;   savedAptMark=\"$(apt-mark showmanual)\";  apt-get update;  apt-get install -y --no-install-recommends   dpkg-dev   gcc   gnupg   libbluetooth-dev   libbz2-dev   libc6-dev   libdb-dev   libffi-dev   libgdbm-dev   liblzma-dev   libncursesw5-dev   libreadline-dev   libsqlite3-dev   libssl-dev   make   tk-dev   uuid-dev   wget   xz-utils   zlib1g-dev  ;   wget -O python.tar.xz \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz\";  echo \"$PYTHON_SHA256 *python.tar.xz\" | sha256sum -c -;  wget -O python.tar.xz.asc \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz.asc\";  GNUPGHOME=\"$(mktemp -d)\"; export GNUPGHOME;  gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$GPG_KEY\";  gpg --batch --verify python.tar.xz.asc python.tar.xz;  gpgconf --kill all;  rm -rf \"$GNUPGHOME\" python.tar.xz.asc;  mkdir -p /usr/src/python;  tar --extract --directory /usr/src/python --strip-components=1 --file python.tar.xz;  rm python.tar.xz;   cd /usr/src/python;  gnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\";  ./configure   --build=\"$gnuArch\"   --enable-loadable-sqlite-extensions   --enable-optimizations   --enable-option-checking=fatal   --enable-shared   --with-lto   --with-ensurepip  ;  nproc=\"$(nproc)\";  EXTRA_CFLAGS=\"$(dpkg-buildflags --get CFLAGS)\";  LDFLAGS=\"$(dpkg-buildflags --get LDFLAGS)\";  LDFLAGS=\"${LDFLAGS:--Wl},--strip-all\";  make -j \"$nproc\"   \"EXTRA_CFLAGS=${EXTRA_CFLAGS:-}\"   \"LDFLAGS=${LDFLAGS:-}\"  ;  rm python;  make -j \"$nproc\"   \"EXTRA_CFLAGS=${EXTRA_CFLAGS:-}\"   \"LDFLAGS=${LDFLAGS:--Wl},-rpath='\\$\\$ORIGIN/../lib'\"   python  ;  make install;   cd /;  rm -rf /usr/src/python;   find /usr/local -depth   \\(    \\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\)    -o \\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' -o -name 'libpython*.a' \\) \\)   \\) -exec rm -rf '{}' +  ;   ldconfig;   apt-mark auto '.*' > /dev/null;  apt-mark manual $savedAptMark;  find /usr/local -type f -executable -not \\( -name '*tkinter*' \\) -exec ldd '{}' ';'   | awk '/=>/ { so = $(NF-1); if (index(so, \"/usr/local/\") == 1) { next }; gsub(\"^/(usr/)?\", \"\", so); printf \"*%s\\n\", so }'   | sort -u   | xargs -r dpkg-query --search   | cut -d: -f1   | sort -u   | xargs -r apt-mark manual  ;  apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false;  rm -rf /var/lib/apt/lists/*;   export PYTHONDONTWRITEBYTECODE=1;  python3 --version;  pip3 --version # buildkit",
+        "CreatedSince": "23 months ago",
+        "ID": "<missing>",
+        "Size": "45MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2024-10-19T02:53:40+03:30",
+        "CreatedBy": "ENV PYTHON_SHA256=24887b92e2afd4a2ac602419ad4b596372f67ac9b077190f459aba390faf5550",
+        "CreatedSince": "23 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2024-10-19T02:53:40+03:30",
+        "CreatedBy": "ENV PYTHON_VERSION=3.12.7",
+        "CreatedSince": "23 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2024-10-19T02:53:40+03:30",
+        "CreatedBy": "ENV GPG_KEY=[PUBLIC-SIGNING-FINGERPRINT-OMITTED]",
+        "CreatedSince": "23 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2024-10-19T02:53:40+03:30",
+        "CreatedBy": "RUN /bin/sh -c set -eux;  apt-get update;  apt-get install -y --no-install-recommends   ca-certificates   netbase   tzdata  ;  rm -rf /var/lib/apt/lists/* # buildkit",
+        "CreatedSince": "23 months ago",
+        "ID": "<missing>",
+        "Size": "9.59MB"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2024-10-19T02:53:40+03:30",
+        "CreatedBy": "ENV LANG=C.UTF-8",
+        "CreatedSince": "23 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "buildkit.dockerfile.v0",
+        "CreatedAt": "2024-10-19T02:53:40+03:30",
+        "CreatedBy": "ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "CreatedSince": "23 months ago",
+        "ID": "<missing>",
+        "Size": "0B"
+      },
+      {
+        "Comment": "debuerreotype 0.15",
+        "CreatedAt": "2024-10-19T02:53:40+03:30",
+        "CreatedBy": "# debian.sh --arch 'amd64' out/ 'bookworm' '@1733097600'",
+        "CreatedSince": "23 months ago",
+        "ID": "<missing>",
+        "Size": "85.2MB"
+      }
+    ]
+  }
+]

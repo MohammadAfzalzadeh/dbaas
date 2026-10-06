@@ -1,0 +1,15 @@
+✔ UI initializes once and sends administrative credentials and MinIO values (4.740653ms)
+✔ UI shows failure for HTTP errors, explicit failed responses and malformed successes (3.776441ms)
+✔ UI waits for response and blocks duplicate pending submits (1.123608ms)
+✔ PgCat generator quotes identifiers and credentials and rejects invalid configuration (0.621415ms)
+✔ UI default uses Secret references and requires a token (1.71931ms)
+✔ watcher --once writes private TOML and never prints malformed YAML secrets (216.290497ms)
+✔ watcher exits cleanly on SIGTERM and retains a complete configuration (208.368453ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 441.506637

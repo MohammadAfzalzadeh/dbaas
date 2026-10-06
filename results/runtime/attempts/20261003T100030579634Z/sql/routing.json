@@ -1,0 +1,15 @@
+{
+  "backend_observations": [
+    "10.244.0.14|t",
+    "10.244.0.14|t",
+    "10.244.0.12|f",
+    "10.244.0.12|f",
+    "10.244.0.12|f",
+    "10.244.0.14|t",
+    "10.244.0.14|t",
+    "10.244.0.14|t"
+  ],
+  "client_pod": "smoke-sql-client",
+  "host": "smoke-pgcat-proxy-service",
+  "port": 5432
+}

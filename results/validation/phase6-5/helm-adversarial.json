@@ -1,0 +1,886 @@
+{
+  "cases": [
+    {
+      "chart": "helmCharts/minio",
+      "profile": "default",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "development",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "ha",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "backup-disabled",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "backup-enabled",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "policy-enabled",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "external-storage",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "metrics-disabled",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "metrics-enabled",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "invalid-negative-replicas",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "invalid-port",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "invalid-policy-empty",
+      "exit_code": 1,
+      "error": "Error: execution error at (minio-chart/templates/networkpolicy.yaml:2:86): NetworkPolicy opt-in requires explicit ingress and egress rules; see docs/operations/reliability.md"
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "invalid-scheduling",
+      "exit_code": 1,
+      "error": "Error: execution error at (minio-chart/templates/minio_k8s.yaml:44:10): antiAffinity must be none, preferred or required"
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "invalid-secret-name",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/minio",
+      "profile": "invalid-null-postgres",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "default",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "development",
+      "exit_code": 0,
+      "documents": 14,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "ha",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "backup-disabled",
+      "exit_code": 0,
+      "documents": 10,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "backup-enabled",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "policy-enabled",
+      "exit_code": 0,
+      "documents": 16,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "external-storage",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "metrics-disabled",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "metrics-enabled",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "invalid-negative-replicas",
+      "exit_code": 0,
+      "documents": 14,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [
+        "cluster-a-patroni-patronimvp"
+      ],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "invalid-port",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": [
+        "cluster-a-patroni-patronimvp"
+      ]
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "invalid-policy-empty",
+      "exit_code": 1,
+      "error": "Error: execution error at (patroni-chart/templates/networkpolicy.yaml:2:86): NetworkPolicy opt-in requires explicit ingress and egress rules; see docs/operations/reliability.md"
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "invalid-scheduling",
+      "exit_code": 1,
+      "error": "Error: execution error at (patroni-chart/templates/patroni_k8s.yaml:81:10): antiAffinity must be none, preferred or required"
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "invalid-secret-name",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "profile": "invalid-null-postgres",
+      "exit_code": 1,
+      "error": "Error: template: patroni-chart/templates/pdb.yaml:1:18: executing \"patroni-chart/templates/pdb.yaml\" at <.Values.postgres.pdb.enabled>: nil pointer evaluating interface {}.pdb"
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "default",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "development",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "ha",
+      "exit_code": 0,
+      "documents": 6,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "backup-disabled",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "backup-enabled",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "policy-enabled",
+      "exit_code": 0,
+      "documents": 6,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "external-storage",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "metrics-disabled",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "metrics-enabled",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "invalid-negative-replicas",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [
+        "cluster-a-pgcat-proxy-deployment"
+      ],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "invalid-port",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "invalid-policy-empty",
+      "exit_code": 1,
+      "error": "Error: execution error at (patroni-chart/templates/networkpolicy.yaml:2:86): NetworkPolicy opt-in requires explicit ingress and egress rules; see docs/operations/reliability.md"
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "invalid-scheduling",
+      "exit_code": 1,
+      "error": "Error: execution error at (patroni-chart/templates/proxy.yaml:43:10): antiAffinity must be none, preferred or required"
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "invalid-secret-name",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "profile": "invalid-null-postgres",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "default",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "development",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "ha",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "backup-disabled",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "backup-enabled",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "policy-enabled",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "external-storage",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "metrics-disabled",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "metrics-enabled",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "invalid-negative-replicas",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "invalid-port",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "invalid-policy-empty",
+      "exit_code": 1,
+      "error": "Error: execution error at (minio-chart/templates/networkpolicy.yaml:2:86): NetworkPolicy opt-in requires explicit ingress and egress rules; see docs/operations/reliability.md"
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "invalid-scheduling",
+      "exit_code": 1,
+      "error": "Error: execution error at (minio-chart/templates/minio_k8s.yaml:44:10): antiAffinity must be none, preferred or required"
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "invalid-secret-name",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "profile": "invalid-null-postgres",
+      "exit_code": 0,
+      "documents": 4,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "default",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "development",
+      "exit_code": 0,
+      "documents": 14,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "ha",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "backup-disabled",
+      "exit_code": 0,
+      "documents": 10,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "backup-enabled",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "policy-enabled",
+      "exit_code": 0,
+      "documents": 16,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "external-storage",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "metrics-disabled",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "metrics-enabled",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "invalid-negative-replicas",
+      "exit_code": 0,
+      "documents": 14,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [
+        "cluster-a-patroni-patronimvp"
+      ],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "invalid-port",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": [
+        "cluster-a-patroni-patronimvp"
+      ]
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "invalid-policy-empty",
+      "exit_code": 1,
+      "error": "Error: execution error at (patroni-chart/templates/networkpolicy.yaml:2:86): NetworkPolicy opt-in requires explicit ingress and egress rules; see docs/operations/reliability.md"
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "invalid-scheduling",
+      "exit_code": 1,
+      "error": "Error: execution error at (patroni-chart/templates/patroni_k8s.yaml:81:10): antiAffinity must be none, preferred or required"
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "invalid-secret-name",
+      "exit_code": 0,
+      "documents": 15,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "profile": "invalid-null-postgres",
+      "exit_code": 1,
+      "error": "Error: template: patroni-chart/templates/pdb.yaml:1:18: executing \"patroni-chart/templates/pdb.yaml\" at <.Values.postgres.pdb.enabled>: nil pointer evaluating interface {}.pdb"
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "default",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "development",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "ha",
+      "exit_code": 0,
+      "documents": 6,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "backup-disabled",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "backup-enabled",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "policy-enabled",
+      "exit_code": 0,
+      "documents": 6,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "external-storage",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "metrics-disabled",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "metrics-enabled",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "invalid-negative-replicas",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [
+        "cluster-a-pgcat-proxy-deployment"
+      ],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "invalid-port",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "invalid-policy-empty",
+      "exit_code": 1,
+      "error": "Error: execution error at (patroni-chart/templates/networkpolicy.yaml:2:86): NetworkPolicy opt-in requires explicit ingress and egress rules; see docs/operations/reliability.md"
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "invalid-scheduling",
+      "exit_code": 1,
+      "error": "Error: execution error at (patroni-chart/templates/proxy.yaml:43:10): antiAffinity must be none, preferred or required"
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "invalid-secret-name",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "profile": "invalid-null-postgres",
+      "exit_code": 0,
+      "documents": 5,
+      "duplicate_names": 0,
+      "namespace_leaks": [],
+      "invalid_replicas": [],
+      "invalid_ports": []
+    }
+  ],
+  "same_namespace_name_collisions": [
+    {
+      "chart": "helmCharts/minio",
+      "collisions": []
+    },
+    {
+      "chart": "helmCharts/patroni",
+      "collisions": []
+    },
+    {
+      "chart": "helmCharts/pgcat",
+      "collisions": []
+    },
+    {
+      "chart": "application/helmCharts/minio",
+      "collisions": []
+    },
+    {
+      "chart": "application/helmCharts/patroni",
+      "collisions": []
+    },
+    {
+      "chart": "application/helmCharts/pgcat",
+      "collisions": []
+    }
+  ]
+}

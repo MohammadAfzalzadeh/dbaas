@@ -1,0 +1,132 @@
+{
+  "apiVersion": "batch/v1",
+  "kind": "Job",
+  "metadata": {
+    "annotations": {
+      "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"Job\",\"metadata\":{\"annotations\":{},\"name\":\"lab-backup-alert-attempt-2\",\"namespace\":\"resilience\"},\"spec\":{\"activeDeadlineSeconds\":60,\"backoffLimit\":0,\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"app\":\"backup\",\"release-name\":\"lab-patroni\"}},\"spec\":{\"containers\":[{\"command\":[\"/bin/bash\",\"-c\",\"#!/bin/bash\\nset -euo pipefail\\n: \\\"${LABEL_SELECTOR:?LABEL_SELECTOR is required}\\\"\\npods=$(kubectl get pods -n \\\"$POD_NAMESPACE\\\" -l \\\"$LABEL_SELECTOR\\\" -o jsonpath='{.items[*].metadata.name}')\\nread -r -a targets \\u003c\\u003c\\u003c \\\"$pods\\\"\\nif [[ ${#targets[@]} -ne 1 ]]; then\\n  echo \\\"Expected exactly one primary for $LABEL_SELECTOR; found ${#targets[@]}\\\" \\u003e\\u00262\\n  exit 1\\nfi\\ntarget=\\\"${targets[0]}\\\"\\necho \\\"Backing up PostgreSQL target $POD_NAMESPACE/$target\\\"\\nkubectl exec -i -n \\\"$POD_NAMESPACE\\\" \\\"$target\\\" -c \\\"$CONTAINER_NAME\\\" -- bash -s \\u003c /scripts/script.sh\\necho \\\"Backup command completed for $POD_NAMESPACE/$target\\\"\\n\"],\"env\":[{\"name\":\"POD_NAMESPACE\",\"valueFrom\":{\"fieldRef\":{\"apiVersion\":\"v1\",\"fieldPath\":\"metadata.namespace\"}}},{\"name\":\"LABEL_SELECTOR\",\"value\":\"release-name=deliberately-missing-backup-source\"},{\"name\":\"CONTAINER_NAME\",\"value\":\"patronimvp\"}],\"image\":\"dbaas/kubectl:1.30.0\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"backup\",\"resources\":{\"requests\":{\"cpu\":\"50m\",\"memory\":\"64Mi\"}},\"terminationMessagePath\":\"/dev/termination-log\",\"terminationMessagePolicy\":\"File\",\"volumeMounts\":[{\"mountPath\":\"/scripts\",\"name\":\"script-volume\"}]}],\"dnsPolicy\":\"ClusterFirst\",\"restartPolicy\":\"OnFailure\",\"schedulerName\":\"default-scheduler\",\"securityContext\":{},\"serviceAccount\":\"lab-patroni-exec-script-sa\",\"serviceAccountName\":\"lab-patroni-exec-script-sa\",\"terminationGracePeriodSeconds\":30,\"volumes\":[{\"configMap\":{\"defaultMode\":420,\"name\":\"lab-patroni-my-script\"},\"name\":\"script-volume\"}]}},\"ttlSecondsAfterFinished\":86400}}\n"
+    },
+    "creationTimestamp": "2026-10-03T14:06:34Z",
+    "generation": 1,
+    "labels": {
+      "app": "backup",
+      "batch.kubernetes.io/controller-uid": "0581f216-c0fd-4ace-926d-f52ddf324de4",
+      "batch.kubernetes.io/job-name": "lab-backup-alert-attempt-2",
+      "controller-uid": "0581f216-c0fd-4ace-926d-f52ddf324de4",
+      "job-name": "lab-backup-alert-attempt-2",
+      "release-name": "lab-patroni"
+    },
+    "name": "lab-backup-alert-attempt-2",
+    "namespace": "resilience",
+    "resourceVersion": "13946",
+    "uid": "0581f216-c0fd-4ace-926d-f52ddf324de4"
+  },
+  "spec": {
+    "activeDeadlineSeconds": 60,
+    "backoffLimit": 0,
+    "completionMode": "NonIndexed",
+    "completions": 1,
+    "manualSelector": false,
+    "parallelism": 1,
+    "podReplacementPolicy": "TerminatingOrFailed",
+    "selector": {
+      "matchLabels": {
+        "batch.kubernetes.io/controller-uid": "0581f216-c0fd-4ace-926d-f52ddf324de4"
+      }
+    },
+    "suspend": false,
+    "template": {
+      "metadata": {
+        "creationTimestamp": null,
+        "labels": {
+          "app": "backup",
+          "batch.kubernetes.io/controller-uid": "0581f216-c0fd-4ace-926d-f52ddf324de4",
+          "batch.kubernetes.io/job-name": "lab-backup-alert-attempt-2",
+          "controller-uid": "0581f216-c0fd-4ace-926d-f52ddf324de4",
+          "job-name": "lab-backup-alert-attempt-2",
+          "release-name": "lab-patroni"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "command": [
+              "/bin/bash",
+              "-c",
+              "#!/bin/bash\nset -euo pipefail\n: \"${LABEL_SELECTOR:?LABEL_SELECTOR is required}\"\npods=$(kubectl get pods -n \"$POD_NAMESPACE\" -l \"$LABEL_SELECTOR\" -o jsonpath='{.items[*].metadata.name}')\nread -r -a targets <<< \"$pods\"\nif [[ ${#targets[@]} -ne 1 ]]; then\n  echo \"Expected exactly one primary for $LABEL_SELECTOR; found ${#targets[@]}\" >&2\n  exit 1\nfi\ntarget=\"${targets[0]}\"\necho \"Backing up PostgreSQL target $POD_NAMESPACE/$target\"\nkubectl exec -i -n \"$POD_NAMESPACE\" \"$target\" -c \"$CONTAINER_NAME\" -- bash -s < /scripts/script.sh\necho \"Backup command completed for $POD_NAMESPACE/$target\"\n"
+            ],
+            "env": [
+              {
+                "name": "POD_NAMESPACE",
+                "valueFrom": {
+                  "fieldRef": {
+                    "apiVersion": "v1",
+                    "fieldPath": "metadata.namespace"
+                  }
+                }
+              },
+              {
+                "name": "LABEL_SELECTOR",
+                "value": "release-name=deliberately-missing-backup-source"
+              },
+              {
+                "name": "CONTAINER_NAME",
+                "value": "patronimvp"
+              }
+            ],
+            "image": "dbaas/kubectl:1.30.0",
+            "imagePullPolicy": "IfNotPresent",
+            "name": "backup",
+            "resources": {
+              "requests": {
+                "cpu": "50m",
+                "memory": "64Mi"
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/scripts",
+                "name": "script-volume"
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "restartPolicy": "OnFailure",
+        "schedulerName": "default-scheduler",
+        "securityContext": {},
+        "serviceAccount": "lab-patroni-exec-script-sa",
+        "serviceAccountName": "lab-patroni-exec-script-sa",
+        "terminationGracePeriodSeconds": 30,
+        "volumes": [
+          {
+            "configMap": {
+              "defaultMode": 420,
+              "name": "lab-patroni-my-script"
+            },
+            "name": "script-volume"
+          }
+        ]
+      }
+    },
+    "ttlSecondsAfterFinished": 86400
+  },
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": "2026-10-03T14:06:37Z",
+        "lastTransitionTime": "2026-10-03T14:06:37Z",
+        "message": "Job has reached the specified backoff limit",
+        "reason": "BackoffLimitExceeded",
+        "status": "True",
+        "type": "Failed"
+      }
+    ],
+    "failed": 1,
+    "ready": 0,
+    "startTime": "2026-10-03T14:06:34Z",
+    "terminating": 0,
+    "uncountedTerminatedPods": {}
+  }
+}

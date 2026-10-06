@@ -1,0 +1,69 @@
+{
+  "backup": {
+    "detail": "Official CronJob-derived Job, WAL-G listing and S3 objects verified",
+    "duration_seconds": 3.238,
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:56:43.939062+00:00"
+  },
+  "backup_during_writes": {
+    "status": "NOT RUN"
+  },
+  "connectivity": {
+    "detail": "kube-proxy/CoreDNS available; API ready",
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:54:12.337538+00:00"
+  },
+  "network_policy": {
+    "status": "NOT RUN"
+  },
+  "node_drain": {
+    "status": "NOT RUN"
+  },
+  "patroni": {
+    "detail": "Exactly one primary and one streaming replica; role endpoints match",
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:56:37.467296+00:00"
+  },
+  "pgcat": {
+    "detail": "Independent client authenticated through PgCat Service; backend observations recorded",
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:56:39.813670+00:00"
+  },
+  "pgcat_restart": {
+    "status": "NOT RUN"
+  },
+  "pitr": {
+    "detail": "A present, B absent, new C write verified on primary/replica/PgCat",
+    "duration_seconds": 68.532,
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:57:58.046800+00:00"
+  },
+  "postgresql": {
+    "detail": "Readiness observation after API completion; not total bootstrap time",
+    "duration_seconds": 0.219,
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:56:36.929256+00:00"
+  },
+  "primary_failover": {
+    "status": "FAIL",
+    "timestamp": "2026-10-03T10:00:59.245732+00:00"
+  },
+  "provisioning": {
+    "duration_seconds": 144.213,
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:56:36.550494+00:00"
+  },
+  "replica_failure": {
+    "status": "NOT RUN"
+  },
+  "sql": {
+    "detail": "Baseline row matches through PgCat, primary and replica",
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:56:40.536613+00:00"
+  },
+  "wal": {
+    "detail": "Switched segment observed in pg_stat_archiver and object storage",
+    "status": "PASS",
+    "timestamp": "2026-10-03T09:56:49.360754+00:00"
+  }
+}

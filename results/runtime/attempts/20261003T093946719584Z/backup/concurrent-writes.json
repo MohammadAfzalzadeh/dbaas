@@ -1,0 +1,112 @@
+{
+  "backup": {
+    "backups": [
+      {
+        "backup_name": "base_000000010000000000000006",
+        "compressed_size": 2809170,
+        "data_dir": "/home/postgres/pgdata/pgroot/data",
+        "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+        "finish_lsn": 100663552,
+        "finish_time": "2026-10-03T09:32:39.3213Z",
+        "hostname": "smoke-patroni-patronimvp-0",
+        "is_permanent": false,
+        "pg_version": 160006,
+        "start_lsn": 100663336,
+        "start_time": "2026-10-03T09:32:39.003731Z",
+        "storage_name": "default",
+        "system_identifier": 7692370957103788064,
+        "time": "2026-10-03T09:32:39.338Z",
+        "uncompressed_size": 23649824,
+        "wal_file_name": "000000010000000000000006"
+      },
+      {
+        "backup_name": "base_000000010000000000000009",
+        "compressed_size": 2811847,
+        "data_dir": "/home/postgres/pgdata/pgroot/data",
+        "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+        "finish_lsn": 150995200,
+        "finish_time": "2026-10-03T09:36:13.02556Z",
+        "hostname": "smoke-patroni-patronimvp-0",
+        "is_permanent": false,
+        "pg_version": 160006,
+        "start_lsn": 150994984,
+        "start_time": "2026-10-03T09:36:12.721908Z",
+        "storage_name": "default",
+        "system_identifier": 7692370957103788064,
+        "time": "2026-10-03T09:36:13.053Z",
+        "uncompressed_size": 23666208,
+        "wal_file_name": "000000010000000000000009"
+      },
+      {
+        "backup_name": "base_00000003000000000000000E",
+        "compressed_size": 2800426,
+        "data_dir": "/home/postgres/pgdata/pgroot/data",
+        "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+        "finish_lsn": 234882232,
+        "finish_time": "2026-10-03T09:38:28.43517Z",
+        "hostname": "smoke-patroni-patronimvp-1",
+        "is_permanent": false,
+        "pg_version": 160006,
+        "start_lsn": 234881064,
+        "start_time": "2026-10-03T09:38:28.087886Z",
+        "storage_name": "default",
+        "system_identifier": 7692370957103788064,
+        "time": "2026-10-03T09:38:28.456Z",
+        "uncompressed_size": 23663787,
+        "wal_file_name": "00000003000000000000000E"
+      }
+    ],
+    "completed": "2026-10-03T09:38:30.839656+00:00",
+    "duration_seconds": 3.438,
+    "job": "smoke-backup-during-writes",
+    "started": "2026-10-03T09:38:27.401198+00:00"
+  },
+  "errors": [],
+  "rows": [
+    {
+      "id": 100,
+      "phase": "backup-write",
+      "value": 400
+    },
+    {
+      "id": 101,
+      "phase": "backup-write",
+      "value": 400
+    },
+    {
+      "id": 102,
+      "phase": "backup-write",
+      "value": 400
+    },
+    {
+      "id": 103,
+      "phase": "backup-write",
+      "value": 400
+    },
+    {
+      "id": 104,
+      "phase": "backup-write",
+      "value": 400
+    },
+    {
+      "id": 105,
+      "phase": "backup-write",
+      "value": 400
+    },
+    {
+      "id": 106,
+      "phase": "backup-write",
+      "value": 400
+    },
+    {
+      "id": 107,
+      "phase": "backup-write",
+      "value": 400
+    },
+    {
+      "id": 108,
+      "phase": "backup-write",
+      "value": 400
+    }
+  ]
+}

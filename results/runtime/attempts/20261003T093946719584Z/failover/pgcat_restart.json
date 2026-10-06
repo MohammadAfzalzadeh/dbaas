@@ -1,0 +1,50 @@
+{
+  "acknowledged_probe_writes": 6,
+  "action": "pgcat_restart",
+  "failed_samples": 0,
+  "injected_at": "2026-10-03T09:38:23.343256+00:00",
+  "missing_acknowledged_probe_ids": [],
+  "old_primary": "smoke-patroni-patronimvp-1",
+  "patroni_detection_time": "NOT OBSERVED separately; promotion polling is an upper-bound observation",
+  "sampling_interval_seconds": 0.5,
+  "sql_available_observed_seconds": 2.547,
+  "sql_samples": [
+    {
+      "elapsed": -0.193,
+      "latency_seconds": 0.193,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:23.149909+00:00"
+    },
+    {
+      "elapsed": 0.5,
+      "latency_seconds": 0.167,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:23.842833+00:00"
+    },
+    {
+      "elapsed": 1.167,
+      "latency_seconds": 0.163,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:24.510176+00:00"
+    },
+    {
+      "elapsed": 1.83,
+      "latency_seconds": 0.164,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:25.173669+00:00"
+    },
+    {
+      "elapsed": 2.495,
+      "latency_seconds": 0.165,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:25.838050+00:00"
+    },
+    {
+      "elapsed": 3.16,
+      "latency_seconds": 0.155,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:26.503013+00:00"
+    }
+  ],
+  "stable_observed_seconds": 2.752
+}

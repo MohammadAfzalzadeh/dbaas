@@ -1,0 +1,7 @@
+{
+  "benchmark": "transaction",
+  "default_chart_unchanged": true,
+  "failure": "A session beginning with a read can remain bound to a replica; later UPDATE aborted read-only",
+  "initial": "session",
+  "source": "attempts/session-mode/session-mode-reproduction.txt"
+}

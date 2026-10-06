@@ -1,0 +1,62 @@
+{
+  "backup_impact": {
+    "detail": "Paired short pgbench samples; backup completion; no CPU/I/O extrapolation",
+    "status": "PASS",
+    "timestamp": "2026-10-03T14:22:38.519081+00:00"
+  },
+  "baseline": {
+    "detail": "Stage completed; individual artifacts define the validation scope",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:46:52.467539+00:00"
+  },
+  "benchmarks": {
+    "detail": "Stage completed; individual artifacts define the validation scope",
+    "status": "PASS",
+    "timestamp": "2026-10-03T14:22:38.519445+00:00"
+  },
+  "cleanup": {
+    "detail": "Stage completed; individual artifacts define the validation scope",
+    "status": "PASS",
+    "timestamp": "2026-10-03T14:27:31.416455+00:00"
+  },
+  "isolated_restore": {
+    "detail": "A present/B absent, target writable; source StatefulSet/PVC identities preserved",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:54:59.760380+00:00"
+  },
+  "multinode": {
+    "detail": "3 PostgreSQL workers; 2 PgCat replicas; real API provisioning",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:45:01.846201+00:00"
+  },
+  "network": {
+    "detail": "Stage completed; individual artifacts define the validation scope",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:47:40.491617+00:00"
+  },
+  "network_policy": {
+    "detail": "Allowed SQL/replication/backup/API flows and denied unrelated TCP probes",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:47:40.491222+00:00"
+  },
+  "observability": {
+    "detail": "Stage completed; individual artifacts define the validation scope",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:59:25.852772+00:00"
+  },
+  "restore": {
+    "detail": "Stage completed; individual artifacts define the validation scope",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:54:59.760682+00:00"
+  },
+  "setup": {
+    "detail": "Stage completed; individual artifacts define the validation scope",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:45:01.846535+00:00"
+  },
+  "wal": {
+    "detail": "Switched segment observed in pg_stat_archiver and object storage",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:47:09.633497+00:00"
+  }
+}

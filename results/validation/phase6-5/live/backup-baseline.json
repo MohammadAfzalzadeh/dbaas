@@ -1,0 +1,27 @@
+{
+  "case": "baseline",
+  "status": {
+    "completionTime": "2026-10-04T09:52:48Z",
+    "conditions": [
+      {
+        "lastProbeTime": "2026-10-04T09:52:48Z",
+        "lastTransitionTime": "2026-10-04T09:52:48Z",
+        "status": "True",
+        "type": "Complete"
+      }
+    ],
+    "ready": 0,
+    "startTime": "2026-10-04T09:52:44Z",
+    "succeeded": 1,
+    "terminating": 0,
+    "uncountedTerminatedPods": {}
+  },
+  "seconds": 4.194983351044357,
+  "logs": "Backing up PostgreSQL target review/cluster-a-patroni-patronimvp-0\nINFO: 2026/10/04 09:52:45.556773 Backup will be pushed to storage: default\nINFO: 2026/10/04 09:52:45.569713 Calling pg_start_backup()\nINFO: 2026/10/04 09:52:45.601213 Initializing the PG alive checker (interval=1m0s)...\nINFO: 2026/10/04 09:52:45.601247 Starting a new tar bundle\nINFO: 2026/10/04 09:52:45.601259 Walking ...\nINFO: 2026/10/04 09:52:45.601396 Starting part 1 ...\nINFO: 2026/10/04 09:52:45.911984 Packing ...\nINFO: 2026/10/04 09:52:45.912809 Finished writing part 1.\nINFO: 2026/10/04 09:52:45.945224 Starting part 2 ...\nINFO: 2026/10/04 09:52:45.945261 /global/pg_control\nINFO: 2026/10/04 09:52:45.945477 Finished writing part 2.\nINFO: 2026/10/04 09:52:45.945483 Calling pg_stop_backup()\nINFO: 2026/10/04 09:52:45.956837 Starting part 3 ...\nINFO: 2026/10/04 09:52:45.956885 backup_label\nINFO: 2026/10/04 09:52:45.956894 tablespace_map\nINFO: 2026/10/04 09:52:45.957050 Finished writing part 3.\nINFO: 2026/10/04 09:52:45.959895 Querying pg_database\nINFO: 2026/10/04 09:52:46.001986 Wrote backup with name base_000000010000000000000002 to storage default\nBackup command completed for review/cluster-a-patroni-patronimvp-0\n",
+  "known_generated_credential_leaked": false,
+  "new_backup_records": [
+    "base_000000010000000000000002"
+  ],
+  "expected_success": true,
+  "actual_success": true
+}

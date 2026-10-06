@@ -1,0 +1,1620 @@
+{
+  "serial": [
+    {
+      "release": "cluster-a",
+      "status": 200,
+      "body": {
+        "ok": true,
+        "release": "cluster-a",
+        "namespace": "review",
+        "output": "Helm operation completed\n\n---\n\nHelm operation completed\n\n---\n\nHelm operation completed"
+      },
+      "seconds": 5.239894576952793
+    },
+    {
+      "release": "cluster-a",
+      "status": 200,
+      "body": {
+        "ok": true,
+        "release": "cluster-a",
+        "namespace": "review",
+        "output": "Helm operation completed\n\n---\n\nHelm operation completed\n\n---\n\nHelm operation completed"
+      },
+      "seconds": 4.815888143028133
+    }
+  ],
+  "same_release_concurrent": [
+    {
+      "release": "cluster-a",
+      "status": 200,
+      "body": {
+        "ok": true,
+        "release": "cluster-a",
+        "namespace": "review",
+        "output": "Helm operation completed\n\n---\n\nHelm operation completed\n\n---\n\nHelm operation completed"
+      },
+      "seconds": 9.76597317692358
+    },
+    {
+      "release": "cluster-a",
+      "status": 400,
+      "body": {
+        "detail": {
+          "message": "Provisioning failed; no automatic rollback was performed",
+          "completedReleases": [],
+          "cause": "Provisioning command failed; inspect cluster state with operator tools"
+        }
+      },
+      "seconds": 0.46397089399397373
+    }
+  ],
+  "before": {
+    "statefulsets": [
+      {
+        "name": "cluster-a-minio-minio-statefulset",
+        "uid": "de628151-b180-49ff-8058-f2dc5033705d",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "matchLabels": {
+            "app": "minio",
+            "release-name": "cluster-a-minio"
+          }
+        },
+        "volume_claims": [
+          {
+            "apiVersion": "v1",
+            "kind": "PersistentVolumeClaim",
+            "metadata": {
+              "annotations": {
+                "volume.alpha.kubernetes.io/storage-class": "standard"
+              },
+              "creationTimestamp": null,
+              "labels": {
+                "application": "minio"
+              },
+              "name": "data"
+            },
+            "spec": {
+              "accessModes": [
+                "ReadWriteOnce"
+              ],
+              "resources": {
+                "requests": {
+                  "storage": "1Gi"
+                }
+              },
+              "storageClassName": "standard",
+              "volumeMode": "Filesystem"
+            },
+            "status": {
+              "phase": "Pending"
+            }
+          }
+        ],
+        "replicas": 1
+      },
+      {
+        "name": "cluster-a-patroni-patronimvp",
+        "uid": "66414946-b843-4843-a3eb-a81804ff74b3",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "patronimvp",
+          "release-name": "cluster-a-patroni"
+        },
+        "selector": {
+          "matchLabels": {
+            "application": "patroni",
+            "cluster-name": "cluster-a-patroni-patronimvp",
+            "release-name": "cluster-a-patroni"
+          }
+        },
+        "volume_claims": [
+          {
+            "apiVersion": "v1",
+            "kind": "PersistentVolumeClaim",
+            "metadata": {
+              "annotations": {
+                "volume.alpha.kubernetes.io/storage-class": "standard"
+              },
+              "creationTimestamp": null,
+              "labels": {
+                "application": "spilo",
+                "spilo-cluster": "patronimvp"
+              },
+              "name": "pgdata"
+            },
+            "spec": {
+              "accessModes": [
+                "ReadWriteOnce"
+              ],
+              "resources": {
+                "requests": {
+                  "storage": "1Gi"
+                }
+              },
+              "storageClassName": "standard",
+              "volumeMode": "Filesystem"
+            },
+            "status": {
+              "phase": "Pending"
+            }
+          }
+        ],
+        "replicas": 1
+      },
+      {
+        "name": "cluster-b-minio-minio-statefulset",
+        "uid": "79ef61d3-22e3-47ac-ae8e-a39989564a35",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "matchLabels": {
+            "app": "minio",
+            "release-name": "cluster-b-minio"
+          }
+        },
+        "volume_claims": [
+          {
+            "apiVersion": "v1",
+            "kind": "PersistentVolumeClaim",
+            "metadata": {
+              "annotations": {
+                "volume.alpha.kubernetes.io/storage-class": "standard"
+              },
+              "creationTimestamp": null,
+              "labels": {
+                "application": "minio"
+              },
+              "name": "data"
+            },
+            "spec": {
+              "accessModes": [
+                "ReadWriteOnce"
+              ],
+              "resources": {
+                "requests": {
+                  "storage": "1Gi"
+                }
+              },
+              "storageClassName": "standard",
+              "volumeMode": "Filesystem"
+            },
+            "status": {
+              "phase": "Pending"
+            }
+          }
+        ],
+        "replicas": 1
+      },
+      {
+        "name": "cluster-b-patroni-patronimvp",
+        "uid": "30491ddb-b9dc-410d-b8da-85bd0642a538",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "patronimvp",
+          "release-name": "cluster-b-patroni"
+        },
+        "selector": {
+          "matchLabels": {
+            "application": "patroni",
+            "cluster-name": "cluster-b-patroni-patronimvp",
+            "release-name": "cluster-b-patroni"
+          }
+        },
+        "volume_claims": [
+          {
+            "apiVersion": "v1",
+            "kind": "PersistentVolumeClaim",
+            "metadata": {
+              "annotations": {
+                "volume.alpha.kubernetes.io/storage-class": "standard"
+              },
+              "creationTimestamp": null,
+              "labels": {
+                "application": "spilo",
+                "spilo-cluster": "patronimvp"
+              },
+              "name": "pgdata"
+            },
+            "spec": {
+              "accessModes": [
+                "ReadWriteOnce"
+              ],
+              "resources": {
+                "requests": {
+                  "storage": "1Gi"
+                }
+              },
+              "storageClassName": "standard",
+              "volumeMode": "Filesystem"
+            },
+            "status": {
+              "phase": "Pending"
+            }
+          }
+        ],
+        "replicas": 1
+      }
+    ],
+    "deployments": [
+      {
+        "name": "cluster-a-pgcat-pgadmin-deployment",
+        "uid": "26caacde-f645-43d5-ba92-f6a2b124694d",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "matchLabels": {
+            "app": "pgadmin",
+            "release-name": "cluster-a-pgcat"
+          }
+        },
+        "volume_claims": null,
+        "replicas": 1
+      },
+      {
+        "name": "cluster-a-pgcat-proxy-deployment",
+        "uid": "fd6fb0f4-44db-4289-bccd-55683dad26ef",
+        "labels": {
+          "app": "proxy",
+          "app.kubernetes.io/managed-by": "Helm",
+          "release-name": "cluster-a-pgcat"
+        },
+        "selector": {
+          "matchLabels": {
+            "app": "proxy",
+            "release-name": "cluster-a-pgcat"
+          }
+        },
+        "volume_claims": null,
+        "replicas": 1
+      },
+      {
+        "name": "cluster-b-pgcat-pgadmin-deployment",
+        "uid": "66427995-a82a-4660-8748-c545c71a41ad",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "matchLabels": {
+            "app": "pgadmin",
+            "release-name": "cluster-b-pgcat"
+          }
+        },
+        "volume_claims": null,
+        "replicas": 1
+      },
+      {
+        "name": "cluster-b-pgcat-proxy-deployment",
+        "uid": "2ddcf15f-d078-4223-ab7c-89405cf8973b",
+        "labels": {
+          "app": "proxy",
+          "app.kubernetes.io/managed-by": "Helm",
+          "release-name": "cluster-b-pgcat"
+        },
+        "selector": {
+          "matchLabels": {
+            "app": "proxy",
+            "release-name": "cluster-b-pgcat"
+          }
+        },
+        "volume_claims": null,
+        "replicas": 1
+      },
+      {
+        "name": "dbaas-backend",
+        "uid": "09942f00-991f-40a3-a76e-922f1fe6cbf4",
+        "labels": {},
+        "selector": {
+          "matchLabels": {
+            "app": "dbaas-backend"
+          }
+        },
+        "volume_claims": null,
+        "replicas": 1
+      }
+    ],
+    "services": [
+      {
+        "name": "cluster-a-minio-minio",
+        "uid": "9da62818-de75-4444-b564-30b18134e92a",
+        "labels": {
+          "app": "minio",
+          "app.kubernetes.io/instance": "cluster-a-minio",
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "app": "minio",
+          "app.kubernetes.io/instance": "cluster-a-minio",
+          "release-name": "cluster-a-minio"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-a-patroni-patronimvp",
+        "uid": "38265cc9-a75f-42f4-a0e3-ae104cb13adb",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-a-patroni-patronimvp-config",
+        "uid": "f9212052-fd40-40b9-a29e-3ced731b2cd3",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "patronimvp",
+          "release-name": "cluster-a-patroni"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-a-pgcat-pgadmin-service",
+        "uid": "7480e232-2704-4136-9d9a-bb4176a02b07",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "app": "pgadmin",
+          "release-name": "cluster-a-pgcat"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-a-pgcat-proxy-service",
+        "uid": "2106ef65-9128-44b4-9a4c-fd93c3fbecfa",
+        "labels": {
+          "app": "proxy",
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "pgcat",
+          "release-name": "cluster-a-pgcat",
+          "type": "monitoring"
+        },
+        "selector": {
+          "app": "proxy",
+          "release-name": "cluster-a-pgcat"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-b-minio-minio",
+        "uid": "7c8dd0dd-88b3-4265-86b7-6c74adc2d0b3",
+        "labels": {
+          "app": "minio",
+          "app.kubernetes.io/instance": "cluster-b-minio",
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "app": "minio",
+          "app.kubernetes.io/instance": "cluster-b-minio",
+          "release-name": "cluster-b-minio"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-b-patroni-patronimvp",
+        "uid": "83e4be99-9c3a-4563-bf4b-86236c28b5c6",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-b-patroni-patronimvp-config",
+        "uid": "d1ae37fd-c181-4991-bf01-8ed56d9d58bc",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "patronimvp",
+          "release-name": "cluster-b-patroni"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-b-pgcat-pgadmin-service",
+        "uid": "7d78881b-c6b5-4051-8b74-dbae474ec13c",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "app": "pgadmin",
+          "release-name": "cluster-b-pgcat"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-b-pgcat-proxy-service",
+        "uid": "05c8c05a-e3d1-4db1-8012-1fdc62a31a9c",
+        "labels": {
+          "app": "proxy",
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "pgcat",
+          "release-name": "cluster-b-pgcat",
+          "type": "monitoring"
+        },
+        "selector": {
+          "app": "proxy",
+          "release-name": "cluster-b-pgcat"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "dbaas-backend",
+        "uid": "11ffb9cf-169d-49e3-83b0-80206fafa16c",
+        "labels": {},
+        "selector": {
+          "app": "dbaas-backend"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "patronimvp-master-cluster-a-patroni",
+        "uid": "ab153ccf-6f96-48cf-91ee-5d0145cfd1ea",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "cluster-a-patroni-patronimvp",
+          "release-name": "cluster-a-patroni",
+          "role": "primary",
+          "type": "monitoring"
+        },
+        "selector": {
+          "application": "patroni",
+          "cluster-name": "cluster-a-patroni-patronimvp",
+          "release-name": "cluster-a-patroni",
+          "role": "primary"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "patronimvp-master-cluster-b-patroni",
+        "uid": "6728be03-4b7e-48c5-b7d2-c56de92bb9fc",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "cluster-b-patroni-patronimvp",
+          "release-name": "cluster-b-patroni",
+          "role": "primary",
+          "type": "monitoring"
+        },
+        "selector": {
+          "application": "patroni",
+          "cluster-name": "cluster-b-patroni-patronimvp",
+          "release-name": "cluster-b-patroni",
+          "role": "primary"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "patronimvp-replica-cluster-a-patroni",
+        "uid": "de77ded3-3013-4ce1-a210-29f8f80937e0",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "cluster-a-patroni-patronimvp",
+          "release-name": "cluster-a-patroni",
+          "role": "replica",
+          "type": "monitoring"
+        },
+        "selector": {
+          "application": "patroni",
+          "cluster-name": "cluster-a-patroni-patronimvp",
+          "release-name": "cluster-a-patroni",
+          "role": "replica"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "patronimvp-replica-cluster-b-patroni",
+        "uid": "1968c89e-fe4a-471c-bc39-df4ddd486abb",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "cluster-b-patroni-patronimvp",
+          "release-name": "cluster-b-patroni",
+          "role": "replica",
+          "type": "monitoring"
+        },
+        "selector": {
+          "application": "patroni",
+          "cluster-name": "cluster-b-patroni-patronimvp",
+          "release-name": "cluster-b-patroni",
+          "role": "replica"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "pgmetrics-cluster-a-patroni",
+        "uid": "42107a37-ba31-4119-b416-ed04b25351be",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "monitoring-role": "member",
+          "release-name": "cluster-a-patroni",
+          "type": "monitoring"
+        },
+        "selector": {
+          "application": "patroni",
+          "cluster-name": "cluster-a-patroni-patronimvp",
+          "release-name": "cluster-a-patroni"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "pgmetrics-cluster-b-patroni",
+        "uid": "2e39cb09-f7aa-4f4f-8a81-37a22d68510f",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "monitoring-role": "member",
+          "release-name": "cluster-b-patroni",
+          "type": "monitoring"
+        },
+        "selector": {
+          "application": "patroni",
+          "cluster-name": "cluster-b-patroni-patronimvp",
+          "release-name": "cluster-b-patroni"
+        },
+        "volume_claims": null,
+        "replicas": null
+      }
+    ],
+    "persistentvolumeclaims": [
+      {
+        "name": "data-cluster-a-minio-minio-statefulset-0",
+        "uid": "51c29741-70a8-4972-b44b-86c1c69850d7",
+        "labels": {
+          "app": "minio",
+          "application": "minio",
+          "release-name": "cluster-a-minio"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "data-cluster-b-minio-minio-statefulset-0",
+        "uid": "64fde684-8320-4891-8b09-c3adbf600d2c",
+        "labels": {
+          "app": "minio",
+          "application": "minio",
+          "release-name": "cluster-b-minio"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "pgdata-cluster-a-patroni-patronimvp-0",
+        "uid": "2861a523-a22e-4dce-a8bc-8a2368b6f940",
+        "labels": {
+          "application": "patroni",
+          "cluster-name": "cluster-a-patroni-patronimvp",
+          "release-name": "cluster-a-patroni",
+          "spilo-cluster": "patronimvp"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "pgdata-cluster-b-patroni-patronimvp-0",
+        "uid": "581ca45f-05cf-4420-9e3f-cc66ce4ed1d9",
+        "labels": {
+          "application": "patroni",
+          "cluster-name": "cluster-b-patroni-patronimvp",
+          "release-name": "cluster-b-patroni",
+          "spilo-cluster": "patronimvp"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      }
+    ],
+    "cronjobs": [
+      {
+        "name": "cluster-a-patroni-exec-script-cronjob",
+        "uid": "4c67f40a-8db0-4ca7-8fcb-b676f013f3f1",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-b-patroni-exec-script-cronjob",
+        "uid": "383f48af-a5c2-4b3a-aa92-7f43fe7442e7",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      }
+    ],
+    "servicemonitors": "CRD absent; rendered review only",
+    "secrets": [
+      {
+        "name": "cluster-a-minio-minio-credentials",
+        "uid": "14768662-d75e-4b25-afb7-4af75e6f6e17",
+        "keys": [
+          "backup-bucket",
+          "backup-password",
+          "backup-user",
+          "root-password",
+          "root-user"
+        ]
+      },
+      {
+        "name": "cluster-a-patroni-postgres-credentials",
+        "uid": "a00e212f-b62b-4355-bb5d-1e3938a8eee9",
+        "keys": [
+          "replication-password",
+          "replication-username",
+          "superuser-password",
+          "superuser-username"
+        ]
+      },
+      {
+        "name": "cluster-a-patroni-wal-g-credentials",
+        "uid": "b5d44964-36c5-48b8-8275-9b6dc42f695b",
+        "keys": [
+          ".walg.env"
+        ]
+      },
+      {
+        "name": "cluster-a-pgcat-pgadmin",
+        "uid": "a7eccfa9-8cbe-4685-9a9d-95dc666f0976",
+        "keys": [
+          "pgadmin-password"
+        ]
+      },
+      {
+        "name": "cluster-a-pgcat-pgcat-config",
+        "uid": "914bf54e-7538-4f5d-888d-89849025ddb3",
+        "keys": [
+          "pgcat.yaml"
+        ]
+      },
+      {
+        "name": "cluster-b-minio-minio-credentials",
+        "uid": "9ffdeab9-5d15-4bf5-becc-b15a0f05f416",
+        "keys": [
+          "backup-bucket",
+          "backup-password",
+          "backup-user",
+          "root-password",
+          "root-user"
+        ]
+      },
+      {
+        "name": "cluster-b-patroni-postgres-credentials",
+        "uid": "6822c73a-704c-4b21-9e90-3b27caf83f13",
+        "keys": [
+          "replication-password",
+          "replication-username",
+          "superuser-password",
+          "superuser-username"
+        ]
+      },
+      {
+        "name": "cluster-b-patroni-wal-g-credentials",
+        "uid": "b726b931-6f97-4790-ac82-6920be2522fc",
+        "keys": [
+          ".walg.env"
+        ]
+      },
+      {
+        "name": "cluster-b-pgcat-pgadmin",
+        "uid": "1257fea1-ff9f-4d85-bc76-900687f2dbea",
+        "keys": [
+          "pgadmin-password"
+        ]
+      },
+      {
+        "name": "cluster-b-pgcat-pgcat-config",
+        "uid": "f4379487-50c5-48dc-9202-145fe95ba2e1",
+        "keys": [
+          "pgcat.yaml"
+        ]
+      },
+      {
+        "name": "dbaas-api-auth",
+        "uid": "97061897-46d4-439d-8f10-aa0fa1570442",
+        "keys": [
+          "token"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-minio.v1",
+        "uid": "f0747c24-0fde-49ba-b298-61e968f32c6e",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-patroni.v1",
+        "uid": "d07e8826-b22e-46b9-b75c-3d6da39ccd0c",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-pgcat.v1",
+        "uid": "07b8efb9-53f4-4b94-b42e-898b3b5cd378",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-b-minio.v1",
+        "uid": "12158e50-30e9-4505-8ada-ef742fae19e4",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-b-patroni.v1",
+        "uid": "c1fe60b0-bdf8-477e-9711-63884e92b1dc",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-b-pgcat.v1",
+        "uid": "dc1f3bf9-0953-465c-9378-5f171f82b5db",
+        "keys": [
+          "release"
+        ]
+      }
+    ]
+  },
+  "after": {
+    "statefulsets": [
+      {
+        "name": "cluster-a-minio-minio-statefulset",
+        "uid": "de628151-b180-49ff-8058-f2dc5033705d",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "matchLabels": {
+            "app": "minio",
+            "release-name": "cluster-a-minio"
+          }
+        },
+        "volume_claims": [
+          {
+            "apiVersion": "v1",
+            "kind": "PersistentVolumeClaim",
+            "metadata": {
+              "annotations": {
+                "volume.alpha.kubernetes.io/storage-class": "standard"
+              },
+              "creationTimestamp": null,
+              "labels": {
+                "application": "minio"
+              },
+              "name": "data"
+            },
+            "spec": {
+              "accessModes": [
+                "ReadWriteOnce"
+              ],
+              "resources": {
+                "requests": {
+                  "storage": "1Gi"
+                }
+              },
+              "storageClassName": "standard",
+              "volumeMode": "Filesystem"
+            },
+            "status": {
+              "phase": "Pending"
+            }
+          }
+        ],
+        "replicas": 1
+      },
+      {
+        "name": "cluster-a-patroni-patronimvp",
+        "uid": "66414946-b843-4843-a3eb-a81804ff74b3",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "patronimvp",
+          "release-name": "cluster-a-patroni"
+        },
+        "selector": {
+          "matchLabels": {
+            "application": "patroni",
+            "cluster-name": "cluster-a-patroni-patronimvp",
+            "release-name": "cluster-a-patroni"
+          }
+        },
+        "volume_claims": [
+          {
+            "apiVersion": "v1",
+            "kind": "PersistentVolumeClaim",
+            "metadata": {
+              "annotations": {
+                "volume.alpha.kubernetes.io/storage-class": "standard"
+              },
+              "creationTimestamp": null,
+              "labels": {
+                "application": "spilo",
+                "spilo-cluster": "patronimvp"
+              },
+              "name": "pgdata"
+            },
+            "spec": {
+              "accessModes": [
+                "ReadWriteOnce"
+              ],
+              "resources": {
+                "requests": {
+                  "storage": "1Gi"
+                }
+              },
+              "storageClassName": "standard",
+              "volumeMode": "Filesystem"
+            },
+            "status": {
+              "phase": "Pending"
+            }
+          }
+        ],
+        "replicas": 1
+      },
+      {
+        "name": "cluster-b-minio-minio-statefulset",
+        "uid": "79ef61d3-22e3-47ac-ae8e-a39989564a35",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "matchLabels": {
+            "app": "minio",
+            "release-name": "cluster-b-minio"
+          }
+        },
+        "volume_claims": [
+          {
+            "apiVersion": "v1",
+            "kind": "PersistentVolumeClaim",
+            "metadata": {
+              "annotations": {
+                "volume.alpha.kubernetes.io/storage-class": "standard"
+              },
+              "creationTimestamp": null,
+              "labels": {
+                "application": "minio"
+              },
+              "name": "data"
+            },
+            "spec": {
+              "accessModes": [
+                "ReadWriteOnce"
+              ],
+              "resources": {
+                "requests": {
+                  "storage": "1Gi"
+                }
+              },
+              "storageClassName": "standard",
+              "volumeMode": "Filesystem"
+            },
+            "status": {
+              "phase": "Pending"
+            }
+          }
+        ],
+        "replicas": 1
+      },
+      {
+        "name": "cluster-b-patroni-patronimvp",
+        "uid": "30491ddb-b9dc-410d-b8da-85bd0642a538",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "patronimvp",
+          "release-name": "cluster-b-patroni"
+        },
+        "selector": {
+          "matchLabels": {
+            "application": "patroni",
+            "cluster-name": "cluster-b-patroni-patronimvp",
+            "release-name": "cluster-b-patroni"
+          }
+        },
+        "volume_claims": [
+          {
+            "apiVersion": "v1",
+            "kind": "PersistentVolumeClaim",
+            "metadata": {
+              "annotations": {
+                "volume.alpha.kubernetes.io/storage-class": "standard"
+              },
+              "creationTimestamp": null,
+              "labels": {
+                "application": "spilo",
+                "spilo-cluster": "patronimvp"
+              },
+              "name": "pgdata"
+            },
+            "spec": {
+              "accessModes": [
+                "ReadWriteOnce"
+              ],
+              "resources": {
+                "requests": {
+                  "storage": "1Gi"
+                }
+              },
+              "storageClassName": "standard",
+              "volumeMode": "Filesystem"
+            },
+            "status": {
+              "phase": "Pending"
+            }
+          }
+        ],
+        "replicas": 1
+      }
+    ],
+    "deployments": [
+      {
+        "name": "cluster-a-pgcat-pgadmin-deployment",
+        "uid": "26caacde-f645-43d5-ba92-f6a2b124694d",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "matchLabels": {
+            "app": "pgadmin",
+            "release-name": "cluster-a-pgcat"
+          }
+        },
+        "volume_claims": null,
+        "replicas": 1
+      },
+      {
+        "name": "cluster-a-pgcat-proxy-deployment",
+        "uid": "fd6fb0f4-44db-4289-bccd-55683dad26ef",
+        "labels": {
+          "app": "proxy",
+          "app.kubernetes.io/managed-by": "Helm",
+          "release-name": "cluster-a-pgcat"
+        },
+        "selector": {
+          "matchLabels": {
+            "app": "proxy",
+            "release-name": "cluster-a-pgcat"
+          }
+        },
+        "volume_claims": null,
+        "replicas": 1
+      },
+      {
+        "name": "cluster-b-pgcat-pgadmin-deployment",
+        "uid": "66427995-a82a-4660-8748-c545c71a41ad",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "matchLabels": {
+            "app": "pgadmin",
+            "release-name": "cluster-b-pgcat"
+          }
+        },
+        "volume_claims": null,
+        "replicas": 1
+      },
+      {
+        "name": "cluster-b-pgcat-proxy-deployment",
+        "uid": "2ddcf15f-d078-4223-ab7c-89405cf8973b",
+        "labels": {
+          "app": "proxy",
+          "app.kubernetes.io/managed-by": "Helm",
+          "release-name": "cluster-b-pgcat"
+        },
+        "selector": {
+          "matchLabels": {
+            "app": "proxy",
+            "release-name": "cluster-b-pgcat"
+          }
+        },
+        "volume_claims": null,
+        "replicas": 1
+      },
+      {
+        "name": "dbaas-backend",
+        "uid": "09942f00-991f-40a3-a76e-922f1fe6cbf4",
+        "labels": {},
+        "selector": {
+          "matchLabels": {
+            "app": "dbaas-backend"
+          }
+        },
+        "volume_claims": null,
+        "replicas": 1
+      }
+    ],
+    "services": [
+      {
+        "name": "cluster-a-minio-minio",
+        "uid": "9da62818-de75-4444-b564-30b18134e92a",
+        "labels": {
+          "app": "minio",
+          "app.kubernetes.io/instance": "cluster-a-minio",
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "app": "minio",
+          "app.kubernetes.io/instance": "cluster-a-minio",
+          "release-name": "cluster-a-minio"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-a-patroni-patronimvp",
+        "uid": "38265cc9-a75f-42f4-a0e3-ae104cb13adb",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-a-patroni-patronimvp-config",
+        "uid": "f9212052-fd40-40b9-a29e-3ced731b2cd3",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "patronimvp",
+          "release-name": "cluster-a-patroni"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-a-pgcat-pgadmin-service",
+        "uid": "7480e232-2704-4136-9d9a-bb4176a02b07",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "app": "pgadmin",
+          "release-name": "cluster-a-pgcat"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-a-pgcat-proxy-service",
+        "uid": "2106ef65-9128-44b4-9a4c-fd93c3fbecfa",
+        "labels": {
+          "app": "proxy",
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "pgcat",
+          "release-name": "cluster-a-pgcat",
+          "type": "monitoring"
+        },
+        "selector": {
+          "app": "proxy",
+          "release-name": "cluster-a-pgcat"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-b-minio-minio",
+        "uid": "7c8dd0dd-88b3-4265-86b7-6c74adc2d0b3",
+        "labels": {
+          "app": "minio",
+          "app.kubernetes.io/instance": "cluster-b-minio",
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "app": "minio",
+          "app.kubernetes.io/instance": "cluster-b-minio",
+          "release-name": "cluster-b-minio"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-b-patroni-patronimvp",
+        "uid": "83e4be99-9c3a-4563-bf4b-86236c28b5c6",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-b-patroni-patronimvp-config",
+        "uid": "d1ae37fd-c181-4991-bf01-8ed56d9d58bc",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "patronimvp",
+          "release-name": "cluster-b-patroni"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-b-pgcat-pgadmin-service",
+        "uid": "7d78881b-c6b5-4051-8b74-dbae474ec13c",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": {
+          "app": "pgadmin",
+          "release-name": "cluster-b-pgcat"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-b-pgcat-proxy-service",
+        "uid": "05c8c05a-e3d1-4db1-8012-1fdc62a31a9c",
+        "labels": {
+          "app": "proxy",
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "pgcat",
+          "release-name": "cluster-b-pgcat",
+          "type": "monitoring"
+        },
+        "selector": {
+          "app": "proxy",
+          "release-name": "cluster-b-pgcat"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "dbaas-backend",
+        "uid": "11ffb9cf-169d-49e3-83b0-80206fafa16c",
+        "labels": {},
+        "selector": {
+          "app": "dbaas-backend"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "patronimvp-master-cluster-a-patroni",
+        "uid": "ab153ccf-6f96-48cf-91ee-5d0145cfd1ea",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "cluster-a-patroni-patronimvp",
+          "release-name": "cluster-a-patroni",
+          "role": "primary",
+          "type": "monitoring"
+        },
+        "selector": {
+          "application": "patroni",
+          "cluster-name": "cluster-a-patroni-patronimvp",
+          "release-name": "cluster-a-patroni",
+          "role": "primary"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "patronimvp-master-cluster-b-patroni",
+        "uid": "6728be03-4b7e-48c5-b7d2-c56de92bb9fc",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "cluster-b-patroni-patronimvp",
+          "release-name": "cluster-b-patroni",
+          "role": "primary",
+          "type": "monitoring"
+        },
+        "selector": {
+          "application": "patroni",
+          "cluster-name": "cluster-b-patroni-patronimvp",
+          "release-name": "cluster-b-patroni",
+          "role": "primary"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "patronimvp-replica-cluster-a-patroni",
+        "uid": "de77ded3-3013-4ce1-a210-29f8f80937e0",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "cluster-a-patroni-patronimvp",
+          "release-name": "cluster-a-patroni",
+          "role": "replica",
+          "type": "monitoring"
+        },
+        "selector": {
+          "application": "patroni",
+          "cluster-name": "cluster-a-patroni-patronimvp",
+          "release-name": "cluster-a-patroni",
+          "role": "replica"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "patronimvp-replica-cluster-b-patroni",
+        "uid": "1968c89e-fe4a-471c-bc39-df4ddd486abb",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "cluster-name": "cluster-b-patroni-patronimvp",
+          "release-name": "cluster-b-patroni",
+          "role": "replica",
+          "type": "monitoring"
+        },
+        "selector": {
+          "application": "patroni",
+          "cluster-name": "cluster-b-patroni-patronimvp",
+          "release-name": "cluster-b-patroni",
+          "role": "replica"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "pgmetrics-cluster-a-patroni",
+        "uid": "42107a37-ba31-4119-b416-ed04b25351be",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "monitoring-role": "member",
+          "release-name": "cluster-a-patroni",
+          "type": "monitoring"
+        },
+        "selector": {
+          "application": "patroni",
+          "cluster-name": "cluster-a-patroni-patronimvp",
+          "release-name": "cluster-a-patroni"
+        },
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "pgmetrics-cluster-b-patroni",
+        "uid": "2e39cb09-f7aa-4f4f-8a81-37a22d68510f",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "application": "patroni",
+          "monitoring-role": "member",
+          "release-name": "cluster-b-patroni",
+          "type": "monitoring"
+        },
+        "selector": {
+          "application": "patroni",
+          "cluster-name": "cluster-b-patroni-patronimvp",
+          "release-name": "cluster-b-patroni"
+        },
+        "volume_claims": null,
+        "replicas": null
+      }
+    ],
+    "persistentvolumeclaims": [
+      {
+        "name": "data-cluster-a-minio-minio-statefulset-0",
+        "uid": "51c29741-70a8-4972-b44b-86c1c69850d7",
+        "labels": {
+          "app": "minio",
+          "application": "minio",
+          "release-name": "cluster-a-minio"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "data-cluster-b-minio-minio-statefulset-0",
+        "uid": "64fde684-8320-4891-8b09-c3adbf600d2c",
+        "labels": {
+          "app": "minio",
+          "application": "minio",
+          "release-name": "cluster-b-minio"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "pgdata-cluster-a-patroni-patronimvp-0",
+        "uid": "2861a523-a22e-4dce-a8bc-8a2368b6f940",
+        "labels": {
+          "application": "patroni",
+          "cluster-name": "cluster-a-patroni-patronimvp",
+          "release-name": "cluster-a-patroni",
+          "spilo-cluster": "patronimvp"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "pgdata-cluster-b-patroni-patronimvp-0",
+        "uid": "581ca45f-05cf-4420-9e3f-cc66ce4ed1d9",
+        "labels": {
+          "application": "patroni",
+          "cluster-name": "cluster-b-patroni-patronimvp",
+          "release-name": "cluster-b-patroni",
+          "spilo-cluster": "patronimvp"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      }
+    ],
+    "cronjobs": [
+      {
+        "name": "cluster-a-patroni-exec-script-cronjob",
+        "uid": "4c67f40a-8db0-4ca7-8fcb-b676f013f3f1",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      },
+      {
+        "name": "cluster-b-patroni-exec-script-cronjob",
+        "uid": "383f48af-a5c2-4b3a-aa92-7f43fe7442e7",
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "selector": null,
+        "volume_claims": null,
+        "replicas": null
+      }
+    ],
+    "servicemonitors": "CRD absent; rendered review only",
+    "secrets": [
+      {
+        "name": "cluster-a-minio-minio-credentials",
+        "uid": "14768662-d75e-4b25-afb7-4af75e6f6e17",
+        "keys": [
+          "backup-bucket",
+          "backup-password",
+          "backup-user",
+          "root-password",
+          "root-user"
+        ]
+      },
+      {
+        "name": "cluster-a-patroni-postgres-credentials",
+        "uid": "a00e212f-b62b-4355-bb5d-1e3938a8eee9",
+        "keys": [
+          "replication-password",
+          "replication-username",
+          "superuser-password",
+          "superuser-username"
+        ]
+      },
+      {
+        "name": "cluster-a-patroni-wal-g-credentials",
+        "uid": "b5d44964-36c5-48b8-8275-9b6dc42f695b",
+        "keys": [
+          ".walg.env"
+        ]
+      },
+      {
+        "name": "cluster-a-pgcat-pgadmin",
+        "uid": "a7eccfa9-8cbe-4685-9a9d-95dc666f0976",
+        "keys": [
+          "pgadmin-password"
+        ]
+      },
+      {
+        "name": "cluster-a-pgcat-pgcat-config",
+        "uid": "914bf54e-7538-4f5d-888d-89849025ddb3",
+        "keys": [
+          "pgcat.yaml"
+        ]
+      },
+      {
+        "name": "cluster-b-minio-minio-credentials",
+        "uid": "9ffdeab9-5d15-4bf5-becc-b15a0f05f416",
+        "keys": [
+          "backup-bucket",
+          "backup-password",
+          "backup-user",
+          "root-password",
+          "root-user"
+        ]
+      },
+      {
+        "name": "cluster-b-patroni-postgres-credentials",
+        "uid": "6822c73a-704c-4b21-9e90-3b27caf83f13",
+        "keys": [
+          "replication-password",
+          "replication-username",
+          "superuser-password",
+          "superuser-username"
+        ]
+      },
+      {
+        "name": "cluster-b-patroni-wal-g-credentials",
+        "uid": "b726b931-6f97-4790-ac82-6920be2522fc",
+        "keys": [
+          ".walg.env"
+        ]
+      },
+      {
+        "name": "cluster-b-pgcat-pgadmin",
+        "uid": "1257fea1-ff9f-4d85-bc76-900687f2dbea",
+        "keys": [
+          "pgadmin-password"
+        ]
+      },
+      {
+        "name": "cluster-b-pgcat-pgcat-config",
+        "uid": "f4379487-50c5-48dc-9202-145fe95ba2e1",
+        "keys": [
+          "pgcat.yaml"
+        ]
+      },
+      {
+        "name": "dbaas-api-auth",
+        "uid": "97061897-46d4-439d-8f10-aa0fa1570442",
+        "keys": [
+          "token"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-minio.v1",
+        "uid": "f0747c24-0fde-49ba-b298-61e968f32c6e",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-minio.v2",
+        "uid": "a31d75f2-af96-4d3b-8164-afbe2e1c0138",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-minio.v3",
+        "uid": "282cd69f-24d8-4e84-9972-790e0b77d6e4",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-minio.v4",
+        "uid": "26de2e36-6b63-4c53-a7cc-adbe23c7d79b",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-patroni.v1",
+        "uid": "d07e8826-b22e-46b9-b75c-3d6da39ccd0c",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-patroni.v2",
+        "uid": "1e5852f4-6661-40e7-9677-334bfdd7d855",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-patroni.v3",
+        "uid": "e0f3e9c8-a491-4495-9cbb-cc627bc79e02",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-patroni.v4",
+        "uid": "1b90a6d5-637d-405d-a618-0216d8293e18",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-pgcat.v1",
+        "uid": "07b8efb9-53f4-4b94-b42e-898b3b5cd378",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-pgcat.v2",
+        "uid": "97c276a7-ab45-4dff-baae-13ae0aba5d8c",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-pgcat.v3",
+        "uid": "8ee4061c-b5c7-4c91-b2b5-46bc1eb77f00",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-a-pgcat.v4",
+        "uid": "fd95ecee-66d9-4bf3-9266-108dab507100",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-b-minio.v1",
+        "uid": "12158e50-30e9-4505-8ada-ef742fae19e4",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-b-patroni.v1",
+        "uid": "c1fe60b0-bdf8-477e-9711-63884e92b1dc",
+        "keys": [
+          "release"
+        ]
+      },
+      {
+        "name": "sh.helm.release.v1.cluster-b-pgcat.v1",
+        "uid": "dc1f3bf9-0953-465c-9378-5f171f82b5db",
+        "keys": [
+          "release"
+        ]
+      }
+    ]
+  },
+  "data_a": [
+    [
+      "A"
+    ]
+  ],
+  "data_b": [
+    [
+      "B"
+    ]
+  ]
+}

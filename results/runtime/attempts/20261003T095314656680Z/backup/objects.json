@@ -1,0 +1,134 @@
+[
+  {
+    "etag": "a15025f160148b9e82670258075303a6",
+    "key": "basebackups_005/base_000000010000000000000004/files_metadata.json",
+    "lastModified": "2026-10-03T09:43:18.939Z",
+    "size": 169221,
+    "status": "success",
+    "storageClass": "STANDARD",
+    "type": "file",
+    "url": "http://smoke-minio-minio:9000/backup/",
+    "versionOrdinal": 1
+  },
+  {
+    "etag": "4ef6b5414aab201637a7e7429a244d23",
+    "key": "basebackups_005/base_000000010000000000000004/metadata.json",
+    "lastModified": "2026-10-03T09:43:18.917Z",
+    "size": 389,
+    "status": "success",
+    "storageClass": "STANDARD",
+    "type": "file",
+    "url": "http://smoke-minio-minio:9000/backup/",
+    "versionOrdinal": 1
+  },
+  {
+    "etag": "9ed99dde12feff66f1ea068d65d553e3",
+    "key": "basebackups_005/base_000000010000000000000004/tar_partitions/backup_label.tar.br",
+    "lastModified": "2026-10-03T09:43:18.891Z",
+    "size": 273,
+    "status": "success",
+    "storageClass": "STANDARD",
+    "type": "file",
+    "url": "http://smoke-minio-minio:9000/backup/",
+    "versionOrdinal": 1
+  },
+  {
+    "etag": "ffbb7dab5fd133a2a3081a4f610ebc48",
+    "key": "basebackups_005/base_000000010000000000000004/tar_partitions/part_001.tar.br",
+    "lastModified": "2026-10-03T09:43:18.877Z",
+    "size": 2792382,
+    "status": "success",
+    "storageClass": "STANDARD",
+    "type": "file",
+    "url": "http://smoke-minio-minio:9000/backup/",
+    "versionOrdinal": 1
+  },
+  {
+    "etag": "91b96d4b739032c4f5d645da454e9343",
+    "key": "basebackups_005/base_000000010000000000000004/tar_partitions/pg_control.tar.br",
+    "lastModified": "2026-10-03T09:43:18.879Z",
+    "size": 264,
+    "status": "success",
+    "storageClass": "STANDARD",
+    "type": "file",
+    "url": "http://smoke-minio-minio:9000/backup/",
+    "versionOrdinal": 1
+  },
+  {
+    "etag": "4ca97faf0f67f7d951f5ae08bd1a85a5",
+    "key": "basebackups_005/base_000000010000000000000004_backup_stop_sentinel.json",
+    "lastModified": "2026-10-03T09:43:18.941Z",
+    "size": 439,
+    "status": "success",
+    "storageClass": "STANDARD",
+    "type": "file",
+    "url": "http://smoke-minio-minio:9000/backup/",
+    "versionOrdinal": 1
+  },
+  {
+    "etag": "25b431be0aaa8a34d897c0b871801be4",
+    "key": "wal_005/000000010000000000000001.br",
+    "lastModified": "2026-10-03T09:42:02.147Z",
+    "size": 1319039,
+    "status": "success",
+    "storageClass": "STANDARD",
+    "type": "file",
+    "url": "http://smoke-minio-minio:9000/backup/",
+    "versionOrdinal": 1
+  },
+  {
+    "etag": "2e725ddefc8ce0475c2cc99527d85596",
+    "key": "wal_005/000000010000000000000002.00000028.backup.br",
+    "lastModified": "2026-10-03T09:42:02.577Z",
+    "size": 184,
+    "status": "success",
+    "storageClass": "STANDARD",
+    "type": "file",
+    "url": "http://smoke-minio-minio:9000/backup/",
+    "versionOrdinal": 1
+  },
+  {
+    "etag": "60c31a2d78e709b8b8a6f79175ee4cdb",
+    "key": "wal_005/000000010000000000000002.br",
+    "lastModified": "2026-10-03T09:42:02.601Z",
+    "size": 176,
+    "status": "success",
+    "storageClass": "STANDARD",
+    "type": "file",
+    "url": "http://smoke-minio-minio:9000/backup/",
+    "versionOrdinal": 1
+  },
+  {
+    "etag": "08fcc0fbf66c80c87d60457d2088d5bc",
+    "key": "wal_005/000000010000000000000003.br",
+    "lastModified": "2026-10-03T09:43:18.687Z",
+    "size": 112017,
+    "status": "success",
+    "storageClass": "STANDARD",
+    "type": "file",
+    "url": "http://smoke-minio-minio:9000/backup/",
+    "versionOrdinal": 1
+  },
+  {
+    "etag": "e4f22343b7f6f104c9c3a01bf8a5054e",
+    "key": "wal_005/000000010000000000000004.00000028.backup.br",
+    "lastModified": "2026-10-03T09:43:18.917Z",
+    "size": 192,
+    "status": "success",
+    "storageClass": "STANDARD",
+    "type": "file",
+    "url": "http://smoke-minio-minio:9000/backup/",
+    "versionOrdinal": 1
+  },
+  {
+    "etag": "3c7f3d26e74de937b8bc42619206da27",
+    "key": "wal_005/000000010000000000000004.br",
+    "lastModified": "2026-10-03T09:43:18.946Z",
+    "size": 181,
+    "status": "success",
+    "storageClass": "STANDARD",
+    "type": "file",
+    "url": "http://smoke-minio-minio:9000/backup/",
+    "versionOrdinal": 1
+  }
+]

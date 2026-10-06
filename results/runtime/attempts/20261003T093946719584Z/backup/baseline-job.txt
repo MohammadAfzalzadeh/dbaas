@@ -1,0 +1,20 @@
+Backing up PostgreSQL target dbaas-smoke/smoke-patroni-patronimvp-0
+INFO: 2026/10/03 09:36:12.717749 Backup will be pushed to storage: default
+INFO: 2026/10/03 09:36:12.724700 Calling pg_start_backup()
+INFO: 2026/10/03 09:36:12.769736 Initializing the PG alive checker (interval=1m0s)...
+INFO: 2026/10/03 09:36:12.769764 Starting a new tar bundle
+INFO: 2026/10/03 09:36:12.769778 Walking ...
+INFO: 2026/10/03 09:36:12.769921 Starting part 1 ...
+INFO: 2026/10/03 09:36:12.948915 Packing ...
+INFO: 2026/10/03 09:36:12.949467 Finished writing part 1.
+INFO: 2026/10/03 09:36:12.990184 Starting part 2 ...
+INFO: 2026/10/03 09:36:12.990213 /global/pg_control
+INFO: 2026/10/03 09:36:12.990439 Finished writing part 2.
+INFO: 2026/10/03 09:36:12.990444 Calling pg_stop_backup()
+INFO: 2026/10/03 09:36:13.007988 Starting part 3 ...
+INFO: 2026/10/03 09:36:13.008020 backup_label
+INFO: 2026/10/03 09:36:13.008026 tablespace_map
+INFO: 2026/10/03 09:36:13.008256 Finished writing part 3.
+INFO: 2026/10/03 09:36:13.012212 Querying pg_database
+INFO: 2026/10/03 09:36:13.055182 Wrote backup with name base_000000010000000000000009 to storage default
+Backup command completed for dbaas-smoke/smoke-patroni-patronimvp-0

@@ -1,0 +1,32 @@
+pgbench (16.6 (Debian 16.6-1.pgdg120+1))
+transaction type: multiple scripts
+scaling factor: 1
+query mode: simple
+number of clients: 10
+number of threads: 4
+maximum number of tries: 1
+duration: 5 s
+number of transactions actually processed: 64008
+number of failed transactions: 0 (0.000%)
+latency average = 0.781 ms
+initial connection time = 3.100 ms
+tps = 12808.819050 (without initial connection time)
+SQL script 1: <builtin: select only>
+ - weight: 9 (targets 90.0% of total)
+ - 57586 transactions (90.0% of total, tps = 11523.694754)
+ - number of failed transactions: 0 (0.000%)
+ - latency average = 0.244 ms
+ - latency stddev = 0.061 ms
+SQL script 2: <builtin: simple update>
+ - weight: 1 (targets 10.0% of total)
+ - 6396 transactions (10.0% of total, tps = 1279.921364)
+ - number of failed transactions: 0 (0.000%)
+ - latency average = 1.698 ms
+ - latency stddev = 0.678 ms
+pgbench: error: client 2 script 1 aborted in command 5 query 0: ERROR:  cannot execute UPDATE in a read-only transaction
+pgbench: error: client 1 script 1 aborted in command 5 query 0: ERROR:  cannot execute UPDATE in a read-only transaction
+pgbench: error: client 3 script 1 aborted in command 5 query 0: ERROR:  cannot execute UPDATE in a read-only transaction
+pgbench: error: client 0 script 1 aborted in command 5 query 0: ERROR:  cannot execute UPDATE in a read-only transaction
+pgbench: error: client 8 script 1 aborted in command 5 query 0: ERROR:  cannot execute UPDATE in a read-only transaction
+pgbench: error: Run was aborted; the above results are incomplete.
+command terminated with exit code 2

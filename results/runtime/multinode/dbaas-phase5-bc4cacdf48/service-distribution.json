@@ -1,0 +1,14 @@
+{
+  "client_ip": "192.168.173.200",
+  "connections": 20,
+  "proxy_sockets": [
+    {
+      "client_connections": 10,
+      "pod": "lab-pgcat-proxy-deployment-5584b97bbd-ltpp5"
+    },
+    {
+      "client_connections": 10,
+      "pod": "lab-pgcat-proxy-deployment-5584b97bbd-zzzrm"
+    }
+  ]
+}

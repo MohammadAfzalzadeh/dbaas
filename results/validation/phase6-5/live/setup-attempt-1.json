@@ -1,0 +1,1 @@
+{"status":"FAILED","scope":"review harness setup","cause":"Calico manifest applied with the review namespace override; kube-system objects rejected","correction":"Apply cluster manifest without namespace override; resume only after owned UID check"}

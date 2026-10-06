@@ -1,0 +1,38 @@
+[
+  {
+    "case": "invalid-time",
+    "result": "ValueError: recovery-time must be YYYY-MM-DD HH:MM:SS (UTC)",
+    "destructive_boundary_reached": false,
+    "scope": "fake command runner; no cluster mutations"
+  },
+  {
+    "case": "before-backup",
+    "result": "ValueError: No identifiable backup from this cluster completed before target time",
+    "destructive_boundary_reached": false,
+    "scope": "fake command runner; no cluster mutations"
+  },
+  {
+    "case": "future-target",
+    "result": "RuntimeError: Intercepted first destructive operation; never executed",
+    "destructive_boundary_reached": true,
+    "scope": "fake command runner; no cluster mutations"
+  },
+  {
+    "case": "ambiguous-pvc",
+    "result": "ValueError: Unexpected PostgreSQL StatefulSet selector",
+    "destructive_boundary_reached": false,
+    "scope": "fake command runner; no cluster mutations"
+  },
+  {
+    "case": "missing-credentials",
+    "result": "RuntimeError: Missing test credential Secret",
+    "destructive_boundary_reached": false,
+    "scope": "fake command runner; no cluster mutations"
+  },
+  {
+    "case": "wrong-prefix",
+    "result": "ValueError: No identifiable backup from this cluster completed before target time",
+    "destructive_boundary_reached": false,
+    "scope": "fake command runner; no cluster mutations"
+  }
+]

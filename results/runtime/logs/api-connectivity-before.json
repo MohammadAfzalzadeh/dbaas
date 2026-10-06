@@ -1,0 +1,88 @@
+{
+  "service_host": "10.96.0.1",
+  "service_port": 443,
+  "namespace": "phase4",
+  "credentials": {
+    "token": {
+      "exists": true,
+      "readable": true
+    },
+    "ca.crt": {
+      "exists": true,
+      "readable": true
+    },
+    "namespace": {
+      "exists": true,
+      "readable": true
+    }
+  },
+  "environment": {
+    "HTTP_PROXY": false,
+    "HTTPS_PROXY": false,
+    "ALL_PROXY": false,
+    "NO_PROXY": "<unset>",
+    "http_proxy": false,
+    "https_proxy": false,
+    "all_proxy": false,
+    "no_proxy": "<unset>",
+    "KUBECONFIG": false
+  },
+  "kubernetes.default.svc": {
+    "dns_error": "[Errno -2] Name or service not known",
+    "tls_error": "[Errno -2] Name or service not known",
+    "environment": {
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    "direct": {
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    }
+  },
+  "kubernetes.default.svc.cluster.local": {
+    "dns_error": "[Errno -2] Name or service not known",
+    "tls_error": "[Errno -2] Name or service not known",
+    "environment": {
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    "direct": {
+      "error": "<urlopen error [Errno -2] Name or service not known>"
+    }
+  },
+  "10.96.0.1": {
+    "dns": [
+      "10.96.0.1",
+      [],
+      [
+        "10.96.0.1"
+      ]
+    ],
+    "tcp": "PASS",
+    "tls_error": "[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)",
+    "environment": {
+      "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>"
+    },
+    "direct": {
+      "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>"
+    }
+  },
+  "helm version --short": {
+    "exit": 0,
+    "stderr": "",
+    "stdout": "v3.15.4+gfa9efb0\n"
+  },
+  "helm list -n phase4": {
+    "exit": 1,
+    "stderr": "Error: Kubernetes cluster unreachable: Get \"https://10.96.0.1:443/version\": EOF\n",
+    "stdout": ""
+  },
+  "kubectl get namespace phase4": {
+    "error": "Command '['kubectl', 'get', 'namespace', 'phase4']' timed out after 20 seconds"
+  },
+  "kubectl auth can-i create statefulsets.apps -n phase4": {
+    "error": "Command '['kubectl', 'auth', 'can-i', 'create', 'statefulsets.apps', '-n', 'phase4']' timed out after 20 seconds"
+  },
+  "helm template probe /app/helmCharts/minio -n phase4": {
+    "exit": 0,
+    "stderr": "",
+    "stdout": "rendered manifests omitted"
+  }
+}

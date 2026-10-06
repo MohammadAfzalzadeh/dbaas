@@ -1,0 +1,126 @@
+{
+  "affected_client_session_selected": true,
+  "after_endpoints": {
+    "apiVersion": "v1",
+    "kind": "Endpoints",
+    "metadata": {
+      "annotations": {
+        "endpoints.kubernetes.io/last-change-trigger-time": "2026-10-03T12:24:03Z"
+      },
+      "creationTimestamp": "2026-10-03T11:22:38Z",
+      "labels": {
+        "app": "proxy",
+        "app.kubernetes.io/managed-by": "Helm",
+        "application": "pgcat",
+        "release-name": "lab-pgcat",
+        "type": "monitoring"
+      },
+      "name": "lab-pgcat-proxy-service",
+      "namespace": "resilience",
+      "resourceVersion": "12787",
+      "uid": "5bbedf18-dbcf-4356-b1fa-3b3679340014"
+    },
+    "subsets": [
+      {
+        "addresses": [
+          {
+            "ip": "192.168.125.83",
+            "nodeName": "dbaas-phase5-8a3ad9f385-worker",
+            "targetRef": {
+              "kind": "Pod",
+              "name": "lab-pgcat-proxy-deployment-74cf9987bb-hkbrg",
+              "namespace": "resilience",
+              "uid": "3120a39b-6974-4c12-a4b4-5c3029836475"
+            }
+          },
+          {
+            "ip": "192.168.184.22",
+            "nodeName": "dbaas-phase5-8a3ad9f385-worker3",
+            "targetRef": {
+              "kind": "Pod",
+              "name": "lab-pgcat-proxy-deployment-74cf9987bb-nv8f2",
+              "namespace": "resilience",
+              "uid": "26cf6987-5c97-451c-90bc-d2720b81f1ac"
+            }
+          }
+        ],
+        "ports": [
+          {
+            "name": "pgcat",
+            "port": 5432,
+            "protocol": "TCP"
+          },
+          {
+            "name": "metrics",
+            "port": 9930,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    ]
+  },
+  "before_endpoints": {
+    "apiVersion": "v1",
+    "kind": "Endpoints",
+    "metadata": {
+      "annotations": {
+        "endpoints.kubernetes.io/last-change-trigger-time": "2026-10-03T12:13:34Z"
+      },
+      "creationTimestamp": "2026-10-03T11:22:38Z",
+      "labels": {
+        "app": "proxy",
+        "app.kubernetes.io/managed-by": "Helm",
+        "application": "pgcat",
+        "release-name": "lab-pgcat",
+        "type": "monitoring"
+      },
+      "name": "lab-pgcat-proxy-service",
+      "namespace": "resilience",
+      "resourceVersion": "11141",
+      "uid": "5bbedf18-dbcf-4356-b1fa-3b3679340014"
+    },
+    "subsets": [
+      {
+        "addresses": [
+          {
+            "ip": "192.168.125.83",
+            "nodeName": "dbaas-phase5-8a3ad9f385-worker",
+            "targetRef": {
+              "kind": "Pod",
+              "name": "lab-pgcat-proxy-deployment-74cf9987bb-hkbrg",
+              "namespace": "resilience",
+              "uid": "3120a39b-6974-4c12-a4b4-5c3029836475"
+            }
+          },
+          {
+            "ip": "192.168.184.21",
+            "nodeName": "dbaas-phase5-8a3ad9f385-worker3",
+            "targetRef": {
+              "kind": "Pod",
+              "name": "lab-pgcat-proxy-deployment-74cf9987bb-kxz7w",
+              "namespace": "resilience",
+              "uid": "aae8f4fa-117d-415b-a5e4-edc69ac5543d"
+            }
+          }
+        ],
+        "ports": [
+          {
+            "name": "pgcat",
+            "port": 5432,
+            "protocol": "TCP"
+          },
+          {
+            "name": "metrics",
+            "port": 9930,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    ]
+  },
+  "comparison": "Phase 4 also used force deletion; different topology/CNI and one sample each",
+  "deleted_pod": "lab-pgcat-proxy-deployment-74cf9987bb-kxz7w",
+  "duration_seconds": 7.725706386961974,
+  "injected": "2026-10-03T12:24:01.344360+00:00",
+  "sql_available_seconds": 0.22301036806311458
+}

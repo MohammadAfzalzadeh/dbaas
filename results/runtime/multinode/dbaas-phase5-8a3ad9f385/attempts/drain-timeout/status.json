@@ -1,0 +1,42 @@
+{
+  "baseline": {
+    "detail": "SQL through PgCat, primary and two replicas; backup objects and WAL",
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:26:55.967217+00:00"
+  },
+  "disruptions": {
+    "detail": "RuntimeError",
+    "status": "FAIL",
+    "timestamp": "2026-10-03T11:32:04.600182+00:00"
+  },
+  "isolated_restore": {
+    "detail": "A present/B absent, target writable; source StatefulSet/PVC identities preserved",
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:28:29.834608+00:00"
+  },
+  "multinode": {
+    "detail": "3 PostgreSQL workers; 2 PgCat replicas; real API provisioning",
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:26:16.673324+00:00"
+  },
+  "network_policy": {
+    "detail": "Allowed SQL/replication/backup/API flows and denied unrelated TCP probes",
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:30:04.988997+00:00"
+  },
+  "pgcat_ha": {
+    "detail": "Two spread proxies; persistent client through pod deletion",
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:30:31.469598+00:00"
+  },
+  "setup": {
+    "detail": "RuntimeError",
+    "status": "FAIL",
+    "timestamp": "2026-10-03T11:17:30.188269+00:00"
+  },
+  "wal": {
+    "detail": "Switched segment observed in pg_stat_archiver and object storage",
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:29:34.005723+00:00"
+  }
+}

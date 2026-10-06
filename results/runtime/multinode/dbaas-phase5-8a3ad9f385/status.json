@@ -1,0 +1,114 @@
+{
+  "alerts": {
+    "detail": "Real metrics TLS handshake failure: inactive/pending/firing/resolved; SQL unaffected; ServiceMonitor restored",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:17:32.219746+00:00"
+  },
+  "backup_impact": {
+    "detail": "Paired short pgbench samples; backup completion; no CPU/I/O extrapolation",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:22:26.815481+00:00"
+  },
+  "baseline": {
+    "detail": "SQL through PgCat, primary and two replicas; backup objects and WAL",
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:26:55.967217+00:00"
+  },
+  "benchmarks": {
+    "detail": "Stage completed; individual artifacts define the validation scope",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:22:26.815830+00:00"
+  },
+  "cleanup": {
+    "detail": "Stage completed; individual artifacts define the validation scope",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:25:50.357424+00:00"
+  },
+  "disruptions": {
+    "detail": "RuntimeError",
+    "status": "FAIL",
+    "timestamp": "2026-10-03T11:41:37.934422+00:00"
+  },
+  "drain_primary": {
+    "detail": "Eviction respected; local PVC member rejoined on original node after uncordon",
+    "duration_seconds": 109.878,
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:37:08.271778+00:00"
+  },
+  "drain_replica": {
+    "detail": "Eviction respected; local PVC member rejoined on original node after uncordon",
+    "duration_seconds": 108.763,
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:35:18.306298+00:00"
+  },
+  "final_sql": {
+    "detail": "Source deterministic rows on primary, two replicas and PgCat after all experiments",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:25:43.183782+00:00"
+  },
+  "isolated_restore": {
+    "detail": "A present/B absent, target writable; source StatefulSet/PVC identities preserved",
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:50:39.341488+00:00"
+  },
+  "multinode": {
+    "detail": "3 PostgreSQL workers; 2 PgCat replicas; real API provisioning",
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:26:16.673324+00:00"
+  },
+  "network_policy": {
+    "detail": "Allowed SQL/replication/backup/API flows and denied unrelated TCP probes",
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:30:04.988997+00:00"
+  },
+  "observability": {
+    "detail": "Stage completed; individual artifacts define the validation scope",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:06:57.228392+00:00"
+  },
+  "pgcat_abrupt": {
+    "detail": "Two replicas during abrupt deletion; persistent client outcomes retained",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:24:09.070511+00:00"
+  },
+  "pgcat_ha": {
+    "detail": "Two spread proxies; persistent client through pod deletion",
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:33:29.457117+00:00"
+  },
+  "proxy_failure": {
+    "detail": "Stage completed; individual artifacts define the validation scope",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:24:09.070932+00:00"
+  },
+  "restore": {
+    "detail": "Stage completed; individual artifacts define the validation scope",
+    "status": "PASS",
+    "timestamp": "2026-10-03T11:50:39.341796+00:00"
+  },
+  "restore_size": {
+    "detail": "One deterministic ~100 MiB sample; larger sizes not run; no scaling curve",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:22:57.677867+00:00"
+  },
+  "rotation": {
+    "detail": "Stage completed; individual artifacts define the validation scope",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:05:48.165881+00:00"
+  },
+  "setup": {
+    "detail": "RuntimeError",
+    "status": "FAIL",
+    "timestamp": "2026-10-03T11:17:30.188269+00:00"
+  },
+  "upgrades": {
+    "detail": "OnDelete revision/manual replica-first restart; rolling PgCat and API",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:05:48.165495+00:00"
+  },
+  "wal": {
+    "detail": "Switched segment observed in pg_stat_archiver and object storage",
+    "status": "PASS",
+    "timestamp": "2026-10-03T12:22:41.182862+00:00"
+  }
+}

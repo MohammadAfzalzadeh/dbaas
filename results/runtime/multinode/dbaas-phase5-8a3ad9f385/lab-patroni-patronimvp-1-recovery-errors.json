@@ -1,0 +1,30 @@
+{
+  "lines": [
+    "2026-10-03 11:36:54.120 UTC [38] LOG:  database system was shut down at 2026-10-03 11:35:21 UTC",
+    "2026-10-03 11:36:54.161 UTC [55] FATAL:  the database system is starting up",
+    "2026-10-03 11:36:54.205 UTC [68] FATAL:  the database system is starting up",
+    "2026-10-03 11:36:54.225 UTC [38] LOG:  entering standby mode",
+    "2026-10-03 11:36:54.413 UTC [187] LOG:  started streaming WAL from primary at 0/13000000 on timeline 3",
+    "2026-10-03 11:37:10.449 UTC [187] FATAL:  could not receive data from WAL stream: server closed the connection unexpectedly",
+    "2026-10-03 11:37:35,886 INFO: Could not take out TTL lock",
+    "2026-10-03 11:38:41.453 UTC [399] LOG:  started streaming WAL from primary at 0/14000000 on timeline 4",
+    "2026-10-03 11:38:41.453 UTC [399] FATAL:  could not receive data from WAL stream: ERROR:  requested starting point 0/14000000 is ahead of the WAL flush position of this server 0/130799C8",
+    "2026-10-03 11:38:41.520 UTC [443] LOG:  started streaming WAL from primary at 0/14000000 on timeline 4",
+    "2026-10-03 11:38:41.520 UTC [443] FATAL:  could not receive data from WAL stream: ERROR:  requested starting point 0/14000000 is ahead of the WAL flush position of this server 0/13079AB0",
+    "2026-10-03 11:38:46.516 UTC [491] LOG:  started streaming WAL from primary at 0/14000000 on timeline 4",
+    "2026-10-03 11:38:46.516 UTC [491] FATAL:  could not receive data from WAL stream: ERROR:  requested starting point 0/14000000 is ahead of the WAL flush position of this server 0/1307D6D0",
+    "2026-10-03 11:38:51.523 UTC [537] LOG:  started streaming WAL from primary at 0/14000000 on timeline 4",
+    "2026-10-03 11:38:51.523 UTC [537] FATAL:  could not receive data from WAL stream: ERROR:  requested starting point 0/14000000 is ahead of the WAL flush position of this server 0/130813A0",
+    "2026-10-03 11:38:56.523 UTC [586] LOG:  started streaming WAL from primary at 0/14000000 on timeline 4",
+    "2026-10-03 11:38:56.524 UTC [586] FATAL:  could not receive data from WAL stream: ERROR:  requested starting point 0/14000000 is ahead of the WAL flush position of this server 0/13084038",
+    "2026-10-03 11:39:01.527 UTC [629] LOG:  started streaming WAL from primary at 0/14000000 on timeline 4",
+    "2026-10-03 11:39:01.527 UTC [629] FATAL:  could not receive data from WAL stream: ERROR:  requested starting point 0/14000000 is ahead of the WAL flush position of this server 0/13087C40",
+    "2026-10-03 11:39:06.529 UTC [679] LOG:  started streaming WAL from primary at 0/14000000 on timeline 4",
+    "2026-10-03 11:39:06.530 UTC [679] FATAL:  could not receive data from WAL stream: ERROR:  requested starting point 0/14000000 is ahead of the WAL flush position of this server 0/1308B910",
+    "2026-10-03 11:39:11.538 UTC [723] LOG:  started streaming WAL from primary at 0/14000000 on timeline 4",
+    "2026-10-03 11:39:11.538 UTC [723] FATAL:  could not receive data from WAL stream: ERROR:  requested starting point 0/14000000 is ahead of the WAL flush position of this server 0/130AC750",
+    "2026-10-03 11:39:16.543 UTC [770] LOG:  started streaming WAL from primary at 0/14000000 on timeline 4",
+    "2026-10-03 11:39:16.555 UTC [770] FATAL:  terminating walreceiver process due to administrator command",
+    "2026-10-03 11:47:11.980 UTC [5375] FATAL:  no pg_hba.conf entry for host \"[local]\", user \"postgres\", database \"postgres\", no encryption"
+  ]
+}

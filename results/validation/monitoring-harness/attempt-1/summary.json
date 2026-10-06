@@ -1,0 +1,10 @@
+{
+  "classification": "STATICALLY VALIDATED",
+  "python_tests": 79,
+  "new_regressions": 5,
+  "helm_lints": 6,
+  "preserved_runtime_artifacts": 237,
+  "live_rerun": "NOT VALIDATED",
+  "cluster_actions": false,
+  "commit_or_push": false
+}

@@ -1,0 +1,24 @@
+{
+  "members": [
+    {
+      "api_url": "http://10.244.0.12:8008/patroni",
+      "host": "10.244.0.12",
+      "name": "smoke-patroni-patronimvp-0",
+      "port": 5432,
+      "role": "leader",
+      "state": "running",
+      "timeline": 1
+    },
+    {
+      "api_url": "http://10.244.0.14:8008/patroni",
+      "host": "10.244.0.14",
+      "lag": 0,
+      "name": "smoke-patroni-patronimvp-1",
+      "port": 5432,
+      "role": "replica",
+      "state": "streaming",
+      "timeline": 1
+    }
+  ],
+  "scope": "smoke-patroni-patronimvp"
+}

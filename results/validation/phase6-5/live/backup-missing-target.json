@@ -1,0 +1,26 @@
+{
+  "case": "missing-target",
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": "2026-10-04T09:52:54Z",
+        "lastTransitionTime": "2026-10-04T09:52:54Z",
+        "message": "Job has reached the specified backoff limit",
+        "reason": "BackoffLimitExceeded",
+        "status": "True",
+        "type": "Failed"
+      }
+    ],
+    "failed": 1,
+    "ready": 0,
+    "startTime": "2026-10-04T09:52:51Z",
+    "terminating": 0,
+    "uncountedTerminatedPods": {}
+  },
+  "seconds": 4.187810993054882,
+  "logs": "Expected exactly one primary for application=patroni,role=primary,application=patroni,role=primary,cluster-name=cluster-a-patroni-patronimvp,release-name=cluster-a-patroni,review-missing=yes; found 0\n",
+  "known_generated_credential_leaked": false,
+  "new_backup_records": [],
+  "expected_success": false,
+  "actual_success": false
+}

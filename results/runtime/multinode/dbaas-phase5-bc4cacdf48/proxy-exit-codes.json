@@ -1,0 +1,15 @@
+[
+  {
+    "createdAt": "2026-10-03T12:41:26.152229827Z",
+    "exitCode": 0,
+    "finishedAt": "2026-10-03T12:44:57.424024474Z",
+    "message": "",
+    "metadata": {
+      "attempt": 0,
+      "name": "proxy"
+    },
+    "reason": "Completed",
+    "startedAt": "2026-10-03T12:41:26.22839421Z",
+    "state": "CONTAINER_EXITED"
+  }
+]

@@ -1,0 +1,4 @@
+{
+  "classification": "FAILED",
+  "output": "Unit Testing:  /prometheus/dbaas-rules-test.yaml\n\n\n  FAILED:\nopening test directory: mkdir /tmp/test_storage2601254055: read-only file system\ncommand terminated with exit code 1\n"
+}

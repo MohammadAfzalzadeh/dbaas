@@ -1,0 +1,179 @@
+{
+  "acknowledged_probe_writes": 20,
+  "action": "primary_failover",
+  "failed_samples": 5,
+  "first_success_after_failure_seconds": 25.369,
+  "injected_at": "2026-10-03T10:05:15.017704+00:00",
+  "missing_acknowledged_probe_ids": [],
+  "new_primary": "smoke-patroni-patronimvp-1",
+  "observed_failure_span_seconds": 22.705,
+  "old_primary": "smoke-patroni-patronimvp-0",
+  "patroni_detection_time": "NOT OBSERVED separately; promotion polling is an upper-bound observation",
+  "patroni_events": [
+    "2026-10-03T10:05:19.990188767Z 2026-10-03 10:05:19,982 INFO: Lock owner: smoke-patroni-patronimvp-0; I am smoke-patroni-patronimvp-1",
+    "2026-10-03T10:05:40.006057882Z 2026-10-03 10:05:40,004 INFO: promoted self to leader by acquiring session lock",
+    "2026-10-03T10:05:40.009165055Z 2026-10-03 10:05:40,004 INFO: Lock owner: smoke-patroni-patronimvp-1; I am smoke-patroni-patronimvp-1",
+    "2026-10-03T10:05:40.009183726Z 2026-10-03 10:05:40,008 INFO: updated leader lock during promote",
+    "2026-10-03T10:05:40.009980951Z server promoting",
+    "2026-10-03T10:05:40.031836639Z 2026-10-03 10:05:40.031 UTC [34] LOG:  received promote request",
+    "2026-10-03T10:05:41.023064716Z 2026-10-03 10:05:41,012 INFO: Lock owner: smoke-patroni-patronimvp-1; I am smoke-patroni-patronimvp-1"
+  ],
+  "promotion_observed_seconds": 25.171,
+  "replacement_scheduling_held_on": "dbaas-smoke-8096d8730a-control-plane",
+  "replacement_scheduling_released_at": "2026-10-03T10:05:40.239435+00:00",
+  "sampling_interval_seconds": 0.5,
+  "sql_available_observed_seconds": 25.37,
+  "sql_samples": [
+    {
+      "elapsed": -0.294,
+      "latency_seconds": 0.153,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:14.723439+00:00"
+    },
+    {
+      "elapsed": 0.359,
+      "latency_seconds": 0.135,
+      "success": false,
+      "timestamp": "2026-10-03T10:05:15.376426+00:00"
+    },
+    {
+      "elapsed": 0.994,
+      "latency_seconds": 5.151,
+      "success": false,
+      "timestamp": "2026-10-03T10:05:16.011357+00:00"
+    },
+    {
+      "elapsed": 6.645,
+      "latency_seconds": 5.138,
+      "success": false,
+      "timestamp": "2026-10-03T10:05:21.662582+00:00"
+    },
+    {
+      "elapsed": 12.283,
+      "latency_seconds": 5.141,
+      "success": false,
+      "timestamp": "2026-10-03T10:05:27.301138+00:00"
+    },
+    {
+      "elapsed": 17.925,
+      "latency_seconds": 5.139,
+      "success": false,
+      "timestamp": "2026-10-03T10:05:32.942269+00:00"
+    },
+    {
+      "elapsed": 23.564,
+      "latency_seconds": 1.805,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:38.581801+00:00"
+    },
+    {
+      "elapsed": 25.869,
+      "latency_seconds": 0.149,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:40.886645+00:00"
+    },
+    {
+      "elapsed": 26.518,
+      "latency_seconds": 0.148,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:41.535435+00:00"
+    },
+    {
+      "elapsed": 27.165,
+      "latency_seconds": 0.151,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:42.183127+00:00"
+    },
+    {
+      "elapsed": 27.817,
+      "latency_seconds": 0.141,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:42.834603+00:00"
+    },
+    {
+      "elapsed": 28.458,
+      "latency_seconds": 0.143,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:43.476031+00:00"
+    },
+    {
+      "elapsed": 29.102,
+      "latency_seconds": 0.149,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:44.119469+00:00"
+    },
+    {
+      "elapsed": 29.751,
+      "latency_seconds": 0.143,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:44.768942+00:00"
+    },
+    {
+      "elapsed": 30.394,
+      "latency_seconds": 0.138,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:45.412190+00:00"
+    },
+    {
+      "elapsed": 31.032,
+      "latency_seconds": 0.158,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:46.049984+00:00"
+    },
+    {
+      "elapsed": 31.691,
+      "latency_seconds": 0.149,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:46.708515+00:00"
+    },
+    {
+      "elapsed": 32.34,
+      "latency_seconds": 0.149,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:47.357756+00:00"
+    },
+    {
+      "elapsed": 32.989,
+      "latency_seconds": 0.18,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:48.006792+00:00"
+    },
+    {
+      "elapsed": 33.669,
+      "latency_seconds": 0.152,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:48.686746+00:00"
+    },
+    {
+      "elapsed": 34.321,
+      "latency_seconds": 0.149,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:49.338652+00:00"
+    },
+    {
+      "elapsed": 34.97,
+      "latency_seconds": 0.154,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:49.987416+00:00"
+    },
+    {
+      "elapsed": 35.624,
+      "latency_seconds": 0.143,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:50.641550+00:00"
+    },
+    {
+      "elapsed": 36.267,
+      "latency_seconds": 0.158,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:51.284939+00:00"
+    },
+    {
+      "elapsed": 36.925,
+      "latency_seconds": 0.163,
+      "success": true,
+      "timestamp": "2026-10-03T10:05:51.943016+00:00"
+    }
+  ],
+  "stable_observed_seconds": 37.096
+}

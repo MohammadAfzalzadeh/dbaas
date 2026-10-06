@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "restored_inotify_max_user_instances": 128,
+  "remaining_kind_clusters": [
+    "kind"
+  ],
+  "task_clusters_deleted": true,
+  "task_retained_kubeconfigs_removed": true,
+  "existing_cluster_modified": false
+}

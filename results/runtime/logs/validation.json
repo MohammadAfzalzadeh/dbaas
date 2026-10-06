@@ -1,0 +1,50 @@
+{
+  "python_tests": {
+    "passed": 60,
+    "failed": 0
+  },
+  "javascript_checks": {
+    "passed": 10,
+    "failed": 0
+  },
+  "helm_lint": {
+    "passed": 6
+  },
+  "syntax_parsers": {
+    "yaml": 43,
+    "json": 96,
+    "python": 13,
+    "shell": 13,
+    "javascript": 6,
+    "toml": 1
+  },
+  "npm_ci": {
+    "status": "PASS",
+    "mode": "offline locked install",
+    "packages_installed": 37,
+    "reported_vulnerabilities": 0
+  },
+  "gitleaks": {
+    "worktree_findings": 0,
+    "history_findings": 0,
+    "history_commits": 148,
+    "version": "8.24.3"
+  },
+  "image_builds": {
+    "passed": 7,
+    "evidence": "image-builds.json"
+  },
+  "live_checks": {
+    "passed": 13,
+    "not_applicable": 2
+  },
+  "additional_post_live_guard": "PVC auto-deletion retention policy rejection: offline regression validated",
+  "unavailable_optional_tools": [
+    "shellcheck",
+    "yamllint",
+    "kubeconform",
+    "hadolint",
+    "mmdc"
+  ],
+  "git_diff_check": "PASS"
+}

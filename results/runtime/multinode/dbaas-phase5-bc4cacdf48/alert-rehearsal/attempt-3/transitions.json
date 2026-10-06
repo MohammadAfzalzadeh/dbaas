@@ -1,0 +1,1663 @@
+[
+  {
+    "expected": "inactive",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 8.8088e-05,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:11:20.456516177Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:11:24.112083+00:00"
+  },
+  {
+    "expected": "pending",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 8.8088e-05,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:11:20.456516177Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:11:24.300410+00:00"
+  },
+  {
+    "expected": "pending",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 8.1528e-05,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:11:25.456042701Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:11:28.421655+00:00"
+  },
+  {
+    "expected": "pending",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 7.583e-05,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:11:30.455961932Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:11:32.538944+00:00"
+  },
+  {
+    "expected": "pending",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000224761,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:11:35.455966619Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:11:36.656627+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000224761,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:11:35.455966619Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:11:36.781611+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000183794,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:11:40.455701485Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:11:40.902678+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000183794,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:11:40.455701485Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:11:45.047372+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000244841,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:11:45.456630779Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:11:49.158062+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000229595,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:11:50.456092374Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:11:53.269101+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000179021,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:11:55.455964692Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:11:57.382585+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000248498,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:00.456150839Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:01.504308+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000250646,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:05.455889158Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:05.660632+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000250646,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:05.455889158Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:09.778743+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000172409,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:10.455973274Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:13.900808+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000197251,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:15.45629548Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:18.026730+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000177912,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:20.455913712Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:22.138135+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00018932,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:25.455932017Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:26.252314+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00018932,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:25.455932017Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:30.366529+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000195092,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:30.455621123Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:34.493370+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000232955,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:35.456557569Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:38.607649+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000187273,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:40.455971121Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:42.734146+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000195275,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:45.455728532Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:46.853422+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000175506,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:50.456395175Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:50.978347+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000175506,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:50.456395175Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:55.093420+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000170625,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:12:55.455834864Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:12:59.204056+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000194358,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:13:00.456617438Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:13:03.318085+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000192526,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:13:05.455736576Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:13:07.437734+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000202672,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:13:10.45645628Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:13:11.549503+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000177913,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:13:15.455919926Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:13:15.660935+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000177913,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:13:15.455919926Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:13:19.780773+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000183546,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:13:20.455944476Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:13:23.897752+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000256811,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:13:25.456781673Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:13:28.011436+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000184028,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:13:30.456498881Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:13:32.127561+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "firing",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000264413,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:13:35.456668881Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "firing",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:13:36.252818+00:00"
+  },
+  {
+    "expected": "inactive",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:11:35.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-3",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "firing",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000264413,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:13:35.456668881Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "firing",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:13:36.511646+00:00"
+  },
+  {
+    "expected": "inactive",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000147956,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:13:40.456552209Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:13:40.626923+00:00"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "duration_seconds": 13.868458947050385,
+  "restore_command": "",
+  "rows": [
+    {
+      "id": 1,
+      "phase": "baseline",
+      "value": 100
+    },
+    {
+      "id": 3,
+      "phase": "isolated-write",
+      "value": 300
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "experiment": "monitoring first install",
+    "outcome": "FAIL",
+    "evidence": "Operator Pod event reported FailedMount for missing admission TLS Secret",
+    "correction": "Set prometheusOperator.tls.enabled=false together with admissionWebhooks.enabled=false"
+  },
+  {
+    "experiment": "rotation initial rollout",
+    "outcome": "FAIL",
+    "evidence": "180-second rollout bound expired with strict anti-affinity and sequential graceful terminations",
+    "correction": "360-second bound; disposable-role setup made repeatable; later complete rotation.json records success"
+  },
+  {
+    "experiment": "abrupt proxy initial client",
+    "outcome": "FAIL",
+    "evidence": "Probe process wait exceeded 30 seconds after stop flag; outstanding TCP operation had not returned",
+    "correction": "Explicit tcp_user_timeout=5000; exact stale probe identity terminated; later affected-session result retained"
+  },
+  {
+    "experiment": "session-mode weighted benchmark",
+    "outcome": "FAIL",
+    "evidence": "results/benchmarks/dbaas-phase5-8a3ad9f385/attempts/session-mode/session-mode-reproduction.txt",
+    "correction": "Transaction pooling for final benchmark; default charts unchanged"
+  },
+  {
+    "experiment": "monitoring distribution during rollout",
+    "outcome": "FAIL",
+    "evidence": "Proxy container exec raced a terminating pod; no completed distribution artifact from that attempt",
+    "correction": "Repeat after rolling replacement completed; service-distribution.json captures final stable check"
+  }
+]

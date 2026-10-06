@@ -1,0 +1,212 @@
+# HELP pgcat_stats_total_xact_count Total number of transactions started by the client
+# TYPE pgcat_stats_total_xact_count counter
+pgcat_stats_total_xact_count{database="postgres",shard="0",host="patronimvp-master-lab-patroni",pool="postgres",role="primary"} 583
+
+# HELP pgcat_stats_total_query_count Number of queries sent by all clients
+# TYPE pgcat_stats_total_query_count counter
+pgcat_stats_total_query_count{host="patronimvp-master-lab-patroni",pool="postgres",database="postgres",shard="0",role="primary"} 1905
+
+# HELP pgcat_stats_total_received Number of bytes received from the server
+# TYPE pgcat_stats_total_received counter
+pgcat_stats_total_received{host="patronimvp-master-lab-patroni",shard="0",role="primary",database="postgres",pool="postgres"} 52956
+
+# HELP pgcat_stats_total_sent Number of bytes sent to the server
+# TYPE pgcat_stats_total_sent counter
+pgcat_stats_total_sent{host="patronimvp-master-lab-patroni",shard="0",pool="postgres",role="primary",database="postgres"} 73855
+
+# HELP pgcat_stats_total_xact_time Total amount of time for all transactions to execute
+# TYPE pgcat_stats_total_xact_time counter
+pgcat_stats_total_xact_time{pool="postgres",role="primary",host="patronimvp-master-lab-patroni",shard="0",database="postgres"} 0
+
+# HELP pgcat_stats_total_query_time Total amount of time for queries to execute
+# TYPE pgcat_stats_total_query_time counter
+pgcat_stats_total_query_time{host="patronimvp-master-lab-patroni",database="postgres",role="primary",shard="0",pool="postgres"} 69
+
+# HELP pgcat_stats_total_wait_time Total time client waited for a server connection
+# TYPE pgcat_stats_total_wait_time counter
+pgcat_stats_total_wait_time{database="postgres",host="patronimvp-master-lab-patroni",shard="0",pool="postgres",role="primary"} 8175
+
+# HELP pgcat_stats_avg_xact_count Average of total_xact_count every 15 seconds
+# TYPE pgcat_stats_avg_xact_count gauge
+pgcat_stats_avg_xact_count{database="postgres",role="primary",shard="0",host="patronimvp-master-lab-patroni",pool="postgres"} 0
+
+# HELP pgcat_stats_avg_query_count Average of total_query_count every 15 seconds
+# TYPE pgcat_stats_avg_query_count gauge
+pgcat_stats_avg_query_count{host="patronimvp-master-lab-patroni",database="postgres",pool="postgres",shard="0",role="primary"} 0
+
+# HELP pgcat_stats_avg_recv Average of total_received bytes every 15 seconds
+# TYPE pgcat_stats_avg_recv gauge
+pgcat_stats_avg_recv{host="patronimvp-master-lab-patroni",database="postgres",pool="postgres",shard="0",role="primary"} 0
+
+# HELP pgcat_stats_avg_sent Average of total_sent bytes every 15 seconds
+# TYPE pgcat_stats_avg_sent gauge
+pgcat_stats_avg_sent{database="postgres",host="patronimvp-master-lab-patroni",shard="0",role="primary",pool="postgres"} 0
+
+# HELP pgcat_stats_avg_errors Average number of errors every 15 seconds
+# TYPE pgcat_stats_avg_errors gauge
+pgcat_stats_avg_errors{shard="0",host="patronimvp-master-lab-patroni",pool="postgres",role="primary",database="postgres"} 0
+
+# HELP pgcat_stats_avg_xact_time Average of total_xact_time every 15 seconds
+# TYPE pgcat_stats_avg_xact_time gauge
+pgcat_stats_avg_xact_time{pool="postgres",shard="0",host="patronimvp-master-lab-patroni",role="primary",database="postgres"} 0
+
+# HELP pgcat_stats_avg_query_time Average time taken for queries to execute every 15 seconds
+# TYPE pgcat_stats_avg_query_time gauge
+pgcat_stats_avg_query_time{database="postgres",pool="postgres",role="primary",shard="0",host="patronimvp-master-lab-patroni"} 0
+
+# HELP pgcat_stats_avg_wait_time Average of total_wait_time every 15 seconds
+# TYPE pgcat_stats_avg_wait_time gauge
+pgcat_stats_avg_wait_time{shard="0",pool="postgres",role="primary",database="postgres",host="patronimvp-master-lab-patroni"} 0
+
+# HELP pgcat_stats_total_xact_count Total number of transactions started by the client
+# TYPE pgcat_stats_total_xact_count counter
+pgcat_stats_total_xact_count{host="patronimvp-replica-lab-patroni",role="replica",shard="0",database="postgres",pool="postgres"} 62
+
+# HELP pgcat_stats_total_query_count Number of queries sent by all clients
+# TYPE pgcat_stats_total_query_count counter
+pgcat_stats_total_query_count{role="replica",host="patronimvp-replica-lab-patroni",database="postgres",shard="0",pool="postgres"} 62
+
+# HELP pgcat_stats_total_received Number of bytes received from the server
+# TYPE pgcat_stats_total_received counter
+pgcat_stats_total_received{shard="0",role="replica",pool="postgres",host="patronimvp-replica-lab-patroni",database="postgres"} 4446
+
+# HELP pgcat_stats_total_sent Number of bytes sent to the server
+# TYPE pgcat_stats_total_sent counter
+pgcat_stats_total_sent{shard="0",database="postgres",host="patronimvp-replica-lab-patroni",role="replica",pool="postgres"} 1140
+
+# HELP pgcat_stats_total_xact_time Total amount of time for all transactions to execute
+# TYPE pgcat_stats_total_xact_time counter
+pgcat_stats_total_xact_time{host="patronimvp-replica-lab-patroni",pool="postgres",shard="0",database="postgres",role="replica"} 0
+
+# HELP pgcat_stats_total_query_time Total amount of time for queries to execute
+# TYPE pgcat_stats_total_query_time counter
+pgcat_stats_total_query_time{shard="0",pool="postgres",database="postgres",host="patronimvp-replica-lab-patroni",role="replica"} 0
+
+# HELP pgcat_stats_total_wait_time Total time client waited for a server connection
+# TYPE pgcat_stats_total_wait_time counter
+pgcat_stats_total_wait_time{host="patronimvp-replica-lab-patroni",pool="postgres",database="postgres",shard="0",role="replica"} 30007658
+
+# HELP pgcat_stats_avg_xact_count Average of total_xact_count every 15 seconds
+# TYPE pgcat_stats_avg_xact_count gauge
+pgcat_stats_avg_xact_count{host="patronimvp-replica-lab-patroni",pool="postgres",database="postgres",shard="0",role="replica"} 0
+
+# HELP pgcat_stats_avg_query_count Average of total_query_count every 15 seconds
+# TYPE pgcat_stats_avg_query_count gauge
+pgcat_stats_avg_query_count{role="replica",database="postgres",host="patronimvp-replica-lab-patroni",shard="0",pool="postgres"} 0
+
+# HELP pgcat_stats_avg_recv Average of total_received bytes every 15 seconds
+# TYPE pgcat_stats_avg_recv gauge
+pgcat_stats_avg_recv{pool="postgres",role="replica",host="patronimvp-replica-lab-patroni",shard="0",database="postgres"} 4
+
+# HELP pgcat_stats_avg_sent Average of total_sent bytes every 15 seconds
+# TYPE pgcat_stats_avg_sent gauge
+pgcat_stats_avg_sent{shard="0",host="patronimvp-replica-lab-patroni",role="replica",database="postgres",pool="postgres"} 0
+
+# HELP pgcat_stats_avg_errors Average number of errors every 15 seconds
+# TYPE pgcat_stats_avg_errors gauge
+pgcat_stats_avg_errors{pool="postgres",shard="0",role="replica",host="patronimvp-replica-lab-patroni",database="postgres"} 0
+
+# HELP pgcat_stats_avg_xact_time Average of total_xact_time every 15 seconds
+# TYPE pgcat_stats_avg_xact_time gauge
+pgcat_stats_avg_xact_time{shard="0",role="replica",pool="postgres",host="patronimvp-replica-lab-patroni",database="postgres"} 0
+
+# HELP pgcat_stats_avg_query_time Average time taken for queries to execute every 15 seconds
+# TYPE pgcat_stats_avg_query_time gauge
+pgcat_stats_avg_query_time{database="postgres",role="replica",shard="0",host="patronimvp-replica-lab-patroni",pool="postgres"} 0
+
+# HELP pgcat_stats_avg_wait_time Average of total_wait_time every 15 seconds
+# TYPE pgcat_stats_avg_wait_time gauge
+pgcat_stats_avg_wait_time{database="postgres",host="patronimvp-replica-lab-patroni",role="replica",pool="postgres",shard="0"} 0
+
+# HELP pgcat_pools_cl_idle How many clients are idle
+# TYPE pgcat_pools_cl_idle gauge
+pgcat_pools_cl_idle{user="postgres",pool="postgres"} 0
+
+# HELP pgcat_pools_cl_active How many clients are actively communicating with a server
+# TYPE pgcat_pools_cl_active gauge
+pgcat_pools_cl_active{user="postgres",pool="postgres"} 0
+
+# HELP pgcat_pools_cl_waiting How many clients are waiting for a connection from the pool
+# TYPE pgcat_pools_cl_waiting gauge
+pgcat_pools_cl_waiting{user="postgres",pool="postgres"} 0
+
+# HELP pgcat_pools_sv_active How many server connections are actively communicating with a client
+# TYPE pgcat_pools_sv_active gauge
+pgcat_pools_sv_active{user="postgres",pool="postgres"} 0
+
+# HELP pgcat_pools_sv_idle How many server connections are idle
+# TYPE pgcat_pools_sv_idle gauge
+pgcat_pools_sv_idle{user="postgres",pool="postgres"} 2
+
+# HELP pgcat_pools_sv_tested How many server connections are currently waiting on a health check to succeed
+# TYPE pgcat_pools_sv_tested gauge
+pgcat_pools_sv_tested{pool="postgres",user="postgres"} 0
+
+# HELP pgcat_pools_sv_login How many server connections are currently being created
+# TYPE pgcat_pools_sv_login gauge
+pgcat_pools_sv_login{pool="postgres",user="postgres"} 0
+
+# HELP pgcat_pools_maxwait The time a client waited for a server connection in seconds
+# TYPE pgcat_pools_maxwait gauge
+pgcat_pools_maxwait{user="postgres",pool="postgres"} 0
+
+# HELP pgcat_pools_maxwait_us The time a client waited for a server connection in microseconds
+# TYPE pgcat_pools_maxwait_us gauge
+pgcat_pools_maxwait_us{user="postgres",pool="postgres"} 0
+
+# HELP pgcat_servers_bytes_received Volume in bytes of network traffic received by server
+# TYPE pgcat_servers_bytes_received gauge
+pgcat_servers_bytes_received{database="postgres",role="primary",host="patronimvp-master-lab-patroni",shard="0",pool="postgres"} 26856
+
+# HELP pgcat_servers_bytes_sent Volume in bytes of network traffic sent by server
+# TYPE pgcat_servers_bytes_sent gauge
+pgcat_servers_bytes_sent{host="patronimvp-master-lab-patroni",database="postgres",shard="0",pool="postgres",role="primary"} 49370
+
+# HELP pgcat_servers_transaction_count Number of transactions executed by server
+# TYPE pgcat_servers_transaction_count gauge
+pgcat_servers_transaction_count{database="postgres",shard="0",pool="postgres",host="patronimvp-master-lab-patroni",role="primary"} 465
+
+# HELP pgcat_servers_query_count Number of queries executed by server
+# TYPE pgcat_servers_query_count gauge
+pgcat_servers_query_count{role="primary",host="patronimvp-master-lab-patroni",shard="0",pool="postgres",database="postgres"} 1355
+
+# HELP pgcat_servers_error_count Number of errors
+# TYPE pgcat_servers_error_count gauge
+pgcat_servers_error_count{role="primary",shard="0",pool="postgres",database="postgres",host="patronimvp-master-lab-patroni"} 0
+
+# HELP pgcat_servers_bytes_received Volume in bytes of network traffic received by server
+# TYPE pgcat_servers_bytes_received gauge
+pgcat_servers_bytes_received{shard="0",pool="postgres",database="postgres",role="replica",host="patronimvp-replica-lab-patroni"} 4446
+
+# HELP pgcat_servers_bytes_sent Volume in bytes of network traffic sent by server
+# TYPE pgcat_servers_bytes_sent gauge
+pgcat_servers_bytes_sent{role="replica",host="patronimvp-replica-lab-patroni",shard="0",pool="postgres",database="postgres"} 1140
+
+# HELP pgcat_servers_transaction_count Number of transactions executed by server
+# TYPE pgcat_servers_transaction_count gauge
+pgcat_servers_transaction_count{role="replica",host="patronimvp-replica-lab-patroni",pool="postgres",database="postgres",shard="0"} 62
+
+# HELP pgcat_servers_query_count Number of queries executed by server
+# TYPE pgcat_servers_query_count gauge
+pgcat_servers_query_count{shard="0",host="patronimvp-replica-lab-patroni",pool="postgres",role="replica",database="postgres"} 62
+
+# HELP pgcat_servers_error_count Number of errors
+# TYPE pgcat_servers_error_count gauge
+pgcat_servers_error_count{host="patronimvp-replica-lab-patroni",role="replica",pool="postgres",database="postgres",shard="0"} 0
+
+# HELP pgcat_databases_pool_size Maximum number of server connections
+# TYPE pgcat_databases_pool_size gauge
+pgcat_databases_pool_size{pool="postgres",role="primary",database="postgres",host="patronimvp-master-lab-patroni",shard="0"} 60
+
+# HELP pgcat_databases_current_connections Current number of connections for this database
+# TYPE pgcat_databases_current_connections gauge
+pgcat_databases_current_connections{role="primary",host="patronimvp-master-lab-patroni",pool="postgres",database="postgres",shard="0"} 1
+
+# HELP pgcat_databases_pool_size Maximum number of server connections
+# TYPE pgcat_databases_pool_size gauge
+pgcat_databases_pool_size{database="postgres",host="patronimvp-replica-lab-patroni",pool="postgres",role="replica",shard="0"} 60
+
+# HELP pgcat_databases_current_connections Current number of connections for this database
+# TYPE pgcat_databases_current_connections gauge
+pgcat_databases_current_connections{host="patronimvp-replica-lab-patroni",shard="0",role="replica",database="postgres",pool="postgres"} 1
+

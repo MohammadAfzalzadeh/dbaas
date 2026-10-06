@@ -1,0 +1,111 @@
+[
+  {
+    "timestamp": "2026-10-03T12:22:57.438614+00:00",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T11:26:16.637376+00:00"
+    },
+    "dataset_bytes": 119349248,
+    "concurrency": 0,
+    "duration_seconds": 16.00213607994374,
+    "restore_seconds": 16.002136845956556,
+    "restore_includes_pitr_and_writable_check": true,
+    "pitr_replay_seconds": null,
+    "backup": {
+      "started": "2026-10-03T12:22:29.945505+00:00",
+      "completed": "2026-10-03T12:22:35.963807+00:00",
+      "duration_seconds": 6.018,
+      "job": "lab-backup-size100",
+      "backups": [
+        {
+          "backup_name": "base_000000020000000000000008",
+          "time": "2026-10-03T11:26:48.104Z",
+          "wal_file_name": "000000020000000000000008",
+          "storage_name": "default",
+          "start_time": "2026-10-03T11:26:47.649676Z",
+          "finish_time": "2026-10-03T11:26:48.063687Z",
+          "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+          "hostname": "lab-patroni-patronimvp-1",
+          "data_dir": "/home/postgres/pgdata/pgroot/data",
+          "pg_version": 160006,
+          "start_lsn": 134217768,
+          "finish_lsn": 134217984,
+          "is_permanent": false,
+          "system_identifier": 7692400328505016352,
+          "uncompressed_size": 23629599,
+          "compressed_size": 2796078
+        },
+        {
+          "backup_name": "base_00000002000000000000000B",
+          "time": "2026-10-03T11:29:31.252Z",
+          "wal_file_name": "00000002000000000000000B",
+          "storage_name": "default",
+          "start_time": "2026-10-03T11:29:30.826469Z",
+          "finish_time": "2026-10-03T11:29:31.232426Z",
+          "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+          "hostname": "lab-patroni-patronimvp-1",
+          "data_dir": "/home/postgres/pgdata/pgroot/data",
+          "pg_version": 160006,
+          "start_lsn": 184549416,
+          "finish_lsn": 184549632,
+          "is_permanent": false,
+          "system_identifier": 7692400328505016352,
+          "uncompressed_size": 23789298,
+          "compressed_size": 2812976
+        },
+        {
+          "backup_name": "base_000000050000000000000062",
+          "time": "2026-10-03T12:22:14.837Z",
+          "wal_file_name": "000000050000000000000062",
+          "storage_name": "default",
+          "start_time": "2026-10-03T12:22:12.764426Z",
+          "finish_time": "2026-10-03T12:22:14.820832Z",
+          "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+          "hostname": "lab-patroni-patronimvp-1",
+          "data_dir": "/home/postgres/pgdata/pgroot/data",
+          "pg_version": 160006,
+          "start_lsn": 1644201304,
+          "finish_lsn": 1648168808,
+          "is_permanent": false,
+          "system_identifier": 7692400328505016352,
+          "uncompressed_size": 118027495,
+          "compressed_size": 9245408
+        },
+        {
+          "backup_name": "base_00000005000000000000006B",
+          "time": "2026-10-03T12:22:32.609Z",
+          "wal_file_name": "00000005000000000000006B",
+          "storage_name": "default",
+          "start_time": "2026-10-03T12:22:31.003085Z",
+          "finish_time": "2026-10-03T12:22:32.556871Z",
+          "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+          "hostname": "lab-patroni-patronimvp-1",
+          "data_dir": "/home/postgres/pgdata/pgroot/data",
+          "pg_version": 160006,
+          "start_lsn": 1795162152,
+          "finish_lsn": 1795162368,
+          "is_permanent": false,
+          "system_identifier": 7692400328505016352,
+          "uncompressed_size": 238470331,
+          "compressed_size": 12531479
+        }
+      ]
+    },
+    "wal_bytes_after_backup_start": 35670400,
+    "rows": 100000,
+    "payload": "1024 bytes per row, repeated md5(id), compressible",
+    "target_utc": "2026-10-03 12:22:38",
+    "validated": true
+  }
+]

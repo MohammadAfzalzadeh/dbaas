@@ -1,0 +1,22 @@
+[
+  {
+    "title": "DBaaS / backup-recovery",
+    "uid": "dbaas-backup-recovery"
+  },
+  {
+    "title": "DBaaS / dbaas-control-plane",
+    "uid": "dbaas-dbaas-control-plane"
+  },
+  {
+    "title": "DBaaS / patroni-ha",
+    "uid": "dbaas-patroni-ha"
+  },
+  {
+    "title": "DBaaS / pgcat-overview",
+    "uid": "dbaas-pgcat-overview"
+  },
+  {
+    "title": "DBaaS / postgresql-overview",
+    "uid": "dbaas-postgresql-overview"
+  }
+]

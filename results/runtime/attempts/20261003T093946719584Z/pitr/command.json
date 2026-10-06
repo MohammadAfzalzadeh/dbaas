@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "stderr": "",
+  "stdout": "RECOVERY STATE: prepared\nRECOVERY TARGET: 2026-10-03T09:36:15+00:00\nNAMESPACE: dbaas-smoke\nRELEASE: smoke-patroni\nPOSTGRES CLUSTER: smoke-patroni-patronimvp\nBASE BACKUP: base_000000010000000000000009\nPVCs TO DELETE:\n  pgdata-smoke-patroni-patronimvp-0 (uid=0c9c4809-ed00-4e7c-a8aa-5deddd4733fc)\n  pgdata-smoke-patroni-patronimvp-1 (uid=40faf421-20fc-41fd-b251-88573d42a9d8)\nBackup metadata identified; WAL coverage and recovered data are NOT verified.\nEXECUTING DESTRUCTIVE IN-PLACE RECOVERY\nRECOVERY STATE: uninstall-started\nRECOVERY STATE: dcs-cleanup-started\nRECOVERY STATE: pvc-deletion-started\nRECOVERY STATE: pvc-deletion-started\nRECOVERY STATE: install-patroni-started\nRECOVERY STATE: install-pgcat-started\nRECOVERY STATE: deployed-data-verification-pending\nHelm recovery deployment completed. Verify target-time data and routing before declaring PITR successful.\n"
+}

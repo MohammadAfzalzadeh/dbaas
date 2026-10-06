@@ -1,0 +1,823 @@
+[
+  {
+    "dashboard": "postgresql-overview",
+    "query": "patroni_postgres_running",
+    "response": {
+      "data": {
+        "result": [
+          {
+            "metric": {
+              "__name__": "patroni_postgres_running",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.183.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-2",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-2",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035516.564,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_postgres_running",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-1",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-1",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035516.564,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_postgres_running",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a"
+            },
+            "value": [
+              1791035516.564,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_postgres_running",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.200.69:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-0",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035516.564,
+              "1"
+            ]
+          }
+        ],
+        "resultType": "vector"
+      },
+      "status": "success"
+    },
+    "title": "PostgreSQL process running"
+  },
+  {
+    "dashboard": "postgresql-overview",
+    "query": "patroni_xlog_replayed_location",
+    "response": {
+      "data": {
+        "result": [
+          {
+            "metric": {
+              "__name__": "patroni_xlog_replayed_location",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.183.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-2",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-2",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035516.682,
+              "318767104"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_xlog_replayed_location",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-1",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-1",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035516.682,
+              "318767104"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_xlog_replayed_location",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a"
+            },
+            "value": [
+              1791035516.682,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_xlog_replayed_location",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.200.69:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-0",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035516.682,
+              "0"
+            ]
+          }
+        ],
+        "resultType": "vector"
+      },
+      "status": "success"
+    },
+    "title": "WAL replay position"
+  },
+  {
+    "dashboard": "postgresql-overview",
+    "query": "patroni_postgres_streaming",
+    "response": {
+      "data": {
+        "result": [
+          {
+            "metric": {
+              "__name__": "patroni_postgres_streaming",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.183.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-2",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-2",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035516.794,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_postgres_streaming",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-1",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-1",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035516.794,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_postgres_streaming",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a"
+            },
+            "value": [
+              1791035516.794,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_postgres_streaming",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.200.69:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-0",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035516.794,
+              "0"
+            ]
+          }
+        ],
+        "resultType": "vector"
+      },
+      "status": "success"
+    },
+    "title": "Streaming replicas"
+  },
+  {
+    "dashboard": "patroni-ha",
+    "query": "patroni_primary",
+    "response": {
+      "data": {
+        "result": [
+          {
+            "metric": {
+              "__name__": "patroni_primary",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.183.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-2",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-2",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035517.002,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_primary",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-1",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-1",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035517.002,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_primary",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a"
+            },
+            "value": [
+              1791035517.002,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_primary",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.200.69:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-0",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035517.002,
+              "1"
+            ]
+          }
+        ],
+        "resultType": "vector"
+      },
+      "status": "success"
+    },
+    "title": "Primary by member"
+  },
+  {
+    "dashboard": "patroni-ha",
+    "query": "patroni_replica",
+    "response": {
+      "data": {
+        "result": [
+          {
+            "metric": {
+              "__name__": "patroni_replica",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.183.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-2",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-2",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035517.122,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_replica",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-1",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-1",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035517.122,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_replica",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a"
+            },
+            "value": [
+              1791035517.122,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_replica",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.200.69:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-0",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035517.122,
+              "0"
+            ]
+          }
+        ],
+        "resultType": "vector"
+      },
+      "status": "success"
+    },
+    "title": "Replica role"
+  },
+  {
+    "dashboard": "patroni-ha",
+    "query": "patroni_dcs_last_seen",
+    "response": {
+      "data": {
+        "result": [
+          {
+            "metric": {
+              "__name__": "patroni_dcs_last_seen",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.183.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-2",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-2",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035517.238,
+              "1791035496"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_dcs_last_seen",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-1",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-1",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035517.238,
+              "1791035516"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_dcs_last_seen",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a"
+            },
+            "value": [
+              1791035517.238,
+              "1791035480"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_dcs_last_seen",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.200.69:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-0",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035517.238,
+              "1791035496"
+            ]
+          }
+        ],
+        "resultType": "vector"
+      },
+      "status": "success"
+    },
+    "title": "DCS last seen (epoch seconds)"
+  },
+  {
+    "dashboard": "patroni-ha",
+    "query": "patroni_pending_restart",
+    "response": {
+      "data": {
+        "result": [
+          {
+            "metric": {
+              "__name__": "patroni_pending_restart",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.183.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-2",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-2",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035517.354,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_pending_restart",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.10:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-1",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-1",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035517.354,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_pending_restart",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a"
+            },
+            "value": [
+              1791035517.354,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "patroni_pending_restart",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.200.69:8008",
+              "job": "pgmetrics-lab-patroni",
+              "name": "lab-patroni-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "lab-patroni-patronimvp-0",
+              "scope": "lab-patroni-patronimvp",
+              "service": "pgmetrics-lab-patroni"
+            },
+            "value": [
+              1791035517.354,
+              "0"
+            ]
+          }
+        ],
+        "resultType": "vector"
+      },
+      "status": "success"
+    },
+    "title": "Pending restart"
+  },
+  {
+    "dashboard": "pgcat-overview",
+    "query": "rate(pgcat_stats_total_xact_count[1m])",
+    "response": {
+      "data": {
+        "result": [
+          {
+            "metric": {
+              "container": "proxy",
+              "database": "postgres",
+              "endpoint": "metrics",
+              "host": "patronimvp-master-lab-patroni",
+              "instance": "192.168.183.11:9930",
+              "job": "lab-pgcat-proxy-service",
+              "namespace": "resilience",
+              "pod": "lab-pgcat-proxy-deployment-56b6999f94-wqbf2",
+              "pool": "postgres",
+              "role": "primary",
+              "service": "lab-pgcat-proxy-service",
+              "shard": "0"
+            },
+            "value": [
+              1791035517.564,
+              "0.03333333333333333"
+            ]
+          },
+          {
+            "metric": {
+              "container": "proxy",
+              "database": "postgres",
+              "endpoint": "metrics",
+              "host": "patronimvp-replica-lab-patroni",
+              "instance": "192.168.183.11:9930",
+              "job": "lab-pgcat-proxy-service",
+              "namespace": "resilience",
+              "pod": "lab-pgcat-proxy-deployment-56b6999f94-wqbf2",
+              "pool": "postgres",
+              "role": "replica",
+              "service": "lab-pgcat-proxy-service",
+              "shard": "0"
+            },
+            "value": [
+              1791035517.564,
+              "0.06666666666666667"
+            ]
+          }
+        ],
+        "resultType": "vector"
+      },
+      "status": "success"
+    },
+    "title": "Completed transactions per second"
+  },
+  {
+    "dashboard": "pgcat-overview",
+    "query": "rate(pgcat_stats_total_query_count[1m])",
+    "response": {
+      "data": {
+        "result": [
+          {
+            "metric": {
+              "container": "proxy",
+              "database": "postgres",
+              "endpoint": "metrics",
+              "host": "patronimvp-master-lab-patroni",
+              "instance": "192.168.183.11:9930",
+              "job": "lab-pgcat-proxy-service",
+              "namespace": "resilience",
+              "pod": "lab-pgcat-proxy-deployment-56b6999f94-wqbf2",
+              "pool": "postgres",
+              "role": "primary",
+              "service": "lab-pgcat-proxy-service",
+              "shard": "0"
+            },
+            "value": [
+              1791035517.675,
+              "0.03333333333333333"
+            ]
+          },
+          {
+            "metric": {
+              "container": "proxy",
+              "database": "postgres",
+              "endpoint": "metrics",
+              "host": "patronimvp-replica-lab-patroni",
+              "instance": "192.168.183.11:9930",
+              "job": "lab-pgcat-proxy-service",
+              "namespace": "resilience",
+              "pod": "lab-pgcat-proxy-deployment-56b6999f94-wqbf2",
+              "pool": "postgres",
+              "role": "replica",
+              "service": "lab-pgcat-proxy-service",
+              "shard": "0"
+            },
+            "value": [
+              1791035517.675,
+              "0.06666666666666667"
+            ]
+          }
+        ],
+        "resultType": "vector"
+      },
+      "status": "success"
+    },
+    "title": "Queries per second"
+  },
+  {
+    "dashboard": "backup-recovery",
+    "query": "kube_job_status_succeeded{job_name=~\"lab-backup-.*\"}",
+    "response": {
+      "data": {
+        "result": [
+          {
+            "metric": {
+              "__name__": "kube_job_status_succeeded",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-network",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "service": "obs-kube-state-metrics"
+            },
+            "value": [
+              1791035517.867,
+              "1"
+            ]
+          }
+        ],
+        "resultType": "vector"
+      },
+      "status": "success"
+    },
+    "title": "Backup Job completions (Kubernetes)"
+  },
+  {
+    "dashboard": "backup-recovery",
+    "query": "kube_job_status_failed{job_name=~\"lab-backup-.*\"}",
+    "response": {
+      "data": {
+        "result": [
+          {
+            "metric": {
+              "__name__": "kube_job_status_failed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-network",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "service": "obs-kube-state-metrics"
+            },
+            "value": [
+              1791035517.976,
+              "0"
+            ]
+          }
+        ],
+        "resultType": "vector"
+      },
+      "status": "success"
+    },
+    "title": "Backup Job failures (Kubernetes)"
+  },
+  {
+    "dashboard": "dbaas-control-plane",
+    "query": "kube_deployment_status_replicas_available{deployment=\"dbaas-backend\"}",
+    "response": {
+      "data": {
+        "result": [
+          {
+            "metric": {
+              "__name__": "kube_deployment_status_replicas_available",
+              "container": "kube-state-metrics",
+              "deployment": "dbaas-backend",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "service": "obs-kube-state-metrics"
+            },
+            "value": [
+              1791035518.183,
+              "1"
+            ]
+          }
+        ],
+        "resultType": "vector"
+      },
+      "status": "success"
+    },
+    "title": "API deployment available replicas"
+  },
+  {
+    "dashboard": "dbaas-control-plane",
+    "query": "kube_deployment_spec_replicas{deployment=\"dbaas-backend\"}",
+    "response": {
+      "data": {
+        "result": [
+          {
+            "metric": {
+              "__name__": "kube_deployment_spec_replicas",
+              "container": "kube-state-metrics",
+              "deployment": "dbaas-backend",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "service": "obs-kube-state-metrics"
+            },
+            "value": [
+              1791035518.304,
+              "1"
+            ]
+          }
+        ],
+        "resultType": "vector"
+      },
+      "status": "success"
+    },
+    "title": "API desired replicas"
+  }
+]

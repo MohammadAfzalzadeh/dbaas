@@ -1,0 +1,26 @@
+{
+  "case": "store-unavailable",
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": "2026-10-04T09:53:55Z",
+        "lastTransitionTime": "2026-10-04T09:53:55Z",
+        "message": "Job has reached the specified backoff limit",
+        "reason": "BackoffLimitExceeded",
+        "status": "True",
+        "type": "Failed"
+      }
+    ],
+    "failed": 1,
+    "ready": 0,
+    "startTime": "2026-10-04T09:53:32Z",
+    "terminating": 0,
+    "uncountedTerminatedPods": {}
+  },
+  "seconds": 24.65909982204903,
+  "logs": "Backing up PostgreSQL target review/cluster-a-patroni-patronimvp-0\nINFO: 2026/10/04 09:53:33.106196 Backup will be pushed to storage: default\nINFO: 2026/10/04 09:53:33.115134 Calling pg_start_backup()\nINFO: 2026/10/04 09:53:33.142991 Initializing the PG alive checker (interval=1m0s)...\nINFO: 2026/10/04 09:53:33.143016 Starting a new tar bundle\nINFO: 2026/10/04 09:53:33.143033 Walking ...\nINFO: 2026/10/04 09:53:33.143179 Starting part 1 ...\nINFO: 2026/10/04 09:53:33.338435 Packing ...\nINFO: 2026/10/04 09:53:33.339077 Finished writing part 1.\nERROR: 2026/10/04 09:53:53.085038 Error: received interruption signal: terminated, gracefully stopping the running backup...\nINFO: 2026/10/04 09:53:53.085058 Calling pg_stop_backup()\nINFO: 2026/10/04 09:53:53.102495 Successfully stopped the running backup\nERROR: 2026/10/04 09:53:53.102503 Finished backup termination, will now exit\ncommand terminated with exit code 124\n",
+  "known_generated_credential_leaked": false,
+  "new_backup_records": [],
+  "expected_success": false,
+  "actual_success": false
+}

@@ -1,0 +1,218 @@
+{
+  "acknowledged_probe_writes": 34,
+  "action": "replica_failure",
+  "failed_samples": 0,
+  "injected_at": "2026-10-03T09:38:00.341527+00:00",
+  "missing_acknowledged_probe_ids": [],
+  "old_primary": "smoke-patroni-patronimvp-1",
+  "patroni_detection_time": "NOT OBSERVED separately; promotion polling is an upper-bound observation",
+  "sampling_interval_seconds": 0.5,
+  "sql_available_observed_seconds": 0.207,
+  "sql_samples": [
+    {
+      "elapsed": -0.154,
+      "latency_seconds": 0.153,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:00.188009+00:00"
+    },
+    {
+      "elapsed": 0.5,
+      "latency_seconds": 0.159,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:00.841596+00:00"
+    },
+    {
+      "elapsed": 1.159,
+      "latency_seconds": 0.154,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:01.500550+00:00"
+    },
+    {
+      "elapsed": 1.813,
+      "latency_seconds": 0.148,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:02.154709+00:00"
+    },
+    {
+      "elapsed": 2.461,
+      "latency_seconds": 0.148,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:02.802425+00:00"
+    },
+    {
+      "elapsed": 3.109,
+      "latency_seconds": 0.156,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:03.450118+00:00"
+    },
+    {
+      "elapsed": 3.764,
+      "latency_seconds": 0.153,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:04.105758+00:00"
+    },
+    {
+      "elapsed": 4.417,
+      "latency_seconds": 0.159,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:04.758570+00:00"
+    },
+    {
+      "elapsed": 5.076,
+      "latency_seconds": 0.153,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:05.417816+00:00"
+    },
+    {
+      "elapsed": 5.729,
+      "latency_seconds": 0.153,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:06.070920+00:00"
+    },
+    {
+      "elapsed": 6.383,
+      "latency_seconds": 0.155,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:06.724426+00:00"
+    },
+    {
+      "elapsed": 7.038,
+      "latency_seconds": 0.154,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:07.379155+00:00"
+    },
+    {
+      "elapsed": 7.692,
+      "latency_seconds": 0.142,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:08.033545+00:00"
+    },
+    {
+      "elapsed": 8.334,
+      "latency_seconds": 0.151,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:08.675145+00:00"
+    },
+    {
+      "elapsed": 8.984,
+      "latency_seconds": 0.16,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:09.325936+00:00"
+    },
+    {
+      "elapsed": 9.644,
+      "latency_seconds": 0.159,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:09.985588+00:00"
+    },
+    {
+      "elapsed": 10.303,
+      "latency_seconds": 0.146,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:10.644687+00:00"
+    },
+    {
+      "elapsed": 10.949,
+      "latency_seconds": 0.147,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:11.290901+00:00"
+    },
+    {
+      "elapsed": 11.597,
+      "latency_seconds": 0.158,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:11.938398+00:00"
+    },
+    {
+      "elapsed": 12.255,
+      "latency_seconds": 0.146,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:12.596861+00:00"
+    },
+    {
+      "elapsed": 12.902,
+      "latency_seconds": 0.183,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:13.243265+00:00"
+    },
+    {
+      "elapsed": 13.584,
+      "latency_seconds": 0.157,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:13.925895+00:00"
+    },
+    {
+      "elapsed": 14.241,
+      "latency_seconds": 0.142,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:14.582665+00:00"
+    },
+    {
+      "elapsed": 14.883,
+      "latency_seconds": 0.156,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:15.224381+00:00"
+    },
+    {
+      "elapsed": 15.539,
+      "latency_seconds": 0.166,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:15.880264+00:00"
+    },
+    {
+      "elapsed": 16.205,
+      "latency_seconds": 0.151,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:16.546795+00:00"
+    },
+    {
+      "elapsed": 16.856,
+      "latency_seconds": 0.145,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:17.197771+00:00"
+    },
+    {
+      "elapsed": 17.501,
+      "latency_seconds": 0.15,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:17.842458+00:00"
+    },
+    {
+      "elapsed": 18.151,
+      "latency_seconds": 0.146,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:18.492977+00:00"
+    },
+    {
+      "elapsed": 18.797,
+      "latency_seconds": 0.145,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:19.139017+00:00"
+    },
+    {
+      "elapsed": 19.443,
+      "latency_seconds": 0.168,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:19.784477+00:00"
+    },
+    {
+      "elapsed": 20.111,
+      "latency_seconds": 0.164,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:20.452626+00:00"
+    },
+    {
+      "elapsed": 20.775,
+      "latency_seconds": 0.147,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:21.116801+00:00"
+    },
+    {
+      "elapsed": 21.422,
+      "latency_seconds": 0.169,
+      "success": true,
+      "timestamp": "2026-10-03T09:38:21.763841+00:00"
+    }
+  ],
+  "stable_observed_seconds": 21.408
+}

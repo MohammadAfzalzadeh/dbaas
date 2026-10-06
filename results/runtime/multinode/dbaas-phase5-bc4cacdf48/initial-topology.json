@@ -1,0 +1,5253 @@
+{
+  "members": {
+    "members": [
+      {
+        "api_url": "http://192.168.200.69:8008/patroni",
+        "host": "192.168.200.69",
+        "lag": 0,
+        "name": "lab-patroni-patronimvp-0",
+        "port": 5432,
+        "role": "replica",
+        "state": "streaming",
+        "timeline": 2
+      },
+      {
+        "api_url": "http://192.168.71.6:8008/patroni",
+        "host": "192.168.71.6",
+        "lag": 0,
+        "name": "lab-patroni-patronimvp-1",
+        "port": 5432,
+        "role": "replica",
+        "state": "streaming",
+        "timeline": 2
+      },
+      {
+        "api_url": "http://192.168.183.5:8008/patroni",
+        "host": "192.168.183.5",
+        "name": "lab-patroni-patronimvp-2",
+        "port": 5432,
+        "role": "leader",
+        "state": "running",
+        "timeline": 2
+      }
+    ],
+    "scope": "lab-patroni-patronimvp"
+  },
+  "nodes": {
+    "apiVersion": "v1",
+    "items": [
+      {
+        "apiVersion": "v1",
+        "kind": "Node",
+        "metadata": {
+          "annotations": {
+            "kubeadm.alpha.kubernetes.io/cri-socket": "unix:///run/containerd/containerd.sock",
+            "node.alpha.kubernetes.io/ttl": "0",
+            "projectcalico.org/IPv4Address": "172.21.0.8/16",
+            "projectcalico.org/IPv4IPIPTunnelAddr": "192.168.173.192",
+            "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+          },
+          "creationTimestamp": "2026-10-03T12:35:22Z",
+          "labels": {
+            "beta.kubernetes.io/arch": "amd64",
+            "beta.kubernetes.io/os": "linux",
+            "kubernetes.io/arch": "amd64",
+            "kubernetes.io/hostname": "dbaas-phase5-bc4cacdf48-control-plane",
+            "kubernetes.io/os": "linux",
+            "node-role.kubernetes.io/control-plane": "",
+            "node.kubernetes.io/exclude-from-external-load-balancers": ""
+          },
+          "name": "dbaas-phase5-bc4cacdf48-control-plane",
+          "resourceVersion": "2516",
+          "uid": "e74432ad-c3ad-4bc3-ab51-b4e7877226ca"
+        },
+        "spec": {
+          "podCIDR": "192.168.0.0/24",
+          "podCIDRs": [
+            "192.168.0.0/24"
+          ],
+          "providerID": "kind://docker/dbaas-phase5-bc4cacdf48/dbaas-phase5-bc4cacdf48-control-plane",
+          "taints": [
+            {
+              "effect": "NoSchedule",
+              "key": "node-role.kubernetes.io/control-plane"
+            }
+          ]
+        },
+        "status": {
+          "addresses": [
+            {
+              "address": "172.21.0.8",
+              "type": "InternalIP"
+            },
+            {
+              "address": "dbaas-phase5-bc4cacdf48-control-plane",
+              "type": "Hostname"
+            }
+          ],
+          "allocatable": {
+            "cpu": "12",
+            "ephemeral-storage": "243937628Ki",
+            "hugepages-1Gi": "0",
+            "hugepages-2Mi": "0",
+            "memory": "32110476Ki",
+            "pods": "110"
+          },
+          "capacity": {
+            "cpu": "12",
+            "ephemeral-storage": "243937628Ki",
+            "hugepages-1Gi": "0",
+            "hugepages-2Mi": "0",
+            "memory": "32110476Ki",
+            "pods": "110"
+          },
+          "conditions": [
+            {
+              "lastHeartbeatTime": "2026-10-03T12:38:00Z",
+              "lastTransitionTime": "2026-10-03T12:38:00Z",
+              "message": "Calico is running on this node",
+              "reason": "CalicoIsUp",
+              "status": "False",
+              "type": "NetworkUnavailable"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:44:05Z",
+              "lastTransitionTime": "2026-10-03T12:35:20Z",
+              "message": "kubelet has sufficient memory available",
+              "reason": "KubeletHasSufficientMemory",
+              "status": "False",
+              "type": "MemoryPressure"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:44:05Z",
+              "lastTransitionTime": "2026-10-03T12:35:20Z",
+              "message": "kubelet has no disk pressure",
+              "reason": "KubeletHasNoDiskPressure",
+              "status": "False",
+              "type": "DiskPressure"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:44:05Z",
+              "lastTransitionTime": "2026-10-03T12:35:20Z",
+              "message": "kubelet has sufficient PID available",
+              "reason": "KubeletHasSufficientPID",
+              "status": "False",
+              "type": "PIDPressure"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:44:05Z",
+              "lastTransitionTime": "2026-10-03T12:36:59Z",
+              "message": "kubelet is posting ready status",
+              "reason": "KubeletReady",
+              "status": "True",
+              "type": "Ready"
+            }
+          ],
+          "daemonEndpoints": {
+            "kubeletEndpoint": {
+              "Port": 10250
+            }
+          },
+          "images": [
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:9585fc43c1c92148a64f8b678eb5d95a4fc63e3d50b17fe845ad78ec99e9421a",
+                "docker.io/dbaas/patroni:2.1.0"
+              ],
+              "sizeBytes": 193551358
+            },
+            {
+              "names": [
+                "docker.io/calico/node@sha256:856ac0c261160e7bb967ab43b31598fa89633b33eb2ee292e17384272d929e22",
+                "docker.io/calico/node:v3.28.2"
+              ],
+              "sizeBytes": 119828494
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:2263b2ce70b6a1b24d125ced6de93cc34a20293c541ee05bab0871e8664d9978",
+                "docker.io/dbaas/minio:RELEASE.2025-04-22T22-12-26Z"
+              ],
+              "sizeBytes": 101464145
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:fc034c2d5f7f3bdd10436325d6316abf2a3874300595d7c1de68a2e27c2f1bdf",
+                "docker.io/dbaas/wal-g:3.0.7"
+              ],
+              "sizeBytes": 98382569
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:c3164787f6d5787971b20321ecf4ef689dacaebabba24b4b9330973deab70ee2",
+                "docker.io/dbaas/backend:0.2.0"
+              ],
+              "sizeBytes": 95368059
+            },
+            {
+              "names": [
+                "docker.io/calico/cni@sha256:04bd5d80c32a8751f3f4694fef04a50f20c4fed5e4e8b7c7cce752c79702baf3",
+                "docker.io/calico/cni:v3.28.2"
+              ],
+              "sizeBytes": 94697321
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:db1347963a2a6d43d592383f8a71c0f01be7e5cfd0fc15f617159abe9609dbf5",
+                "docker.io/dbaas/pgcat-config-watcher:1.1.0"
+              ],
+              "sizeBytes": 89561486
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:d147453847b7c5b8c33045e54d6e0301edea08b5ae152e84b9b5cab377e20321",
+                "registry.k8s.io/kube-apiserver-amd64:v1.30.0",
+                "registry.k8s.io/kube-apiserver:v1.30.0"
+              ],
+              "sizeBytes": 89436130
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:98e54aaf0614547ead5c0bd7df946f6eb58f0abf0386240df20565d9dd2a2e8d",
+                "registry.k8s.io/kube-proxy-amd64:v1.30.0",
+                "registry.k8s.io/kube-proxy:v1.30.0"
+              ],
+              "sizeBytes": 85930170
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:9615dec64d132ce44d42c15d071da7477499ab2aa9a44ff073b8d85944949023",
+                "registry.k8s.io/kube-controller-manager-amd64:v1.30.0",
+                "registry.k8s.io/kube-controller-manager:v1.30.0"
+              ],
+              "sizeBytes": 83459912
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:06e68f241fc2e56756800474858d7b359f7cf4da31eddae316a342059c20c274",
+                "registry.k8s.io/kube-scheduler-amd64:v1.30.0",
+                "registry.k8s.io/kube-scheduler:v1.30.0"
+              ],
+              "sizeBytes": 63021384
+            },
+            {
+              "names": [
+                "registry.k8s.io/etcd:3.5.12-0"
+              ],
+              "sizeBytes": 57236178
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:285a5a760bdf9fbc15e9f1897c3957af1fce5b851fef4a40aafe4d64f84e7983",
+                "docker.io/dbaas/mc:RELEASE.2025-04-16T18-13-26Z"
+              ],
+              "sizeBytes": 53389568
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:c51e0264d1c68c55d02fbed7bb23ebdc370c08e5e59e0b6e3541157f023349d8",
+                "docker.io/dbaas/kubectl:1.30.0"
+              ],
+              "sizeBytes": 48764538
+            },
+            {
+              "names": [
+                "docker.io/calico/kube-controllers@sha256:7de855fcbff8650712de6baad464a9a634e8901e521adff2f04301ad82d7c009",
+                "docker.io/calico/kube-controllers:v3.28.2"
+              ],
+              "sizeBytes": 34855631
+            },
+            {
+              "names": [
+                "docker.io/kindest/kindnetd:v20240202-8f1494ea"
+              ],
+              "sizeBytes": 27755257
+            },
+            {
+              "names": [
+                "docker.io/kindest/local-path-provisioner:v20240202-8f1494ea"
+              ],
+              "sizeBytes": 19365409
+            },
+            {
+              "names": [
+                "registry.k8s.io/coredns/coredns:v1.11.1"
+              ],
+              "sizeBytes": 18182961
+            },
+            {
+              "names": [
+                "docker.io/kindest/local-path-helper:v20230510-486859a6"
+              ],
+              "sizeBytes": 3052318
+            },
+            {
+              "names": [
+                "registry.k8s.io/pause:3.7"
+              ],
+              "sizeBytes": 311278
+            }
+          ],
+          "nodeInfo": {
+            "architecture": "amd64",
+            "bootID": "2eb16e58-8dac-4adb-9d58-68b52b8d6063",
+            "containerRuntimeVersion": "containerd://1.7.15",
+            "kernelVersion": "6.17.0-41-generic",
+            "kubeProxyVersion": "v1.30.0",
+            "kubeletVersion": "v1.30.0",
+            "machineID": "cd89dbe4992443abb6012b52f9829cde",
+            "operatingSystem": "linux",
+            "osImage": "Debian GNU/Linux 12 (bookworm)",
+            "systemUUID": "4e8ef80b-14f0-4ead-9b7f-0c5ec99309d8"
+          }
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Node",
+        "metadata": {
+          "annotations": {
+            "kubeadm.alpha.kubernetes.io/cri-socket": "unix:///run/containerd/containerd.sock",
+            "node.alpha.kubernetes.io/ttl": "0",
+            "projectcalico.org/IPv4Address": "172.21.0.7/16",
+            "projectcalico.org/IPv4IPIPTunnelAddr": "192.168.200.64",
+            "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+          },
+          "creationTimestamp": "2026-10-03T12:35:42Z",
+          "labels": {
+            "beta.kubernetes.io/arch": "amd64",
+            "beta.kubernetes.io/os": "linux",
+            "dbaas-worker": "true",
+            "kubernetes.io/arch": "amd64",
+            "kubernetes.io/hostname": "dbaas-phase5-bc4cacdf48-worker",
+            "kubernetes.io/os": "linux"
+          },
+          "name": "dbaas-phase5-bc4cacdf48-worker",
+          "resourceVersion": "2487",
+          "uid": "1a9561cc-52ff-40af-8314-1cb77c24d156"
+        },
+        "spec": {
+          "podCIDR": "192.168.3.0/24",
+          "podCIDRs": [
+            "192.168.3.0/24"
+          ],
+          "providerID": "kind://docker/dbaas-phase5-bc4cacdf48/dbaas-phase5-bc4cacdf48-worker"
+        },
+        "status": {
+          "addresses": [
+            {
+              "address": "172.21.0.7",
+              "type": "InternalIP"
+            },
+            {
+              "address": "dbaas-phase5-bc4cacdf48-worker",
+              "type": "Hostname"
+            }
+          ],
+          "allocatable": {
+            "cpu": "12",
+            "ephemeral-storage": "243937628Ki",
+            "hugepages-1Gi": "0",
+            "hugepages-2Mi": "0",
+            "memory": "32110476Ki",
+            "pods": "110"
+          },
+          "capacity": {
+            "cpu": "12",
+            "ephemeral-storage": "243937628Ki",
+            "hugepages-1Gi": "0",
+            "hugepages-2Mi": "0",
+            "memory": "32110476Ki",
+            "pods": "110"
+          },
+          "conditions": [
+            {
+              "lastHeartbeatTime": "2026-10-03T12:38:05Z",
+              "lastTransitionTime": "2026-10-03T12:38:05Z",
+              "message": "Calico is running on this node",
+              "reason": "CalicoIsUp",
+              "status": "False",
+              "type": "NetworkUnavailable"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:43:52Z",
+              "lastTransitionTime": "2026-10-03T12:35:42Z",
+              "message": "kubelet has sufficient memory available",
+              "reason": "KubeletHasSufficientMemory",
+              "status": "False",
+              "type": "MemoryPressure"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:43:52Z",
+              "lastTransitionTime": "2026-10-03T12:35:42Z",
+              "message": "kubelet has no disk pressure",
+              "reason": "KubeletHasNoDiskPressure",
+              "status": "False",
+              "type": "DiskPressure"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:43:52Z",
+              "lastTransitionTime": "2026-10-03T12:35:42Z",
+              "message": "kubelet has sufficient PID available",
+              "reason": "KubeletHasSufficientPID",
+              "status": "False",
+              "type": "PIDPressure"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:43:52Z",
+              "lastTransitionTime": "2026-10-03T12:37:03Z",
+              "message": "kubelet is posting ready status",
+              "reason": "KubeletReady",
+              "status": "True",
+              "type": "Ready"
+            }
+          ],
+          "daemonEndpoints": {
+            "kubeletEndpoint": {
+              "Port": 10250
+            }
+          },
+          "images": [
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:9585fc43c1c92148a64f8b678eb5d95a4fc63e3d50b17fe845ad78ec99e9421a",
+                "docker.io/dbaas/patroni:2.1.0"
+              ],
+              "sizeBytes": 193551358
+            },
+            {
+              "names": [
+                "docker.io/dpage/pgadmin4@sha256:bd71932cb1ef94719e783f0eed42c227bc67877a7c7e076c7092738711e5f4d4",
+                "docker.io/dpage/pgadmin4:9.3"
+              ],
+              "sizeBytes": 176305717
+            },
+            {
+              "names": [
+                "docker.io/calico/node@sha256:856ac0c261160e7bb967ab43b31598fa89633b33eb2ee292e17384272d929e22",
+                "docker.io/calico/node:v3.28.2"
+              ],
+              "sizeBytes": 119828494
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:2263b2ce70b6a1b24d125ced6de93cc34a20293c541ee05bab0871e8664d9978",
+                "docker.io/dbaas/minio:RELEASE.2025-04-22T22-12-26Z"
+              ],
+              "sizeBytes": 101464145
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:fc034c2d5f7f3bdd10436325d6316abf2a3874300595d7c1de68a2e27c2f1bdf",
+                "docker.io/dbaas/wal-g:3.0.7"
+              ],
+              "sizeBytes": 98382569
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:c3164787f6d5787971b20321ecf4ef689dacaebabba24b4b9330973deab70ee2",
+                "docker.io/dbaas/backend:0.2.0"
+              ],
+              "sizeBytes": 95368059
+            },
+            {
+              "names": [
+                "docker.io/calico/cni@sha256:04bd5d80c32a8751f3f4694fef04a50f20c4fed5e4e8b7c7cce752c79702baf3",
+                "docker.io/calico/cni:v3.28.2"
+              ],
+              "sizeBytes": 94697321
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:db1347963a2a6d43d592383f8a71c0f01be7e5cfd0fc15f617159abe9609dbf5",
+                "docker.io/dbaas/pgcat-config-watcher:1.1.0"
+              ],
+              "sizeBytes": 89561486
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:d147453847b7c5b8c33045e54d6e0301edea08b5ae152e84b9b5cab377e20321",
+                "registry.k8s.io/kube-apiserver-amd64:v1.30.0",
+                "registry.k8s.io/kube-apiserver:v1.30.0"
+              ],
+              "sizeBytes": 89436130
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:98e54aaf0614547ead5c0bd7df946f6eb58f0abf0386240df20565d9dd2a2e8d",
+                "registry.k8s.io/kube-proxy-amd64:v1.30.0",
+                "registry.k8s.io/kube-proxy:v1.30.0"
+              ],
+              "sizeBytes": 85930170
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:9615dec64d132ce44d42c15d071da7477499ab2aa9a44ff073b8d85944949023",
+                "registry.k8s.io/kube-controller-manager-amd64:v1.30.0",
+                "registry.k8s.io/kube-controller-manager:v1.30.0"
+              ],
+              "sizeBytes": 83459912
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:06e68f241fc2e56756800474858d7b359f7cf4da31eddae316a342059c20c274",
+                "registry.k8s.io/kube-scheduler-amd64:v1.30.0",
+                "registry.k8s.io/kube-scheduler:v1.30.0"
+              ],
+              "sizeBytes": 63021384
+            },
+            {
+              "names": [
+                "registry.k8s.io/etcd:3.5.12-0"
+              ],
+              "sizeBytes": 57236178
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:285a5a760bdf9fbc15e9f1897c3957af1fce5b851fef4a40aafe4d64f84e7983",
+                "docker.io/dbaas/mc:RELEASE.2025-04-16T18-13-26Z"
+              ],
+              "sizeBytes": 53389568
+            },
+            {
+              "names": [
+                "ghcr.io/postgresml/pgcat@sha256:627761f6dcbc8c0d17809445d7441518e2452c6d4fbdcc2a9986871d9e3e1176",
+                "ghcr.io/postgresml/pgcat:v1.2.0"
+              ],
+              "sizeBytes": 52731993
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:c51e0264d1c68c55d02fbed7bb23ebdc370c08e5e59e0b6e3541157f023349d8",
+                "docker.io/dbaas/kubectl:1.30.0"
+              ],
+              "sizeBytes": 48764538
+            },
+            {
+              "names": [
+                "docker.io/kindest/kindnetd:v20240202-8f1494ea"
+              ],
+              "sizeBytes": 27755257
+            },
+            {
+              "names": [
+                "docker.io/kindest/local-path-provisioner:v20240202-8f1494ea"
+              ],
+              "sizeBytes": 19365409
+            },
+            {
+              "names": [
+                "registry.k8s.io/coredns/coredns:v1.11.1"
+              ],
+              "sizeBytes": 18182961
+            },
+            {
+              "names": [
+                "docker.io/kindest/local-path-helper:v20230510-486859a6"
+              ],
+              "sizeBytes": 3052318
+            },
+            {
+              "names": [
+                "registry.k8s.io/pause:3.7"
+              ],
+              "sizeBytes": 311278
+            }
+          ],
+          "nodeInfo": {
+            "architecture": "amd64",
+            "bootID": "2eb16e58-8dac-4adb-9d58-68b52b8d6063",
+            "containerRuntimeVersion": "containerd://1.7.15",
+            "kernelVersion": "6.17.0-41-generic",
+            "kubeProxyVersion": "v1.30.0",
+            "kubeletVersion": "v1.30.0",
+            "machineID": "9e880735ad804a5093c5ef4ff84c298a",
+            "operatingSystem": "linux",
+            "osImage": "Debian GNU/Linux 12 (bookworm)",
+            "systemUUID": "0fa163d7-9875-4aac-9a26-45c457158b7a"
+          }
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Node",
+        "metadata": {
+          "annotations": {
+            "kubeadm.alpha.kubernetes.io/cri-socket": "unix:///run/containerd/containerd.sock",
+            "node.alpha.kubernetes.io/ttl": "0",
+            "projectcalico.org/IPv4Address": "172.21.0.5/16",
+            "projectcalico.org/IPv4IPIPTunnelAddr": "192.168.71.0",
+            "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+          },
+          "creationTimestamp": "2026-10-03T12:35:42Z",
+          "labels": {
+            "beta.kubernetes.io/arch": "amd64",
+            "beta.kubernetes.io/os": "linux",
+            "dbaas-worker": "true",
+            "kubernetes.io/arch": "amd64",
+            "kubernetes.io/hostname": "dbaas-phase5-bc4cacdf48-worker2",
+            "kubernetes.io/os": "linux"
+          },
+          "name": "dbaas-phase5-bc4cacdf48-worker2",
+          "resourceVersion": "1969",
+          "uid": "067290c9-cd97-4e1d-8198-924a60a9f66c"
+        },
+        "spec": {
+          "podCIDR": "192.168.1.0/24",
+          "podCIDRs": [
+            "192.168.1.0/24"
+          ],
+          "providerID": "kind://docker/dbaas-phase5-bc4cacdf48/dbaas-phase5-bc4cacdf48-worker2"
+        },
+        "status": {
+          "addresses": [
+            {
+              "address": "172.21.0.5",
+              "type": "InternalIP"
+            },
+            {
+              "address": "dbaas-phase5-bc4cacdf48-worker2",
+              "type": "Hostname"
+            }
+          ],
+          "allocatable": {
+            "cpu": "12",
+            "ephemeral-storage": "243937628Ki",
+            "hugepages-1Gi": "0",
+            "hugepages-2Mi": "0",
+            "memory": "32110476Ki",
+            "pods": "110"
+          },
+          "capacity": {
+            "cpu": "12",
+            "ephemeral-storage": "243937628Ki",
+            "hugepages-1Gi": "0",
+            "hugepages-2Mi": "0",
+            "memory": "32110476Ki",
+            "pods": "110"
+          },
+          "conditions": [
+            {
+              "lastHeartbeatTime": "2026-10-03T12:38:13Z",
+              "lastTransitionTime": "2026-10-03T12:38:13Z",
+              "message": "Calico is running on this node",
+              "reason": "CalicoIsUp",
+              "status": "False",
+              "type": "NetworkUnavailable"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:41:51Z",
+              "lastTransitionTime": "2026-10-03T12:35:42Z",
+              "message": "kubelet has sufficient memory available",
+              "reason": "KubeletHasSufficientMemory",
+              "status": "False",
+              "type": "MemoryPressure"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:41:51Z",
+              "lastTransitionTime": "2026-10-03T12:35:42Z",
+              "message": "kubelet has no disk pressure",
+              "reason": "KubeletHasNoDiskPressure",
+              "status": "False",
+              "type": "DiskPressure"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:41:51Z",
+              "lastTransitionTime": "2026-10-03T12:35:42Z",
+              "message": "kubelet has sufficient PID available",
+              "reason": "KubeletHasSufficientPID",
+              "status": "False",
+              "type": "PIDPressure"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:41:51Z",
+              "lastTransitionTime": "2026-10-03T12:37:03Z",
+              "message": "kubelet is posting ready status",
+              "reason": "KubeletReady",
+              "status": "True",
+              "type": "Ready"
+            }
+          ],
+          "daemonEndpoints": {
+            "kubeletEndpoint": {
+              "Port": 10250
+            }
+          },
+          "images": [
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:9585fc43c1c92148a64f8b678eb5d95a4fc63e3d50b17fe845ad78ec99e9421a",
+                "docker.io/dbaas/patroni:2.1.0"
+              ],
+              "sizeBytes": 193551358
+            },
+            {
+              "names": [
+                "docker.io/calico/node@sha256:856ac0c261160e7bb967ab43b31598fa89633b33eb2ee292e17384272d929e22",
+                "docker.io/calico/node:v3.28.2"
+              ],
+              "sizeBytes": 119828494
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:2263b2ce70b6a1b24d125ced6de93cc34a20293c541ee05bab0871e8664d9978",
+                "docker.io/dbaas/minio:RELEASE.2025-04-22T22-12-26Z"
+              ],
+              "sizeBytes": 101464145
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:fc034c2d5f7f3bdd10436325d6316abf2a3874300595d7c1de68a2e27c2f1bdf",
+                "docker.io/dbaas/wal-g:3.0.7"
+              ],
+              "sizeBytes": 98382569
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:c3164787f6d5787971b20321ecf4ef689dacaebabba24b4b9330973deab70ee2",
+                "docker.io/dbaas/backend:0.2.0"
+              ],
+              "sizeBytes": 95368059
+            },
+            {
+              "names": [
+                "docker.io/calico/cni@sha256:04bd5d80c32a8751f3f4694fef04a50f20c4fed5e4e8b7c7cce752c79702baf3",
+                "docker.io/calico/cni:v3.28.2"
+              ],
+              "sizeBytes": 94697321
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:db1347963a2a6d43d592383f8a71c0f01be7e5cfd0fc15f617159abe9609dbf5",
+                "docker.io/dbaas/pgcat-config-watcher:1.1.0"
+              ],
+              "sizeBytes": 89561486
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:d147453847b7c5b8c33045e54d6e0301edea08b5ae152e84b9b5cab377e20321",
+                "registry.k8s.io/kube-apiserver-amd64:v1.30.0",
+                "registry.k8s.io/kube-apiserver:v1.30.0"
+              ],
+              "sizeBytes": 89436130
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:98e54aaf0614547ead5c0bd7df946f6eb58f0abf0386240df20565d9dd2a2e8d",
+                "registry.k8s.io/kube-proxy-amd64:v1.30.0",
+                "registry.k8s.io/kube-proxy:v1.30.0"
+              ],
+              "sizeBytes": 85930170
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:9615dec64d132ce44d42c15d071da7477499ab2aa9a44ff073b8d85944949023",
+                "registry.k8s.io/kube-controller-manager-amd64:v1.30.0",
+                "registry.k8s.io/kube-controller-manager:v1.30.0"
+              ],
+              "sizeBytes": 83459912
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:06e68f241fc2e56756800474858d7b359f7cf4da31eddae316a342059c20c274",
+                "registry.k8s.io/kube-scheduler-amd64:v1.30.0",
+                "registry.k8s.io/kube-scheduler:v1.30.0"
+              ],
+              "sizeBytes": 63021384
+            },
+            {
+              "names": [
+                "registry.k8s.io/etcd:3.5.12-0"
+              ],
+              "sizeBytes": 57236178
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:285a5a760bdf9fbc15e9f1897c3957af1fce5b851fef4a40aafe4d64f84e7983",
+                "docker.io/dbaas/mc:RELEASE.2025-04-16T18-13-26Z"
+              ],
+              "sizeBytes": 53389568
+            },
+            {
+              "names": [
+                "ghcr.io/postgresml/pgcat@sha256:627761f6dcbc8c0d17809445d7441518e2452c6d4fbdcc2a9986871d9e3e1176",
+                "ghcr.io/postgresml/pgcat:v1.2.0"
+              ],
+              "sizeBytes": 52731993
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:c51e0264d1c68c55d02fbed7bb23ebdc370c08e5e59e0b6e3541157f023349d8",
+                "docker.io/dbaas/kubectl:1.30.0"
+              ],
+              "sizeBytes": 48764538
+            },
+            {
+              "names": [
+                "docker.io/kindest/kindnetd:v20240202-8f1494ea"
+              ],
+              "sizeBytes": 27755257
+            },
+            {
+              "names": [
+                "docker.io/kindest/local-path-provisioner:v20240202-8f1494ea"
+              ],
+              "sizeBytes": 19365409
+            },
+            {
+              "names": [
+                "registry.k8s.io/coredns/coredns:v1.11.1"
+              ],
+              "sizeBytes": 18182961
+            },
+            {
+              "names": [
+                "docker.io/kindest/local-path-helper:v20230510-486859a6"
+              ],
+              "sizeBytes": 3052318
+            },
+            {
+              "names": [
+                "registry.k8s.io/pause:3.7"
+              ],
+              "sizeBytes": 311278
+            }
+          ],
+          "nodeInfo": {
+            "architecture": "amd64",
+            "bootID": "2eb16e58-8dac-4adb-9d58-68b52b8d6063",
+            "containerRuntimeVersion": "containerd://1.7.15",
+            "kernelVersion": "6.17.0-41-generic",
+            "kubeProxyVersion": "v1.30.0",
+            "kubeletVersion": "v1.30.0",
+            "machineID": "8f849d63cbec47568e126d06ffd3189d",
+            "operatingSystem": "linux",
+            "osImage": "Debian GNU/Linux 12 (bookworm)",
+            "systemUUID": "3bf6c8d3-5584-40f0-a56c-ad6d966266a5"
+          }
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Node",
+        "metadata": {
+          "annotations": {
+            "kubeadm.alpha.kubernetes.io/cri-socket": "unix:///run/containerd/containerd.sock",
+            "node.alpha.kubernetes.io/ttl": "0",
+            "projectcalico.org/IPv4Address": "172.21.0.6/16",
+            "projectcalico.org/IPv4IPIPTunnelAddr": "192.168.183.0",
+            "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+          },
+          "creationTimestamp": "2026-10-03T12:35:42Z",
+          "labels": {
+            "beta.kubernetes.io/arch": "amd64",
+            "beta.kubernetes.io/os": "linux",
+            "dbaas-worker": "true",
+            "kubernetes.io/arch": "amd64",
+            "kubernetes.io/hostname": "dbaas-phase5-bc4cacdf48-worker3",
+            "kubernetes.io/os": "linux"
+          },
+          "name": "dbaas-phase5-bc4cacdf48-worker3",
+          "resourceVersion": "2482",
+          "uid": "0a9d1d42-9e38-42dd-9a06-ef32591c4e94"
+        },
+        "spec": {
+          "podCIDR": "192.168.2.0/24",
+          "podCIDRs": [
+            "192.168.2.0/24"
+          ],
+          "providerID": "kind://docker/dbaas-phase5-bc4cacdf48/dbaas-phase5-bc4cacdf48-worker3"
+        },
+        "status": {
+          "addresses": [
+            {
+              "address": "172.21.0.6",
+              "type": "InternalIP"
+            },
+            {
+              "address": "dbaas-phase5-bc4cacdf48-worker3",
+              "type": "Hostname"
+            }
+          ],
+          "allocatable": {
+            "cpu": "12",
+            "ephemeral-storage": "243937628Ki",
+            "hugepages-1Gi": "0",
+            "hugepages-2Mi": "0",
+            "memory": "32110476Ki",
+            "pods": "110"
+          },
+          "capacity": {
+            "cpu": "12",
+            "ephemeral-storage": "243937628Ki",
+            "hugepages-1Gi": "0",
+            "hugepages-2Mi": "0",
+            "memory": "32110476Ki",
+            "pods": "110"
+          },
+          "conditions": [
+            {
+              "lastHeartbeatTime": "2026-10-03T12:37:30Z",
+              "lastTransitionTime": "2026-10-03T12:37:30Z",
+              "message": "Calico is running on this node",
+              "reason": "CalicoIsUp",
+              "status": "False",
+              "type": "NetworkUnavailable"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:43:51Z",
+              "lastTransitionTime": "2026-10-03T12:35:42Z",
+              "message": "kubelet has sufficient memory available",
+              "reason": "KubeletHasSufficientMemory",
+              "status": "False",
+              "type": "MemoryPressure"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:43:51Z",
+              "lastTransitionTime": "2026-10-03T12:35:42Z",
+              "message": "kubelet has no disk pressure",
+              "reason": "KubeletHasNoDiskPressure",
+              "status": "False",
+              "type": "DiskPressure"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:43:51Z",
+              "lastTransitionTime": "2026-10-03T12:35:42Z",
+              "message": "kubelet has sufficient PID available",
+              "reason": "KubeletHasSufficientPID",
+              "status": "False",
+              "type": "PIDPressure"
+            },
+            {
+              "lastHeartbeatTime": "2026-10-03T12:43:51Z",
+              "lastTransitionTime": "2026-10-03T12:37:04Z",
+              "message": "kubelet is posting ready status",
+              "reason": "KubeletReady",
+              "status": "True",
+              "type": "Ready"
+            }
+          ],
+          "daemonEndpoints": {
+            "kubeletEndpoint": {
+              "Port": 10250
+            }
+          },
+          "images": [
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:9585fc43c1c92148a64f8b678eb5d95a4fc63e3d50b17fe845ad78ec99e9421a",
+                "docker.io/dbaas/patroni:2.1.0"
+              ],
+              "sizeBytes": 193551358
+            },
+            {
+              "names": [
+                "docker.io/calico/node@sha256:856ac0c261160e7bb967ab43b31598fa89633b33eb2ee292e17384272d929e22",
+                "docker.io/calico/node:v3.28.2"
+              ],
+              "sizeBytes": 119828494
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:2263b2ce70b6a1b24d125ced6de93cc34a20293c541ee05bab0871e8664d9978",
+                "docker.io/dbaas/minio:RELEASE.2025-04-22T22-12-26Z"
+              ],
+              "sizeBytes": 101464145
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:fc034c2d5f7f3bdd10436325d6316abf2a3874300595d7c1de68a2e27c2f1bdf",
+                "docker.io/dbaas/wal-g:3.0.7"
+              ],
+              "sizeBytes": 98382569
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:c3164787f6d5787971b20321ecf4ef689dacaebabba24b4b9330973deab70ee2",
+                "docker.io/dbaas/backend:0.2.0"
+              ],
+              "sizeBytes": 95368059
+            },
+            {
+              "names": [
+                "docker.io/calico/cni@sha256:04bd5d80c32a8751f3f4694fef04a50f20c4fed5e4e8b7c7cce752c79702baf3",
+                "docker.io/calico/cni:v3.28.2"
+              ],
+              "sizeBytes": 94697321
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:db1347963a2a6d43d592383f8a71c0f01be7e5cfd0fc15f617159abe9609dbf5",
+                "docker.io/dbaas/pgcat-config-watcher:1.1.0"
+              ],
+              "sizeBytes": 89561486
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:d147453847b7c5b8c33045e54d6e0301edea08b5ae152e84b9b5cab377e20321",
+                "registry.k8s.io/kube-apiserver-amd64:v1.30.0",
+                "registry.k8s.io/kube-apiserver:v1.30.0"
+              ],
+              "sizeBytes": 89436130
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:98e54aaf0614547ead5c0bd7df946f6eb58f0abf0386240df20565d9dd2a2e8d",
+                "registry.k8s.io/kube-proxy-amd64:v1.30.0",
+                "registry.k8s.io/kube-proxy:v1.30.0"
+              ],
+              "sizeBytes": 85930170
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:9615dec64d132ce44d42c15d071da7477499ab2aa9a44ff073b8d85944949023",
+                "registry.k8s.io/kube-controller-manager-amd64:v1.30.0",
+                "registry.k8s.io/kube-controller-manager:v1.30.0"
+              ],
+              "sizeBytes": 83459912
+            },
+            {
+              "names": [
+                "docker.io/library/import-2024-05-13@sha256:06e68f241fc2e56756800474858d7b359f7cf4da31eddae316a342059c20c274",
+                "registry.k8s.io/kube-scheduler-amd64:v1.30.0",
+                "registry.k8s.io/kube-scheduler:v1.30.0"
+              ],
+              "sizeBytes": 63021384
+            },
+            {
+              "names": [
+                "registry.k8s.io/etcd:3.5.12-0"
+              ],
+              "sizeBytes": 57236178
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:285a5a760bdf9fbc15e9f1897c3957af1fce5b851fef4a40aafe4d64f84e7983",
+                "docker.io/dbaas/mc:RELEASE.2025-04-16T18-13-26Z"
+              ],
+              "sizeBytes": 53389568
+            },
+            {
+              "names": [
+                "ghcr.io/postgresml/pgcat@sha256:627761f6dcbc8c0d17809445d7441518e2452c6d4fbdcc2a9986871d9e3e1176",
+                "ghcr.io/postgresml/pgcat:v1.2.0"
+              ],
+              "sizeBytes": 52731993
+            },
+            {
+              "names": [
+                "docker.io/library/import-2026-10-03@sha256:c51e0264d1c68c55d02fbed7bb23ebdc370c08e5e59e0b6e3541157f023349d8",
+                "docker.io/dbaas/kubectl:1.30.0"
+              ],
+              "sizeBytes": 48764538
+            },
+            {
+              "names": [
+                "docker.io/kindest/kindnetd:v20240202-8f1494ea"
+              ],
+              "sizeBytes": 27755257
+            },
+            {
+              "names": [
+                "docker.io/kindest/local-path-provisioner:v20240202-8f1494ea"
+              ],
+              "sizeBytes": 19365409
+            },
+            {
+              "names": [
+                "registry.k8s.io/coredns/coredns:v1.11.1"
+              ],
+              "sizeBytes": 18182961
+            },
+            {
+              "names": [
+                "docker.io/kindest/local-path-helper:v20230510-486859a6"
+              ],
+              "sizeBytes": 3052318
+            },
+            {
+              "names": [
+                "registry.k8s.io/pause:3.7"
+              ],
+              "sizeBytes": 311278
+            }
+          ],
+          "nodeInfo": {
+            "architecture": "amd64",
+            "bootID": "2eb16e58-8dac-4adb-9d58-68b52b8d6063",
+            "containerRuntimeVersion": "containerd://1.7.15",
+            "kernelVersion": "6.17.0-41-generic",
+            "kubeProxyVersion": "v1.30.0",
+            "kubeletVersion": "v1.30.0",
+            "machineID": "75488ffc4aea4bac8d1ca385b5d077c5",
+            "operatingSystem": "linux",
+            "osImage": "Debian GNU/Linux 12 (bookworm)",
+            "systemUUID": "0e3cb687-b5dc-4ffb-8eef-89b8491680c2"
+          }
+        }
+      }
+    ],
+    "kind": "List",
+    "metadata": {
+      "resourceVersion": ""
+    }
+  },
+  "pdb": {
+    "apiVersion": "v1",
+    "items": [
+      {
+        "apiVersion": "policy/v1",
+        "kind": "PodDisruptionBudget",
+        "metadata": {
+          "annotations": {
+            "meta.helm.sh/release-name": "lab-patroni",
+            "meta.helm.sh/release-namespace": "resilience"
+          },
+          "creationTimestamp": "2026-10-03T12:40:24Z",
+          "generation": 1,
+          "labels": {
+            "app.kubernetes.io/managed-by": "Helm"
+          },
+          "name": "lab-patroni-patroni",
+          "namespace": "resilience",
+          "resourceVersion": "2293",
+          "uid": "766e7329-2a4c-4bb7-ba80-a61140aedc82"
+        },
+        "spec": {
+          "maxUnavailable": 1,
+          "selector": {
+            "matchLabels": {
+              "application": "patroni",
+              "cluster-name": "lab-patroni-patronimvp",
+              "release-name": "lab-patroni"
+            }
+          }
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastTransitionTime": "2026-10-03T12:43:01Z",
+              "message": "",
+              "observedGeneration": 1,
+              "reason": "SufficientPods",
+              "status": "True",
+              "type": "DisruptionAllowed"
+            }
+          ],
+          "currentHealthy": 3,
+          "desiredHealthy": 2,
+          "disruptionsAllowed": 1,
+          "expectedPods": 3,
+          "observedGeneration": 1
+        }
+      },
+      {
+        "apiVersion": "policy/v1",
+        "kind": "PodDisruptionBudget",
+        "metadata": {
+          "annotations": {
+            "meta.helm.sh/release-name": "lab-pgcat",
+            "meta.helm.sh/release-namespace": "resilience"
+          },
+          "creationTimestamp": "2026-10-03T12:43:02Z",
+          "generation": 1,
+          "labels": {
+            "app.kubernetes.io/managed-by": "Helm"
+          },
+          "name": "lab-pgcat-pgcat",
+          "namespace": "resilience",
+          "resourceVersion": "2655",
+          "uid": "76199155-72c9-4a79-9da6-767abc750d3d"
+        },
+        "spec": {
+          "maxUnavailable": 1,
+          "selector": {
+            "matchLabels": {
+              "app": "proxy",
+              "release-name": "lab-pgcat"
+            }
+          }
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastTransitionTime": "2026-10-03T12:43:23Z",
+              "message": "",
+              "observedGeneration": 1,
+              "reason": "SufficientPods",
+              "status": "True",
+              "type": "DisruptionAllowed"
+            }
+          ],
+          "currentHealthy": 2,
+          "desiredHealthy": 1,
+          "disruptionsAllowed": 1,
+          "expectedPods": 2,
+          "observedGeneration": 1
+        }
+      }
+    ],
+    "kind": "List",
+    "metadata": {
+      "resourceVersion": ""
+    }
+  },
+  "pods": {
+    "apiVersion": "v1",
+    "items": [
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "cni.projectcalico.org/containerID": "2518062553a5125a7f24e293fd57441647052b2b12e4d3f53093445c69ef71a2",
+            "cni.projectcalico.org/podIP": "192.168.173.197/32",
+            "cni.projectcalico.org/podIPs": "192.168.173.197/32"
+          },
+          "creationTimestamp": "2026-10-03T12:39:23Z",
+          "generateName": "dbaas-backend-7948fcc64-",
+          "labels": {
+            "app": "dbaas-backend",
+            "pod-template-hash": "7948fcc64"
+          },
+          "name": "dbaas-backend-7948fcc64-77zwx",
+          "namespace": "resilience",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "dbaas-backend-7948fcc64",
+              "uid": "bb06a962-b764-4867-a9ad-ddab1d218071"
+            }
+          ],
+          "resourceVersion": "1303",
+          "uid": "cfe8f31d-a04d-4dff-8c91-7ecba1adad85"
+        },
+        "spec": {
+          "containers": [
+            {
+              "args": [
+                "uvicorn",
+                "app.main:app",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8000",
+                "--timeout-graceful-shutdown",
+                "690"
+              ],
+              "env": [
+                {
+                  "name": "DBAAS_API_TOKEN",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "token",
+                      "name": "dbaas-api-auth"
+                    }
+                  }
+                },
+                {
+                  "name": "DBAAS_ALLOWED_NAMESPACES",
+                  "value": "resilience"
+                }
+              ],
+              "image": "dbaas/backend:0.2.0",
+              "imagePullPolicy": "IfNotPresent",
+              "livenessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/healthz",
+                  "port": 8000,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "name": "api",
+              "ports": [
+                {
+                  "containerPort": 8000,
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/readyz",
+                  "port": 8000,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 3
+              },
+              "resources": {
+                "requests": {
+                  "cpu": "100m",
+                  "memory": "128Mi"
+                }
+              },
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "runAsNonRoot": true
+              },
+              "startupProbe": {
+                "failureThreshold": 30,
+                "httpGet": {
+                  "path": "/healthz",
+                  "port": 8000,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 5,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-swh5f",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "nodeName": "dbaas-phase5-bc4cacdf48-control-plane",
+          "nodeSelector": {
+            "kubernetes.io/hostname": "dbaas-phase5-bc4cacdf48-control-plane"
+          },
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "serviceAccount": "dbaas-backend",
+          "serviceAccountName": "dbaas-backend",
+          "terminationGracePeriodSeconds": 720,
+          "tolerations": [
+            {
+              "effect": "NoSchedule",
+              "key": "node-role.kubernetes.io/control-plane",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "kube-api-access-swh5f",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:39:24Z",
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:39:23Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:39:29Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:39:29Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:39:23Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://c583fd71da63aa26d24ddddd6ef9a732252179c80fc3dbf07bf7a270fb7faee3",
+              "image": "docker.io/dbaas/backend:0.2.0",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:c3164787f6d5787971b20321ecf4ef689dacaebabba24b4b9330973deab70ee2",
+              "lastState": {},
+              "name": "api",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:39:24Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "172.21.0.8",
+          "hostIPs": [
+            {
+              "ip": "172.21.0.8"
+            }
+          ],
+          "phase": "Running",
+          "podIP": "192.168.173.197",
+          "podIPs": [
+            {
+              "ip": "192.168.173.197"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-03T12:39:23Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "cni.projectcalico.org/containerID": "df43e1bb113fc40c4acceb4eaf7884f53c8b9d527507631ef3e0d54b6f7b8cfd",
+            "cni.projectcalico.org/podIP": "192.168.183.2/32",
+            "cni.projectcalico.org/podIPs": "192.168.183.2/32"
+          },
+          "creationTimestamp": "2026-10-03T12:39:30Z",
+          "generateName": "lab-minio-minio-statefulset-",
+          "labels": {
+            "app": "minio",
+            "app.kubernetes.io/instance": "lab-minio",
+            "apps.kubernetes.io/pod-index": "0",
+            "controller-revision-hash": "lab-minio-minio-statefulset-cc8dd745d",
+            "release-name": "lab-minio",
+            "statefulset.kubernetes.io/pod-name": "lab-minio-minio-statefulset-0"
+          },
+          "name": "lab-minio-minio-statefulset-0",
+          "namespace": "resilience",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "StatefulSet",
+              "name": "lab-minio-minio-statefulset",
+              "uid": "1814f442-0574-4692-a737-a9e1e341b9ea"
+            }
+          ],
+          "resourceVersion": "1416",
+          "uid": "438d160a-5af8-4ccd-b354-2b173afd6152"
+        },
+        "spec": {
+          "containers": [
+            {
+              "args": [
+                "server",
+                "/data",
+                "--console-address",
+                ":9001"
+              ],
+              "env": [
+                {
+                  "name": "MINIO_ROOT_USER",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "root-user",
+                      "name": "lab-minio-minio-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "MINIO_ROOT_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "root-password",
+                      "name": "lab-minio-minio-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "MINIO_PROMETHEUS_AUTH_TYPE",
+                  "value": "public"
+                }
+              ],
+              "image": "dbaas/minio:RELEASE.2025-04-22T22-12-26Z",
+              "imagePullPolicy": "IfNotPresent",
+              "livenessProbe": {
+                "failureThreshold": 6,
+                "httpGet": {
+                  "path": "/minio/health/live",
+                  "port": 9000,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 5
+              },
+              "name": "minio",
+              "ports": [
+                {
+                  "containerPort": 9000,
+                  "protocol": "TCP"
+                },
+                {
+                  "containerPort": 9001,
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/minio/health/ready",
+                  "port": 9000,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 5
+              },
+              "resources": {
+                "requests": {
+                  "cpu": "100m",
+                  "memory": "256Mi"
+                }
+              },
+              "startupProbe": {
+                "failureThreshold": 60,
+                "httpGet": {
+                  "path": "/minio/health/live",
+                  "port": 9000,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/data",
+                  "name": "data"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-6jwtr",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "hostname": "lab-minio-minio-statefulset-0",
+          "nodeName": "dbaas-phase5-bc4cacdf48-worker3",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "subdomain": "lab-minio-minio",
+          "terminationGracePeriodSeconds": 90,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "data",
+              "persistentVolumeClaim": {
+                "claimName": "data-lab-minio-minio-statefulset-0"
+              }
+            },
+            {
+              "name": "kube-api-access-6jwtr",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:39:38Z",
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:39:38Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:39:48Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:39:48Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:39:38Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://03921768e4d3594f89124fb40f4624ba3ea54dc4a42baaf82b1991598de9ab14",
+              "image": "docker.io/dbaas/minio:RELEASE.2025-04-22T22-12-26Z",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:2263b2ce70b6a1b24d125ced6de93cc34a20293c541ee05bab0871e8664d9978",
+              "lastState": {},
+              "name": "minio",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:39:38Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "172.21.0.6",
+          "hostIPs": [
+            {
+              "ip": "172.21.0.6"
+            }
+          ],
+          "phase": "Running",
+          "podIP": "192.168.183.2",
+          "podIPs": [
+            {
+              "ip": "192.168.183.2"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-03T12:39:38Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "cni.projectcalico.org/containerID": "d76e0053db219caa93b528cdcba88fcb311812eabac7db45f40669d708888f4e",
+            "cni.projectcalico.org/podIP": "192.168.173.198/32",
+            "cni.projectcalico.org/podIPs": "192.168.173.198/32",
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Pod\",\"metadata\":{\"annotations\":{},\"labels\":{\"dbaas-client\":\"allowed\"},\"name\":\"lab-object-client\",\"namespace\":\"resilience\"},\"spec\":{\"containers\":[{\"command\":[\"sleep\",\"infinity\"],\"env\":[{\"name\":\"ENDPOINT\",\"value\":\"http://lab-minio-minio:9000\"},{\"name\":\"ACCESS\",\"valueFrom\":{\"secretKeyRef\":{\"key\":\"backup-user\",\"name\":\"lab-minio-minio-credentials\"}}},{\"name\":\"PASSWORD\",\"valueFrom\":{\"secretKeyRef\":{\"key\":\"backup-password\",\"name\":\"lab-minio-minio-credentials\"}}}],\"image\":\"dbaas/mc:RELEASE.2025-04-16T18-13-26Z\",\"name\":\"client\",\"resources\":{\"requests\":{\"cpu\":\"25m\",\"memory\":\"64Mi\"}}}],\"nodeSelector\":{\"kubernetes.io/hostname\":\"dbaas-phase5-bc4cacdf48-control-plane\"},\"restartPolicy\":\"Never\",\"tolerations\":[{\"effect\":\"NoSchedule\",\"key\":\"node-role.kubernetes.io/control-plane\",\"operator\":\"Exists\"}]}}\n"
+          },
+          "creationTimestamp": "2026-10-03T12:44:58Z",
+          "labels": {
+            "dbaas-client": "allowed"
+          },
+          "name": "lab-object-client",
+          "namespace": "resilience",
+          "resourceVersion": "2686",
+          "uid": "63f56a11-94ff-4f69-86db-9d0dbbaab9a0"
+        },
+        "spec": {
+          "containers": [
+            {
+              "command": [
+                "sleep",
+                "infinity"
+              ],
+              "env": [
+                {
+                  "name": "ENDPOINT",
+                  "value": "http://lab-minio-minio:9000"
+                },
+                {
+                  "name": "ACCESS",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "backup-user",
+                      "name": "lab-minio-minio-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "backup-password",
+                      "name": "lab-minio-minio-credentials"
+                    }
+                  }
+                }
+              ],
+              "image": "dbaas/mc:RELEASE.2025-04-16T18-13-26Z",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "client",
+              "resources": {
+                "requests": {
+                  "cpu": "25m",
+                  "memory": "64Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-h6dgm",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "nodeName": "dbaas-phase5-bc4cacdf48-control-plane",
+          "nodeSelector": {
+            "kubernetes.io/hostname": "dbaas-phase5-bc4cacdf48-control-plane"
+          },
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Never",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoSchedule",
+              "key": "node-role.kubernetes.io/control-plane",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "kube-api-access-h6dgm",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:45:00Z",
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:44:58Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:45:00Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:45:00Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:44:58Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://b7b99cfab4ed861f46acd6c53dac2574bf0a8ca974ede20d20e59668daede50f",
+              "image": "docker.io/dbaas/mc:RELEASE.2025-04-16T18-13-26Z",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:285a5a760bdf9fbc15e9f1897c3957af1fce5b851fef4a40aafe4d64f84e7983",
+              "lastState": {},
+              "name": "client",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:44:59Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "172.21.0.8",
+          "hostIPs": [
+            {
+              "ip": "172.21.0.8"
+            }
+          ],
+          "phase": "Running",
+          "podIP": "192.168.173.198",
+          "podIPs": [
+            {
+              "ip": "192.168.173.198"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-03T12:44:58Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "cni.projectcalico.org/containerID": "601c88647c96ee0c139d3c321c32cfc4bc1ad17b58abf239bcf266490c3d09c1",
+            "cni.projectcalico.org/podIP": "192.168.200.69/32",
+            "cni.projectcalico.org/podIPs": "192.168.200.69/32",
+            "status": "{\"conn_url\":\"postgres://192.168.200.69:5432/postgres\",\"api_url\":\"http://192.168.200.69:8008/patroni\",\"state\":\"running\",\"role\":\"replica\",\"version\":\"4.0.4\",\"xlog_location\":117440512,\"replication_state\":\"streaming\",\"timeline\":2}"
+          },
+          "creationTimestamp": "2026-10-03T12:42:50Z",
+          "generateName": "lab-patroni-patronimvp-",
+          "labels": {
+            "application": "patroni",
+            "apps.kubernetes.io/pod-index": "0",
+            "cluster-name": "lab-patroni-patronimvp",
+            "controller-revision-hash": "lab-patroni-patronimvp-8676f8d8b5",
+            "release-name": "lab-patroni",
+            "role": "replica",
+            "statefulset.kubernetes.io/pod-name": "lab-patroni-patronimvp-0"
+          },
+          "name": "lab-patroni-patronimvp-0",
+          "namespace": "resilience",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "StatefulSet",
+              "name": "lab-patroni-patronimvp",
+              "uid": "e9d842f3-9c51-4d63-96c9-138114fcbf0c"
+            }
+          ],
+          "resourceVersion": "2480",
+          "uid": "0c93de2a-afe5-4909-86eb-7d1b3f66e13f"
+        },
+        "spec": {
+          "affinity": {
+            "podAntiAffinity": {
+              "requiredDuringSchedulingIgnoredDuringExecution": [
+                {
+                  "labelSelector": {
+                    "matchLabels": {
+                      "application": "patroni",
+                      "cluster-name": "lab-patroni-patronimvp",
+                      "release-name": "lab-patroni"
+                    }
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                }
+              ]
+            }
+          },
+          "containers": [
+            {
+              "env": [
+                {
+                  "name": "PATRONI_KUBERNETES_POD_IP",
+                  "valueFrom": {
+                    "fieldRef": {
+                      "apiVersion": "v1",
+                      "fieldPath": "status.podIP"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_KUBERNETES_NAMESPACE",
+                  "valueFrom": {
+                    "fieldRef": {
+                      "apiVersion": "v1",
+                      "fieldPath": "metadata.namespace"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_KUBERNETES_BYPASS_API_SERVICE",
+                  "value": "false"
+                },
+                {
+                  "name": "PATRONI_KUBERNETES_USE_ENDPOINTS",
+                  "value": "true"
+                },
+                {
+                  "name": "PATRONI_KUBERNETES_LABELS",
+                  "value": "{\"application\":\"patroni\",\"cluster-name\":\"lab-patroni-patronimvp\",\"release-name\":\"lab-patroni\"}"
+                },
+                {
+                  "name": "PATRONI_SUPERUSER_USERNAME",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "superuser-username",
+                      "name": "lab-patroni-postgres-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_SUPERUSER_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "superuser-password",
+                      "name": "lab-patroni-postgres-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_REPLICATION_USERNAME",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "replication-username",
+                      "name": "lab-patroni-postgres-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_REPLICATION_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "replication-password",
+                      "name": "lab-patroni-postgres-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_SCOPE",
+                  "value": "lab-patroni-patronimvp"
+                },
+                {
+                  "name": "PATRONI_NAME",
+                  "valueFrom": {
+                    "fieldRef": {
+                      "apiVersion": "v1",
+                      "fieldPath": "metadata.name"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_POSTGRESQL_DATA_DIR",
+                  "value": "/home/postgres/pgdata/pgroot/data"
+                },
+                {
+                  "name": "PATRONI_POSTGRESQL_PGPASS",
+                  "value": "/tmp/pgpass"
+                },
+                {
+                  "name": "PATRONI_POSTGRESQL_LISTEN",
+                  "value": "0.0.0.0:5432"
+                },
+                {
+                  "name": "PATRONI_RESTAPI_LISTEN",
+                  "value": "0.0.0.0:8008"
+                },
+                {
+                  "name": "PATRONI_POSTGRESQL_PARAMETERS",
+                  "value": "wal_level: replica\narchive_mode: on\narchive_timeout: 60\narchive_command: '/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p'\nrestore_command: '/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p'\n"
+                },
+                {
+                  "name": "BACKUP_ENABLE",
+                  "value": "false"
+                },
+                {
+                  "name": "BASE_BACKUP_NAME",
+                  "value": "LATEST"
+                },
+                {
+                  "name": "RECOVERY_TARGET_TIME"
+                }
+              ],
+              "image": "dbaas/patroni:2.1.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "patronimvp",
+              "ports": [
+                {
+                  "containerPort": 5432,
+                  "protocol": "TCP"
+                },
+                {
+                  "containerPort": 8008,
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/read-only",
+                  "port": 8008,
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 3,
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 5
+              },
+              "resources": {
+                "requests": {
+                  "cpu": "250m",
+                  "memory": "512Mi"
+                }
+              },
+              "startupProbe": {
+                "failureThreshold": 360,
+                "httpGet": {
+                  "path": "/health",
+                  "port": 8008,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 5
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/home/postgres/pgdata/pgroot/",
+                  "name": "pgdata"
+                },
+                {
+                  "mountPath": "/wal-g",
+                  "name": "wal-g-bin"
+                },
+                {
+                  "mountPath": "/wal-g-credentials",
+                  "name": "wal-g-credentials"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-tw24q",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "hostname": "lab-patroni-patronimvp-0",
+          "initContainers": [
+            {
+              "args": [
+                "set -eu\ncp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g\nchmod +x /usr/local/bin/wal-g\nmkdir -p /usr/local/bin/commands\ncat > /usr/local/bin/commands/restore_backup.sh <<'EOF'\n#!/bin/bash\nset -euo pipefail\nPGDATA=\"${1:?data directory required}\"\n[[ \"${2:-false}\" == \"true\" ]] || exit 1\n: \"${BASE_BACKUP_NAME:?backup name required for restore}\"\necho \"Fetching selected WAL-G base backup: $BASE_BACKUP_NAME\"\nexec /wal-g/wal-g backup-fetch \"$PGDATA\" \"$BASE_BACKUP_NAME\" --config /wal-g-credentials/.walg.env\nEOF\nchmod +x /usr/local/bin/commands/restore_backup.sh\n"
+              ],
+              "command": [
+                "/bin/sh",
+                "-c"
+              ],
+              "image": "dbaas/wal-g:3.0.7",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "wal-g",
+              "resources": {
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "64Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/usr/local/bin",
+                  "name": "wal-g-bin"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-tw24q",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "nodeName": "dbaas-phase5-bc4cacdf48-worker",
+          "nodeSelector": {
+            "dbaas-worker": "true"
+          },
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {
+            "fsGroup": 999
+          },
+          "serviceAccount": "lab-patroni-patronimvp",
+          "serviceAccountName": "lab-patroni-patronimvp",
+          "subdomain": "lab-patroni-patronimvp",
+          "terminationGracePeriodSeconds": 180,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "topologySpreadConstraints": [
+            {
+              "labelSelector": {
+                "matchLabels": {
+                  "application": "patroni",
+                  "cluster-name": "lab-patroni-patronimvp",
+                  "release-name": "lab-patroni"
+                }
+              },
+              "maxSkew": 1,
+              "topologyKey": "kubernetes.io/hostname",
+              "whenUnsatisfiable": "DoNotSchedule"
+            }
+          ],
+          "volumes": [
+            {
+              "name": "pgdata",
+              "persistentVolumeClaim": {
+                "claimName": "pgdata-lab-patroni-patronimvp-0"
+              }
+            },
+            {
+              "emptyDir": {},
+              "name": "wal-g-bin"
+            },
+            {
+              "name": "wal-g-credentials",
+              "secret": {
+                "defaultMode": 420,
+                "secretName": "lab-patroni-wal-g-credentials"
+              }
+            },
+            {
+              "name": "kube-api-access-tw24q",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:51Z",
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:51Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:43:01Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:43:01Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:50Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://35fe0c33521530791bce5cb2f0a3b867b42b2bdba4b8583557d560a18fcfa8b4",
+              "image": "docker.io/dbaas/patroni:2.1.0",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:9585fc43c1c92148a64f8b678eb5d95a4fc63e3d50b17fe845ad78ec99e9421a",
+              "lastState": {},
+              "name": "patronimvp",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:42:51Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "172.21.0.7",
+          "hostIPs": [
+            {
+              "ip": "172.21.0.7"
+            }
+          ],
+          "initContainerStatuses": [
+            {
+              "containerID": "containerd://0db031e043e9e1f5f93efd00d00b7f9e368cbf94cabbabccd8cd839b9d187c16",
+              "image": "docker.io/dbaas/wal-g:3.0.7",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:fc034c2d5f7f3bdd10436325d6316abf2a3874300595d7c1de68a2e27c2f1bdf",
+              "lastState": {},
+              "name": "wal-g",
+              "ready": true,
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://0db031e043e9e1f5f93efd00d00b7f9e368cbf94cabbabccd8cd839b9d187c16",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-03T12:42:50Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-03T12:42:50Z"
+                }
+              }
+            }
+          ],
+          "phase": "Running",
+          "podIP": "192.168.200.69",
+          "podIPs": [
+            {
+              "ip": "192.168.200.69"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-03T12:42:50Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "cni.projectcalico.org/containerID": "015f6da3276d25108bac93ba34f1c88318398bf43a6302dc31a867974f3746e8",
+            "cni.projectcalico.org/podIP": "192.168.71.6/32",
+            "cni.projectcalico.org/podIPs": "192.168.71.6/32",
+            "status": "{\"conn_url\":\"postgres://192.168.71.6:5432/postgres\",\"api_url\":\"http://192.168.71.6:8008/patroni\",\"state\":\"running\",\"role\":\"replica\",\"version\":\"4.0.4\",\"xlog_location\":117440512,\"replication_state\":\"streaming\",\"timeline\":2}"
+          },
+          "creationTimestamp": "2026-10-03T12:42:23Z",
+          "generateName": "lab-patroni-patronimvp-",
+          "labels": {
+            "application": "patroni",
+            "apps.kubernetes.io/pod-index": "1",
+            "cluster-name": "lab-patroni-patronimvp",
+            "controller-revision-hash": "lab-patroni-patronimvp-8676f8d8b5",
+            "release-name": "lab-patroni",
+            "role": "replica",
+            "statefulset.kubernetes.io/pod-name": "lab-patroni-patronimvp-1"
+          },
+          "name": "lab-patroni-patronimvp-1",
+          "namespace": "resilience",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "StatefulSet",
+              "name": "lab-patroni-patronimvp",
+              "uid": "e9d842f3-9c51-4d63-96c9-138114fcbf0c"
+            }
+          ],
+          "resourceVersion": "2481",
+          "uid": "9a90b191-7044-47a3-9f8d-f1e0e1ff767a"
+        },
+        "spec": {
+          "affinity": {
+            "podAntiAffinity": {
+              "requiredDuringSchedulingIgnoredDuringExecution": [
+                {
+                  "labelSelector": {
+                    "matchLabels": {
+                      "application": "patroni",
+                      "cluster-name": "lab-patroni-patronimvp",
+                      "release-name": "lab-patroni"
+                    }
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                }
+              ]
+            }
+          },
+          "containers": [
+            {
+              "env": [
+                {
+                  "name": "PATRONI_KUBERNETES_POD_IP",
+                  "valueFrom": {
+                    "fieldRef": {
+                      "apiVersion": "v1",
+                      "fieldPath": "status.podIP"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_KUBERNETES_NAMESPACE",
+                  "valueFrom": {
+                    "fieldRef": {
+                      "apiVersion": "v1",
+                      "fieldPath": "metadata.namespace"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_KUBERNETES_BYPASS_API_SERVICE",
+                  "value": "false"
+                },
+                {
+                  "name": "PATRONI_KUBERNETES_USE_ENDPOINTS",
+                  "value": "true"
+                },
+                {
+                  "name": "PATRONI_KUBERNETES_LABELS",
+                  "value": "{\"application\":\"patroni\",\"cluster-name\":\"lab-patroni-patronimvp\",\"release-name\":\"lab-patroni\"}"
+                },
+                {
+                  "name": "PATRONI_SUPERUSER_USERNAME",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "superuser-username",
+                      "name": "lab-patroni-postgres-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_SUPERUSER_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "superuser-password",
+                      "name": "lab-patroni-postgres-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_REPLICATION_USERNAME",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "replication-username",
+                      "name": "lab-patroni-postgres-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_REPLICATION_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "replication-password",
+                      "name": "lab-patroni-postgres-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_SCOPE",
+                  "value": "lab-patroni-patronimvp"
+                },
+                {
+                  "name": "PATRONI_NAME",
+                  "valueFrom": {
+                    "fieldRef": {
+                      "apiVersion": "v1",
+                      "fieldPath": "metadata.name"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_POSTGRESQL_DATA_DIR",
+                  "value": "/home/postgres/pgdata/pgroot/data"
+                },
+                {
+                  "name": "PATRONI_POSTGRESQL_PGPASS",
+                  "value": "/tmp/pgpass"
+                },
+                {
+                  "name": "PATRONI_POSTGRESQL_LISTEN",
+                  "value": "0.0.0.0:5432"
+                },
+                {
+                  "name": "PATRONI_RESTAPI_LISTEN",
+                  "value": "0.0.0.0:8008"
+                },
+                {
+                  "name": "PATRONI_POSTGRESQL_PARAMETERS",
+                  "value": "wal_level: replica\narchive_mode: on\narchive_timeout: 60\narchive_command: '/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p'\nrestore_command: '/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p'\n"
+                },
+                {
+                  "name": "BACKUP_ENABLE",
+                  "value": "false"
+                },
+                {
+                  "name": "BASE_BACKUP_NAME",
+                  "value": "LATEST"
+                },
+                {
+                  "name": "RECOVERY_TARGET_TIME"
+                }
+              ],
+              "image": "dbaas/patroni:2.1.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "patronimvp",
+              "ports": [
+                {
+                  "containerPort": 5432,
+                  "protocol": "TCP"
+                },
+                {
+                  "containerPort": 8008,
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/read-only",
+                  "port": 8008,
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 3,
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 5
+              },
+              "resources": {
+                "requests": {
+                  "cpu": "250m",
+                  "memory": "512Mi"
+                }
+              },
+              "startupProbe": {
+                "failureThreshold": 360,
+                "httpGet": {
+                  "path": "/health",
+                  "port": 8008,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 5
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/home/postgres/pgdata/pgroot/",
+                  "name": "pgdata"
+                },
+                {
+                  "mountPath": "/wal-g",
+                  "name": "wal-g-bin"
+                },
+                {
+                  "mountPath": "/wal-g-credentials",
+                  "name": "wal-g-credentials"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-st9l7",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "hostname": "lab-patroni-patronimvp-1",
+          "initContainers": [
+            {
+              "args": [
+                "set -eu\ncp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g\nchmod +x /usr/local/bin/wal-g\nmkdir -p /usr/local/bin/commands\ncat > /usr/local/bin/commands/restore_backup.sh <<'EOF'\n#!/bin/bash\nset -euo pipefail\nPGDATA=\"${1:?data directory required}\"\n[[ \"${2:-false}\" == \"true\" ]] || exit 1\n: \"${BASE_BACKUP_NAME:?backup name required for restore}\"\necho \"Fetching selected WAL-G base backup: $BASE_BACKUP_NAME\"\nexec /wal-g/wal-g backup-fetch \"$PGDATA\" \"$BASE_BACKUP_NAME\" --config /wal-g-credentials/.walg.env\nEOF\nchmod +x /usr/local/bin/commands/restore_backup.sh\n"
+              ],
+              "command": [
+                "/bin/sh",
+                "-c"
+              ],
+              "image": "dbaas/wal-g:3.0.7",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "wal-g",
+              "resources": {
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "64Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/usr/local/bin",
+                  "name": "wal-g-bin"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-st9l7",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "nodeName": "dbaas-phase5-bc4cacdf48-worker2",
+          "nodeSelector": {
+            "dbaas-worker": "true"
+          },
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {
+            "fsGroup": 999
+          },
+          "serviceAccount": "lab-patroni-patronimvp",
+          "serviceAccountName": "lab-patroni-patronimvp",
+          "subdomain": "lab-patroni-patronimvp",
+          "terminationGracePeriodSeconds": 180,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "topologySpreadConstraints": [
+            {
+              "labelSelector": {
+                "matchLabels": {
+                  "application": "patroni",
+                  "cluster-name": "lab-patroni-patronimvp",
+                  "release-name": "lab-patroni"
+                }
+              },
+              "maxSkew": 1,
+              "topologyKey": "kubernetes.io/hostname",
+              "whenUnsatisfiable": "DoNotSchedule"
+            }
+          ],
+          "volumes": [
+            {
+              "name": "pgdata",
+              "persistentVolumeClaim": {
+                "claimName": "pgdata-lab-patroni-patronimvp-1"
+              }
+            },
+            {
+              "emptyDir": {},
+              "name": "wal-g-bin"
+            },
+            {
+              "name": "wal-g-credentials",
+              "secret": {
+                "defaultMode": 420,
+                "secretName": "lab-patroni-wal-g-credentials"
+              }
+            },
+            {
+              "name": "kube-api-access-st9l7",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:24Z",
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:24Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:34Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:34Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:23Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://543f285ba0eb232edc13e6359702e90add7d4c8ac9f15d1c3e0c37107fbf1417",
+              "image": "docker.io/dbaas/patroni:2.1.0",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:9585fc43c1c92148a64f8b678eb5d95a4fc63e3d50b17fe845ad78ec99e9421a",
+              "lastState": {},
+              "name": "patronimvp",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:42:24Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "172.21.0.5",
+          "hostIPs": [
+            {
+              "ip": "172.21.0.5"
+            }
+          ],
+          "initContainerStatuses": [
+            {
+              "containerID": "containerd://c4e054cf3414ebe30f851cabcbc8fc24c7328a109804aacd4157dfae36b82e75",
+              "image": "docker.io/dbaas/wal-g:3.0.7",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:fc034c2d5f7f3bdd10436325d6316abf2a3874300595d7c1de68a2e27c2f1bdf",
+              "lastState": {},
+              "name": "wal-g",
+              "ready": true,
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://c4e054cf3414ebe30f851cabcbc8fc24c7328a109804aacd4157dfae36b82e75",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-03T12:42:23Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-03T12:42:23Z"
+                }
+              }
+            }
+          ],
+          "phase": "Running",
+          "podIP": "192.168.71.6",
+          "podIPs": [
+            {
+              "ip": "192.168.71.6"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-03T12:42:23Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "cni.projectcalico.org/containerID": "7b7a21d8c6eabf76a40391138842fb9d53d1632027c8c2711da35970f9eaf7ba",
+            "cni.projectcalico.org/podIP": "192.168.183.5/32",
+            "cni.projectcalico.org/podIPs": "192.168.183.5/32",
+            "status": "{\"conn_url\":\"postgres://192.168.183.5:5432/postgres\",\"api_url\":\"http://192.168.183.5:8008/patroni\",\"state\":\"running\",\"role\":\"primary\",\"version\":\"4.0.4\",\"xlog_location\":117440512,\"timeline\":2}"
+          },
+          "creationTimestamp": "2026-10-03T12:42:36Z",
+          "generateName": "lab-patroni-patronimvp-",
+          "labels": {
+            "application": "patroni",
+            "apps.kubernetes.io/pod-index": "2",
+            "cluster-name": "lab-patroni-patronimvp",
+            "controller-revision-hash": "lab-patroni-patronimvp-8676f8d8b5",
+            "release-name": "lab-patroni",
+            "role": "primary",
+            "statefulset.kubernetes.io/pod-name": "lab-patroni-patronimvp-2"
+          },
+          "name": "lab-patroni-patronimvp-2",
+          "namespace": "resilience",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "StatefulSet",
+              "name": "lab-patroni-patronimvp",
+              "uid": "e9d842f3-9c51-4d63-96c9-138114fcbf0c"
+            }
+          ],
+          "resourceVersion": "2479",
+          "uid": "05bacebe-6405-4f46-bba0-205e8635bb44"
+        },
+        "spec": {
+          "affinity": {
+            "podAntiAffinity": {
+              "requiredDuringSchedulingIgnoredDuringExecution": [
+                {
+                  "labelSelector": {
+                    "matchLabels": {
+                      "application": "patroni",
+                      "cluster-name": "lab-patroni-patronimvp",
+                      "release-name": "lab-patroni"
+                    }
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                }
+              ]
+            }
+          },
+          "containers": [
+            {
+              "env": [
+                {
+                  "name": "PATRONI_KUBERNETES_POD_IP",
+                  "valueFrom": {
+                    "fieldRef": {
+                      "apiVersion": "v1",
+                      "fieldPath": "status.podIP"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_KUBERNETES_NAMESPACE",
+                  "valueFrom": {
+                    "fieldRef": {
+                      "apiVersion": "v1",
+                      "fieldPath": "metadata.namespace"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_KUBERNETES_BYPASS_API_SERVICE",
+                  "value": "false"
+                },
+                {
+                  "name": "PATRONI_KUBERNETES_USE_ENDPOINTS",
+                  "value": "true"
+                },
+                {
+                  "name": "PATRONI_KUBERNETES_LABELS",
+                  "value": "{\"application\":\"patroni\",\"cluster-name\":\"lab-patroni-patronimvp\",\"release-name\":\"lab-patroni\"}"
+                },
+                {
+                  "name": "PATRONI_SUPERUSER_USERNAME",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "superuser-username",
+                      "name": "lab-patroni-postgres-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_SUPERUSER_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "superuser-password",
+                      "name": "lab-patroni-postgres-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_REPLICATION_USERNAME",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "replication-username",
+                      "name": "lab-patroni-postgres-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_REPLICATION_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "replication-password",
+                      "name": "lab-patroni-postgres-credentials"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_SCOPE",
+                  "value": "lab-patroni-patronimvp"
+                },
+                {
+                  "name": "PATRONI_NAME",
+                  "valueFrom": {
+                    "fieldRef": {
+                      "apiVersion": "v1",
+                      "fieldPath": "metadata.name"
+                    }
+                  }
+                },
+                {
+                  "name": "PATRONI_POSTGRESQL_DATA_DIR",
+                  "value": "/home/postgres/pgdata/pgroot/data"
+                },
+                {
+                  "name": "PATRONI_POSTGRESQL_PGPASS",
+                  "value": "/tmp/pgpass"
+                },
+                {
+                  "name": "PATRONI_POSTGRESQL_LISTEN",
+                  "value": "0.0.0.0:5432"
+                },
+                {
+                  "name": "PATRONI_RESTAPI_LISTEN",
+                  "value": "0.0.0.0:8008"
+                },
+                {
+                  "name": "PATRONI_POSTGRESQL_PARAMETERS",
+                  "value": "wal_level: replica\narchive_mode: on\narchive_timeout: 60\narchive_command: '/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p'\nrestore_command: '/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p'\n"
+                },
+                {
+                  "name": "BACKUP_ENABLE",
+                  "value": "false"
+                },
+                {
+                  "name": "BASE_BACKUP_NAME",
+                  "value": "LATEST"
+                },
+                {
+                  "name": "RECOVERY_TARGET_TIME"
+                }
+              ],
+              "image": "dbaas/patroni:2.1.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "patronimvp",
+              "ports": [
+                {
+                  "containerPort": 5432,
+                  "protocol": "TCP"
+                },
+                {
+                  "containerPort": 8008,
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/read-only",
+                  "port": 8008,
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 3,
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 5
+              },
+              "resources": {
+                "requests": {
+                  "cpu": "250m",
+                  "memory": "512Mi"
+                }
+              },
+              "startupProbe": {
+                "failureThreshold": 360,
+                "httpGet": {
+                  "path": "/health",
+                  "port": 8008,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 5
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/home/postgres/pgdata/pgroot/",
+                  "name": "pgdata"
+                },
+                {
+                  "mountPath": "/wal-g",
+                  "name": "wal-g-bin"
+                },
+                {
+                  "mountPath": "/wal-g-credentials",
+                  "name": "wal-g-credentials"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-sjmcg",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "hostname": "lab-patroni-patronimvp-2",
+          "initContainers": [
+            {
+              "args": [
+                "set -eu\ncp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g\nchmod +x /usr/local/bin/wal-g\nmkdir -p /usr/local/bin/commands\ncat > /usr/local/bin/commands/restore_backup.sh <<'EOF'\n#!/bin/bash\nset -euo pipefail\nPGDATA=\"${1:?data directory required}\"\n[[ \"${2:-false}\" == \"true\" ]] || exit 1\n: \"${BASE_BACKUP_NAME:?backup name required for restore}\"\necho \"Fetching selected WAL-G base backup: $BASE_BACKUP_NAME\"\nexec /wal-g/wal-g backup-fetch \"$PGDATA\" \"$BASE_BACKUP_NAME\" --config /wal-g-credentials/.walg.env\nEOF\nchmod +x /usr/local/bin/commands/restore_backup.sh\n"
+              ],
+              "command": [
+                "/bin/sh",
+                "-c"
+              ],
+              "image": "dbaas/wal-g:3.0.7",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "wal-g",
+              "resources": {
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "64Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/usr/local/bin",
+                  "name": "wal-g-bin"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-sjmcg",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "nodeName": "dbaas-phase5-bc4cacdf48-worker3",
+          "nodeSelector": {
+            "dbaas-worker": "true"
+          },
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {
+            "fsGroup": 999
+          },
+          "serviceAccount": "lab-patroni-patronimvp",
+          "serviceAccountName": "lab-patroni-patronimvp",
+          "subdomain": "lab-patroni-patronimvp",
+          "terminationGracePeriodSeconds": 180,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "topologySpreadConstraints": [
+            {
+              "labelSelector": {
+                "matchLabels": {
+                  "application": "patroni",
+                  "cluster-name": "lab-patroni-patronimvp",
+                  "release-name": "lab-patroni"
+                }
+              },
+              "maxSkew": 1,
+              "topologyKey": "kubernetes.io/hostname",
+              "whenUnsatisfiable": "DoNotSchedule"
+            }
+          ],
+          "volumes": [
+            {
+              "name": "pgdata",
+              "persistentVolumeClaim": {
+                "claimName": "pgdata-lab-patroni-patronimvp-2"
+              }
+            },
+            {
+              "emptyDir": {},
+              "name": "wal-g-bin"
+            },
+            {
+              "name": "wal-g-credentials",
+              "secret": {
+                "defaultMode": 420,
+                "secretName": "lab-patroni-wal-g-credentials"
+              }
+            },
+            {
+              "name": "kube-api-access-sjmcg",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:37Z",
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:37Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:47Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:47Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:36Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://a003877ee0f300bd10af77b9ccebd637d969464bf984f8bbe3a332707ab3b6dc",
+              "image": "docker.io/dbaas/patroni:2.1.0",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:9585fc43c1c92148a64f8b678eb5d95a4fc63e3d50b17fe845ad78ec99e9421a",
+              "lastState": {},
+              "name": "patronimvp",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:42:37Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "172.21.0.6",
+          "hostIPs": [
+            {
+              "ip": "172.21.0.6"
+            }
+          ],
+          "initContainerStatuses": [
+            {
+              "containerID": "containerd://9634ed2cc6a8efd1ae15c20688230464309ee8ec5a5deed847321c379655fd9f",
+              "image": "docker.io/dbaas/wal-g:3.0.7",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:fc034c2d5f7f3bdd10436325d6316abf2a3874300595d7c1de68a2e27c2f1bdf",
+              "lastState": {},
+              "name": "wal-g",
+              "ready": true,
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://9634ed2cc6a8efd1ae15c20688230464309ee8ec5a5deed847321c379655fd9f",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-03T12:42:36Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-03T12:42:36Z"
+                }
+              }
+            }
+          ],
+          "phase": "Running",
+          "podIP": "192.168.183.5",
+          "podIPs": [
+            {
+              "ip": "192.168.183.5"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-03T12:42:36Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "cni.projectcalico.org/containerID": "9fd590927248f5df4f4eebd5130bf20750ad001210ef6e76645361ab4a78ceb7",
+            "cni.projectcalico.org/podIP": "192.168.200.68/32",
+            "cni.projectcalico.org/podIPs": "192.168.200.68/32"
+          },
+          "creationTimestamp": "2026-10-03T12:41:09Z",
+          "generateName": "lab-pgcat-pgadmin-deployment-5c849f7d5-",
+          "labels": {
+            "app": "pgadmin",
+            "pod-template-hash": "5c849f7d5",
+            "release-name": "lab-pgcat"
+          },
+          "name": "lab-pgcat-pgadmin-deployment-5c849f7d5-7stcr",
+          "namespace": "resilience",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "lab-pgcat-pgadmin-deployment-5c849f7d5",
+              "uid": "4651934e-a564-4e70-aa9e-1f1c1c01e5e6"
+            }
+          ],
+          "resourceVersion": "2027",
+          "uid": "c9480e42-1186-40f9-a1a1-253a5a372f9f"
+        },
+        "spec": {
+          "containers": [
+            {
+              "env": [
+                {
+                  "name": "PGADMIN_DEFAULT_EMAIL",
+                  "value": "admin@example.com"
+                },
+                {
+                  "name": "PGADMIN_DEFAULT_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "pgadmin-password",
+                      "name": "lab-pgcat-pgadmin"
+                    }
+                  }
+                }
+              ],
+              "image": "dpage/pgadmin4:9.3",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "lab-pgcat-pgadmin",
+              "ports": [
+                {
+                  "containerPort": 80,
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/misc/ping",
+                  "port": 80,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 5
+              },
+              "resources": {
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "128Mi"
+                }
+              },
+              "startupProbe": {
+                "failureThreshold": 60,
+                "httpGet": {
+                  "path": "/misc/ping",
+                  "port": 80,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/pgadmin4/servers.json",
+                  "name": "lab-pgcat-pgadmin-config",
+                  "readOnly": true,
+                  "subPath": "servers.json"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-lpfgx",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "nodeName": "dbaas-phase5-bc4cacdf48-worker",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "configMap": {
+                "defaultMode": 420,
+                "name": "lab-pgcat-pgadmin-config"
+              },
+              "name": "lab-pgcat-pgadmin-config"
+            },
+            {
+              "name": "kube-api-access-lpfgx",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:41:46Z",
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:41:09Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:19Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:42:19Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:41:09Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://923e1ff14f92e356d76f3dd8b2659d889984ae6308eb12b3095287379ea9b9d6",
+              "image": "docker.io/dpage/pgadmin4:9.3",
+              "imageID": "docker.io/dpage/pgadmin4@sha256:bd71932cb1ef94719e783f0eed42c227bc67877a7c7e076c7092738711e5f4d4",
+              "lastState": {},
+              "name": "lab-pgcat-pgadmin",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:41:45Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "172.21.0.7",
+          "hostIPs": [
+            {
+              "ip": "172.21.0.7"
+            }
+          ],
+          "phase": "Running",
+          "podIP": "192.168.200.68",
+          "podIPs": [
+            {
+              "ip": "192.168.200.68"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-03T12:41:09Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "cni.projectcalico.org/containerID": "d35239db9ba5014b61f91a0644cdced90172a0bd8bde7f61ca403cb848a4634a",
+            "cni.projectcalico.org/podIP": "192.168.183.7/32",
+            "cni.projectcalico.org/podIPs": "192.168.183.7/32"
+          },
+          "creationTimestamp": "2026-10-03T12:43:23Z",
+          "generateName": "lab-pgcat-proxy-deployment-5584b97bbd-",
+          "labels": {
+            "app": "proxy",
+            "pod-template-hash": "5584b97bbd",
+            "release-name": "lab-pgcat"
+          },
+          "name": "lab-pgcat-proxy-deployment-5584b97bbd-7lpft",
+          "namespace": "resilience",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "lab-pgcat-proxy-deployment-5584b97bbd",
+              "uid": "c8231e87-ecfd-4494-b82e-140c75c32b77"
+            }
+          ],
+          "resourceVersion": "2642",
+          "uid": "5275b95e-2f2e-4a8b-ba02-2ba3602134a1"
+        },
+        "spec": {
+          "affinity": {
+            "podAntiAffinity": {
+              "requiredDuringSchedulingIgnoredDuringExecution": [
+                {
+                  "labelSelector": {
+                    "matchLabels": {
+                      "app": "proxy",
+                      "release-name": "lab-pgcat"
+                    }
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                }
+              ]
+            }
+          },
+          "containers": [
+            {
+              "image": "ghcr.io/postgresml/pgcat:v1.2.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "proxy",
+              "ports": [
+                {
+                  "containerPort": 5432,
+                  "name": "postgres",
+                  "protocol": "TCP"
+                },
+                {
+                  "containerPort": 9930,
+                  "name": "metrics",
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": "100m",
+                  "memory": "128Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/etc/pgcat",
+                  "name": "pgcat-data"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-cqwwt",
+                  "readOnly": true
+                }
+              ]
+            },
+            {
+              "env": [
+                {
+                  "name": "PGCAT_CONFIG_SOURCE",
+                  "value": "/config/pgcat.yaml"
+                },
+                {
+                  "name": "PGCAT_CONFIG_DEST",
+                  "value": "/etc/pgcat/pgcat.toml"
+                }
+              ],
+              "image": "dbaas/pgcat-config-watcher:1.1.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "pgcat-config-watcher",
+              "readinessProbe": {
+                "exec": {
+                  "command": [
+                    "node",
+                    "pgcat-health.js"
+                  ]
+                },
+                "failureThreshold": 3,
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 8
+              },
+              "resources": {
+                "requests": {
+                  "cpu": "25m",
+                  "memory": "64Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/config",
+                  "name": "pgcat-config",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/etc/pgcat",
+                  "name": "pgcat-data"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-cqwwt",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "initContainers": [
+            {
+              "command": [
+                "node",
+                "pgcat-config-watcher.js",
+                "--once"
+              ],
+              "image": "dbaas/pgcat-config-watcher:1.1.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "pgcat-config-init",
+              "resources": {
+                "requests": {
+                  "cpu": "25m",
+                  "memory": "64Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/config",
+                  "name": "pgcat-config",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/etc/pgcat",
+                  "name": "pgcat-data"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-cqwwt",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "nodeName": "dbaas-phase5-bc4cacdf48-worker3",
+          "nodeSelector": {
+            "dbaas-worker": "true"
+          },
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "terminationGracePeriodSeconds": 90,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "pgcat-config",
+              "secret": {
+                "defaultMode": 420,
+                "items": [
+                  {
+                    "key": "pgcat.yaml",
+                    "path": "pgcat.yaml"
+                  }
+                ],
+                "secretName": "lab-pgcat-pgcat-config"
+              }
+            },
+            {
+              "emptyDir": {},
+              "name": "pgcat-data"
+            },
+            {
+              "name": "kube-api-access-cqwwt",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:44:56Z",
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:44:56Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:44:57Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:44:57Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:44:55Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://434d74ec18d99bbedb40d03b29199a8f24e61f08b54d037076f7c0cc028a48e7",
+              "image": "docker.io/dbaas/pgcat-config-watcher:1.1.0",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:db1347963a2a6d43d592383f8a71c0f01be7e5cfd0fc15f617159abe9609dbf5",
+              "lastState": {},
+              "name": "pgcat-config-watcher",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:44:56Z"
+                }
+              }
+            },
+            {
+              "containerID": "containerd://6c1425ed2aeb51d4c010ccd6034d5e49567787b6d2d12d7ccf051290b51c188f",
+              "image": "ghcr.io/postgresml/pgcat:v1.2.0",
+              "imageID": "ghcr.io/postgresml/pgcat@sha256:627761f6dcbc8c0d17809445d7441518e2452c6d4fbdcc2a9986871d9e3e1176",
+              "lastState": {},
+              "name": "proxy",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:44:56Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "172.21.0.6",
+          "hostIPs": [
+            {
+              "ip": "172.21.0.6"
+            }
+          ],
+          "initContainerStatuses": [
+            {
+              "containerID": "containerd://28e82c460ae9fcc215ed66ddda2f415fd3229575eecd8d000c5cbfdfc509b5d6",
+              "image": "docker.io/dbaas/pgcat-config-watcher:1.1.0",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:db1347963a2a6d43d592383f8a71c0f01be7e5cfd0fc15f617159abe9609dbf5",
+              "lastState": {},
+              "name": "pgcat-config-init",
+              "ready": true,
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://28e82c460ae9fcc215ed66ddda2f415fd3229575eecd8d000c5cbfdfc509b5d6",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-03T12:44:55Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-03T12:44:55Z"
+                }
+              }
+            }
+          ],
+          "phase": "Running",
+          "podIP": "192.168.183.7",
+          "podIPs": [
+            {
+              "ip": "192.168.183.7"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-03T12:44:55Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "cni.projectcalico.org/containerID": "27bd7224a5f646d406c24f878f9f70949640fd434bc0d6851ec18b284eebc220",
+            "cni.projectcalico.org/podIP": "192.168.200.70/32",
+            "cni.projectcalico.org/podIPs": "192.168.200.70/32"
+          },
+          "creationTimestamp": "2026-10-03T12:43:02Z",
+          "generateName": "lab-pgcat-proxy-deployment-5584b97bbd-",
+          "labels": {
+            "app": "proxy",
+            "pod-template-hash": "5584b97bbd",
+            "release-name": "lab-pgcat"
+          },
+          "name": "lab-pgcat-proxy-deployment-5584b97bbd-ltpp5",
+          "namespace": "resilience",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "lab-pgcat-proxy-deployment-5584b97bbd",
+              "uid": "c8231e87-ecfd-4494-b82e-140c75c32b77"
+            }
+          ],
+          "resourceVersion": "2402",
+          "uid": "07a3d777-23aa-444e-b898-6760ab6f17cf"
+        },
+        "spec": {
+          "affinity": {
+            "podAntiAffinity": {
+              "requiredDuringSchedulingIgnoredDuringExecution": [
+                {
+                  "labelSelector": {
+                    "matchLabels": {
+                      "app": "proxy",
+                      "release-name": "lab-pgcat"
+                    }
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                }
+              ]
+            }
+          },
+          "containers": [
+            {
+              "image": "ghcr.io/postgresml/pgcat:v1.2.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "proxy",
+              "ports": [
+                {
+                  "containerPort": 5432,
+                  "name": "postgres",
+                  "protocol": "TCP"
+                },
+                {
+                  "containerPort": 9930,
+                  "name": "metrics",
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": "100m",
+                  "memory": "128Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/etc/pgcat",
+                  "name": "pgcat-data"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-fwh24",
+                  "readOnly": true
+                }
+              ]
+            },
+            {
+              "env": [
+                {
+                  "name": "PGCAT_CONFIG_SOURCE",
+                  "value": "/config/pgcat.yaml"
+                },
+                {
+                  "name": "PGCAT_CONFIG_DEST",
+                  "value": "/etc/pgcat/pgcat.toml"
+                }
+              ],
+              "image": "dbaas/pgcat-config-watcher:1.1.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "pgcat-config-watcher",
+              "readinessProbe": {
+                "exec": {
+                  "command": [
+                    "node",
+                    "pgcat-health.js"
+                  ]
+                },
+                "failureThreshold": 3,
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 8
+              },
+              "resources": {
+                "requests": {
+                  "cpu": "25m",
+                  "memory": "64Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/config",
+                  "name": "pgcat-config",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/etc/pgcat",
+                  "name": "pgcat-data"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-fwh24",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "initContainers": [
+            {
+              "command": [
+                "node",
+                "pgcat-config-watcher.js",
+                "--once"
+              ],
+              "image": "dbaas/pgcat-config-watcher:1.1.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "pgcat-config-init",
+              "resources": {
+                "requests": {
+                  "cpu": "25m",
+                  "memory": "64Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/config",
+                  "name": "pgcat-config",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/etc/pgcat",
+                  "name": "pgcat-data"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-fwh24",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "nodeName": "dbaas-phase5-bc4cacdf48-worker",
+          "nodeSelector": {
+            "dbaas-worker": "true"
+          },
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "terminationGracePeriodSeconds": 90,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "pgcat-config",
+              "secret": {
+                "defaultMode": 420,
+                "items": [
+                  {
+                    "key": "pgcat.yaml",
+                    "path": "pgcat.yaml"
+                  }
+                ],
+                "secretName": "lab-pgcat-pgcat-config"
+              }
+            },
+            {
+              "emptyDir": {},
+              "name": "pgcat-data"
+            },
+            {
+              "name": "kube-api-access-fwh24",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:43:03Z",
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:43:03Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:43:23Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:43:23Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:43:02Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://07938a05ea99a5a84e30545cbcd0e1ad37f90ea18c8dab93eb3eb851ba2d3f49",
+              "image": "docker.io/dbaas/pgcat-config-watcher:1.1.0",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:db1347963a2a6d43d592383f8a71c0f01be7e5cfd0fc15f617159abe9609dbf5",
+              "lastState": {},
+              "name": "pgcat-config-watcher",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:43:22Z"
+                }
+              }
+            },
+            {
+              "containerID": "containerd://55cb937e064bb7b985e45b4c7df010e5ec8db6fd330ddf5cf8091ea1025577c5",
+              "image": "ghcr.io/postgresml/pgcat:v1.2.0",
+              "imageID": "ghcr.io/postgresml/pgcat@sha256:627761f6dcbc8c0d17809445d7441518e2452c6d4fbdcc2a9986871d9e3e1176",
+              "lastState": {},
+              "name": "proxy",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:43:22Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "172.21.0.7",
+          "hostIPs": [
+            {
+              "ip": "172.21.0.7"
+            }
+          ],
+          "initContainerStatuses": [
+            {
+              "containerID": "containerd://e7d31b0be5b54b5d928a0d1dea6048604562b3882e623cd880b9ba189b51d52b",
+              "image": "docker.io/dbaas/pgcat-config-watcher:1.1.0",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:db1347963a2a6d43d592383f8a71c0f01be7e5cfd0fc15f617159abe9609dbf5",
+              "lastState": {},
+              "name": "pgcat-config-init",
+              "ready": true,
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://e7d31b0be5b54b5d928a0d1dea6048604562b3882e623cd880b9ba189b51d52b",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-03T12:43:03Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-03T12:43:03Z"
+                }
+              }
+            }
+          ],
+          "phase": "Running",
+          "podIP": "192.168.200.70",
+          "podIPs": [
+            {
+              "ip": "192.168.200.70"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-03T12:43:02Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "cni.projectcalico.org/containerID": "b3c864099220f1c75ab8a11a245ebf85e2e7061de9667547ea38e4a8aa9044fc",
+            "cni.projectcalico.org/podIP": "192.168.71.5/32",
+            "cni.projectcalico.org/podIPs": "192.168.71.5/32"
+          },
+          "creationTimestamp": "2026-10-03T12:41:09Z",
+          "deletionGracePeriodSeconds": 90,
+          "deletionTimestamp": "2026-10-03T12:46:27Z",
+          "generateName": "lab-pgcat-proxy-deployment-69cd79c4cc-",
+          "labels": {
+            "app": "proxy",
+            "pod-template-hash": "69cd79c4cc",
+            "release-name": "lab-pgcat"
+          },
+          "name": "lab-pgcat-proxy-deployment-69cd79c4cc-k7l7z",
+          "namespace": "resilience",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "lab-pgcat-proxy-deployment-69cd79c4cc",
+              "uid": "33cafacd-92de-4299-bde5-822c43917c43"
+            }
+          ],
+          "resourceVersion": "2649",
+          "uid": "505e13cf-2c8d-4532-8dd1-21a372859f9a"
+        },
+        "spec": {
+          "affinity": {
+            "podAntiAffinity": {
+              "preferredDuringSchedulingIgnoredDuringExecution": [
+                {
+                  "podAffinityTerm": {
+                    "labelSelector": {
+                      "matchLabels": {
+                        "app": "proxy",
+                        "release-name": "lab-pgcat"
+                      }
+                    },
+                    "topologyKey": "kubernetes.io/hostname"
+                  },
+                  "weight": 100
+                }
+              ]
+            }
+          },
+          "containers": [
+            {
+              "image": "ghcr.io/postgresml/pgcat:v1.2.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "proxy",
+              "ports": [
+                {
+                  "containerPort": 5432,
+                  "name": "postgres",
+                  "protocol": "TCP"
+                },
+                {
+                  "containerPort": 9930,
+                  "name": "metrics",
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": "100m",
+                  "memory": "128Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/etc/pgcat",
+                  "name": "pgcat-data"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-nqfxh",
+                  "readOnly": true
+                }
+              ]
+            },
+            {
+              "env": [
+                {
+                  "name": "PGCAT_CONFIG_SOURCE",
+                  "value": "/config/pgcat.yaml"
+                },
+                {
+                  "name": "PGCAT_CONFIG_DEST",
+                  "value": "/etc/pgcat/pgcat.toml"
+                }
+              ],
+              "image": "dbaas/pgcat-config-watcher:1.1.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "pgcat-config-watcher",
+              "readinessProbe": {
+                "exec": {
+                  "command": [
+                    "node",
+                    "pgcat-health.js"
+                  ]
+                },
+                "failureThreshold": 3,
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 8
+              },
+              "resources": {
+                "requests": {
+                  "cpu": "25m",
+                  "memory": "64Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/config",
+                  "name": "pgcat-config",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/etc/pgcat",
+                  "name": "pgcat-data"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-nqfxh",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "initContainers": [
+            {
+              "command": [
+                "node",
+                "pgcat-config-watcher.js",
+                "--once"
+              ],
+              "image": "dbaas/pgcat-config-watcher:1.1.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "pgcat-config-init",
+              "resources": {
+                "requests": {
+                  "cpu": "25m",
+                  "memory": "64Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/config",
+                  "name": "pgcat-config",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/etc/pgcat",
+                  "name": "pgcat-data"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-nqfxh",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "nodeName": "dbaas-phase5-bc4cacdf48-worker2",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "terminationGracePeriodSeconds": 90,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "pgcat-config",
+              "secret": {
+                "defaultMode": 420,
+                "items": [
+                  {
+                    "key": "pgcat.yaml",
+                    "path": "pgcat.yaml"
+                  }
+                ],
+                "secretName": "lab-pgcat-pgcat-config"
+              }
+            },
+            {
+              "emptyDir": {},
+              "name": "pgcat-data"
+            },
+            {
+              "name": "kube-api-access-nqfxh",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:41:12Z",
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:41:12Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:41:27Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:41:27Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:41:09Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://f0e57fd36d70c66438f2f4ef4fa7941f8c952754d8a0ee61f1652b9c88c880c4",
+              "image": "docker.io/dbaas/pgcat-config-watcher:1.1.0",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:db1347963a2a6d43d592383f8a71c0f01be7e5cfd0fc15f617159abe9609dbf5",
+              "lastState": {},
+              "name": "pgcat-config-watcher",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:41:26Z"
+                }
+              }
+            },
+            {
+              "containerID": "containerd://7d8dfe3e20f57dde8e30ef09369b95f4c48a5534c79f65f7909b872e1a545804",
+              "image": "ghcr.io/postgresml/pgcat:v1.2.0",
+              "imageID": "ghcr.io/postgresml/pgcat@sha256:627761f6dcbc8c0d17809445d7441518e2452c6d4fbdcc2a9986871d9e3e1176",
+              "lastState": {},
+              "name": "proxy",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:41:26Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "172.21.0.5",
+          "hostIPs": [
+            {
+              "ip": "172.21.0.5"
+            }
+          ],
+          "initContainerStatuses": [
+            {
+              "containerID": "containerd://9072977c2022bdeed175357d7c9e1f2d02e06703fd4c784ecddb924bc771ff70",
+              "image": "docker.io/dbaas/pgcat-config-watcher:1.1.0",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:db1347963a2a6d43d592383f8a71c0f01be7e5cfd0fc15f617159abe9609dbf5",
+              "lastState": {},
+              "name": "pgcat-config-init",
+              "ready": true,
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://9072977c2022bdeed175357d7c9e1f2d02e06703fd4c784ecddb924bc771ff70",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-03T12:41:11Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-03T12:41:11Z"
+                }
+              }
+            }
+          ],
+          "phase": "Running",
+          "podIP": "192.168.71.5",
+          "podIPs": [
+            {
+              "ip": "192.168.71.5"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-03T12:41:09Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "cni.projectcalico.org/containerID": "610fd4687fb471338967a83ab3913096dc9df0b90673981c0c54e13e0c1101ae",
+            "cni.projectcalico.org/podIP": "192.168.173.199/32",
+            "cni.projectcalico.org/podIPs": "192.168.173.199/32",
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Pod\",\"metadata\":{\"annotations\":{},\"labels\":{\"dbaas-client\":\"allowed\"},\"name\":\"lab-sql-client\",\"namespace\":\"resilience\"},\"spec\":{\"containers\":[{\"command\":[\"sleep\",\"infinity\"],\"image\":\"dbaas/pgcat-config-watcher:1.1.0\",\"name\":\"client\",\"resources\":{\"requests\":{\"cpu\":\"25m\",\"memory\":\"64Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/config\",\"name\":\"config\",\"readOnly\":true}]}],\"nodeSelector\":{\"kubernetes.io/hostname\":\"dbaas-phase5-bc4cacdf48-control-plane\"},\"restartPolicy\":\"Never\",\"tolerations\":[{\"effect\":\"NoSchedule\",\"key\":\"node-role.kubernetes.io/control-plane\",\"operator\":\"Exists\"}],\"volumes\":[{\"name\":\"config\",\"secret\":{\"secretName\":\"lab-pgcat-pgcat-config\"}}]}}\n"
+          },
+          "creationTimestamp": "2026-10-03T12:44:58Z",
+          "labels": {
+            "dbaas-client": "allowed"
+          },
+          "name": "lab-sql-client",
+          "namespace": "resilience",
+          "resourceVersion": "2685",
+          "uid": "e1149d72-acde-4e98-9aac-189474f90a38"
+        },
+        "spec": {
+          "containers": [
+            {
+              "command": [
+                "sleep",
+                "infinity"
+              ],
+              "image": "dbaas/pgcat-config-watcher:1.1.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "client",
+              "resources": {
+                "requests": {
+                  "cpu": "25m",
+                  "memory": "64Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/config",
+                  "name": "config",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-x5vlx",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "nodeName": "dbaas-phase5-bc4cacdf48-control-plane",
+          "nodeSelector": {
+            "kubernetes.io/hostname": "dbaas-phase5-bc4cacdf48-control-plane"
+          },
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Never",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoSchedule",
+              "key": "node-role.kubernetes.io/control-plane",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "config",
+              "secret": {
+                "defaultMode": 420,
+                "secretName": "lab-pgcat-pgcat-config"
+              }
+            },
+            {
+              "name": "kube-api-access-x5vlx",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:45:00Z",
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:44:58Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:45:00Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:45:00Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:44:58Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://0c8c3b3210f0ddc0793b0a6fb67642ae4f895f9e6acf4251d00031a82a97f35b",
+              "image": "docker.io/dbaas/pgcat-config-watcher:1.1.0",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:db1347963a2a6d43d592383f8a71c0f01be7e5cfd0fc15f617159abe9609dbf5",
+              "lastState": {},
+              "name": "client",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:44:59Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "172.21.0.8",
+          "hostIPs": [
+            {
+              "ip": "172.21.0.8"
+            }
+          ],
+          "phase": "Running",
+          "podIP": "192.168.173.199",
+          "podIPs": [
+            {
+              "ip": "192.168.173.199"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-03T12:44:58Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "cni.projectcalico.org/containerID": "521b53a155d099f026f4b322dc69e1e129dc446a15d5af515180c6567125b75e",
+            "cni.projectcalico.org/podIP": "192.168.173.200/32",
+            "cni.projectcalico.org/podIPs": "192.168.173.200/32",
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Pod\",\"metadata\":{\"annotations\":{},\"labels\":{\"dbaas-client\":\"allowed\",\"dbaas-monitor\":\"true\"},\"name\":\"persistent-client\",\"namespace\":\"resilience\"},\"spec\":{\"containers\":[{\"command\":[\"sleep\",\"infinity\"],\"env\":[{\"name\":\"PGPASSWORD\",\"valueFrom\":{\"secretKeyRef\":{\"key\":\"superuser-password\",\"name\":\"lab-patroni-postgres-credentials\"}}}],\"image\":\"dbaas/patroni:2.1.0\",\"name\":\"client\"}],\"nodeSelector\":{\"kubernetes.io/hostname\":\"dbaas-phase5-bc4cacdf48-control-plane\"},\"tolerations\":[{\"effect\":\"NoSchedule\",\"key\":\"node-role.kubernetes.io/control-plane\",\"operator\":\"Exists\"}]}}\n"
+          },
+          "creationTimestamp": "2026-10-03T12:45:00Z",
+          "labels": {
+            "dbaas-client": "allowed",
+            "dbaas-monitor": "true"
+          },
+          "name": "persistent-client",
+          "namespace": "resilience",
+          "resourceVersion": "2700",
+          "uid": "81f1eeda-05a4-436b-9ec3-828c5f1c0adc"
+        },
+        "spec": {
+          "containers": [
+            {
+              "command": [
+                "sleep",
+                "infinity"
+              ],
+              "env": [
+                {
+                  "name": "PGPASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "superuser-password",
+                      "name": "lab-patroni-postgres-credentials"
+                    }
+                  }
+                }
+              ],
+              "image": "dbaas/patroni:2.1.0",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "client",
+              "resources": {},
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-sk9f5",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "nodeName": "dbaas-phase5-bc4cacdf48-control-plane",
+          "nodeSelector": {
+            "kubernetes.io/hostname": "dbaas-phase5-bc4cacdf48-control-plane"
+          },
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoSchedule",
+              "key": "node-role.kubernetes.io/control-plane",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "kube-api-access-sk9f5",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:45:01Z",
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:45:00Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:45:01Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:45:01Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-03T12:45:00Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://3d73ccd6ddef5fb58b970d2ab56bcbcbf1d72fc2a0e237c1cfcb1953ef9f3d50",
+              "image": "docker.io/dbaas/patroni:2.1.0",
+              "imageID": "docker.io/library/import-2026-10-03@sha256:9585fc43c1c92148a64f8b678eb5d95a4fc63e3d50b17fe845ad78ec99e9421a",
+              "lastState": {},
+              "name": "client",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-03T12:45:00Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "172.21.0.8",
+          "hostIPs": [
+            {
+              "ip": "172.21.0.8"
+            }
+          ],
+          "phase": "Running",
+          "podIP": "192.168.173.200",
+          "podIPs": [
+            {
+              "ip": "192.168.173.200"
+            }
+          ],
+          "qosClass": "BestEffort",
+          "startTime": "2026-10-03T12:45:00Z"
+        }
+      }
+    ],
+    "kind": "List",
+    "metadata": {
+      "resourceVersion": ""
+    }
+  },
+  "pvcs": {
+    "apiVersion": "v1",
+    "items": [
+      {
+        "apiVersion": "v1",
+        "kind": "PersistentVolumeClaim",
+        "metadata": {
+          "annotations": {
+            "pv.kubernetes.io/bind-completed": "yes",
+            "pv.kubernetes.io/bound-by-controller": "yes",
+            "volume.alpha.kubernetes.io/storage-class": "standard",
+            "volume.beta.kubernetes.io/storage-provisioner": "rancher.io/local-path",
+            "volume.kubernetes.io/selected-node": "dbaas-phase5-bc4cacdf48-worker3",
+            "volume.kubernetes.io/storage-provisioner": "rancher.io/local-path"
+          },
+          "creationTimestamp": "2026-10-03T12:39:30Z",
+          "finalizers": [
+            "kubernetes.io/pvc-protection"
+          ],
+          "labels": {
+            "app": "minio",
+            "application": "minio",
+            "release-name": "lab-minio"
+          },
+          "name": "data-lab-minio-minio-statefulset-0",
+          "namespace": "resilience",
+          "resourceVersion": "1374",
+          "uid": "60496485-8396-400b-9a0b-18568aac2e59"
+        },
+        "spec": {
+          "accessModes": [
+            "ReadWriteOnce"
+          ],
+          "resources": {
+            "requests": {
+              "storage": "2Gi"
+            }
+          },
+          "storageClassName": "standard",
+          "volumeMode": "Filesystem",
+          "volumeName": "pvc-60496485-8396-400b-9a0b-18568aac2e59"
+        },
+        "status": {
+          "accessModes": [
+            "ReadWriteOnce"
+          ],
+          "capacity": {
+            "storage": "2Gi"
+          },
+          "phase": "Bound"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "PersistentVolumeClaim",
+        "metadata": {
+          "annotations": {
+            "pv.kubernetes.io/bind-completed": "yes",
+            "pv.kubernetes.io/bound-by-controller": "yes",
+            "volume.alpha.kubernetes.io/storage-class": "standard",
+            "volume.beta.kubernetes.io/storage-provisioner": "rancher.io/local-path",
+            "volume.kubernetes.io/selected-node": "dbaas-phase5-bc4cacdf48-worker",
+            "volume.kubernetes.io/storage-provisioner": "rancher.io/local-path"
+          },
+          "creationTimestamp": "2026-10-03T12:40:24Z",
+          "finalizers": [
+            "kubernetes.io/pvc-protection"
+          ],
+          "labels": {
+            "application": "patroni",
+            "cluster-name": "lab-patroni-patronimvp",
+            "release-name": "lab-patroni",
+            "spilo-cluster": "patronimvp"
+          },
+          "name": "pgdata-lab-patroni-patronimvp-0",
+          "namespace": "resilience",
+          "resourceVersion": "1596",
+          "uid": "7bb41b92-77f0-4e42-ad38-585cf747e431"
+        },
+        "spec": {
+          "accessModes": [
+            "ReadWriteOnce"
+          ],
+          "resources": {
+            "requests": {
+              "storage": "2Gi"
+            }
+          },
+          "storageClassName": "standard",
+          "volumeMode": "Filesystem",
+          "volumeName": "pvc-7bb41b92-77f0-4e42-ad38-585cf747e431"
+        },
+        "status": {
+          "accessModes": [
+            "ReadWriteOnce"
+          ],
+          "capacity": {
+            "storage": "2Gi"
+          },
+          "phase": "Bound"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "PersistentVolumeClaim",
+        "metadata": {
+          "annotations": {
+            "pv.kubernetes.io/bind-completed": "yes",
+            "pv.kubernetes.io/bound-by-controller": "yes",
+            "volume.alpha.kubernetes.io/storage-class": "standard",
+            "volume.beta.kubernetes.io/storage-provisioner": "rancher.io/local-path",
+            "volume.kubernetes.io/selected-node": "dbaas-phase5-bc4cacdf48-worker2",
+            "volume.kubernetes.io/storage-provisioner": "rancher.io/local-path"
+          },
+          "creationTimestamp": "2026-10-03T12:40:39Z",
+          "finalizers": [
+            "kubernetes.io/pvc-protection"
+          ],
+          "labels": {
+            "application": "patroni",
+            "cluster-name": "lab-patroni-patronimvp",
+            "release-name": "lab-patroni",
+            "spilo-cluster": "patronimvp"
+          },
+          "name": "pgdata-lab-patroni-patronimvp-1",
+          "namespace": "resilience",
+          "resourceVersion": "1690",
+          "uid": "8dc47fc6-f54a-42ec-9060-9f2ef814d337"
+        },
+        "spec": {
+          "accessModes": [
+            "ReadWriteOnce"
+          ],
+          "resources": {
+            "requests": {
+              "storage": "2Gi"
+            }
+          },
+          "storageClassName": "standard",
+          "volumeMode": "Filesystem",
+          "volumeName": "pvc-8dc47fc6-f54a-42ec-9060-9f2ef814d337"
+        },
+        "status": {
+          "accessModes": [
+            "ReadWriteOnce"
+          ],
+          "capacity": {
+            "storage": "2Gi"
+          },
+          "phase": "Bound"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "PersistentVolumeClaim",
+        "metadata": {
+          "annotations": {
+            "pv.kubernetes.io/bind-completed": "yes",
+            "pv.kubernetes.io/bound-by-controller": "yes",
+            "volume.alpha.kubernetes.io/storage-class": "standard",
+            "volume.beta.kubernetes.io/storage-provisioner": "rancher.io/local-path",
+            "volume.kubernetes.io/selected-node": "dbaas-phase5-bc4cacdf48-worker3",
+            "volume.kubernetes.io/storage-provisioner": "rancher.io/local-path"
+          },
+          "creationTimestamp": "2026-10-03T12:40:54Z",
+          "finalizers": [
+            "kubernetes.io/pvc-protection"
+          ],
+          "labels": {
+            "application": "patroni",
+            "cluster-name": "lab-patroni-patronimvp",
+            "release-name": "lab-patroni",
+            "spilo-cluster": "patronimvp"
+          },
+          "name": "pgdata-lab-patroni-patronimvp-2",
+          "namespace": "resilience",
+          "resourceVersion": "1773",
+          "uid": "5fb9687c-5b6f-4325-a541-2de910ddc57c"
+        },
+        "spec": {
+          "accessModes": [
+            "ReadWriteOnce"
+          ],
+          "resources": {
+            "requests": {
+              "storage": "2Gi"
+            }
+          },
+          "storageClassName": "standard",
+          "volumeMode": "Filesystem",
+          "volumeName": "pvc-5fb9687c-5b6f-4325-a541-2de910ddc57c"
+        },
+        "status": {
+          "accessModes": [
+            "ReadWriteOnce"
+          ],
+          "capacity": {
+            "storage": "2Gi"
+          },
+          "phase": "Bound"
+        }
+      }
+    ],
+    "kind": "List",
+    "metadata": {
+      "resourceVersion": ""
+    }
+  },
+  "timestamp": "2026-10-03T12:45:01.306232+00:00"
+}

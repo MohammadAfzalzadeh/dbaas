@@ -1,0 +1,164 @@
+{
+  "clients": [
+    {
+      "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/persistent-node-loss-1.json",
+      "acknowledged": 5549,
+      "unique_acknowledged": 5549,
+      "reported": 5549,
+      "failed": 8,
+      "missing_ids": []
+    },
+    {
+      "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/persistent-node-loss-2.json",
+      "acknowledged": 5327,
+      "unique_acknowledged": 5327,
+      "reported": 5327,
+      "failed": 8,
+      "missing_ids": []
+    },
+    {
+      "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/persistent-node-loss-3.json",
+      "acknowledged": 5113,
+      "unique_acknowledged": 5113,
+      "reported": 5113,
+      "failed": 9,
+      "missing_ids": []
+    },
+    {
+      "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/abrupt-recovery/attempt-3/persistent-node-loss-4.json",
+      "acknowledged": 4635,
+      "unique_acknowledged": 4635,
+      "reported": 4635,
+      "failed": 9,
+      "missing_ids": []
+    }
+  ],
+  "acknowledged_total": 20624,
+  "failed_total": 34,
+  "backup_baseline_tps": 1231.639869,
+  "backup_during_tps": 1152.865316,
+  "relative_percent_change": -6.3959080070994485,
+  "backup_pairs": 1,
+  "raw_matrix_checks": [
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-1-direct.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-1-pgcat.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-10-direct.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-10-pgcat.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-25-direct.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-25-pgcat.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-50-direct.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/read-heavy-50-pgcat.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-1-direct.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-1-pgcat.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-10-direct.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-10-pgcat.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-25-direct.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-25-pgcat.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-50-direct.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/write-heavy-50-pgcat.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-1-direct.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-1-pgcat.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-10-direct.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-10-pgcat.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-25-direct.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-25-pgcat.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-50-direct.txt",
+      "tps_matches": true,
+      "aborted": false
+    },
+    {
+      "path": "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/mixed-50-pgcat.txt",
+      "tps_matches": true,
+      "aborted": false
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "backups": [
+    {
+      "backup_name": "base_000000010000000000000004",
+      "compressed_size": 2792646,
+      "data_dir": "/home/postgres/pgdata/pgroot/data",
+      "date_fmt": "%Y-%m-%dT%H:%M:%S.%fZ",
+      "finish_lsn": 67109120,
+      "finish_time": "2026-10-03T09:43:18.910208Z",
+      "hostname": "smoke-patroni-patronimvp-0",
+      "is_permanent": false,
+      "pg_version": 160006,
+      "start_lsn": 67108904,
+      "start_time": "2026-10-03T09:43:18.620918Z",
+      "storage_name": "default",
+      "system_identifier": 7692374504378843168,
+      "time": "2026-10-03T09:43:18.941Z",
+      "uncompressed_size": 23490124,
+      "wal_file_name": "000000010000000000000004"
+    }
+  ],
+  "completed": "2026-10-03T09:43:21.165206+00:00",
+  "duration_seconds": 3.21,
+  "job": "smoke-backup-baseline",
+  "started": "2026-10-03T09:43:17.955693+00:00"
+}

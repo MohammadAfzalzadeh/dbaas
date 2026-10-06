@@ -1,0 +1,1154 @@
+[
+  {
+    "timestamp": "2026-10-03T14:18:01.258472+00:00",
+    "profile": "read-heavy",
+    "concurrency": 1,
+    "duration_seconds": 10,
+    "wall_seconds": 10.116,
+    "host": "patronimvp-master-lab-patroni",
+    "tps": 6136.005776,
+    "average_latency_ms": 0.163,
+    "failed_transactions": 0,
+    "transactions": 61345,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "direct",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:18:12.045427+00:00",
+    "profile": "read-heavy",
+    "concurrency": 1,
+    "duration_seconds": 10,
+    "wall_seconds": 10.111,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 3848.446685,
+    "average_latency_ms": 0.26,
+    "failed_transactions": 0,
+    "transactions": 38482,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "pgcat",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:18:22.836243+00:00",
+    "profile": "read-heavy",
+    "concurrency": 10,
+    "duration_seconds": 10,
+    "wall_seconds": 10.119,
+    "host": "patronimvp-master-lab-patroni",
+    "tps": 29301.259493,
+    "average_latency_ms": 0.341,
+    "failed_transactions": 0,
+    "transactions": 292835,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "direct",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:18:34.072674+00:00",
+    "profile": "read-heavy",
+    "concurrency": 10,
+    "duration_seconds": 10,
+    "wall_seconds": 10.113,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 14627.380404,
+    "average_latency_ms": 0.684,
+    "failed_transactions": 0,
+    "transactions": 146388,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "pgcat",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:18:45.058001+00:00",
+    "profile": "read-heavy",
+    "concurrency": 25,
+    "duration_seconds": 10,
+    "wall_seconds": 10.117,
+    "host": "patronimvp-master-lab-patroni",
+    "tps": 27682.535157,
+    "average_latency_ms": 0.903,
+    "failed_transactions": 0,
+    "transactions": 276540,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "direct",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:18:56.072862+00:00",
+    "profile": "read-heavy",
+    "concurrency": 25,
+    "duration_seconds": 10,
+    "wall_seconds": 10.212,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 17197.353161,
+    "average_latency_ms": 1.454,
+    "failed_transactions": 0,
+    "transactions": 171932,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "pgcat",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:19:06.998789+00:00",
+    "profile": "read-heavy",
+    "concurrency": 50,
+    "duration_seconds": 10,
+    "wall_seconds": 10.13,
+    "host": "patronimvp-master-lab-patroni",
+    "tps": 35246.177879,
+    "average_latency_ms": 1.419,
+    "failed_transactions": 0,
+    "transactions": 352031,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "direct",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:19:17.750566+00:00",
+    "profile": "read-heavy",
+    "concurrency": 50,
+    "duration_seconds": 10,
+    "wall_seconds": 10.147,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 19333.874152,
+    "average_latency_ms": 2.586,
+    "failed_transactions": 0,
+    "transactions": 193499,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "pgcat",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:19:28.458101+00:00",
+    "profile": "write-heavy",
+    "concurrency": 1,
+    "duration_seconds": 10,
+    "wall_seconds": 10.113,
+    "host": "patronimvp-master-lab-patroni",
+    "tps": 1093.536641,
+    "average_latency_ms": 0.914,
+    "failed_transactions": 0,
+    "transactions": 10933,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "direct",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:19:39.147667+00:00",
+    "profile": "write-heavy",
+    "concurrency": 1,
+    "duration_seconds": 10,
+    "wall_seconds": 10.116,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 820.229118,
+    "average_latency_ms": 1.219,
+    "failed_transactions": 0,
+    "transactions": 8202,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "pgcat",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:19:50.060120+00:00",
+    "profile": "write-heavy",
+    "concurrency": 10,
+    "duration_seconds": 10,
+    "wall_seconds": 10.193,
+    "host": "patronimvp-master-lab-patroni",
+    "tps": 5289.425052,
+    "average_latency_ms": 1.891,
+    "failed_transactions": 0,
+    "transactions": 52865,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "direct",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:20:00.616503+00:00",
+    "profile": "write-heavy",
+    "concurrency": 10,
+    "duration_seconds": 10,
+    "wall_seconds": 10.116,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 3859.470708,
+    "average_latency_ms": 2.591,
+    "failed_transactions": 0,
+    "transactions": 38596,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "pgcat",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:20:11.318024+00:00",
+    "profile": "write-heavy",
+    "concurrency": 25,
+    "duration_seconds": 10,
+    "wall_seconds": 10.116,
+    "host": "patronimvp-master-lab-patroni",
+    "tps": 8164.525998,
+    "average_latency_ms": 3.062,
+    "failed_transactions": 0,
+    "transactions": 81574,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "direct",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:20:21.986344+00:00",
+    "profile": "write-heavy",
+    "concurrency": 25,
+    "duration_seconds": 10,
+    "wall_seconds": 10.116,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 5008.59704,
+    "average_latency_ms": 4.991,
+    "failed_transactions": 0,
+    "transactions": 50077,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "pgcat",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:20:32.740422+00:00",
+    "profile": "write-heavy",
+    "concurrency": 50,
+    "duration_seconds": 10,
+    "wall_seconds": 10.138,
+    "host": "patronimvp-master-lab-patroni",
+    "tps": 8847.526386,
+    "average_latency_ms": 5.651,
+    "failed_transactions": 0,
+    "transactions": 88314,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "direct",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:20:43.451482+00:00",
+    "profile": "write-heavy",
+    "concurrency": 50,
+    "duration_seconds": 10,
+    "wall_seconds": 10.128,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 5892.59131,
+    "average_latency_ms": 8.485,
+    "failed_transactions": 0,
+    "transactions": 58959,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "pgcat",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:20:54.060742+00:00",
+    "profile": "mixed",
+    "concurrency": 1,
+    "duration_seconds": 10,
+    "wall_seconds": 10.131,
+    "host": "patronimvp-master-lab-patroni",
+    "tps": 954.398897,
+    "average_latency_ms": 1.048,
+    "failed_transactions": 0,
+    "transactions": 9542,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "direct",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:21:04.590404+00:00",
+    "profile": "mixed",
+    "concurrency": 1,
+    "duration_seconds": 10,
+    "wall_seconds": 10.124,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 593.853858,
+    "average_latency_ms": 1.684,
+    "failed_transactions": 0,
+    "transactions": 5939,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "pgcat",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:21:15.252052+00:00",
+    "profile": "mixed",
+    "concurrency": 10,
+    "duration_seconds": 10,
+    "wall_seconds": 10.119,
+    "host": "patronimvp-master-lab-patroni",
+    "tps": 1401.013967,
+    "average_latency_ms": 7.138,
+    "failed_transactions": 0,
+    "transactions": 14007,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "direct",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:21:25.868144+00:00",
+    "profile": "mixed",
+    "concurrency": 10,
+    "duration_seconds": 10,
+    "wall_seconds": 10.117,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 1158.074871,
+    "average_latency_ms": 8.635,
+    "failed_transactions": 0,
+    "transactions": 11585,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "pgcat",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:21:36.517994+00:00",
+    "profile": "mixed",
+    "concurrency": 25,
+    "duration_seconds": 10,
+    "wall_seconds": 10.175,
+    "host": "patronimvp-master-lab-patroni",
+    "tps": 1309.131427,
+    "average_latency_ms": 19.097,
+    "failed_transactions": 0,
+    "transactions": 13098,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "direct",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:21:47.183352+00:00",
+    "profile": "mixed",
+    "concurrency": 25,
+    "duration_seconds": 10,
+    "wall_seconds": 10.135,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 1130.95096,
+    "average_latency_ms": 22.105,
+    "failed_transactions": 0,
+    "transactions": 11326,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "pgcat",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:21:57.688203+00:00",
+    "profile": "mixed",
+    "concurrency": 50,
+    "duration_seconds": 10,
+    "wall_seconds": 10.147,
+    "host": "patronimvp-master-lab-patroni",
+    "tps": 1264.074019,
+    "average_latency_ms": 39.555,
+    "failed_transactions": 0,
+    "transactions": 12646,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "direct",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  },
+  {
+    "timestamp": "2026-10-03T14:22:08.264713+00:00",
+    "profile": "mixed",
+    "concurrency": 50,
+    "duration_seconds": 10,
+    "wall_seconds": 10.166,
+    "host": "lab-pgcat-proxy-service",
+    "tps": 1141.853333,
+    "average_latency_ms": 43.788,
+    "failed_transactions": 0,
+    "transactions": 11448,
+    "reconnects": null,
+    "p95_ms": null,
+    "p99_ms": null,
+    "route": "pgcat",
+    "environment": {
+      "dirty": true,
+      "docker": {
+        "cpus": 12,
+        "memory_bytes": 32881127424
+      },
+      "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+      "kubernetes": "v1.30.0",
+      "node_topology": "1 control-plane + 3 workers",
+      "patroni": "4.0.4",
+      "pgcat": "1.2.0",
+      "postgresql": "16.6",
+      "storage": "kind local-path RWO; node-affine",
+      "timestamp": "2026-10-03T12:45:01.804526+00:00",
+      "current_proxy_images": [
+        {
+          "name": "proxy",
+          "image": "ghcr.io/postgresml/pgcat:v1.2.0"
+        },
+        {
+          "name": "pgcat-config-watcher",
+          "image": "dbaas/pgcat-config-watcher:1.1.1"
+        }
+      ],
+      "max_connections": 200,
+      "pgcat_pool_size_per_proxy": 60,
+      "pgcat_pool_mode": "transaction",
+      "cni": "Calico v3.28.2"
+    },
+    "dataset_size_bytes": 15843328,
+    "scale_factor": 1,
+    "replicates": 1
+  }
+]

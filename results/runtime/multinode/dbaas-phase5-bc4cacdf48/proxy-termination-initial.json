@@ -1,0 +1,24 @@
+{
+  "containers": [
+    {
+      "name": "pgcat-config-watcher",
+      "ready": true,
+      "state": {
+        "running": {
+          "startedAt": "2026-10-03T12:41:26Z"
+        }
+      }
+    },
+    {
+      "name": "proxy",
+      "ready": true,
+      "state": {
+        "running": {
+          "startedAt": "2026-10-03T12:41:26Z"
+        }
+      }
+    }
+  ],
+  "deletion": "2026-10-03T12:46:27Z",
+  "name": "lab-pgcat-proxy-deployment-69cd79c4cc-k7l7z"
+}

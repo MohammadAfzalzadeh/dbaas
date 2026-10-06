@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "phase": "baseline",
+    "value": 100
+  },
+  {
+    "id": 3,
+    "phase": "after-recovery",
+    "value": 300
+  },
+  {
+    "id": 10,
+    "phase": "primary_failover",
+    "value": 200
+  },
+  {
+    "id": 11,
+    "phase": "replica_failure",
+    "value": 200
+  },
+  {
+    "id": 12,
+    "phase": "pgcat_restart",
+    "value": 200
+  },
+  {
+    "id": 100,
+    "phase": "backup-write",
+    "value": 400
+  },
+  {
+    "id": 101,
+    "phase": "backup-write",
+    "value": 400
+  },
+  {
+    "id": 102,
+    "phase": "backup-write",
+    "value": 400
+  },
+  {
+    "id": 103,
+    "phase": "backup-write",
+    "value": 400
+  },
+  {
+    "id": 104,
+    "phase": "backup-write",
+    "value": 400
+  },
+  {
+    "id": 105,
+    "phase": "backup-write",
+    "value": 400
+  },
+  {
+    "id": 106,
+    "phase": "backup-write",
+    "value": 400
+  },
+  {
+    "id": 107,
+    "phase": "backup-write",
+    "value": 400
+  },
+  {
+    "id": 108,
+    "phase": "backup-write",
+    "value": 400
+  },
+  {
+    "id": 109,
+    "phase": "backup-write",
+    "value": 400
+  }
+]

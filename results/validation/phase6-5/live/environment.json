@@ -1,0 +1,10 @@
+{
+  "cluster": "dbaas-review-ab5e7581",
+  "uid": "878f6099-6327-48d6-9f79-d87eacc221a0",
+  "nodes": 3,
+  "physical_hosts": 1,
+  "cni": "Calico v3.28.2",
+  "credential_creation": "fresh generated outside repository",
+  "inotify_before": 128,
+  "inotify_temporary": 1024
+}

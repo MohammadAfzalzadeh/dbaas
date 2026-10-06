@@ -1,0 +1,67 @@
+[
+  {
+    "component": "PostgreSQL process/WAL/member state",
+    "status": "AVAILABLE",
+    "evidence": "Patroni metrics; not SQL exporter statistics"
+  },
+  {
+    "component": "PostgreSQL connections/locks/database size",
+    "status": "NOT IMPLEMENTED",
+    "evidence": "No SQL exporter deployed"
+  },
+  {
+    "component": "Patroni roles/streaming/DCS",
+    "status": "AVAILABLE",
+    "evidence": "patroni_primary, patroni_postgres_streaming, patroni_dcs_last_seen"
+  },
+  {
+    "component": "PgCat transactions/queries",
+    "status": "AVAILABLE",
+    "evidence": "pgcat_stats_total_xact_count, pgcat_stats_total_query_count"
+  },
+  {
+    "component": "MinIO requests/health",
+    "status": "AVAILABLE",
+    "evidence": "minio_api_requests_total and minio_cluster_erasure_set_health"
+  },
+  {
+    "component": "Backup Job success/failure",
+    "status": "AVAILABLE",
+    "evidence": "kube_job_status_succeeded and kube_job_status_failed"
+  },
+  {
+    "component": "Backup age/recoverability",
+    "status": "NOT IMPLEMENTED",
+    "evidence": "Job outcomes are not a backup-age or restore proof gauge"
+  },
+  {
+    "component": "FastAPI deployment readiness",
+    "status": "AVAILABLE",
+    "evidence": "kube_deployment_status_replicas_available"
+  },
+  {
+    "component": "FastAPI operations/HTTP latency",
+    "status": "NOT IMPLEMENTED",
+    "evidence": "No application metrics endpoint"
+  },
+  {
+    "component": "Kubernetes workloads/kubelet",
+    "status": "AVAILABLE",
+    "evidence": "Kube-state-metrics and kubelet/cAdvisor targets"
+  },
+  {
+    "component": "Kind scheduler/controller/etcd/kube-proxy",
+    "status": "BROKEN",
+    "evidence": "Target connections refused; see prometheus-targets.json"
+  },
+  {
+    "component": "PVC byte usage",
+    "status": "MISSING",
+    "evidence": "No observed kubelet_volume_stats series"
+  },
+  {
+    "component": "Loki/Fluent Bit delivery",
+    "status": "NOT IMPLEMENTED",
+    "evidence": "No logging stack deployed in this run"
+  }
+]

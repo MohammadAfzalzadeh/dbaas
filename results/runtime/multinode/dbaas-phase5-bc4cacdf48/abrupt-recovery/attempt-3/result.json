@@ -1,0 +1,19 @@
+{
+  "acknowledged_before_failure": 4768,
+  "acknowledged_write_check": "LIVE VALIDATED",
+  "automatic_recovery": "LIVE VALIDATED",
+  "automatic_reinitialize": false,
+  "clients": 4,
+  "completed": "2026-10-03T14:15:49.827339+00:00",
+  "configured_interval_seconds": 0.01,
+  "initial": "LIVE VALIDATED",
+  "injected": "2026-10-03T14:14:34.911158+00:00",
+  "new_primary": "lab-patroni-patronimvp-2",
+  "node": "dbaas-phase5-bc4cacdf48-worker",
+  "node_return_seconds": 25.02883814496454,
+  "node_returned": "2026-10-03T14:14:59.827417+00:00",
+  "old_primary": "lab-patroni-patronimvp-0",
+  "promotion_observed_seconds": 24.377800142974593,
+  "sql_probe_seconds": 24.55394112295471,
+  "stable_seconds": 57.17840894695837
+}

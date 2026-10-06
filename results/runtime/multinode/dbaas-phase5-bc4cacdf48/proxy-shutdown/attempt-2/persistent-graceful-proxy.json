@@ -1,0 +1,755 @@
+{
+  "acknowledged_transactions": 92,
+  "failed_transactions": 1,
+  "interval_seconds": 0.1,
+  "longest_success_gap_seconds": 0.203776,
+  "missing_acknowledged_ids": [],
+  "reconnects": 1,
+  "samples": [
+    {
+      "connections": 1,
+      "elapsed_seconds": 2.8e-05,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-0",
+      "latency_seconds": 0.011883,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:55.371592+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.112013,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-1",
+      "latency_seconds": 0.000951,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:55.483577+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.2131,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-2",
+      "latency_seconds": 0.001026,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:55.584664+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.314259,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-3",
+      "latency_seconds": 0.001009,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:55.685823+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.4154,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-4",
+      "latency_seconds": 0.001009,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:55.786965+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.516537,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-5",
+      "latency_seconds": 0.001239,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:55.888102+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.617906,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-6",
+      "latency_seconds": 0.00117,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:55.989471+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.719217,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-7",
+      "latency_seconds": 0.001028,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:56.090781+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.820389,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-8",
+      "latency_seconds": 0.00119,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:56.191954+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 0.921718,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-9",
+      "latency_seconds": 0.001046,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:56.293283+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.022891,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-10",
+      "latency_seconds": 0.001152,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:56.394455+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.12418,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-11",
+      "latency_seconds": 0.001099,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:56.495745+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.225416,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-12",
+      "latency_seconds": 0.001097,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:56.596981+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.326649,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-13",
+      "latency_seconds": 0.000972,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:56.698214+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.42772,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-14",
+      "latency_seconds": 0.001091,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:56.799285+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.528946,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-15",
+      "latency_seconds": 0.001003,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:56.900510+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.630083,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-16",
+      "latency_seconds": 0.001089,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:57.001648+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.73131,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-17",
+      "latency_seconds": 0.001112,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:57.102875+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.832557,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-18",
+      "latency_seconds": 0.001108,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:57.204122+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 1.9338,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-19",
+      "latency_seconds": 0.001067,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:57.305364+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 2.034994,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-20",
+      "latency_seconds": 0.001106,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:57.406559+00:00"
+    },
+    {
+      "connections": 1,
+      "elapsed_seconds": 2.136233,
+      "error": "OperationalError",
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-21",
+      "latency_seconds": 0.000181,
+      "success": false,
+      "timestamp": "2026-10-03T13:52:57.507798+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.236674,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-22",
+      "latency_seconds": 0.003202,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:57.608535+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.340043,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-23",
+      "latency_seconds": 0.001104,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:57.711607+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.441279,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-24",
+      "latency_seconds": 0.00108,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:57.812843+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.542485,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-25",
+      "latency_seconds": 0.001095,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:57.914049+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.643713,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-26",
+      "latency_seconds": 0.001113,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:58.015278+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.744959,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-27",
+      "latency_seconds": 0.001099,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:58.116523+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.846182,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-28",
+      "latency_seconds": 0.001198,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:58.217746+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 2.94751,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-29",
+      "latency_seconds": 0.00154,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:58.319075+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.049187,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-30",
+      "latency_seconds": 0.001222,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:58.420752+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.150554,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-31",
+      "latency_seconds": 0.001316,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:58.522119+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.25201,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-32",
+      "latency_seconds": 0.001071,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:58.623575+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.353208,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-33",
+      "latency_seconds": 0.001143,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:58.724772+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.454491,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-34",
+      "latency_seconds": 0.001137,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:58.826055+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.555726,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-35",
+      "latency_seconds": 0.001126,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:58.927290+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.656983,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-36",
+      "latency_seconds": 0.001167,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:59.028547+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.758273,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-37",
+      "latency_seconds": 0.00133,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:59.129837+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.859724,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-38",
+      "latency_seconds": 0.001207,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:59.231289+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 3.961064,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-39",
+      "latency_seconds": 0.00113,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:59.332629+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.062336,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-40",
+      "latency_seconds": 0.001084,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:59.433900+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.163556,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-41",
+      "latency_seconds": 0.001159,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:59.535122+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.264853,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-42",
+      "latency_seconds": 0.001115,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:59.636418+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.366095,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-43",
+      "latency_seconds": 0.001151,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:59.737659+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.467398,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-44",
+      "latency_seconds": 0.001189,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:59.838962+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.568723,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-45",
+      "latency_seconds": 0.001161,
+      "success": true,
+      "timestamp": "2026-10-03T13:52:59.940287+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.669993,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-46",
+      "latency_seconds": 0.0011,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:00.041557+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.77122,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-47",
+      "latency_seconds": 0.001042,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:00.142785+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.872388,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-48",
+      "latency_seconds": 0.00135,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:00.243952+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 4.97387,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-49",
+      "latency_seconds": 0.001161,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:00.345435+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.075141,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-50",
+      "latency_seconds": 0.0012,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:00.446706+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.176438,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-51",
+      "latency_seconds": 0.001179,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:00.548003+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.277716,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-52",
+      "latency_seconds": 0.001172,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:00.649281+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.37901,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-53",
+      "latency_seconds": 0.001111,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:00.750574+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.480253,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-54",
+      "latency_seconds": 0.001116,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:00.851817+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.581508,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-55",
+      "latency_seconds": 0.001018,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:00.953073+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.682647,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-56",
+      "latency_seconds": 0.001119,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:01.054212+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.783888,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-57",
+      "latency_seconds": 0.001174,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:01.155452+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.885189,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-58",
+      "latency_seconds": 0.001155,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:01.256753+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 5.986467,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-59",
+      "latency_seconds": 0.001184,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:01.358031+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.087782,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-60",
+      "latency_seconds": 0.001137,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:01.459347+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.189048,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-61",
+      "latency_seconds": 0.001122,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:01.560613+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.29028,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-62",
+      "latency_seconds": 0.001086,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:01.661845+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.391489,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-63",
+      "latency_seconds": 0.001193,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:01.763053+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.492808,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-64",
+      "latency_seconds": 0.001204,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:01.864372+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.594138,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-65",
+      "latency_seconds": 0.001193,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:01.965701+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.695458,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-66",
+      "latency_seconds": 0.001202,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:02.067022+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.796796,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-67",
+      "latency_seconds": 0.001188,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:02.168360+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.89811,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-68",
+      "latency_seconds": 0.00125,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:02.269675+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 6.999487,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-69",
+      "latency_seconds": 0.001142,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:02.371051+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.100731,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-70",
+      "latency_seconds": 0.001265,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:02.472296+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.202134,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-71",
+      "latency_seconds": 0.001227,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:02.573698+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.303483,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-72",
+      "latency_seconds": 0.001192,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:02.675047+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.404814,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-73",
+      "latency_seconds": 0.001196,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:02.776378+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.506136,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-74",
+      "latency_seconds": 0.001217,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:02.877700+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.607503,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-75",
+      "latency_seconds": 0.001149,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:02.979068+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.708783,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-76",
+      "latency_seconds": 0.001122,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:03.080347+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.81003,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-77",
+      "latency_seconds": 0.001147,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:03.181594+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 7.911302,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-78",
+      "latency_seconds": 0.00127,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:03.282867+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.012735,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-79",
+      "latency_seconds": 0.001207,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:03.384299+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.114069,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-80",
+      "latency_seconds": 0.001046,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:03.485634+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.215239,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-81",
+      "latency_seconds": 0.001043,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:03.586803+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.316408,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-82",
+      "latency_seconds": 0.001196,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:03.687972+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.417714,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-83",
+      "latency_seconds": 0.001115,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:03.789279+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.518965,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-84",
+      "latency_seconds": 0.001219,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:03.890529+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.620318,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-85",
+      "latency_seconds": 0.001234,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:03.991883+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.721715,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-86",
+      "latency_seconds": 0.001238,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:04.093279+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.823077,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-87",
+      "latency_seconds": 0.001145,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:04.194641+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 8.924351,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-88",
+      "latency_seconds": 0.001212,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:04.295915+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 9.025706,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-89",
+      "latency_seconds": 0.001058,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:04.397270+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 9.126896,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-90",
+      "latency_seconds": 0.001185,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:04.498460+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 9.228207,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-91",
+      "latency_seconds": 0.00102,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:04.599772+00:00"
+    },
+    {
+      "connections": 2,
+      "elapsed_seconds": 9.329376,
+      "id": "00fbe656581b45c2a7a1c1e8006e7a9a-92",
+      "latency_seconds": 0.001357,
+      "success": true,
+      "timestamp": "2026-10-03T13:53:04.700939+00:00"
+    }
+  ]
+}

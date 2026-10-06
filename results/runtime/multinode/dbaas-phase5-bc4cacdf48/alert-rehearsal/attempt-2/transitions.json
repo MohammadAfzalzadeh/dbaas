@@ -1,0 +1,4888 @@
+[
+  {
+    "expected": "inactive",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No observed primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 7.3137e-05,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:03:40.4556588Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary) == 0",
+        "state": "inactive",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000161569,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:03:40.455494766Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:03:40.626449+00:00"
+  },
+  {
+    "expected": "pending",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No observed primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 7.479e-05,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:03:50.4556371Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary) == 0",
+        "state": "inactive",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000132856,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:03:50.455502713Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:03:53.051376+00:00"
+  },
+  {
+    "expected": "pending",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No observed primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 6.7262e-05,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:03:55.456601186Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary) == 0",
+        "state": "inactive",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000123561,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:03:55.45647568Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:03:57.173823+00:00"
+  },
+  {
+    "expected": "pending",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000105352,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:00.455268375Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "inactive",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000160332,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:00.455106443Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:01.294699+00:00"
+  },
+  {
+    "expected": "pending",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000105352,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:00.455268375Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "inactive",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000160332,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:00.455106443Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:05.407880+00:00"
+  },
+  {
+    "expected": "pending",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000196738,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:05.455527333Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000256218,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:05.455268536Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:09.523329+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000196738,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:05.455527333Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000256218,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:05.455268536Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:09.646838+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000187577,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:10.455663059Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000237042,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:10.455423739Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:13.759413+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000248528,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:15.456339036Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000320128,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:15.456016324Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:17.873271+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000191273,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:20.456231747Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000229179,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:20.45600006Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:21.984131+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000173177,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:25.455559562Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000226782,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:25.455330432Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:26.104756+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000173177,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:25.455559562Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000226782,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:25.455330432Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:30.217618+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00017138,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:30.455766343Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000274465,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:30.455489157Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:34.335531+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000197341,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:35.455630079Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000223338,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:35.455404325Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:38.458280+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000183931,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:40.455736861Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000246331,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:40.45548512Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:42.575411+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000252302,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:45.455970403Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000310405,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:45.455655034Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:46.690056+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000197603,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:50.455765354Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000294738,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:50.455467531Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:50.803262+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000197603,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:50.455765354Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000294738,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:50.455467531Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:54.917902+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000158195,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:55.455558301Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000224528,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:04:55.455331448Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:04:59.036773+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00015595,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:00.456008824Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000216281,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:00.455790226Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:03.148221+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000162791,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:05.456379929Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000240298,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:05.456136986Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:07.263423+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000163166,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:10.455647709Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00021991,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:10.455425447Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:11.378657+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000245581,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:15.456451824Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00030704,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:15.456141996Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:15.492836+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000245581,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:15.456451824Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00030704,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:15.456141996Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:19.608406+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000157131,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:20.45555731Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000239001,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:20.455316113Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:23.734166+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00022159,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:25.455767503Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000277714,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:25.45548692Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:27.851743+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000156936,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:30.4556865Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000223076,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:30.455461107Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:31.973716+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00017493,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:35.455715691Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000218942,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:35.455494396Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:36.096383+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00017493,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:35.455715691Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000218942,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:35.455494396Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:40.206863+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000158689,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:40.455789686Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000216962,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:40.455570654Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:44.324376+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000161054,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:45.455733308Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000230405,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:45.455500678Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:48.447403+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000174659,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:50.45564033Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000221313,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:50.455416793Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:52.568530+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000219365,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:55.455831893Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000288741,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:05:55.455540682Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:05:56.694291+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000150962,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:00.455730778Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000224973,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:00.455502112Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:00.806975+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000150962,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:00.455730778Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "pending",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "pending",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000224973,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:00.455502112Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:04.921378+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000173096,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:05.456380774Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "firing",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000262806,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:05.456115575Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "firing",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:09.034423+00:00"
+  },
+  {
+    "expected": "inactive",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000173096,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:05.456380774Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "firing",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000262806,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:05.456115575Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "firing",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:09.292395+00:00"
+  },
+  {
+    "expected": "inactive",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000153836,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:10.455936768Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "firing",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00022851,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:10.455705931Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "firing",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:13.415234+00:00"
+  },
+  {
+    "expected": "inactive",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000158197,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:15.455756098Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "firing",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000221942,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:15.455531927Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "firing",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:17.530111+00:00"
+  },
+  {
+    "expected": "inactive",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000173347,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:20.455967621Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "firing",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000234153,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:20.455730958Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "firing",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:21.647474+00:00"
+  },
+  {
+    "expected": "inactive",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000151395,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:25.455681766Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "firing",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000222448,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:25.455456897Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "firing",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:25.770028+00:00"
+  },
+  {
+    "expected": "inactive",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No running primary among scraped members"
+            },
+            "labels": {
+              "alertname": "PatroniNoLeader",
+              "scope": "isolated-48556a-patronimvp",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000151395,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:25.455681766Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "firing",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:04:05.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "labels": {
+              "alertname": "PostgreSQLProcessUnavailable",
+              "container": "patronimvp",
+              "endpoint": "patroni",
+              "instance": "192.168.71.15:8008",
+              "job": "pgmetrics-isolated-48556a",
+              "name": "isolated-48556a-patronimvp-0",
+              "namespace": "resilience",
+              "pod": "isolated-48556a-patronimvp-0",
+              "scope": "isolated-48556a-patronimvp",
+              "service": "pgmetrics-isolated-48556a",
+              "severity": "critical"
+            },
+            "state": "firing",
+            "value": "0e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000222448,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:25.455456897Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "firing",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:29.893050+00:00"
+  },
+  {
+    "expected": "inactive",
+    "rules": {
+      "PatroniNoLeader": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "No running primary among scraped members"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000156948,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:30.456103272Z",
+        "name": "PatroniNoLeader",
+        "query": "sum by (scope) (patroni_primary * patroni_postgres_running) == 0",
+        "state": "inactive",
+        "type": "alerting"
+      },
+      "PostgreSQLProcessUnavailable": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "Patroni reports that PostgreSQL is not running"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000226166,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "critical"
+        },
+        "lastEvaluation": "2026-10-03T14:06:30.455874438Z",
+        "name": "PostgreSQLProcessUnavailable",
+        "query": "patroni_postgres_running == 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:34.015852+00:00"
+  },
+  {
+    "expected": "inactive",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 8.4401e-05,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:06:30.456576681Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:34.168641+00:00"
+  },
+  {
+    "expected": "pending",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 8.4401e-05,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:06:30.456576681Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:34.356613+00:00"
+  },
+  {
+    "expected": "pending",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 6.5398e-05,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:06:35.455997007Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:38.468853+00:00"
+  },
+  {
+    "expected": "pending",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 6.4395e-05,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:06:40.456304158Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "inactive",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:42.588420+00:00"
+  },
+  {
+    "expected": "pending",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000182083,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:06:45.455708795Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:46.713400+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000182083,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:06:45.455708795Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:46.829578+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000176053,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:06:50.455884793Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:50.952468+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000176053,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:06:50.455884793Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:55.067781+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000189603,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:06:55.456187871Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:06:59.182967+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000169086,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:00.456631203Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:03.300878+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000243432,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:05.456079986Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:07.422935+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00017522,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:10.456596833Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:11.541525+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000233934,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:15.455926571Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:15.659290+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000233934,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:15.455926571Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:19.775640+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000174819,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:20.456446974Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:23.892383+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000175024,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:25.456385347Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:28.006457+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000180211,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:30.455715511Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:32.118384+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00017849,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:35.455722886Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:36.235991+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00017849,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:35.455722886Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:40.352595+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000174137,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:40.455619321Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:44.470166+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000227741,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:45.456737936Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:48.589652+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00018116,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:50.456160873Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:52.713936+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000234064,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:07:55.456093135Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:07:56.830040+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00016917,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:08:00.456587917Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:08:00.943386+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.00016917,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:08:00.456587917Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:08:05.065570+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000186413,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:08:05.455916705Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:08:09.182215+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000184626,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:08:10.455942989Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:08:13.300294+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000177618,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:08:15.45649795Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:08:17.422854+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000192069,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:08:20.455615763Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:08:21.542904+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000278486,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:08:25.456663824Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:08:25.656318+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000278486,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:08:25.456663824Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:08:29.775874+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000188798,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:08:30.456487213Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:08:33.895767+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000170334,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:08:35.456570569Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:08:38.053938+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "pending",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000192083,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:08:40.455935085Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "pending",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:08:42.169424+00:00"
+  },
+  {
+    "expected": "firing",
+    "rules": {
+      "BackupJobFailed": {
+        "alerts": [
+          {
+            "activeAt": "2026-10-03T14:06:45.454501365Z",
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "labels": {
+              "alertname": "BackupJobFailed",
+              "container": "kube-state-metrics",
+              "endpoint": "http",
+              "instance": "192.168.173.202:8080",
+              "job": "kube-state-metrics",
+              "job_name": "lab-backup-alert-attempt-2",
+              "namespace": "resilience",
+              "pod": "obs-kube-state-metrics-547f4ffb88-xtsdk",
+              "reason": "BackoffLimitExceeded",
+              "service": "obs-kube-state-metrics",
+              "severity": "warning"
+            },
+            "state": "firing",
+            "value": "1e+00"
+          }
+        ],
+        "annotations": {
+          "runbook_url": "docs/operations/monitoring-runbooks.md",
+          "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+        },
+        "duration": 120,
+        "evaluationTime": 0.000192437,
+        "health": "ok",
+        "keepFiringFor": 0,
+        "labels": {
+          "severity": "warning"
+        },
+        "lastEvaluation": "2026-10-03T14:08:45.45631771Z",
+        "name": "BackupJobFailed",
+        "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+        "state": "firing",
+        "type": "alerting"
+      }
+    },
+    "timestamp": "2026-10-03T14:08:46.301670+00:00"
+  }
+]

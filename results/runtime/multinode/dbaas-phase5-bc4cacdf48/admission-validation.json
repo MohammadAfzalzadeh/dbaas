@@ -1,0 +1,17 @@
+{
+  "classification": "LIVE VALIDATED",
+  "configurations": [
+    {
+      "name": "obs-kube-prometheus-stack-admission",
+      "webhooks": [
+        {
+          "ca_bundle_present": true,
+          "failurePolicy": "Fail",
+          "name": "prometheusrulemutate.monitoring.coreos.com"
+        }
+      ]
+    }
+  ],
+  "error": "The  \"prometheusrules\" is invalid: : 5:11: group \"invalid\", rule 1, \"InvalidExpression\": could not parse expression: 1:5: parse error: unclosed left parenthesis\n",
+  "invalid_rule_rejected": true
+}

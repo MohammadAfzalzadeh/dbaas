@@ -1,0 +1,131 @@
+{
+  "data": {
+    "groups": [
+      {
+        "evaluationTime": 0.000536169,
+        "file": "/etc/prometheus/rules/prometheus-obs-kube-prometheus-stack-prometheus-rulefiles-0/resilience-dbaas-platform-f913b654-5678-482b-9dde-2a99fa32b90b.yaml",
+        "interval": 5,
+        "lastEvaluation": "2026-10-03T12:17:30.0812975Z",
+        "limit": 0,
+        "name": "dbaas-platform",
+        "rules": [
+          {
+            "alerts": [],
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Patroni reports that PostgreSQL is not running"
+            },
+            "duration": 120,
+            "evaluationTime": 0.000142425,
+            "health": "ok",
+            "keepFiringFor": 0,
+            "labels": {
+              "severity": "critical"
+            },
+            "lastEvaluation": "2026-10-03T12:17:30.08130529Z",
+            "name": "PostgreSQLProcessUnavailable",
+            "query": "patroni_postgres_running == 0",
+            "state": "inactive",
+            "type": "alerting"
+          },
+          {
+            "alerts": [],
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No observed primary among scraped members"
+            },
+            "duration": 120,
+            "evaluationTime": 6.06e-05,
+            "health": "ok",
+            "keepFiringFor": 0,
+            "labels": {
+              "severity": "critical"
+            },
+            "lastEvaluation": "2026-10-03T12:17:30.081449299Z",
+            "name": "PatroniNoLeader",
+            "query": "sum by (scope) (patroni_primary) == 0",
+            "state": "inactive",
+            "type": "alerting"
+          },
+          {
+            "alerts": [],
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "Replica is not streaming; inspect archive recovery and timeline"
+            },
+            "duration": 300,
+            "evaluationTime": 7.8553e-05,
+            "health": "ok",
+            "keepFiringFor": 0,
+            "labels": {
+              "severity": "warning"
+            },
+            "lastEvaluation": "2026-10-03T12:17:30.081510943Z",
+            "name": "PatroniReplicaNotStreaming",
+            "query": "(patroni_replica == 1) and (patroni_postgres_streaming == 0)",
+            "state": "inactive",
+            "type": "alerting"
+          },
+          {
+            "alerts": [],
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "PgCat metrics endpoint cannot be scraped; SQL availability needs a separate check"
+            },
+            "duration": 120,
+            "evaluationTime": 0.000131484,
+            "health": "ok",
+            "keepFiringFor": 0,
+            "labels": {
+              "severity": "warning"
+            },
+            "lastEvaluation": "2026-10-03T12:17:30.081590693Z",
+            "name": "PgCatMetricsUnavailable",
+            "query": "up{endpoint=\"metrics\",service=~\".*pgcat.*\"} == 0",
+            "state": "inactive",
+            "type": "alerting"
+          },
+          {
+            "alerts": [],
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "A backup Job reports a failed pod; inspect completion and WAL-G catalog"
+            },
+            "duration": 120,
+            "evaluationTime": 6.9606e-05,
+            "health": "ok",
+            "keepFiringFor": 0,
+            "labels": {
+              "severity": "warning"
+            },
+            "lastEvaluation": "2026-10-03T12:17:30.081723575Z",
+            "name": "BackupJobFailed",
+            "query": "kube_job_status_failed{job_name=~\".*backup.*|.*exec-script.*\"} > 0",
+            "state": "inactive",
+            "type": "alerting"
+          },
+          {
+            "alerts": [],
+            "annotations": {
+              "runbook_url": "docs/operations/monitoring-runbooks.md",
+              "summary": "No available DBaaS API deployment replica"
+            },
+            "duration": 120,
+            "evaluationTime": 3.8146e-05,
+            "health": "ok",
+            "keepFiringFor": 0,
+            "labels": {
+              "severity": "critical"
+            },
+            "lastEvaluation": "2026-10-03T12:17:30.081794249Z",
+            "name": "ControlPlaneReplicaUnavailable",
+            "query": "kube_deployment_status_replicas_available{deployment=\"dbaas-backend\"} < 1",
+            "state": "inactive",
+            "type": "alerting"
+          }
+        ]
+      }
+    ]
+  },
+  "status": "success"
+}

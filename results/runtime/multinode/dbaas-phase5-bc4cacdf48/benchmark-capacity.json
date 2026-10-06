@@ -1,0 +1,11 @@
+{
+  "after": {
+    "lab-patroni-patronimvp-0": 200,
+    "lab-patroni-patronimvp-1": 200,
+    "lab-patroni-patronimvp-2": 200
+  },
+  "before": 100,
+  "classification": "LIVE VALIDATED",
+  "reason": "Match prior matrix: two 60-connection pools plus 50 direct clients and operational headroom",
+  "restart_order": "replicas first, then primary"
+}

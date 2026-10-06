@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/home/hhoseini/projects_personal/dbaas/scripts/validate/phase65-live.py", line 286, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/hhoseini/projects_personal/dbaas/scripts/validate/phase65-live.py", line 284, in main
+    getattr(review,a.stage)()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/hhoseini/projects_personal/dbaas/scripts/validate/phase65-live.py", line 263, in network
+    positive={r:self.sql(r,'SELECT * FROM review_marker;',True) for r in ['cluster-a','cluster-b']}
+                ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hhoseini/projects_personal/dbaas/scripts/validate/phase65-live.py", line 86, in sql
+    return json.loads(self.k('exec',release+'-patroni-patronimvp-0','-c','patronimvp','--','python3','-c',code))
+                      ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hhoseini/projects_personal/dbaas/scripts/validate/phase65-live.py", line 41, in k
+    def k(self,*args,**kw): return self.run(self.kube+list(args),**kw)
+                                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hhoseini/projects_personal/dbaas/scripts/validate/phase65-live.py", line 39, in run
+    if p.returncode: raise RuntimeError(self.clean(' '.join(cmd[:3])+': '+p.stderr[-1500:]))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: kubectl --kubeconfig /tmp/dbaas-phase65-private/kubeconfig: Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.11/dist-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "cluster-a-pgcat-proxy-service" (10.96.201.167), port 5432 failed: timeout expired
+
+command terminated with exit code 1
+

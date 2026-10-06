@@ -1,0 +1,23 @@
+pgbench (16.6 (Debian 16.6-1.pgdg120+1))
+transaction type: <builtin: simple update>
+scaling factor: 1
+query mode: simple
+number of clients: 1
+number of threads: 1
+maximum number of tries: 1
+duration: 10 s
+number of transactions actually processed: 10933
+number of failed transactions: 0 (0.000%)
+latency average = 0.914 ms
+initial connection time = 2.299 ms
+tps = 1093.536641 (without initial connection time)
+statement latencies in milliseconds and failures:
+         0.001           0  \set aid random(1, 100000 * :scale)
+         0.000           0  \set bid random(1, 1 * :scale)
+         0.000           0  \set tid random(1, 10 * :scale)
+         0.000           0  \set delta random(-5000, 5000)
+         0.067           0  BEGIN;
+         0.120           0  UPDATE pgbench_accounts SET abalance = abalance + :delta WHERE aid = :aid;
+         0.100           0  SELECT abalance FROM pgbench_accounts WHERE aid = :aid;
+         0.094           0  INSERT INTO pgbench_history (tid, bid, aid, delta, mtime) VALUES (:tid, :bid, :aid, :delta, CURRENT_TIMESTAMP);
+         0.532           0  END;

@@ -1,0 +1,22 @@
+{
+  "cluster": "dbaas-smoke-68bac400b4",
+  "docker": {
+    "cpus": 12,
+    "memory_bytes": 32881127424
+  },
+  "images": [
+    "dbaas/wal-g:3.0.7",
+    "dbaas/patroni:2.1.0",
+    "dbaas/pgcat-config-watcher:1.1.0",
+    "dbaas/minio:RELEASE.2025-04-22T22-12-26Z",
+    "dbaas/mc:RELEASE.2025-04-16T18-13-26Z",
+    "dbaas/kubectl:1.30.0",
+    "dbaas/backend:0.2.0"
+  ],
+  "kubernetes": "kind v1.30.0",
+  "namespace": "dbaas-smoke",
+  "node_count": 1,
+  "postgres_members": 2,
+  "release": "smoke",
+  "storage": "kind local-path RWO"
+}

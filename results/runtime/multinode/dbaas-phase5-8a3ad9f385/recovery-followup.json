@@ -1,0 +1,6 @@
+{
+  "action": "Reinitialize only failed disposable source replica; suspend failed restore deployment preserving PVC",
+  "restore_restart": "Checkpoint PANIC after worker return; shared source archive timeline collision suspected, not proven",
+  "source_replica": "Archive recovery did not converge within 240 seconds after node return; manual reinitialization required",
+  "status": "NOT VALIDATED"
+}

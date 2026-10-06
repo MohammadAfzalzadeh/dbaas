@@ -1,0 +1,274 @@
+[
+  {
+    "kind": "StatefulSet",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "smoke-minio-minio-statefulset",
+    "namespace": "dbaas-smoke",
+    "uid": "b131c520-194d-4390-9878-da4681bf5857"
+  },
+  {
+    "kind": "StatefulSet",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm",
+      "application": "patroni",
+      "cluster-name": "patronimvp",
+      "release-name": "smoke-patroni"
+    },
+    "name": "smoke-patroni-patronimvp",
+    "namespace": "dbaas-smoke",
+    "uid": "3bfe6282-7844-4fa6-939b-8e17bb16a5bd"
+  },
+  {
+    "kind": "Deployment",
+    "labels": {},
+    "name": "dbaas-backend",
+    "namespace": "dbaas-smoke",
+    "uid": "652a53ca-7b51-4b6b-9faa-77899ee0d1ac"
+  },
+  {
+    "kind": "Deployment",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "smoke-pgcat-pgadmin-deployment",
+    "namespace": "dbaas-smoke",
+    "uid": "2b0c7b41-88a5-4bae-8eee-a61ca4208c8c"
+  },
+  {
+    "kind": "Deployment",
+    "labels": {
+      "app": "proxy",
+      "app.kubernetes.io/managed-by": "Helm",
+      "release-name": "smoke-pgcat"
+    },
+    "name": "smoke-pgcat-proxy-deployment",
+    "namespace": "dbaas-smoke",
+    "uid": "5a9b8ad4-22f6-477e-b68e-9a9f1f02280c"
+  },
+  {
+    "kind": "Service",
+    "labels": {},
+    "name": "dbaas-backend",
+    "namespace": "dbaas-smoke",
+    "uid": "3fb1647b-147d-4c6f-a7cd-2eed78379582"
+  },
+  {
+    "kind": "Service",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm",
+      "application": "patroni",
+      "cluster-name": "smoke-patroni-patronimvp",
+      "release-name": "smoke-patroni",
+      "role": "primary",
+      "type": "monitoring"
+    },
+    "name": "patronimvp-master-smoke-patroni",
+    "namespace": "dbaas-smoke",
+    "uid": "edf7697b-3c42-4051-818a-844cf169c9de"
+  },
+  {
+    "kind": "Service",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm",
+      "application": "patroni",
+      "cluster-name": "smoke-patroni-patronimvp",
+      "release-name": "smoke-patroni",
+      "role": "replica",
+      "type": "monitoring"
+    },
+    "name": "patronimvp-replica-smoke-patroni",
+    "namespace": "dbaas-smoke",
+    "uid": "d9c1f519-c31a-4a71-93b3-c5fa06c12d10"
+  },
+  {
+    "kind": "Service",
+    "labels": {
+      "app": "minio",
+      "app.kubernetes.io/instance": "smoke-minio",
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "smoke-minio-minio",
+    "namespace": "dbaas-smoke",
+    "uid": "01419ee4-85ca-4f98-8263-260cad6ac5f2"
+  },
+  {
+    "kind": "Service",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "smoke-patroni-patronimvp",
+    "namespace": "dbaas-smoke",
+    "uid": "cafcd109-0490-4934-98de-718e2f18bc16"
+  },
+  {
+    "kind": "Service",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm",
+      "application": "patroni",
+      "cluster-name": "patronimvp",
+      "release-name": "smoke-patroni"
+    },
+    "name": "smoke-patroni-patronimvp-config",
+    "namespace": "dbaas-smoke",
+    "uid": "720d00ff-9a36-4b02-bf85-c168fc456380"
+  },
+  {
+    "kind": "Service",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "smoke-pgcat-pgadmin-service",
+    "namespace": "dbaas-smoke",
+    "uid": "4fbedbbb-fadb-4105-90ff-8e173fb2eb2a"
+  },
+  {
+    "kind": "Service",
+    "labels": {
+      "app": "proxy",
+      "app.kubernetes.io/managed-by": "Helm",
+      "application": "pgcat",
+      "release-name": "smoke-pgcat",
+      "type": "monitoring"
+    },
+    "name": "smoke-pgcat-proxy-service",
+    "namespace": "dbaas-smoke",
+    "uid": "3d09922b-10dd-418c-b2f3-c8cb0e9a0994"
+  },
+  {
+    "kind": "PersistentVolumeClaim",
+    "labels": {
+      "app": "minio",
+      "application": "minio",
+      "release-name": "smoke-minio"
+    },
+    "name": "data-smoke-minio-minio-statefulset-0",
+    "namespace": "dbaas-smoke",
+    "uid": "e93bea1c-1781-4523-99d3-2745b4f4c066"
+  },
+  {
+    "kind": "PersistentVolumeClaim",
+    "labels": {
+      "application": "patroni",
+      "cluster-name": "smoke-patroni-patronimvp",
+      "release-name": "smoke-patroni",
+      "spilo-cluster": "patronimvp"
+    },
+    "name": "pgdata-smoke-patroni-patronimvp-0",
+    "namespace": "dbaas-smoke",
+    "uid": "2a10b97c-204a-416d-bae1-12fe559e096f"
+  },
+  {
+    "kind": "PersistentVolumeClaim",
+    "labels": {
+      "application": "patroni",
+      "cluster-name": "smoke-patroni-patronimvp",
+      "release-name": "smoke-patroni",
+      "spilo-cluster": "patronimvp"
+    },
+    "name": "pgdata-smoke-patroni-patronimvp-1",
+    "namespace": "dbaas-smoke",
+    "uid": "9ae4c8d0-6057-4a06-bda4-a2df6242996b"
+  },
+  {
+    "kind": "ServiceAccount",
+    "labels": {},
+    "name": "dbaas-backend",
+    "namespace": "dbaas-smoke",
+    "uid": "897f2c95-017d-4778-9644-40fd2b88e41d"
+  },
+  {
+    "kind": "ServiceAccount",
+    "labels": {},
+    "name": "default",
+    "namespace": "dbaas-smoke",
+    "uid": "b29847a4-e255-425b-b9b8-1568aa46ccbe"
+  },
+  {
+    "kind": "ServiceAccount",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "smoke-patroni-exec-script-sa",
+    "namespace": "dbaas-smoke",
+    "uid": "09b07f09-8ce1-4ebf-b85f-1d250b0de2f5"
+  },
+  {
+    "kind": "ServiceAccount",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "smoke-patroni-patronimvp",
+    "namespace": "dbaas-smoke",
+    "uid": "7c299cd0-40a4-4978-a992-1eafe57f7ef4"
+  },
+  {
+    "kind": "Role",
+    "labels": {},
+    "name": "dbaas-backend-helm",
+    "namespace": "dbaas-smoke",
+    "uid": "ebaedad8-8ae9-4e92-87bb-3f564d0ab476"
+  },
+  {
+    "kind": "Role",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "smoke-patroni-patronimvp",
+    "namespace": "dbaas-smoke",
+    "uid": "283d3185-31b5-49c7-9ec0-610fd3460367"
+  },
+  {
+    "kind": "Role",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "smoke-patroni-pod-exec-role",
+    "namespace": "dbaas-smoke",
+    "uid": "103049a4-5666-4018-ad9c-ce83f35b521c"
+  },
+  {
+    "kind": "RoleBinding",
+    "labels": {},
+    "name": "dbaas-backend-helm",
+    "namespace": "dbaas-smoke",
+    "uid": "ab82f2b2-3dd8-4271-81fb-aa29a57fef9f"
+  },
+  {
+    "kind": "RoleBinding",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "smoke-patroni-patronimvp",
+    "namespace": "dbaas-smoke",
+    "uid": "c9aa4b13-610a-4153-92b0-0a19b4032eb8"
+  },
+  {
+    "kind": "RoleBinding",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "smoke-patroni-pod-exec-binding",
+    "namespace": "dbaas-smoke",
+    "uid": "10310158-3976-4314-9ba9-8263cc51842a"
+  },
+  {
+    "kind": "CronJob",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "smoke-patroni-exec-script-cronjob",
+    "namespace": "dbaas-smoke",
+    "uid": "0e971dcd-9f1f-4fd1-8bf2-79054de5ad31"
+  },
+  {
+    "kind": "PodDisruptionBudget",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "smoke-patroni-patroni",
+    "namespace": "dbaas-smoke",
+    "uid": "e970c2fa-47da-4f8d-9f03-88ada44415a1"
+  }
+]

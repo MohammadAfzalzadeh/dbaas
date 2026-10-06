@@ -1,0 +1,295 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 544B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/debian:12.9-slim
+#2 DONE 2.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 137B done
+#3 DONE 0.0s
+
+#4 [1/2] FROM docker.io/library/debian:12.9-slim@sha256:12c396bd585df7ec21d5679bb6a83d4878bc4415ce926c9e5ea6426d23c60bdc
+#4 resolve docker.io/library/debian:12.9-slim@sha256:12c396bd585df7ec21d5679bb6a83d4878bc4415ce926c9e5ea6426d23c60bdc done
+#4 DONE 0.0s
+
+#5 [2/2] RUN apt-get update && apt-get install -y gettext bash wget ca-certificates postgresql-client tar     s3cmd   &&    wget --https-only https://github.com/wal-g/wal-g/releases/download/v3.0.7/wal-g-pg-ubuntu-20.04-amd64.tar.gz   &&    tar -zxvf wal-g-pg-ubuntu-20.04-amd64.tar.gz  &&    rm wal-g-pg-ubuntu-20.04-amd64.tar.gz   &&    apt-get clean && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 exporting to image
+#6 exporting layers done
+#6 exporting manifest sha256:b7fd1e5e27039d075edb08f2dfe4f236c1033ed79f0fc6c0e5aa3bd4aceffa57 done
+#6 exporting config sha256:6fce878c80a41fa3cdd5c69b095246df22798982199092b6401a3b5a023be650 done
+#6 exporting attestation manifest sha256:ee5911584a0d7d1c0b1c0ec8876073a3368c679098cd1e183de4d875d43f8f9d done
+#6 exporting manifest list sha256:b645380c53017252983819f7e802215e877d1996a045eefd972673b5f513c5a3 done
+#6 naming to docker.io/dbaas/wal-g:3.0.7 done
+#6 unpacking to docker.io/dbaas/wal-g:3.0.7 done
+#6 DONE 0.0s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 927B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/postgres:16.6-bookworm
+#2 DONE 1.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 137B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/postgres:16.6-bookworm@sha256:557fea37a744d5f4c8faab304b0a90858b53ab119735a88c131fd19dab802f36
+#4 resolve docker.io/library/postgres:16.6-bookworm@sha256:557fea37a744d5f4c8faab304b0a90858b53ab119735a88c131fd19dab802f36 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 70B done
+#5 DONE 0.0s
+
+#6 [4/5] COPY entrypoint.sh /
+#6 CACHED
+
+#7 [2/5] COPY requirements.txt /tmp/patroni-requirements.txt
+#7 CACHED
+
+#8 [3/5] RUN apt-get update && apt-get install -y --no-install-recommends python3 python3-pip locales ca-certificates &&     localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 &&     pip3 install --break-system-packages --no-cache-dir -r /tmp/patroni-requirements.txt &&     mkdir -p /home/postgres && chown postgres:postgres /home/postgres &&     sed -i 's|/var/lib/postgresql.*|/home/postgres:/bin/bash|' /etc/passwd &&     chmod 775 /home/postgres && chmod 664 /etc/passwd &&     rm -rf /var/lib/apt/lists/* /tmp/patroni-requirements.txt
+#8 CACHED
+
+#9 [5/5] WORKDIR /home/postgres
+#9 CACHED
+
+#10 exporting to image
+#10 exporting layers done
+#10 exporting manifest sha256:5ade93e10cc4303168c3c29b87fef753fc5b534f08b75c0aa36c535e551d5761 done
+#10 exporting config sha256:c5e823be8ed0bfbc88b64f7dda2955433db3ffa45d3689b37443aaf5d33c4a63 done
+#10 exporting attestation manifest sha256:ac5f8385738f6d6dbee4f2333bfa482d7ae3144aee23d7e21459ed2a37413dd1 done
+#10 exporting manifest list sha256:bcfc701dfb260c1016d914bbee2593ccf8e5277808242a344a0c3bf1918a4924 done
+#10 naming to docker.io/dbaas/patroni:2.1.0 done
+#10 unpacking to docker.io/dbaas/patroni:2.1.0 done
+#10 DONE 0.1s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 481B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:18.20.8-bookworm-slim
+#2 DONE 1.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 402B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 178B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/node:18.20.8-bookworm-slim@sha256:f9ab18e354e6855ae56ef2b290dd225c1e51a564f87584b9bd21dd651838830e
+#5 resolve docker.io/library/node:18.20.8-bookworm-slim@sha256:f9ab18e354e6855ae56ef2b290dd225c1e51a564f87584b9bd21dd651838830e 0.0s done
+#5 DONE 0.0s
+
+#6 [3/6] WORKDIR /app
+#6 CACHED
+
+#7 [5/6] RUN npm ci --omit=dev --ignore-scripts && npm cache clean --force
+#7 CACHED
+
+#8 [4/6] COPY package.json package-lock.json ./
+#8 CACHED
+
+#9 [2/6] RUN apt-get update && apt-get install -y --no-install-recommends postgresql-client && rm -rf /var/lib/apt/lists/*
+#9 CACHED
+
+#10 [6/6] COPY pgcat-config-watcher.js pgcat-health.js logger.js ./
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:e7b283a54b7415f615940a8cb6b5c40839f15d0dae4176d8e04275fd3a9d981f done
+#11 exporting config sha256:82bdffc2f671ec1a2a2816761ee34d6bb7dc3e350d86612ed851f995bf069ed2 done
+#11 exporting attestation manifest sha256:04871fda006a1dc59584e680d23d5ef3e33a1c00d921f345cd860a44eaff3b89 done
+#11 exporting manifest list sha256:4f9149a97cd94beff5084cbef1c321691d5483778f57d5723d6bd4827303294a done
+#11 naming to docker.io/dbaas/pgcat-config-watcher:1.1.1 done
+#11 unpacking to docker.io/dbaas/pgcat-config-watcher:1.1.1 done
+#11 DONE 0.0s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 752B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/debian:12.9-slim
+#2 DONE 0.3s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24.2-bookworm
+#3 DONE 1.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [builder 1/3] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#5 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#5 DONE 0.0s
+
+#6 [stage-1 1/3] FROM docker.io/library/debian:12.9-slim@sha256:12c396bd585df7ec21d5679bb6a83d4878bc4415ce926c9e5ea6426d23c60bdc
+#6 resolve docker.io/library/debian:12.9-slim@sha256:12c396bd585df7ec21d5679bb6a83d4878bc4415ce926c9e5ea6426d23c60bdc 0.0s done
+#6 DONE 0.0s
+
+#7 [builder 2/3] WORKDIR /src
+#7 CACHED
+
+#8 [stage-1 2/3] RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [builder 3/3] RUN curl -fsSL "https://codeload.github.com/minio/minio/tar.gz/refs/tags/RELEASE.2025-04-22T22-12-26Z" -o source.tar.gz &&     echo "1a63209927b9d1fb239b2a776b7b01d1902eff19379a108f4bc7005edcc0968c  source.tar.gz" | sha256sum -c - &&     tar xzf source.tar.gz --strip-components=1 && rm source.tar.gz &&     CGO_ENABLED=0 go build -mod=readonly -trimpath -o /minio .
+#9 CACHED
+
+#10 [stage-1 3/3] COPY --from=builder /minio /usr/local/bin/minio
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:481fb4f0136911817303d868d1e3eeb06bb2b92cf6dacee4f9c28753e7bc5ac9 done
+#11 exporting config sha256:9fe856038b66ccd076a9427d8293a96d344e4e041bf16818b8b734c44c31b0e2 done
+#11 exporting attestation manifest sha256:37f5afe208640abb6763f52907f3a607e8aa3ff1bc1fc71fa4f70924fac468a1 done
+#11 exporting manifest list sha256:586eca5bf5e8912e15ac571704b7932317e4f0cdfe61d0ddb93c54671d3ee685 done
+#11 naming to docker.io/dbaas/minio:RELEASE.2025-04-22T22-12-26Z done
+#11 unpacking to docker.io/dbaas/minio:RELEASE.2025-04-22T22-12-26Z done
+#11 DONE 0.0s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from mc.Dockerfile
+#1 transferring dockerfile: 711B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24.2-bookworm
+#2 ...
+
+#3 [internal] load metadata for docker.io/library/debian:12.9-slim
+#3 DONE 0.3s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24.2-bookworm
+#2 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [stage-1 1/3] FROM docker.io/library/debian:12.9-slim@sha256:12c396bd585df7ec21d5679bb6a83d4878bc4415ce926c9e5ea6426d23c60bdc
+#5 resolve docker.io/library/debian:12.9-slim@sha256:12c396bd585df7ec21d5679bb6a83d4878bc4415ce926c9e5ea6426d23c60bdc 0.0s done
+#5 DONE 0.0s
+
+#6 [builder 1/3] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#6 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#6 DONE 0.0s
+
+#7 [stage-1 2/3] RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [builder 2/3] WORKDIR /src
+#8 CACHED
+
+#9 [builder 3/3] RUN curl -fsSL "https://codeload.github.com/minio/mc/tar.gz/refs/tags/RELEASE.2025-04-16T18-13-26Z" -o source.tar.gz &&     echo "526ec538e7f83e4bfa631788129b08ec85898ca572ce0523ebf9a597946bea27  source.tar.gz" | sha256sum -c - &&     tar xzf source.tar.gz --strip-components=1 && rm source.tar.gz &&     CGO_ENABLED=0 go build -mod=readonly -trimpath -o /mc .
+#9 CACHED
+
+#10 [stage-1 3/3] COPY --from=builder /mc /usr/local/bin/mc
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:ae6d312836e512d6cf8a0eff8c0ccd14828e430ab1d1a404d2f22cf0bb2bce94 done
+#11 exporting config sha256:9e0c68f3a538e3211ae4c66805f94652232b694dbbf09d7084626230c097c4ab done
+#11 exporting attestation manifest sha256:d48ce81f3f426051055fed3fb73d4acbf9d91da88c70c256f7da8b3563641793 done
+#11 exporting manifest list sha256:8a342fac489c1aaa47344ffab5126cb67331b9fd5cd20fa21cfb6d4d0d32529c done
+#11 naming to docker.io/dbaas/mc:RELEASE.2025-04-16T18-13-26Z done
+#11 unpacking to docker.io/dbaas/mc:RELEASE.2025-04-16T18-13-26Z done
+#11 DONE 0.0s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 695B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/debian:12.9-slim
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/2] FROM docker.io/library/debian:12.9-slim@sha256:12c396bd585df7ec21d5679bb6a83d4878bc4415ce926c9e5ea6426d23c60bdc
+#4 resolve docker.io/library/debian:12.9-slim@sha256:12c396bd585df7ec21d5679bb6a83d4878bc4415ce926c9e5ea6426d23c60bdc 0.0s done
+#4 DONE 0.0s
+
+#5 [2/2] RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates bash &&     curl -fsSL "https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl" -o /usr/local/bin/kubectl &&     curl -fsSL "https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl.sha256" -o /tmp/kubectl.sha256 &&     echo "$(cat /tmp/kubectl.sha256)  /usr/local/bin/kubectl" | sha256sum -c - &&     chmod +x /usr/local/bin/kubectl && rm /tmp/kubectl.sha256 &&     apt-get purge -y curl && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 exporting to image
+#6 exporting layers done
+#6 exporting manifest sha256:62221c98f07612734496833f5644f770e29067a78d958d144124881a88890fb8 done
+#6 exporting config sha256:7975c01cf6c41ac989596e1f23d5e8157d23d26f0d737917880c77bdb47d6a02 done
+#6 exporting attestation manifest sha256:85566f30c2a5d91cea06653b4d89ce9fbe7252a3c77de45ae86b68ceb4619eb6 done
+#6 exporting manifest list sha256:94005e4ed310640cb333b16043f125f2f8d38f6e2465d2a200f8c1f41d8caa57 done
+#6 naming to docker.io/dbaas/kubectl:1.30.0 done
+#6 unpacking to docker.io/dbaas/kubectl:1.30.0 done
+#6 DONE 0.0s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.89kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12.7-slim-bookworm
+#2 DONE 1.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 137B done
+#3 DONE 0.0s
+
+#4 [ 1/10] FROM docker.io/library/python:3.12.7-slim-bookworm@sha256:60d9996b6a8a3689d36db740b49f4327be3be09a21122bd02fb8895abb38b50d
+#4 resolve docker.io/library/python:3.12.7-slim-bookworm@sha256:60d9996b6a8a3689d36db740b49f4327be3be09a21122bd02fb8895abb38b50d 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 6.21kB done
+#5 DONE 0.0s
+
+#6 [ 6/10] COPY app/ ./app/
+#6 CACHED
+
+#7 [ 2/10] RUN apt-get update && apt-get install -y curl ca-certificates gnupg &&     curl -fsSLO https://get.helm.sh/helm-v3.15.4-linux-amd64.tar.gz &&     curl -fsSLO https://get.helm.sh/helm-v3.15.4-linux-amd64.tar.gz.sha256sum &&     sha256sum -c helm-v3.15.4-linux-amd64.tar.gz.sha256sum &&     tar zxf helm-v3.15.4-linux-amd64.tar.gz && rm helm-v3.15.4-linux-amd64.tar.gz* &&     mv linux-amd64/helm /usr/local/bin/helm && rm -rf linux-amd64 &&     curl -fsSL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.30.0/bin/linux/amd64/kubectl &&     curl -fsSL -o /tmp/kubectl.sha256 https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl.sha256 &&     echo "$(cat /tmp/kubectl.sha256)  /usr/local/bin/kubectl" | sha256sum -c - && rm /tmp/kubectl.sha256 &&     chmod +x /usr/local/bin/kubectl &&     apt-get purge -y curl gnupg && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [ 3/10] WORKDIR /app
+#8 CACHED
+
+#9 [ 4/10] COPY app/requirements.txt .
+#9 CACHED
+
+#10 [ 5/10] RUN pip install --no-cache-dir -r requirements.txt
+#10 CACHED
+
+#11 [ 7/10] COPY static/ ./static/
+#11 CACHED
+
+#12 [ 8/10] COPY helmCharts/ ./helmCharts/
+#12 DONE 0.0s
+
+#13 [ 9/10] RUN groupadd -g 10001 app && useradd -u 10001 -g 10001 -m -d /home/app app &&     chown -R app:app /app /home/app
+#13 DONE 0.2s
+
+#14 [10/10] RUN mkdir -p /home/app/.cache/helm /home/app/.config/helm /home/app/.local/share/helm && chown -R app:app /home/app
+#14 DONE 0.2s
+
+#15 exporting to image
+#15 exporting layers 0.1s done
+#15 exporting manifest sha256:0e271d29d69437327bb196491ea01c6f2de910a7549038d1042cfa66cf15661c done
+#15 exporting config sha256:7be37c1ed7ff7cd5be37cbc4a615a6c3edd928fad63710c633e85aa76d06739f done
+#15 exporting attestation manifest sha256:6cd3fef7c791ce3eabfcf0e9d80cb2b9314382bbeb8f7d4110107140b12327c0 done
+#15 exporting manifest list sha256:59b97dc1d2bab0499cc7c190e705c6d2cdc61f52ac0bcc05b8d4960fa08c120d done
+#15 naming to docker.io/dbaas/backend:0.2.0 done
+#15 unpacking to docker.io/dbaas/backend:0.2.0 0.0s done
+#15 DONE 0.1s

@@ -1,0 +1,22 @@
+[
+  {
+    "action": "Existing direct and PgCat sessions accepted old credential",
+    "timestamp": "2026-10-03T13:54:30.026042+00:00"
+  },
+  {
+    "action": "PostgreSQL role password changed; new direct connections require new credential",
+    "timestamp": "2026-10-03T13:54:30.143609+00:00"
+  },
+  {
+    "action": "Application Secret updated",
+    "timestamp": "2026-10-03T13:54:30.277128+00:00"
+  },
+  {
+    "action": "PgCat projected configuration Secret updated; no restart requested",
+    "timestamp": "2026-10-03T13:54:30.428179+00:00"
+  },
+  {
+    "action": "New accepted and old rejected on primary and each proxy",
+    "timestamp": "2026-10-03T13:55:43.934848+00:00"
+  }
+]

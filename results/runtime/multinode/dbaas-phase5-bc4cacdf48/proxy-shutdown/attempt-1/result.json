@@ -1,0 +1,18 @@
+{
+  "classification": "LIVE VALIDATED",
+  "containers": [
+    {
+      "image": "ghcr.io/postgresml/pgcat:v1.2.0",
+      "name": "proxy"
+    },
+    {
+      "image": "dbaas/pgcat-config-watcher:1.1.1",
+      "name": "pgcat-config-watcher"
+    }
+  ],
+  "peer_continuously_ready": true,
+  "replacement_ready_seconds": 0.2556462089996785,
+  "started": "2026-10-03T13:52:12.160693+00:00",
+  "termination_grace_seconds": 90,
+  "termination_seconds": 0.19734253198839724
+}

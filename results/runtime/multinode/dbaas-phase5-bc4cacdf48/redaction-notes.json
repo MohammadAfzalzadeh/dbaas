@@ -1,0 +1,6 @@
+{
+  "initial_scanner_findings": 22,
+  "authentication_nonce_occurrences_redacted": 20,
+  "other_findings": "Two SHA-256 values keyed by secret-scan filenames; manifest reformatted as explicit path/sha256 records",
+  "prior_cluster_evidence_modified": false
+}

@@ -1,0 +1,98 @@
+.....................Recovery stopped at uninstall-started. Partial changes may remain; do not rerun deletion blindly.
+Temporary values will be removed. Reconstruct original chart values from your secured configuration, select the reported backup/target, then reinstall Patroni followed by PgCat. Use --state-dir on future attempts to retain exact commands and values.
+............................RECOVERY STATE: prepared
+RECOVERY TARGET: 2025-02-01T00:00:00+00:00
+NAMESPACE: test-dbaas
+RELEASE: alpha
+POSTGRES CLUSTER: alpha-patronimvp
+BASE BACKUP: base_123
+PVCs TO DELETE:
+  pgdata-alpha-patronimvp-0 (uid=pvc-1)
+Backup metadata identified; WAL coverage and recovered data are NOT verified.
+DRY RUN: no cluster mutations performed. Use --execute only after reviewing this plan.
+RECOVERY STATE: prepared
+RECOVERY TARGET: 2025-02-01T00:00:00+00:00
+NAMESPACE: test-dbaas
+RELEASE: alpha
+POSTGRES CLUSTER: alpha-patronimvp
+BASE BACKUP: base_123
+PVCs TO DELETE:
+  pgdata-alpha-patronimvp-0 (uid=pvc-1)
+Backup metadata identified; WAL coverage and recovered data are NOT verified.
+EXECUTING DESTRUCTIVE IN-PLACE RECOVERY
+RECOVERY STATE: uninstall-started
+RECOVERY STATE: patroni-shutdown-started
+RECOVERY STATE: patroni-uninstall-started
+RECOVERY STATE: dcs-cleanup-started
+RECOVERY STATE: pvc-deletion-started
+RECOVERY STATE: install-patroni-started
+RECOVERY STATE: install-pgcat-started
+RECOVERY STATE: deployed-data-verification-pending
+Helm recovery deployment completed. Verify target-time data and routing before declaring PITR successful.
+RECOVERY STATE: prepared
+RECOVERY TARGET: 2025-02-01T00:00:00+00:00
+NAMESPACE: test-dbaas
+RELEASE: alpha
+POSTGRES CLUSTER: alpha-patronimvp
+BASE BACKUP: base_123
+PVCs TO DELETE:
+  pgdata-alpha-patronimvp-0 (uid=pvc-1)
+Backup metadata identified; WAL coverage and recovered data are NOT verified.
+EXECUTING DESTRUCTIVE IN-PLACE RECOVERY
+RECOVERY STATE: uninstall-started
+RECOVERY STATE: failed-at-uninstall-started
+RECOVERY STATE: prepared
+RECOVERY STATE: pvc-deletion-started
+RECOVERY STATE: failed-at-pvc-deletion-started
+RECOVERY STATE: prepared
+RECOVERY STATE: failed-at-prepared
+Creating isolated kind cluster dbaas-smoke-5b885af17a
+............Recovery stopped at patroni-shutdown-started. Partial changes may remain; do not rerun deletion blindly.
+Temporary values will be removed. Reconstruct original chart values from your secured configuration, select the reported backup/target, then reinstall Patroni followed by PgCat. Use --state-dir on future attempts to retain exact commands and values.
+..................
+----------------------------------------------------------------------
+Ran 79 tests in 7.837s
+
+OK
+RECOVERY STATE: prepared
+RECOVERY TARGET: 2025-02-01T00:00:00+00:00
+NAMESPACE: test-dbaas
+RELEASE: alpha
+POSTGRES CLUSTER: alpha-patronimvp
+BASE BACKUP: base_123
+PVCs TO DELETE:
+  pgdata-alpha-patronimvp-0 (uid=pvc-1)
+Backup metadata identified; WAL coverage and recovered data are NOT verified.
+EXECUTING DESTRUCTIVE IN-PLACE RECOVERY
+RECOVERY STATE: uninstall-started
+RECOVERY STATE: patroni-shutdown-started
+RECOVERY STATE: failed-at-patroni-shutdown-started
+RECOVERY STATE: prepared
+RECOVERY TARGET: 2025-02-01T00:00:00+00:00
+NAMESPACE: test-dbaas
+RELEASE: alpha
+POSTGRES CLUSTER: alpha-patronimvp
+BASE BACKUP: base_123
+PVCs TO DELETE:
+  pgdata-alpha-patronimvp-0 (uid=pvc-1)
+Backup metadata identified; WAL coverage and recovered data are NOT verified.
+EXECUTING DESTRUCTIVE IN-PLACE RECOVERY
+RECOVERY STATE: uninstall-started
+RECOVERY STATE: patroni-shutdown-started
+RECOVERY STATE: patroni-uninstall-started
+RECOVERY STATE: dcs-cleanup-started
+RECOVERY STATE: pvc-deletion-started
+RECOVERY STATE: install-patroni-started
+RECOVERY STATE: install-pgcat-started
+RECOVERY STATE: deployed-data-verification-pending
+Helm recovery deployment completed. Verify target-time data and routing before declaring PITR successful.
+RECOVERY STATE: prepared
+RECOVERY TARGET: 2025-02-01T00:00:00+00:00
+NAMESPACE: test-dbaas
+RELEASE: alpha
+POSTGRES CLUSTER: alpha-patronimvp
+BASE BACKUP: base_123
+PVCs TO DELETE:
+  pgdata-alpha-patronimvp-0 (uid=pvc-1)
+Backup metadata identified; WAL coverage and recovered data are NOT verified.
+DRY RUN: no cluster mutations performed. Use --execute only after reviewing this plan.

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/hhoseini/projects_personal/dbaas/scripts/resilience/monitoring-checks.py", line 67, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--state-dir',required=True);args=p.parse_args();lab=Lab(args.state_dir);lab.assert_owned();execute(lab)
+                                                                                                                                           ~~~~~~~^^^^^
+  File "/home/hhoseini/projects_personal/dbaas/scripts/resilience/monitoring-checks.py", line 57, in execute
+    await_state('pending',90);await_state('firing',180)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/hhoseini/projects_personal/dbaas/scripts/resilience/monitoring-checks.py", line 52, in await_state
+    raise RuntimeError('Alert did not reach '+expected)
+RuntimeError: Alert did not reach pending

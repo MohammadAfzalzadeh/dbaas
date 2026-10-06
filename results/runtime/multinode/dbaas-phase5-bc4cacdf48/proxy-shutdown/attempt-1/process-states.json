@@ -1,0 +1,19 @@
+[
+  {
+    "containers": {
+      "pgcat-config-watcher": {
+        "exitCode": 0,
+        "finishedAt": "2026-10-03T13:52:12.223982369Z",
+        "reason": "Completed",
+        "state": "CONTAINER_EXITED"
+      },
+      "proxy": {
+        "exitCode": 0,
+        "finishedAt": "2026-10-03T13:52:12.220603268Z",
+        "reason": "Completed",
+        "state": "CONTAINER_EXITED"
+      }
+    },
+    "seconds": 0.15163502201903611
+  }
+]

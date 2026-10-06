@@ -1,0 +1,33 @@
+{
+  "python_tests": 69,
+  "node_test_cases": 6,
+  "additional_node_readiness_cases": 4,
+  "helm_lints": 6,
+  "image_builds": 7,
+  "npm_ci": "PASS",
+  "secret_scan_worktree": "PASS",
+  "secret_scan_history": "PASS",
+  "history_commits_scanned": 148,
+  "baseline_python_tests": 60,
+  "baseline_image_builds": 7,
+  "all_project_images": "BUILD VALIDATED",
+  "cleanup": "Owned cluster deleted; unrelated kind retained; inotify restored to 128",
+  "full_disruptions_stage": "FAIL: automatic replica convergence did not complete",
+  "benchmark_completed_samples": 24,
+  "benchmark_failed_transactions_in_completed_samples": 0,
+  "dashboards_loaded": 5,
+  "dashboard_queries_with_series": 13,
+  "alert_conditions_induced": 1,
+  "architecture_svg_exports": 15,
+  "measured_chart_svg_png_pairs": 6,
+  "static_parsers": {
+    "yaml": 45,
+    "json": 168,
+    "python": 28,
+    "shell": 14,
+    "javascript": 6,
+    "toml": 1
+  },
+  "secret_scan_note": "A generic-key false positive in portfolio prose was rewritten; no scanner exclusions added.",
+  "private_state_removed": true
+}

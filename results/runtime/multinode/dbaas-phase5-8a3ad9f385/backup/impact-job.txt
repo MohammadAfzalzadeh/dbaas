@@ -1,0 +1,20 @@
+Backing up PostgreSQL target resilience/lab-patroni-patronimvp-1
+INFO: 2026/10/03 12:22:12.749166 Backup will be pushed to storage: default
+INFO: 2026/10/03 12:22:12.770264 Calling pg_start_backup()
+INFO: 2026/10/03 12:22:13.512694 Initializing the PG alive checker (interval=1m0s)...
+INFO: 2026/10/03 12:22:13.512711 Starting a new tar bundle
+INFO: 2026/10/03 12:22:13.512726 Walking ...
+INFO: 2026/10/03 12:22:13.512906 Starting part 1 ...
+INFO: 2026/10/03 12:22:14.492008 Packing ...
+INFO: 2026/10/03 12:22:14.493046 Finished writing part 1.
+INFO: 2026/10/03 12:22:14.622725 Starting part 2 ...
+INFO: 2026/10/03 12:22:14.622747 /global/pg_control
+INFO: 2026/10/03 12:22:14.623048 Finished writing part 2.
+INFO: 2026/10/03 12:22:14.623164 Calling pg_stop_backup()
+INFO: 2026/10/03 12:22:14.654753 Starting part 3 ...
+INFO: 2026/10/03 12:22:14.654816 backup_label
+INFO: 2026/10/03 12:22:14.654835 tablespace_map
+INFO: 2026/10/03 12:22:14.659938 Finished writing part 3.
+INFO: 2026/10/03 12:22:14.801662 Querying pg_database
+INFO: 2026/10/03 12:22:14.838581 Wrote backup with name base_000000050000000000000062 to storage default
+Backup command completed for resilience/lab-patroni-patronimvp-1

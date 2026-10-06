@@ -1,0 +1,41 @@
+{
+  "gitleaks_version": "8.24.3",
+  "scans": [
+    {
+      "scope": "worktree",
+      "findings": 0,
+      "log": "gitleaks-worktree.txt"
+    },
+    {
+      "scope": "history",
+      "findings": 0,
+      "log": "gitleaks-history.txt"
+    },
+    {
+      "scope": "generated-results",
+      "findings": 0,
+      "log": "gitleaks-generated-results.txt"
+    },
+    {
+      "scope": "reports",
+      "findings": 0,
+      "log": "gitleaks-reports.txt"
+    },
+    {
+      "scope": "phase6 artifacts and extracted image metadata",
+      "findings": 0,
+      "log": "gitleaks-metadata.txt"
+    }
+  ],
+  "history_commits": 148,
+  "tracked_paths": 77,
+  "tracked_credential_field_references": 412,
+  "tracked_high_confidence_signature_hits": 0,
+  "generated_asset_pairs_parsed": 28,
+  "metadata_scan": "PASS; no leaks found",
+  "limits": [
+    "Signature scans are not proof of absence of every credential",
+    "No dependency or image vulnerability assessment",
+    "Image tags and IDs recorded without environment values"
+  ]
+}

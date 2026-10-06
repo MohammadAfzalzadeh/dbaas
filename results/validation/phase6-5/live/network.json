@@ -1,0 +1,840 @@
+{
+  "denied_probes": [
+    {
+      "pod": "unrelated-review-probe",
+      "host": "patronimvp-master-cluster-a-patroni",
+      "port": 5432,
+      "resolved": true,
+      "connected": false,
+      "error": "TimeoutError"
+    },
+    {
+      "pod": "unrelated-review-probe",
+      "host": "cluster-a-minio-minio",
+      "port": 9000,
+      "resolved": true,
+      "connected": false,
+      "error": "TimeoutError"
+    },
+    {
+      "pod": "review-clone-patronimvp-0",
+      "host": "patronimvp-master-cluster-a-patroni",
+      "port": 5432,
+      "resolved": true,
+      "connected": false,
+      "error": "TimeoutError"
+    },
+    {
+      "pod": "cluster-a-pgcat-proxy-deployment-8657c88696-8rfkc",
+      "host": "patronimvp-master-cluster-b-patroni",
+      "connected": false,
+      "error": "timeout"
+    }
+  ],
+  "positive_sql": {
+    "cluster-a": [
+      [
+        "A"
+      ],
+      [
+        "A-after-target"
+      ]
+    ],
+    "cluster-b": [
+      [
+        "B"
+      ]
+    ]
+  },
+  "api_to_kubernetes": true,
+  "policies": {
+    "apiVersion": "v1",
+    "items": [
+      {
+        "apiVersion": "networking.k8s.io/v1",
+        "kind": "NetworkPolicy",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"networking.k8s.io/v1\",\"kind\":\"NetworkPolicy\",\"metadata\":{\"annotations\":{},\"name\":\"cluster-a-minio-review\",\"namespace\":\"review\"},\"spec\":{\"egress\":[{\"ports\":[{\"port\":53,\"protocol\":\"TCP\"},{\"port\":53,\"protocol\":\"UDP\"}],\"to\":[{\"namespaceSelector\":{\"matchLabels\":{\"kubernetes.io/metadata.name\":\"kube-system\"}}}]},{\"ports\":[{\"port\":443},{\"port\":6443}],\"to\":[{\"ipBlock\":{\"cidr\":\"10.96.0.1/32\"}},{\"ipBlock\":{\"cidr\":\"172.21.0.6/32\"}},{\"ipBlock\":{\"cidr\":\"172.21.0.7/32\"}},{\"ipBlock\":{\"cidr\":\"172.21.0.5/32\"}}]},{\"ports\":[{\"port\":9000}],\"to\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-a-minio\"}}}]}],\"ingress\":[{\"from\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-a-patroni\"}}},{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-a-minio\"}}},{\"podSelector\":{\"matchLabels\":{\"release-name\":\"review-clone\"}}}],\"ports\":[{\"port\":9000},{\"port\":9001}]}],\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-a-minio\"}},\"policyTypes\":[\"Ingress\",\"Egress\"]}}\n"
+          },
+          "creationTimestamp": "2026-10-04T09:56:30Z",
+          "generation": 1,
+          "name": "cluster-a-minio-review",
+          "namespace": "review",
+          "resourceVersion": "4047",
+          "uid": "35fc3bcc-bee9-430c-a758-59ed785d13da"
+        },
+        "spec": {
+          "egress": [
+            {
+              "ports": [
+                {
+                  "port": 53,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 53,
+                  "protocol": "UDP"
+                }
+              ],
+              "to": [
+                {
+                  "namespaceSelector": {
+                    "matchLabels": {
+                      "kubernetes.io/metadata.name": "kube-system"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 443,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 6443,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "ipBlock": {
+                    "cidr": "10.96.0.1/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.6/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.7/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.5/32"
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 9000,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-a-minio"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "ingress": [
+            {
+              "from": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-a-patroni"
+                    }
+                  }
+                },
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-a-minio"
+                    }
+                  }
+                },
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "review-clone"
+                    }
+                  }
+                }
+              ],
+              "ports": [
+                {
+                  "port": 9000,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 9001,
+                  "protocol": "TCP"
+                }
+              ]
+            }
+          ],
+          "podSelector": {
+            "matchLabels": {
+              "release-name": "cluster-a-minio"
+            }
+          },
+          "policyTypes": [
+            "Ingress",
+            "Egress"
+          ]
+        }
+      },
+      {
+        "apiVersion": "networking.k8s.io/v1",
+        "kind": "NetworkPolicy",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"networking.k8s.io/v1\",\"kind\":\"NetworkPolicy\",\"metadata\":{\"annotations\":{},\"name\":\"cluster-a-patroni-review\",\"namespace\":\"review\"},\"spec\":{\"egress\":[{\"ports\":[{\"port\":53,\"protocol\":\"TCP\"},{\"port\":53,\"protocol\":\"UDP\"}],\"to\":[{\"namespaceSelector\":{\"matchLabels\":{\"kubernetes.io/metadata.name\":\"kube-system\"}}}]},{\"ports\":[{\"port\":443},{\"port\":6443}],\"to\":[{\"ipBlock\":{\"cidr\":\"10.96.0.1/32\"}},{\"ipBlock\":{\"cidr\":\"172.21.0.6/32\"}},{\"ipBlock\":{\"cidr\":\"172.21.0.7/32\"}},{\"ipBlock\":{\"cidr\":\"172.21.0.5/32\"}}]},{\"ports\":[{\"port\":5432}],\"to\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-a-pgcat\"}}}]},{\"ports\":[{\"port\":5432},{\"port\":8008}],\"to\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-a-patroni\"}}}]},{\"ports\":[{\"port\":9000}],\"to\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-a-minio\"}}}]}],\"ingress\":[{\"from\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-a-patroni\"}}},{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-a-pgcat\"}}}],\"ports\":[{\"port\":5432},{\"port\":8008}]}],\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-a-patroni\"}},\"policyTypes\":[\"Ingress\",\"Egress\"]}}\n"
+          },
+          "creationTimestamp": "2026-10-04T09:56:30Z",
+          "generation": 2,
+          "name": "cluster-a-patroni-review",
+          "namespace": "review",
+          "resourceVersion": "9871",
+          "uid": "8ad71701-2408-4c5b-9448-281b7b8d3f75"
+        },
+        "spec": {
+          "egress": [
+            {
+              "ports": [
+                {
+                  "port": 53,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 53,
+                  "protocol": "UDP"
+                }
+              ],
+              "to": [
+                {
+                  "namespaceSelector": {
+                    "matchLabels": {
+                      "kubernetes.io/metadata.name": "kube-system"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 443,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 6443,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "ipBlock": {
+                    "cidr": "10.96.0.1/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.6/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.7/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.5/32"
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-a-pgcat"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 8008,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-a-patroni"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 9000,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-a-minio"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "ingress": [
+            {
+              "from": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-a-patroni"
+                    }
+                  }
+                },
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-a-pgcat"
+                    }
+                  }
+                }
+              ],
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 8008,
+                  "protocol": "TCP"
+                }
+              ]
+            }
+          ],
+          "podSelector": {
+            "matchLabels": {
+              "release-name": "cluster-a-patroni"
+            }
+          },
+          "policyTypes": [
+            "Ingress",
+            "Egress"
+          ]
+        }
+      },
+      {
+        "apiVersion": "networking.k8s.io/v1",
+        "kind": "NetworkPolicy",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"networking.k8s.io/v1\",\"kind\":\"NetworkPolicy\",\"metadata\":{\"annotations\":{},\"name\":\"cluster-a-pgcat-review\",\"namespace\":\"review\"},\"spec\":{\"egress\":[{\"ports\":[{\"port\":53,\"protocol\":\"TCP\"},{\"port\":53,\"protocol\":\"UDP\"}],\"to\":[{\"namespaceSelector\":{\"matchLabels\":{\"kubernetes.io/metadata.name\":\"kube-system\"}}}]},{\"ports\":[{\"port\":5432}],\"to\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-a-patroni\"}}}]}],\"ingress\":[{\"from\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-a-patroni\"}}}],\"ports\":[{\"port\":5432}]}],\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-a-pgcat\"}},\"policyTypes\":[\"Ingress\",\"Egress\"]}}\n"
+          },
+          "creationTimestamp": "2026-10-04T09:56:30Z",
+          "generation": 1,
+          "name": "cluster-a-pgcat-review",
+          "namespace": "review",
+          "resourceVersion": "4046",
+          "uid": "616b6af5-ac0d-4973-ab3d-f170d3c630d1"
+        },
+        "spec": {
+          "egress": [
+            {
+              "ports": [
+                {
+                  "port": 53,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 53,
+                  "protocol": "UDP"
+                }
+              ],
+              "to": [
+                {
+                  "namespaceSelector": {
+                    "matchLabels": {
+                      "kubernetes.io/metadata.name": "kube-system"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-a-patroni"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "ingress": [
+            {
+              "from": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-a-patroni"
+                    }
+                  }
+                }
+              ],
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                }
+              ]
+            }
+          ],
+          "podSelector": {
+            "matchLabels": {
+              "release-name": "cluster-a-pgcat"
+            }
+          },
+          "policyTypes": [
+            "Ingress",
+            "Egress"
+          ]
+        }
+      },
+      {
+        "apiVersion": "networking.k8s.io/v1",
+        "kind": "NetworkPolicy",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"networking.k8s.io/v1\",\"kind\":\"NetworkPolicy\",\"metadata\":{\"annotations\":{},\"name\":\"cluster-b-minio-review\",\"namespace\":\"review\"},\"spec\":{\"egress\":[{\"ports\":[{\"port\":53,\"protocol\":\"TCP\"},{\"port\":53,\"protocol\":\"UDP\"}],\"to\":[{\"namespaceSelector\":{\"matchLabels\":{\"kubernetes.io/metadata.name\":\"kube-system\"}}}]},{\"ports\":[{\"port\":443},{\"port\":6443}],\"to\":[{\"ipBlock\":{\"cidr\":\"10.96.0.1/32\"}},{\"ipBlock\":{\"cidr\":\"172.21.0.6/32\"}},{\"ipBlock\":{\"cidr\":\"172.21.0.7/32\"}},{\"ipBlock\":{\"cidr\":\"172.21.0.5/32\"}}]},{\"ports\":[{\"port\":9000}],\"to\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-b-minio\"}}}]}],\"ingress\":[{\"from\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-b-patroni\"}}},{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-b-minio\"}}},{\"podSelector\":{\"matchLabels\":{\"release-name\":\"review-clone\"}}}],\"ports\":[{\"port\":9000},{\"port\":9001}]}],\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-b-minio\"}},\"policyTypes\":[\"Ingress\",\"Egress\"]}}\n"
+          },
+          "creationTimestamp": "2026-10-04T09:56:30Z",
+          "generation": 1,
+          "name": "cluster-b-minio-review",
+          "namespace": "review",
+          "resourceVersion": "4050",
+          "uid": "89701ed4-d973-42c1-876e-5035d1fd4177"
+        },
+        "spec": {
+          "egress": [
+            {
+              "ports": [
+                {
+                  "port": 53,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 53,
+                  "protocol": "UDP"
+                }
+              ],
+              "to": [
+                {
+                  "namespaceSelector": {
+                    "matchLabels": {
+                      "kubernetes.io/metadata.name": "kube-system"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 443,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 6443,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "ipBlock": {
+                    "cidr": "10.96.0.1/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.6/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.7/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.5/32"
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 9000,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-b-minio"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "ingress": [
+            {
+              "from": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-b-patroni"
+                    }
+                  }
+                },
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-b-minio"
+                    }
+                  }
+                },
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "review-clone"
+                    }
+                  }
+                }
+              ],
+              "ports": [
+                {
+                  "port": 9000,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 9001,
+                  "protocol": "TCP"
+                }
+              ]
+            }
+          ],
+          "podSelector": {
+            "matchLabels": {
+              "release-name": "cluster-b-minio"
+            }
+          },
+          "policyTypes": [
+            "Ingress",
+            "Egress"
+          ]
+        }
+      },
+      {
+        "apiVersion": "networking.k8s.io/v1",
+        "kind": "NetworkPolicy",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"networking.k8s.io/v1\",\"kind\":\"NetworkPolicy\",\"metadata\":{\"annotations\":{},\"name\":\"cluster-b-patroni-review\",\"namespace\":\"review\"},\"spec\":{\"egress\":[{\"ports\":[{\"port\":53,\"protocol\":\"TCP\"},{\"port\":53,\"protocol\":\"UDP\"}],\"to\":[{\"namespaceSelector\":{\"matchLabels\":{\"kubernetes.io/metadata.name\":\"kube-system\"}}}]},{\"ports\":[{\"port\":443},{\"port\":6443}],\"to\":[{\"ipBlock\":{\"cidr\":\"10.96.0.1/32\"}},{\"ipBlock\":{\"cidr\":\"172.21.0.6/32\"}},{\"ipBlock\":{\"cidr\":\"172.21.0.7/32\"}},{\"ipBlock\":{\"cidr\":\"172.21.0.5/32\"}}]},{\"ports\":[{\"port\":5432}],\"to\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-b-pgcat\"}}}]},{\"ports\":[{\"port\":5432},{\"port\":8008}],\"to\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-b-patroni\"}}}]},{\"ports\":[{\"port\":9000}],\"to\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-b-minio\"}}}]}],\"ingress\":[{\"from\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-b-patroni\"}}},{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-b-pgcat\"}}}],\"ports\":[{\"port\":5432},{\"port\":8008}]}],\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-b-patroni\"}},\"policyTypes\":[\"Ingress\",\"Egress\"]}}\n"
+          },
+          "creationTimestamp": "2026-10-04T09:56:30Z",
+          "generation": 2,
+          "name": "cluster-b-patroni-review",
+          "namespace": "review",
+          "resourceVersion": "9872",
+          "uid": "1caecda2-e503-4eda-aaf1-b3a23d62a890"
+        },
+        "spec": {
+          "egress": [
+            {
+              "ports": [
+                {
+                  "port": 53,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 53,
+                  "protocol": "UDP"
+                }
+              ],
+              "to": [
+                {
+                  "namespaceSelector": {
+                    "matchLabels": {
+                      "kubernetes.io/metadata.name": "kube-system"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 443,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 6443,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "ipBlock": {
+                    "cidr": "10.96.0.1/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.6/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.7/32"
+                  }
+                },
+                {
+                  "ipBlock": {
+                    "cidr": "172.21.0.5/32"
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-b-pgcat"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 8008,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-b-patroni"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 9000,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-b-minio"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "ingress": [
+            {
+              "from": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-b-patroni"
+                    }
+                  }
+                },
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-b-pgcat"
+                    }
+                  }
+                }
+              ],
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 8008,
+                  "protocol": "TCP"
+                }
+              ]
+            }
+          ],
+          "podSelector": {
+            "matchLabels": {
+              "release-name": "cluster-b-patroni"
+            }
+          },
+          "policyTypes": [
+            "Ingress",
+            "Egress"
+          ]
+        }
+      },
+      {
+        "apiVersion": "networking.k8s.io/v1",
+        "kind": "NetworkPolicy",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"networking.k8s.io/v1\",\"kind\":\"NetworkPolicy\",\"metadata\":{\"annotations\":{},\"name\":\"cluster-b-pgcat-review\",\"namespace\":\"review\"},\"spec\":{\"egress\":[{\"ports\":[{\"port\":53,\"protocol\":\"TCP\"},{\"port\":53,\"protocol\":\"UDP\"}],\"to\":[{\"namespaceSelector\":{\"matchLabels\":{\"kubernetes.io/metadata.name\":\"kube-system\"}}}]},{\"ports\":[{\"port\":5432}],\"to\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-b-patroni\"}}}]}],\"ingress\":[{\"from\":[{\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-b-patroni\"}}}],\"ports\":[{\"port\":5432}]}],\"podSelector\":{\"matchLabels\":{\"release-name\":\"cluster-b-pgcat\"}},\"policyTypes\":[\"Ingress\",\"Egress\"]}}\n"
+          },
+          "creationTimestamp": "2026-10-04T09:56:30Z",
+          "generation": 1,
+          "name": "cluster-b-pgcat-review",
+          "namespace": "review",
+          "resourceVersion": "4049",
+          "uid": "3c084120-44be-492d-9bd7-b9da95f34e62"
+        },
+        "spec": {
+          "egress": [
+            {
+              "ports": [
+                {
+                  "port": 53,
+                  "protocol": "TCP"
+                },
+                {
+                  "port": 53,
+                  "protocol": "UDP"
+                }
+              ],
+              "to": [
+                {
+                  "namespaceSelector": {
+                    "matchLabels": {
+                      "kubernetes.io/metadata.name": "kube-system"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                }
+              ],
+              "to": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-b-patroni"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "ingress": [
+            {
+              "from": [
+                {
+                  "podSelector": {
+                    "matchLabels": {
+                      "release-name": "cluster-b-patroni"
+                    }
+                  }
+                }
+              ],
+              "ports": [
+                {
+                  "port": 5432,
+                  "protocol": "TCP"
+                }
+              ]
+            }
+          ],
+          "podSelector": {
+            "matchLabels": {
+              "release-name": "cluster-b-pgcat"
+            }
+          },
+          "policyTypes": [
+            "Ingress",
+            "Egress"
+          ]
+        }
+      }
+    ],
+    "kind": "List",
+    "metadata": {
+      "resourceVersion": ""
+    }
+  },
+  "scope": "explicit per-release policies in Calico; not tenant RBAC isolation"
+}

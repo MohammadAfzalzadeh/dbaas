@@ -1,0 +1,50 @@
+{
+  "apiVersion": "v1",
+  "kind": "Endpoints",
+  "metadata": {
+    "annotations": {
+      "endpoints.kubernetes.io/last-change-trigger-time": "2026-10-03T09:55:19Z"
+    },
+    "creationTimestamp": "2026-10-03T09:55:04Z",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm",
+      "application": "patroni",
+      "cluster-name": "smoke-patroni-patronimvp",
+      "release-name": "smoke-patroni",
+      "role": "primary",
+      "type": "monitoring"
+    },
+    "name": "patronimvp-master-smoke-patroni",
+    "namespace": "dbaas-smoke",
+    "resourceVersion": "787",
+    "uid": "d928e68c-472b-456f-92c7-2220d2198e6e"
+  },
+  "subsets": [
+    {
+      "addresses": [
+        {
+          "ip": "10.244.0.12",
+          "nodeName": "dbaas-smoke-68bac400b4-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "smoke-patroni-patronimvp-0",
+            "namespace": "dbaas-smoke",
+            "uid": "04a81f8e-6ce9-4433-8aee-a3ce32e68e84"
+          }
+        }
+      ],
+      "ports": [
+        {
+          "name": "pg",
+          "port": 5432,
+          "protocol": "TCP"
+        },
+        {
+          "name": "patroni",
+          "port": 8008,
+          "protocol": "TCP"
+        }
+      ]
+    }
+  ]
+}

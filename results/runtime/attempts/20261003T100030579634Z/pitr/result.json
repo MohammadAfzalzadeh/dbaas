@@ -1,0 +1,53 @@
+{
+  "after": [
+    {
+      "id": 1,
+      "phase": "baseline",
+      "value": 100
+    },
+    {
+      "id": 3,
+      "phase": "after-recovery",
+      "value": 300
+    }
+  ],
+  "before": [
+    {
+      "id": 1,
+      "phase": "baseline",
+      "value": 100
+    },
+    {
+      "id": 2,
+      "phase": "after-target",
+      "value": 200
+    }
+  ],
+  "completed": "2026-10-03T09:57:57.893074+00:00",
+  "duration_seconds": 68.532,
+  "members": {
+    "members": [
+      {
+        "api_url": "http://10.244.0.23:8008/patroni",
+        "host": "10.244.0.23",
+        "name": "smoke-patroni-patronimvp-0",
+        "port": 5432,
+        "role": "leader",
+        "state": "running",
+        "timeline": 2
+      },
+      {
+        "api_url": "http://10.244.0.25:8008/patroni",
+        "host": "10.244.0.25",
+        "lag": 0,
+        "name": "smoke-patroni-patronimvp-1",
+        "port": 5432,
+        "role": "replica",
+        "state": "streaming",
+        "timeline": 2
+      }
+    ],
+    "scope": "smoke-patroni-patronimvp"
+  },
+  "target_utc": "2026-10-03 09:56:46"
+}

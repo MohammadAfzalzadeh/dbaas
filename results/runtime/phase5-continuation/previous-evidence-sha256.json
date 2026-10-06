@@ -1,0 +1,322 @@
+[
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/after-manual-reinitialization.json",
+    "sha256": "adf41a4324a536fc150487b999cac4044e366bdaf7156d293c3fb1a176461e42"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/after-manual-reinitialization.txt",
+    "sha256": "3e4c7bf1ce59dda515e4221e94334d6563adf44be23360df852ec37e1bda286b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/alert-transitions.json",
+    "sha256": "1079a03e9dbf5a525b51f4f3c2e81881f6e777f374ed0f7ef2975a4c8ac9c86f"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/alert-existing-connections/result.json",
+    "sha256": "d80e4119005e3b90f0203bc61cc0fa536e33a8d6cc0566d8451f48cafd06a061"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/before-drain-replica.json",
+    "sha256": "69d603468cabba2f105789fa03bfd052eb2eb3c4d5dae1fd379f0706291e795a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/before-drain-replica.txt",
+    "sha256": "d02126ec24751067f6f54fb5a30abf4b1d49f03360e75c78951f9708467a0663"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/drain-replica.json",
+    "sha256": "cfdcb4f1d048fd6d1adb6612439145798d581e0580c507fe8b763a634a4182df"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/persistent-drain-replica.json",
+    "sha256": "b2312bb175ba21c4ac8075ceb53195fded512187614e4284c8d484e7458184c9"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/persistent-pgcat-delete.json",
+    "sha256": "7c3a3367111ac017601bc2c73b13b7f68e66c8dcd0461486a40102baaec88a4d"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/pgcat-ha.json",
+    "sha256": "a3d2c7d87ce7c78fb9f82a83d8e614f89091d7825aacc4c4ff031f047d0311b8"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/status.json",
+    "sha256": "1720b8ee023f419f7e3308d090830555bbb9e86561e4f6d11fe3fe0aecf6c07b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/drain-timeout/summary.md",
+    "sha256": "2791cca1e32a24b60281e7cdd61ea9d124e284a1bb417447a18de9119843c7e4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/harness-findings.json",
+    "sha256": "58a117010316c079e9266079ac16235122648258cdbe45e67a4989dac1ecfda9"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/proxy-first-bounded/persistent-pgcat-abrupt.json",
+    "sha256": "f2e4f81fc20fa218f3e47a7afb2f5cfa7c22d16db097710d05d7be865482eef7"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/proxy-first-bounded/pgcat-abrupt.json",
+    "sha256": "9d03fff5dff0068a738aae3b1d53908dd65dbe5c42d0b13c86567084357c13c9"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/attempts/restore-before-archive-isolation/result.json",
+    "sha256": "fc2c88687318b936aaaf658cb39c31af01762948a3cd5faded72e8987151ff6c"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/baseline-job.txt",
+    "sha256": "bc0e6e2384fdf5d0f46b0fe2f1abdb907aeef62d9b1adfa9853ea65a20e77d9d"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/baseline.json",
+    "sha256": "f93bd8a2761cd8e7e19d99ff0401a1d797637e582159943ebdad2cca18b0936a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/impact-job.txt",
+    "sha256": "0e38a9edb1a1fa2cafd6fe06cb692ba986997df6ca662de88737595006757474"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/impact.json",
+    "sha256": "576af81f181ee6d6b0af21fd237d15ef5f38505ac0625385a6d80fa380d122a7"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/network-job.txt",
+    "sha256": "3e12e0b129713dc732c45a4a51c753778cf5d9ac7b94a1647eabb221a85e0973"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/network.json",
+    "sha256": "c73afe3c7f4f59d4718e0916cac20880dbfbb88fb638cd6300e59e8217c6e757"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/size100-job.txt",
+    "sha256": "ca97dffa96dc9288a6a12e5ea518fa7bf1f77e5f4725af0311e7eadd4cb80ad6"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/size100.json",
+    "sha256": "bfa5d4b32f290728897fe35ec2251926d40b52c4dccd7ce95550e6cc4961d641"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/backup/wal.json",
+    "sha256": "25e76b1965ce7a7e09e7bad7ee3ce6c11cfe8b420974057e7808f564016ef59a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/baseline.json",
+    "sha256": "a1fc4d447d02f1cb90ddb4619bb2ee81200493de34f91f0a87607da9b4cb01b5"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/before-drain-primary.json",
+    "sha256": "e46bf128dc768474563f84ededdcc0a01c9e1f9beb76da5aee7bda178ec3009b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/before-drain-primary.txt",
+    "sha256": "b6e70f50f01ad56d4ee0bb39aa5bc2eca13542f132c9f50a08379b0be4e2b710"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/before-drain-replica.json",
+    "sha256": "f6892d683f85f8840c310aa7a74f3f5e1957f8e997e829ca337c1b6b72b247b6"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/before-drain-replica.txt",
+    "sha256": "c09441b0350d27ee619edf7bd432c268597680d7035ea80db1f40f04157a77e9"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/benchmark-pool-mode.json",
+    "sha256": "d004b1b8dba01690cb2763b42c437fb89ee3bc972e7fb4bbbd585a0d983d79ce"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/bootstrap-notes.json",
+    "sha256": "e82451dce84f95a53e7ec4555b2ddcd5ec1b37e3c1832bafb909ec4b937a9cf4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/cleanup.json",
+    "sha256": "6e0aff76e178edd10b864b93ed973698f65ec21b3ceb9cb779c164247169c55f"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/cni-source.json",
+    "sha256": "d69631d01e14d71b4fb0d303917c7ca312111d1406075181d3296598d9b6d6b7"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/dashboard-queries.json",
+    "sha256": "afed63f1f7b251256ea4d8168e6fce78270c671509c1eb854d74f62f5fe9caf6"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/drain-primary.json",
+    "sha256": "2eeb425612cc5ca3df50de7b52831bf922a4716d712a2065423243dc7e29a21e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/drain-replica.json",
+    "sha256": "8da6102473c6bd8d9a6624c968ad9e5a27c61f0d195588d9b29ef1ab7d5c0c5e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/environment.json",
+    "sha256": "c96474e884d16cca058c2145ecf3cb4a6c090c4bad2a59bf9f51d4ae84f28b14"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/final-topology.json",
+    "sha256": "e975b7359b52f7c40ad8bd572ab037154e93c57cf4d8fc0a70cd065f41cf96fa"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/final-topology.txt",
+    "sha256": "7c36f742a444a063123a838999f021303aed553257cce8490127417a915ff825"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/grafana-loaded-dashboards.json",
+    "sha256": "8ec490fd862aff24631121de1cd6ee4b9764060f663cc6da0e1b94a2f50e427b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/initial-topology.json",
+    "sha256": "a07b8c760133fb5d71174b11d27bb252fee13c7ce0f3bd80b4c233a7e99c4ab3"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/initial-topology.txt",
+    "sha256": "b3d74bb9c00a9c5dde6e6d9fc94b2ef4bf0e3991354254e9cc7bf65a23ddd83b"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/isolated-423c29-patronimvp-0-recovery-errors.json",
+    "sha256": "426de854b750fdabf58965aaf394f2ab8874f645cbbd2884212ed1c7fe35965d"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/isolated-restart.json",
+    "sha256": "dfcb967648202369d61cbb1dd77ab27a8f75ff35ecbaf8887c66696be19dbd67"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/isolated-restore.json",
+    "sha256": "296fb0e1116edcb34d93d93419de436bc52e70f73d11b96f322ab10635467965"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/lab-patroni-patronimvp-1-recovery-errors.json",
+    "sha256": "dfe7332272237dd2784f1809769e015a6c11ba897f645c1010cbf613e69f025a"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/metric-families.json",
+    "sha256": "8474ae3928b6cf017454a67f9e9a894569f88555b74e32af11dba081450364dd"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/metrics-patroni.txt",
+    "sha256": "a3c0b7cc6c6478a85bb76064fd20eaca3bb2e46b6d0cbac198adcdffe31aaaf4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/metrics-pgcat.txt",
+    "sha256": "68a5de9aac47c3894e317373c7f910f0cedd2d067e3653ec181e56dd534380a0"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/network-policy.json",
+    "sha256": "22348afc27980a34a96d0c10e12641a861151c7a7fc992724f7b3602cb6cf6e6"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/node-loss.json",
+    "sha256": "9d92a308dac80e6dd5549a1084d740592a5ae99c3fd43e5efd2f9f3d0aa57aab"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/observability-inventory.json",
+    "sha256": "81882d56e6ad197c3c578da5833f5bb3af028eae5b8e8f38183b7f1c7dd80073"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/persistent-drain-primary.json",
+    "sha256": "54c817504e6cd8be157cc5aa65a0d0dfeb87bd56f832bb882a7cb018356aa965"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/persistent-drain-replica.json",
+    "sha256": "86bb29813fbcb20366db42d9f70cf509ca484d675d1a850204f27b9db1be28c4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/persistent-node-loss.json",
+    "sha256": "f11a228a8265e51a2f6a98c49b9b29a9c03a05fd22aebd1c961faf0a82ded693"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/persistent-pgcat-abrupt.json",
+    "sha256": "6a332d440954d8156017c6077e5b1941915a1b54135e9b05d10cc9706b3cccb4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/persistent-pgcat-delete.json",
+    "sha256": "b11b0c3b68da64779a2e8d960791dbdad922d54bc9bc3d07f3b1ed7963c9cbb6"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/persistent-revision-rollout.json",
+    "sha256": "66db09bd02579b93c652d874d9f82277741cb2fb171e5957855b941350931256"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/pgcat-abrupt.json",
+    "sha256": "774ededd93914a8cb2b1dcba41b9a89b3cbb4d5f997b9ec2ddcf9cf327637c6e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/pgcat-ha.json",
+    "sha256": "8bd2bed3985fd79edb572d1eeebbdb25d3f5b2795cc6f56ead6e3051d9e80cad"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/prometheus-rules.json",
+    "sha256": "8857351b35ab199c0a29b4084874bd47a9891cb58000233096c5971bd602ae4e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/prometheus-targets.json",
+    "sha256": "08701983e90d2651eede27315b9057a1e6ea05a68fff93b15ae42f1b804bf874"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/provisioning.json",
+    "sha256": "d86d8d0919b81dcd952336903ee932ea4c08a80aaf8f242bdfd08add0bc88a62"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/recovery-followup.json",
+    "sha256": "af9961fc05fb591919cfcce12209d53f892f1955e77a4ec564118688c215e4b9"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/replica-recovery-diagnostic.json",
+    "sha256": "4962d7fb569a8670b18e7102d731d6e79575104fee845301ea01ec4b609771bb"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/rotation.json",
+    "sha256": "9680970f478be4708fe58c720a733a6bf08f5b11f99af86d8ded6d220b3523df"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/service-distribution.json",
+    "sha256": "03ce79a3cedd0d77d8e4d7dc4149146e075a0f36193337adab3e5a8608181aec"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/servicemonitors.json",
+    "sha256": "1f61221204d2f833b14dc76ecf38da1b3382d4a4b3e29e32bfc3953d3a6d30be"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/status.json",
+    "sha256": "f62e0a7a5f57bfe33738322f4b67fb29794e036e3174d153f2f00a2b95399eb8"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/summary.md",
+    "sha256": "1ae2e06bd1ae663857026a969cce44f46ea2eca5eb9f8b415ba5c9aed649f8c0"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/upgrades.json",
+    "sha256": "79a12b05ab29f4c5a78a9d10502688e2eee0a5edea22a2db4022ed056db3025c"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/image-builds.txt",
+    "sha256": "99dd54b9617980d4ecbcf3441b73290ee195a20e8a5c2d038bf8f8aaf4bd8e29"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/node.txt",
+    "sha256": "201823d4bb663733bbfe677f35b05da1e2b2127ee0646937989b4a1e35a58e2f"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/npm-ci.txt",
+    "sha256": "a0cbd68a75f223ef9d90a14ce4ebcb565f067003276fab9a849e88185c779484"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/python.txt",
+    "sha256": "6b46720b75b2b9057a587df409385b7fe3fba12cf65ef859a1fadc874a32d5d4"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/secret-history.txt",
+    "sha256": "36c62fc83a8e6b7c6f0eecf37a563918a15eef6795a7841be0d5d63ca86fef7e"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/secret-worktree.txt",
+    "sha256": "c2028395d638ca15e59450c3b4bb53f0001ca689d10a7e7571562cb077c76e08"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/static.txt",
+    "sha256": "8aa83dda9bca35a7bcd5a2eb5166a4a924f6d4360ad8772ed0da3163ab1a9888"
+  },
+  {
+    "path": "results/runtime/multinode/dbaas-phase5-8a3ad9f385/validation/summary.json",
+    "sha256": "23b35b6d9949069005399ab5c3b34994cbd81bb247c55cfbd27f3bbb47c07b76"
+  }
+]

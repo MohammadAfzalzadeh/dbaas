@@ -1,0 +1,21 @@
+NAME                                           READY   STATUS    RESTARTS   AGE     IP               NODE                                    NOMINATED NODE   READINESS GATES
+dbaas-backend-5bff85f656-z8grh                 1/1     Running   0          14m     192.168.21.133   dbaas-phase5-8a3ad9f385-control-plane   <none>           <none>
+isolated-423c29-patronimvp-0                   1/1     Running   0          7m4s    192.168.184.8    dbaas-phase5-8a3ad9f385-worker3         <none>           <none>
+lab-minio-minio-statefulset-0                  1/1     Running   0          14m     192.168.184.2    dbaas-phase5-8a3ad9f385-worker3         <none>           <none>
+lab-object-client                              1/1     Running   0          9m5s    192.168.21.135   dbaas-phase5-8a3ad9f385-control-plane   <none>           <none>
+lab-patroni-patronimvp-0                       1/1     Running   0          105s    192.168.125.76   dbaas-phase5-8a3ad9f385-worker          <none>           <none>
+lab-patroni-patronimvp-1                       1/1     Running   0          11m     192.168.74.133   dbaas-phase5-8a3ad9f385-worker2         <none>           <none>
+lab-patroni-patronimvp-2                       1/1     Running   0          11m     192.168.184.6    dbaas-phase5-8a3ad9f385-worker3         <none>           <none>
+lab-pgcat-pgadmin-deployment-5c849f7d5-7pkxc   1/1     Running   0          4m44s   192.168.74.137   dbaas-phase5-8a3ad9f385-worker2         <none>           <none>
+lab-pgcat-proxy-deployment-5584b97bbd-6bssh    2/2     Running   0          106s    192.168.184.10   dbaas-phase5-8a3ad9f385-worker3         <none>           <none>
+lab-pgcat-proxy-deployment-5584b97bbd-s5cv5    2/2     Running   0          4m44s   192.168.74.138   dbaas-phase5-8a3ad9f385-worker2         <none>           <none>
+lab-sql-client                                 1/1     Running   0          9m5s    192.168.21.134   dbaas-phase5-8a3ad9f385-control-plane   <none>           <none>
+persistent-client                              1/1     Running   0          9m3s    192.168.21.136   dbaas-phase5-8a3ad9f385-control-plane   <none>           <none>
+NAME                                    STATUS   ROLES           AGE   VERSION
+dbaas-phase5-8a3ad9f385-control-plane   Ready    control-plane   20m   v1.30.0
+dbaas-phase5-8a3ad9f385-worker          Ready    <none>          17m   v1.30.0
+dbaas-phase5-8a3ad9f385-worker2         Ready    <none>          17m   v1.30.0
+dbaas-phase5-8a3ad9f385-worker3         Ready    <none>          17m   v1.30.0
+NAME                  MIN AVAILABLE   MAX UNAVAILABLE   ALLOWED DISRUPTIONS   AGE
+lab-patroni-patroni   N/A             1                 1                     13m
+lab-pgcat-pgcat       N/A             1                 1                     10m

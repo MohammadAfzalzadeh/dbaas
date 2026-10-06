@@ -1,0 +1,346 @@
+[
+  {
+    "svg": "docs/images/architecture/architecture.svg",
+    "png": "docs/images/architecture/architecture.png",
+    "png_pixels": [
+      2248,
+      1916
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/backup-wal-path.svg",
+    "png": "docs/images/architecture/backup-wal-path.png",
+    "png_pixels": [
+      3168,
+      550
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/control-data-planes.svg",
+    "png": "docs/images/architecture/control-data-planes.png",
+    "png_pixels": [
+      3168,
+      228
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/credential-rotation.svg",
+    "png": "docs/images/architecture/credential-rotation.png",
+    "png_pixels": [
+      3126,
+      1194
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/failure-recovery.svg",
+    "png": "docs/images/architecture/failure-recovery.png",
+    "png_pixels": [
+      3002,
+      1194
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/graceful-shutdown.svg",
+    "png": "docs/images/architecture/graceful-shutdown.png",
+    "png_pixels": [
+      3168,
+      1626
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/isolated-restore.svg",
+    "png": "docs/images/architecture/isolated-restore.png",
+    "png_pixels": [
+      3168,
+      446
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/kubernetes-ha.svg",
+    "png": "docs/images/architecture/kubernetes-ha.png",
+    "png_pixels": [
+      3168,
+      1032
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/multinode-topology.svg",
+    "png": "docs/images/architecture/multinode-topology.png",
+    "png_pixels": [
+      2546,
+      1774
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/network-boundaries.svg",
+    "png": "docs/images/architecture/network-boundaries.png",
+    "png_pixels": [
+      3168,
+      1066
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/node-drain.svg",
+    "png": "docs/images/architecture/node-drain.png",
+    "png_pixels": [
+      2470,
+      1194
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/observability.svg",
+    "png": "docs/images/architecture/observability.png",
+    "png_pixels": [
+      2412,
+      1324
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/patroni-ha.svg",
+    "png": "docs/images/architecture/patroni-ha.png",
+    "png_pixels": [
+      2372,
+      916
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/pgcat-routing.svg",
+    "png": "docs/images/architecture/pgcat-routing.png",
+    "png_pixels": [
+      3168,
+      518
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/pitr.svg",
+    "png": "docs/images/architecture/pitr.png",
+    "png_pixels": [
+      2272,
+      1222
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/pod-failure-flow.svg",
+    "png": "docs/images/architecture/pod-failure-flow.png",
+    "png_pixels": [
+      1482,
+      2740
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/provisioning-flow.svg",
+    "png": "docs/images/architecture/provisioning-flow.png",
+    "png_pixels": [
+      2996,
+      1592
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/restore-cutover.svg",
+    "png": "docs/images/architecture/restore-cutover.png",
+    "png_pixels": [
+      2672,
+      1018
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/storage-lifecycle.svg",
+    "png": "docs/images/architecture/storage-lifecycle.png",
+    "png_pixels": [
+      3168,
+      382
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/architecture/validation-architecture.svg",
+    "png": "docs/images/architecture/validation-architecture.png",
+    "png_pixels": [
+      2412,
+      1516
+    ],
+    "png_metadata": {},
+    "svg_metadata": []
+  },
+  {
+    "svg": "docs/images/results/final/backup-impact.svg",
+    "png": "docs/images/results/final/backup-impact.png",
+    "png_pixels": [
+      1600,
+      800
+    ],
+    "png_metadata": {
+      "Software": "Matplotlib version3.10.7, https://matplotlib.org/",
+      "dpi": [
+        199.9996,
+        199.9996
+      ]
+    },
+    "svg_metadata": [
+      "\n  \n   \n    \n    2026-10-04T11:55:10.550059\n    image/svg+xml\n    \n     \n      Matplotlib v3.10.7, https://matplotlib.org/\n     \n    \n   \n  \n "
+    ]
+  },
+  {
+    "svg": "docs/images/results/final/direct-vs-pgcat.svg",
+    "png": "docs/images/results/final/direct-vs-pgcat.png",
+    "png_pixels": [
+      1400,
+      800
+    ],
+    "png_metadata": {
+      "Software": "Matplotlib version3.10.7, https://matplotlib.org/",
+      "dpi": [
+        199.9996,
+        199.9996
+      ]
+    },
+    "svg_metadata": [
+      "\n  \n   \n    \n    2026-10-04T11:55:10.034871\n    image/svg+xml\n    \n     \n      Matplotlib v3.10.7, https://matplotlib.org/\n     \n    \n   \n  \n "
+    ]
+  },
+  {
+    "svg": "docs/images/results/final/failover-timeline.svg",
+    "png": "docs/images/results/final/failover-timeline.png",
+    "png_pixels": [
+      1800,
+      800
+    ],
+    "png_metadata": {
+      "Software": "Matplotlib version3.10.7, https://matplotlib.org/",
+      "dpi": [
+        199.9996,
+        199.9996
+      ]
+    },
+    "svg_metadata": [
+      "\n  \n   \n    \n    2026-10-04T11:55:10.191056\n    image/svg+xml\n    \n     \n      Matplotlib v3.10.7, https://matplotlib.org/\n     \n    \n   \n  \n "
+    ]
+  },
+  {
+    "svg": "docs/images/results/final/latency-vs-concurrency.svg",
+    "png": "docs/images/results/final/latency-vs-concurrency.png",
+    "png_pixels": [
+      2400,
+      800
+    ],
+    "png_metadata": {
+      "Software": "Matplotlib version3.10.7, https://matplotlib.org/",
+      "dpi": [
+        199.9996,
+        199.9996
+      ]
+    },
+    "svg_metadata": [
+      "\n  \n   \n    \n    2026-10-04T11:55:09.651862\n    image/svg+xml\n    \n     \n      Matplotlib v3.10.7, https://matplotlib.org/\n     \n    \n   \n  \n "
+    ]
+  },
+  {
+    "svg": "docs/images/results/final/persistent-clients.svg",
+    "png": "docs/images/results/final/persistent-clients.png",
+    "png_pixels": [
+      1600,
+      800
+    ],
+    "png_metadata": {
+      "Software": "Matplotlib version3.10.7, https://matplotlib.org/",
+      "dpi": [
+        199.9996,
+        199.9996
+      ]
+    },
+    "svg_metadata": [
+      "\n  \n   \n    \n    2026-10-04T11:55:10.377113\n    image/svg+xml\n    \n     \n      Matplotlib v3.10.7, https://matplotlib.org/\n     \n    \n   \n  \n "
+    ]
+  },
+  {
+    "svg": "docs/images/results/final/pitr-recovery.svg",
+    "png": "docs/images/results/final/pitr-recovery.png",
+    "png_pixels": [
+      1600,
+      800
+    ],
+    "png_metadata": {
+      "Software": "Matplotlib version3.10.7, https://matplotlib.org/",
+      "dpi": [
+        199.9996,
+        199.9996
+      ]
+    },
+    "svg_metadata": [
+      "\n  \n   \n    \n    2026-10-04T11:55:10.949432\n    image/svg+xml\n    \n     \n      Matplotlib v3.10.7, https://matplotlib.org/\n     \n    \n   \n  \n "
+    ]
+  },
+  {
+    "svg": "docs/images/results/final/restore-duration.svg",
+    "png": "docs/images/results/final/restore-duration.png",
+    "png_pixels": [
+      1600,
+      800
+    ],
+    "png_metadata": {
+      "Software": "Matplotlib version3.10.7, https://matplotlib.org/",
+      "dpi": [
+        199.9996,
+        199.9996
+      ]
+    },
+    "svg_metadata": [
+      "\n  \n   \n    \n    2026-10-04T11:55:10.760381\n    image/svg+xml\n    \n     \n      Matplotlib v3.10.7, https://matplotlib.org/\n     \n    \n   \n  \n "
+    ]
+  },
+  {
+    "svg": "docs/images/results/final/tps-vs-concurrency.svg",
+    "png": "docs/images/results/final/tps-vs-concurrency.png",
+    "png_pixels": [
+      2400,
+      800
+    ],
+    "png_metadata": {
+      "Software": "Matplotlib version3.10.7, https://matplotlib.org/",
+      "dpi": [
+        199.9996,
+        199.9996
+      ]
+    },
+    "svg_metadata": [
+      "\n  \n   \n    \n    2026-10-04T11:55:09.088072\n    image/svg+xml\n    \n     \n      Matplotlib v3.10.7, https://matplotlib.org/\n     \n    \n   \n  \n "
+    ]
+  }
+]

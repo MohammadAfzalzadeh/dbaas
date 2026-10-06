@@ -1,0 +1,98 @@
+[
+  {
+    "state": "absent",
+    "timestamp": "2026-10-03T12:10:21.889419+00:00"
+  },
+  {
+    "state": "absent",
+    "timestamp": "2026-10-03T12:10:27.012491+00:00"
+  },
+  {
+    "state": "absent",
+    "timestamp": "2026-10-03T12:10:32.137026+00:00"
+  },
+  {
+    "state": "absent",
+    "timestamp": "2026-10-03T12:10:37.254692+00:00"
+  },
+  {
+    "state": "absent",
+    "timestamp": "2026-10-03T12:10:42.366369+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:10:47.483029+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:10:47.660487+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:10:52.782194+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:10:57.903863+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:11:03.022393+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:11:08.143184+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:11:13.272422+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:11:18.392834+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:11:23.524688+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:11:28.638902+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:11:33.749739+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:11:38.864273+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:11:43.982887+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:11:49.099814+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:11:54.247684+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:11:59.373289+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:12:04.496596+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:12:09.608019+00:00"
+  },
+  {
+    "state": "inactive",
+    "timestamp": "2026-10-03T12:12:14.744199+00:00"
+  }
+]

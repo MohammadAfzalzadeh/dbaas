@@ -1,0 +1,30 @@
+{
+  "before": [
+    {
+      "id": 1,
+      "phase": "baseline",
+      "value": 100
+    },
+    {
+      "id": 2,
+      "phase": "after-target",
+      "value": 200
+    }
+  ],
+  "rows_with_timestamps": [
+    {
+      "created_at": "2026-10-03T10:03:57.589877+00:00",
+      "id": 1,
+      "phase": "baseline",
+      "value": 100
+    },
+    {
+      "created_at": "2026-10-03T10:04:05.830737+00:00",
+      "id": 2,
+      "phase": "after-target",
+      "value": 200
+    }
+  ],
+  "started": "2026-10-03T10:04:07.010853+00:00",
+  "target_utc": "2026-10-03 10:04:03"
+}

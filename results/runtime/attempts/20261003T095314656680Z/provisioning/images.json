@@ -1,0 +1,51 @@
+[
+  {
+    "image": "dbaas/wal-g:3.0.7",
+    "id": "sha256:769df1e70f0d35faea61b7c5014dde4a277749a75e605ef364e1f1abd36b00eb",
+    "architecture": "amd64",
+    "os": "linux",
+    "created": "2026-10-03T11:55:02.619029284+03:30"
+  },
+  {
+    "image": "dbaas/patroni:2.1.0",
+    "id": "sha256:0527cf2b32fb30bca2027e59bf399ad429b7c4c2f3e85f6282da87b1dfe6ed9a",
+    "architecture": "amd64",
+    "os": "linux",
+    "created": "2026-10-03T11:50:38.468405189+03:30"
+  },
+  {
+    "image": "dbaas/pgcat-config-watcher:1.1.0",
+    "id": "sha256:f9818f9b0f4186938401fbc655f4a708a9b3fa2863a2784fb6655f3d54878b95",
+    "architecture": "amd64",
+    "os": "linux",
+    "created": "2026-10-03T12:08:21.36343771+03:30"
+  },
+  {
+    "image": "dbaas/minio:RELEASE.2025-04-22T22-12-26Z",
+    "id": "sha256:a8d327ce87949072c97198c54341c4953288afa4ea568666bc7cb9a4c771e2f8",
+    "architecture": "amd64",
+    "os": "linux",
+    "created": "2026-10-03T11:58:04.276687482+03:30"
+  },
+  {
+    "image": "dbaas/mc:RELEASE.2025-04-16T18-13-26Z",
+    "id": "sha256:e6028f3968025db8739c1b6e8083f386e698a7a6eeac7523da8d63559624fb5c",
+    "architecture": "amd64",
+    "os": "linux",
+    "created": "2026-10-03T11:59:05.04998745+03:30"
+  },
+  {
+    "image": "dbaas/kubectl:1.30.0",
+    "id": "sha256:8db4afcfca85b87e6315f3371a0d8863f48bcaa136f8f9819bf3b47eb887adf3",
+    "architecture": "amd64",
+    "os": "linux",
+    "created": "2026-10-03T11:59:25.711084849+03:30"
+  },
+  {
+    "image": "dbaas/backend:0.2.0",
+    "id": "sha256:1503156e73aec0094858c37b5b0d8ea29875d06ef9566f986e8da2f9bedb2980",
+    "architecture": "amd64",
+    "os": "linux",
+    "created": "2026-10-03T13:02:41.999071227+03:30"
+  }
+]

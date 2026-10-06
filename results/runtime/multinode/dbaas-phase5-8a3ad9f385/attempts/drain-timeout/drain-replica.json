@@ -1,0 +1,109 @@
+{
+  "before_pdb": {
+    "apiVersion": "v1",
+    "items": [
+      {
+        "apiVersion": "policy/v1",
+        "kind": "PodDisruptionBudget",
+        "metadata": {
+          "annotations": {
+            "meta.helm.sh/release-name": "lab-patroni",
+            "meta.helm.sh/release-namespace": "resilience"
+          },
+          "creationTimestamp": "2026-10-03T11:21:53Z",
+          "generation": 1,
+          "labels": {
+            "app.kubernetes.io/managed-by": "Helm"
+          },
+          "name": "lab-patroni-patroni",
+          "namespace": "resilience",
+          "resourceVersion": "2387",
+          "uid": "18bbc4e4-4037-43da-9846-72fbf3212776"
+        },
+        "spec": {
+          "maxUnavailable": 1,
+          "selector": {
+            "matchLabels": {
+              "application": "patroni",
+              "cluster-name": "lab-patroni-patronimvp",
+              "release-name": "lab-patroni"
+            }
+          }
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastTransitionTime": "2026-10-03T11:24:20Z",
+              "message": "",
+              "observedGeneration": 1,
+              "reason": "SufficientPods",
+              "status": "True",
+              "type": "DisruptionAllowed"
+            }
+          ],
+          "currentHealthy": 3,
+          "desiredHealthy": 2,
+          "disruptionsAllowed": 1,
+          "expectedPods": 3,
+          "observedGeneration": 1
+        }
+      },
+      {
+        "apiVersion": "policy/v1",
+        "kind": "PodDisruptionBudget",
+        "metadata": {
+          "annotations": {
+            "meta.helm.sh/release-name": "lab-pgcat",
+            "meta.helm.sh/release-namespace": "resilience"
+          },
+          "creationTimestamp": "2026-10-03T11:24:21Z",
+          "generation": 1,
+          "labels": {
+            "app.kubernetes.io/managed-by": "Helm"
+          },
+          "name": "lab-pgcat-pgcat",
+          "namespace": "resilience",
+          "resourceVersion": "3552",
+          "uid": "da6bc73e-ce8b-4411-bf73-4eb30ddbead5"
+        },
+        "spec": {
+          "maxUnavailable": 1,
+          "selector": {
+            "matchLabels": {
+              "app": "proxy",
+              "release-name": "lab-pgcat"
+            }
+          }
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastTransitionTime": "2026-10-03T11:30:28Z",
+              "message": "",
+              "observedGeneration": 1,
+              "reason": "SufficientPods",
+              "status": "True",
+              "type": "DisruptionAllowed"
+            }
+          ],
+          "currentHealthy": 2,
+          "desiredHealthy": 1,
+          "disruptionsAllowed": 1,
+          "expectedPods": 2,
+          "observedGeneration": 1
+        }
+      }
+    ],
+    "kind": "List",
+    "metadata": {
+      "resourceVersion": ""
+    }
+  },
+  "drain_completed_seconds": 92.74395055603236,
+  "drain_exit_code": 1,
+  "drain_initiated": "2026-10-03T11:30:31.560857+00:00",
+  "drain_output": "node/dbaas-phase5-8a3ad9f385-worker cordoned\nevicting pod resilience/lab-pgcat-proxy-deployment-5584b97bbd-jwf5d\nevicting pod resilience/lab-patroni-patronimvp-0\nevicting pod resilience/lab-backup-network-rw8wt\nevicting pod resilience/lab-pgcat-pgadmin-deployment-5c849f7d5-dnq85\npod/lab-backup-network-rw8wt evicted\npod/lab-pgcat-pgadmin-deployment-5c849f7d5-dnq85 evicted\npod/lab-patroni-patronimvp-0 evicted\nWarning: ignoring DaemonSet-managed Pods: kube-system/calico-node-qxk4j, kube-system/kube-proxy-ngckk\nThere are pending pods in node \"dbaas-phase5-8a3ad9f385-worker\" when an error occurred: error when waiting for pod \"lab-pgcat-proxy-deployment-5584b97bbd-jwf5d\" in namespace \"resilience\" to terminate: context deadline exceeded\npod/lab-pgcat-proxy-deployment-5584b97bbd-jwf5d\nerror: unable to drain node \"dbaas-phase5-8a3ad9f385-worker\" due to error: error when waiting for pod \"lab-pgcat-proxy-deployment-5584b97bbd-jwf5d\" in namespace \"resilience\" to terminate: context deadline exceeded, continuing command...\nThere are pending nodes to be drained:\n dbaas-phase5-8a3ad9f385-worker\nerror when waiting for pod \"lab-pgcat-proxy-deployment-5584b97bbd-jwf5d\" in namespace \"resilience\" to terminate: context deadline exceeded\n",
+  "node": "dbaas-phase5-8a3ad9f385-worker",
+  "old_primary": "lab-patroni-patronimvp-1",
+  "role": "replica"
+}

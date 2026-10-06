@@ -1,0 +1,18 @@
+{
+  "response": {
+    "release": "cluster-c",
+    "status": 200,
+    "body": {
+      "ok": true,
+      "release": "cluster-c",
+      "namespace": "review",
+      "output": "Helm operation completed\n\n---\n\nHelm operation completed\n\n---\n\nHelm operation completed"
+    },
+    "seconds": 8.997482658945955
+  },
+  "query": [
+    [
+      1
+    ]
+  ]
+}

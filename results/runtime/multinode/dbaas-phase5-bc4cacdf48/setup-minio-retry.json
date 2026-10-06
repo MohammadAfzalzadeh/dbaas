@@ -1,0 +1,3 @@
+{
+  "log": "error: error from server (NotFound): pods \"lab-minio-init-minio-job-xspd9\" not found in namespace \"resilience\"\n"
+}

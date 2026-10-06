@@ -1,0 +1,9 @@
+{
+  "duration_seconds": 171.647,
+  "response": {
+    "namespace": "resilience",
+    "ok": true,
+    "output": "Helm operation completed\n\n---\n\nHelm operation completed\n\n---\n\nHelm operation completed",
+    "release": "lab"
+  }
+}

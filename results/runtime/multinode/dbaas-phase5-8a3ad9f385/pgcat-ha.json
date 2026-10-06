@@ -1,0 +1,80 @@
+{
+  "config": [
+    {
+      "config_sha256": "0b00148453a4a7c324f72f3123ff402c585f4fccdee4cab2596bb4f86259267c",
+      "empty_dirs": [
+        "pgcat-data"
+      ],
+      "node": "dbaas-phase5-8a3ad9f385-worker3",
+      "pod": "lab-pgcat-proxy-deployment-5584b97bbd-h9nqj"
+    },
+    {
+      "config_sha256": "0b00148453a4a7c324f72f3123ff402c585f4fccdee4cab2596bb4f86259267c",
+      "empty_dirs": [
+        "pgcat-data"
+      ],
+      "node": "dbaas-phase5-8a3ad9f385-worker2",
+      "pod": "lab-pgcat-proxy-deployment-5584b97bbd-s5cv5"
+    }
+  ],
+  "endpoints": {
+    "apiVersion": "v1",
+    "kind": "Endpoints",
+    "metadata": {
+      "annotations": {
+        "endpoints.kubernetes.io/last-change-trigger-time": "2026-10-03T11:33:26Z"
+      },
+      "creationTimestamp": "2026-10-03T11:22:38Z",
+      "labels": {
+        "app": "proxy",
+        "app.kubernetes.io/managed-by": "Helm",
+        "application": "pgcat",
+        "release-name": "lab-pgcat",
+        "type": "monitoring"
+      },
+      "name": "lab-pgcat-proxy-service",
+      "namespace": "resilience",
+      "resourceVersion": "4167",
+      "uid": "5bbedf18-dbcf-4356-b1fa-3b3679340014"
+    },
+    "subsets": [
+      {
+        "addresses": [
+          {
+            "ip": "192.168.125.75",
+            "nodeName": "dbaas-phase5-8a3ad9f385-worker",
+            "targetRef": {
+              "kind": "Pod",
+              "name": "lab-pgcat-proxy-deployment-5584b97bbd-j9wrk",
+              "namespace": "resilience",
+              "uid": "1063d77c-9a44-4a49-b14d-5336916fa84f"
+            }
+          },
+          {
+            "ip": "192.168.74.138",
+            "nodeName": "dbaas-phase5-8a3ad9f385-worker2",
+            "targetRef": {
+              "kind": "Pod",
+              "name": "lab-pgcat-proxy-deployment-5584b97bbd-s5cv5",
+              "namespace": "resilience",
+              "uid": "a4593eaa-7fb7-4401-ab50-4f3a845125f4"
+            }
+          }
+        ],
+        "ports": [
+          {
+            "name": "pgcat",
+            "port": 5432,
+            "protocol": "TCP"
+          },
+          {
+            "name": "metrics",
+            "port": 9930,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    ]
+  },
+  "sql_available_seconds": 0.20881760003976524
+}

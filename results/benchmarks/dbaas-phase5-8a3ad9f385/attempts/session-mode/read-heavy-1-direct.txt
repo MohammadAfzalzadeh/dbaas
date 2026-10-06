@@ -1,0 +1,38 @@
+pgbench (16.6 (Debian 16.6-1.pgdg120+1))
+transaction type: multiple scripts
+scaling factor: 1
+query mode: simple
+number of clients: 1
+number of threads: 1
+maximum number of tries: 1
+duration: 10 s
+number of transactions actually processed: 59308
+number of failed transactions: 0 (0.000%)
+latency average = 0.169 ms
+initial connection time = 2.606 ms
+tps = 5931.956138 (without initial connection time)
+SQL script 1: <builtin: select only>
+ - weight: 9 (targets 90.0% of total)
+ - 53328 transactions (89.9% of total, tps = 5333.839565)
+ - number of failed transactions: 0 (0.000%)
+ - latency average = 0.101 ms
+ - latency stddev = 0.022 ms
+ - statement latencies in milliseconds and failures:
+         0.000           0  \set aid random(1, 100000 * :scale)
+         0.101           0  SELECT abalance FROM pgbench_accounts WHERE aid = :aid;
+SQL script 2: <builtin: simple update>
+ - weight: 1 (targets 10.0% of total)
+ - 5980 transactions (10.1% of total, tps = 598.116573)
+ - number of failed transactions: 0 (0.000%)
+ - latency average = 0.759 ms
+ - latency stddev = 0.194 ms
+ - statement latencies in milliseconds and failures:
+         0.001           0  \set aid random(1, 100000 * :scale)
+         0.000           0  \set bid random(1, 1 * :scale)
+         0.000           0  \set tid random(1, 10 * :scale)
+         0.000           0  \set delta random(-5000, 5000)
+         0.060           0  BEGIN;
+         0.114           0  UPDATE pgbench_accounts SET abalance = abalance + :delta WHERE aid = :aid;
+         0.097           0  SELECT abalance FROM pgbench_accounts WHERE aid = :aid;
+         0.093           0  INSERT INTO pgbench_history (tid, bid, aid, delta, mtime) VALUES (:tid, :bid, :aid, :delta, CURRENT_TIMESTAMP);
+         0.395           0  END;

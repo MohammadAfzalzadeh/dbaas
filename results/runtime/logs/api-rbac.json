@@ -1,0 +1,638 @@
+{
+  "namespace": "phase4",
+  "checks": [
+    {
+      "group": "",
+      "resource": "secrets",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "secrets",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "secrets",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "secrets",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "secrets",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "secrets",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "secrets",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "configmaps",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "configmaps",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "configmaps",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "configmaps",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "configmaps",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "configmaps",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "configmaps",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "services",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "services",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "services",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "services",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "services",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "services",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "services",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "pods",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "pods",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "pods",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "pods",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "pods",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "pods",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "pods",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "persistentvolumeclaims",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "persistentvolumeclaims",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "persistentvolumeclaims",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "persistentvolumeclaims",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "persistentvolumeclaims",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "persistentvolumeclaims",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "persistentvolumeclaims",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "serviceaccounts",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "serviceaccounts",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "serviceaccounts",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "serviceaccounts",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "serviceaccounts",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "serviceaccounts",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "serviceaccounts",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "endpoints",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "endpoints",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "endpoints",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "endpoints",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "endpoints",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "endpoints",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "",
+      "resource": "endpoints",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "statefulsets",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "statefulsets",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "statefulsets",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "statefulsets",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "statefulsets",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "statefulsets",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "statefulsets",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "deployments",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "deployments",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "deployments",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "deployments",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "deployments",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "deployments",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "apps",
+      "resource": "deployments",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "jobs",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "jobs",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "jobs",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "jobs",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "jobs",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "jobs",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "jobs",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "cronjobs",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "cronjobs",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "cronjobs",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "cronjobs",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "cronjobs",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "cronjobs",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "batch",
+      "resource": "cronjobs",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "roles",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "roles",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "roles",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "roles",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "roles",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "roles",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "roles",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "rolebindings",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "rolebindings",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "rolebindings",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "rolebindings",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "rolebindings",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "rolebindings",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "resource": "rolebindings",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "policy",
+      "resource": "poddisruptionbudgets",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "policy",
+      "resource": "poddisruptionbudgets",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "policy",
+      "resource": "poddisruptionbudgets",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "policy",
+      "resource": "poddisruptionbudgets",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "policy",
+      "resource": "poddisruptionbudgets",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "policy",
+      "resource": "poddisruptionbudgets",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "policy",
+      "resource": "poddisruptionbudgets",
+      "verb": "delete",
+      "allowed": true
+    },
+    {
+      "group": "networking.k8s.io",
+      "resource": "networkpolicies",
+      "verb": "get",
+      "allowed": true
+    },
+    {
+      "group": "networking.k8s.io",
+      "resource": "networkpolicies",
+      "verb": "list",
+      "allowed": true
+    },
+    {
+      "group": "networking.k8s.io",
+      "resource": "networkpolicies",
+      "verb": "watch",
+      "allowed": true
+    },
+    {
+      "group": "networking.k8s.io",
+      "resource": "networkpolicies",
+      "verb": "create",
+      "allowed": true
+    },
+    {
+      "group": "networking.k8s.io",
+      "resource": "networkpolicies",
+      "verb": "update",
+      "allowed": true
+    },
+    {
+      "group": "networking.k8s.io",
+      "resource": "networkpolicies",
+      "verb": "patch",
+      "allowed": true
+    },
+    {
+      "group": "networking.k8s.io",
+      "resource": "networkpolicies",
+      "verb": "delete",
+      "allowed": true
+    }
+  ],
+  "all_required_allowed": true,
+  "servicemonitors": "NOT APPLICABLE: chart does not manage these",
+  "ingress": "NOT APPLICABLE: optional Traefik ingress disabled"
+}

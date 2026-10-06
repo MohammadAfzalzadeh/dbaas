@@ -1,0 +1,7 @@
+PASS helm lint helmCharts/minio
+PASS helm lint helmCharts/patroni
+PASS helm lint helmCharts/pgcat
+PASS helm lint application/helmCharts/minio
+PASS helm lint application/helmCharts/patroni
+PASS helm lint application/helmCharts/pgcat
+PASS static parsers: {'yaml': 45, 'json': 168, 'python': 28, 'shell': 14, 'javascript': 6, 'toml': 1}

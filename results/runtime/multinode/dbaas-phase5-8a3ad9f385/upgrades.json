@@ -1,0 +1,8 @@
+{
+  "api_single_replica_rolling": "PASS",
+  "major_upgrade": "NOT APPLICABLE",
+  "max_connections": 200,
+  "ondelete_kept_existing_uids": true,
+  "pgcat_rolling": "PASS",
+  "replica_first_replacements": true
+}

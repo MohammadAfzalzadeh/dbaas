@@ -1,0 +1,7 @@
+{
+  "classification": "FAILED",
+  "scenario": "Database/leader paired alert",
+  "cause": "patroni_primary stays 1 for a paused stopped primary; original leader rule counts role without process availability",
+  "cleanup": "finally unpaused isolated clone",
+  "fix": "Count patroni_primary multiplied by patroni_postgres_running; rule regression distinguishes stopped and healthy scopes"
+}

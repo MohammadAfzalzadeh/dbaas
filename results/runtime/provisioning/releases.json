@@ -1,0 +1,29 @@
+[
+  {
+    "app_version": "1.21.6",
+    "chart": "minio-chart-0.0.1",
+    "name": "smoke-minio",
+    "namespace": "dbaas-smoke",
+    "revision": "1",
+    "status": "deployed",
+    "updated": "2026-10-03 10:01:31.196468549 +0000 UTC"
+  },
+  {
+    "app_version": "1.21.6",
+    "chart": "patroni-chart-0.0.1",
+    "name": "smoke-patroni",
+    "namespace": "dbaas-smoke",
+    "revision": "1",
+    "status": "deployed",
+    "updated": "2026-10-03 10:02:22.154797613 +0000 UTC"
+  },
+  {
+    "app_version": "1.21.6",
+    "chart": "patroni-chart-0.0.1",
+    "name": "smoke-pgcat",
+    "namespace": "dbaas-smoke",
+    "revision": "1",
+    "status": "deployed",
+    "updated": "2026-10-03 10:02:52.002818051 +0000 UTC"
+  }
+]

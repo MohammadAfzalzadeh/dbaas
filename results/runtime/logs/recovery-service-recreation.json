@@ -1,0 +1,33 @@
+{
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": {
+        "creationTimestamp": "2026-10-03T09:43:28Z",
+        "labels": {
+            "application": "patroni",
+            "cluster-name": "smoke-patroni-patronimvp",
+            "release-name": "smoke-patroni"
+        },
+        "name": "smoke-patroni-patronimvp-config",
+        "namespace": "dbaas-smoke",
+        "resourceVersion": "1148",
+        "uid": "99661d03-467b-4f24-b944-b54ff1754d1d"
+    },
+    "spec": {
+        "clusterIP": "None",
+        "clusterIPs": [
+            "None"
+        ],
+        "internalTrafficPolicy": "Cluster",
+        "ipFamilies": [
+            "IPv4",
+            "IPv6"
+        ],
+        "ipFamilyPolicy": "RequireDualStack",
+        "sessionAffinity": "None",
+        "type": "ClusterIP"
+    },
+    "status": {
+        "loadBalancer": {}
+    }
+}

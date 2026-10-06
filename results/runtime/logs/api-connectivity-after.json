@@ -1,0 +1,112 @@
+{
+  "service_host": "10.96.0.1",
+  "service_port": 443,
+  "namespace": "phase4",
+  "credentials": {
+    "token": {
+      "exists": true,
+      "readable": true
+    },
+    "ca.crt": {
+      "exists": true,
+      "readable": true
+    },
+    "namespace": {
+      "exists": true,
+      "readable": true
+    }
+  },
+  "environment": {
+    "HTTP_PROXY": false,
+    "HTTPS_PROXY": false,
+    "ALL_PROXY": false,
+    "NO_PROXY": "<unset>",
+    "http_proxy": false,
+    "https_proxy": false,
+    "all_proxy": false,
+    "no_proxy": "<unset>",
+    "KUBECONFIG": false
+  },
+  "kubernetes.default.svc": {
+    "dns": [
+      "kubernetes.default.svc.cluster.local",
+      [],
+      [
+        "10.96.0.1"
+      ]
+    ],
+    "tcp": "PASS",
+    "tls": "TLSv1.3",
+    "environment": {
+      "status": 200,
+      "version": "v1.30.0"
+    },
+    "direct": {
+      "status": 200,
+      "version": "v1.30.0"
+    }
+  },
+  "kubernetes.default.svc.cluster.local": {
+    "dns": [
+      "kubernetes.default.svc.cluster.local",
+      [],
+      [
+        "10.96.0.1"
+      ]
+    ],
+    "tcp": "PASS",
+    "tls": "TLSv1.3",
+    "environment": {
+      "status": 200,
+      "version": "v1.30.0"
+    },
+    "direct": {
+      "status": 200,
+      "version": "v1.30.0"
+    }
+  },
+  "10.96.0.1": {
+    "dns": [
+      "10.96.0.1",
+      [],
+      [
+        "10.96.0.1"
+      ]
+    ],
+    "tcp": "PASS",
+    "tls": "TLSv1.3",
+    "environment": {
+      "status": 200,
+      "version": "v1.30.0"
+    },
+    "direct": {
+      "status": 200,
+      "version": "v1.30.0"
+    }
+  },
+  "helm version --short": {
+    "exit": 0,
+    "stderr": "",
+    "stdout": "v3.15.4+gfa9efb0\n"
+  },
+  "helm list -n phase4": {
+    "exit": 0,
+    "stderr": "",
+    "stdout": "NAME\tNAMESPACE\tREVISION\tUPDATED\tSTATUS\tCHART\tAPP VERSION\n"
+  },
+  "kubectl get namespace phase4": {
+    "exit": 1,
+    "stderr": "Error from server (Forbidden): namespaces \"phase4\" is forbidden: User \"system:serviceaccount:phase4:dbaas-backend\" cannot get resource \"namespaces\" in API group \"\" in the namespace \"phase4\"\n",
+    "stdout": ""
+  },
+  "kubectl auth can-i create statefulsets.apps -n phase4": {
+    "exit": 0,
+    "stderr": "",
+    "stdout": "yes\n"
+  },
+  "helm template probe /app/helmCharts/minio -n phase4": {
+    "exit": 0,
+    "stderr": "",
+    "stdout": "rendered manifests omitted"
+  }
+}

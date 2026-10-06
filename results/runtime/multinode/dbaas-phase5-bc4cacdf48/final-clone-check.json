@@ -1,0 +1,18 @@
+{
+  "archive_mode": "off",
+  "classification": "LIVE VALIDATED",
+  "in_recovery": "f",
+  "restore_command": "",
+  "rows": [
+    {
+      "id": 1,
+      "phase": "baseline",
+      "value": 100
+    },
+    {
+      "id": 3,
+      "phase": "isolated-write",
+      "value": 300
+    }
+  ]
+}

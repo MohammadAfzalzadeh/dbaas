@@ -1,0 +1,52 @@
+{
+  "environment": {
+    "dirty": true,
+    "docker": {
+      "cpus": 12,
+      "memory_bytes": 32881127424
+    },
+    "git_revision": "c275fc2dd3c4e8e9db1e28eadf50100e3cfcbbc1",
+    "kubernetes": "v1.30.0",
+    "node_topology": "1 control-plane + 3 workers",
+    "patroni": "4.0.4",
+    "pgcat": "1.2.0",
+    "postgresql": "16.6",
+    "storage": "kind local-path RWO; node-affine",
+    "timestamp": "2026-10-03T11:26:16.637376+00:00"
+  },
+  "timestamp": "2026-10-03T11:37:08.409811+00:00",
+  "dataset": "unique-ID resilience_ledger writes",
+  "dataset_size_bytes": null,
+  "concurrency": 1,
+  "duration_seconds": 269.17289700000003,
+  "windows": [
+    {
+      "window": "before_first_client_failure",
+      "duration_seconds": 2.126018,
+      "successful_transactions": 21,
+      "failed_transactions": 0,
+      "tps": 9.87762097969067
+    },
+    {
+      "window": "first_to_last_client_failure",
+      "duration_seconds": 60.55439499999999,
+      "successful_transactions": 0,
+      "failed_transactions": 282,
+      "tps": 0.0
+    },
+    {
+      "window": "after_last_client_failure",
+      "duration_seconds": 206.49248400000005,
+      "successful_transactions": 2022,
+      "failed_transactions": 0,
+      "tps": 9.792123959339845
+    }
+  ],
+  "transaction_retries": 0,
+  "connection_reconnects": 278,
+  "missing_acknowledged_ids": [],
+  "failed_transactions": 282,
+  "acknowledged_transactions": 2043,
+  "longest_success_gap_seconds": 60.756785,
+  "limitations": "Observed client-failure windows, not precisely synchronized injection phases. Before window is short. One INSERT/commit per 0.1 seconds; failed transactions are not replayed. Automatic replica convergence failed."
+}

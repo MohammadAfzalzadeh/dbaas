@@ -1,0 +1,49 @@
+{
+  "expected": [
+    {
+      "id": 1,
+      "phase": "baseline",
+      "value": 100
+    },
+    {
+      "id": 2,
+      "phase": "after-target",
+      "value": 200
+    }
+  ],
+  "membership": {
+    "members": [
+      {
+        "api_url": "http://192.168.125.69:8008/patroni",
+        "host": "192.168.125.69",
+        "lag": 0,
+        "name": "lab-patroni-patronimvp-0",
+        "port": 5432,
+        "role": "replica",
+        "state": "streaming",
+        "timeline": 2
+      },
+      {
+        "api_url": "http://192.168.74.133:8008/patroni",
+        "host": "192.168.74.133",
+        "name": "lab-patroni-patronimvp-1",
+        "port": 5432,
+        "role": "leader",
+        "state": "running",
+        "timeline": 2
+      },
+      {
+        "api_url": "http://192.168.184.6:8008/patroni",
+        "host": "192.168.184.6",
+        "lag": 0,
+        "name": "lab-patroni-patronimvp-2",
+        "port": 5432,
+        "role": "replica",
+        "state": "streaming",
+        "timeline": 2
+      }
+    ],
+    "scope": "lab-patroni-patronimvp"
+  },
+  "target_utc": "2026-10-03 11:26:52"
+}

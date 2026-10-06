@@ -1,0 +1,66 @@
+Source: installed patroni.global_config in disposable review image; excerpts only.
+
+    def check_mode(self, mode: str) -> bool:
+        """Checks whether the certain parameter is enabled.
+
+        :param mode: parameter name, e.g. ``synchronous_mode``, ``failsafe_mode``, ``pause``, ``check_timeline``, and
+            so on.
+
+        :returns: ``True`` if parameter *mode* is enabled in the global configuration.
+        """
+        return bool(parse_bool(self.__config.get(mode)))
+
+    @property
+    def is_paused(self) -> bool:
+    @property
+    def is_synchronous_mode(self) -> bool:
+        """``True`` if synchronous replication is requested and it is not a standby cluster config."""
+        return (self.check_mode('synchronous_mode') is True or self.is_quorum_commit_mode) \
+            and not self.is_standby_cluster
+
+    @property
+    def is_synchronous_mode_strict(self) -> bool:
+        """``True`` if at least one synchronous node is required."""
+        return self.check_mode('synchronous_mode_strict')
+
+    def get_standby_cluster_config(self) -> Any:
+        """Get ``standby_cluster`` configuration.
+    @property
+    def is_synchronous_mode_strict(self) -> bool:
+        """``True`` if at least one synchronous node is required."""
+        return self.check_mode('synchronous_mode_strict')
+
+    def get_standby_cluster_config(self) -> Any:
+        """Get ``standby_cluster`` configuration.
+
+        :returns: a copy of ``standby_cluster`` configuration.
+        """
+        return deepcopy(self.get('standby_cluster'))
+
+    @property
+    @property
+    def maximum_lag_on_failover(self) -> int:
+        """Currently configured value of ``maximum_lag_on_failover`` from the global configuration.
+
+        Assume ``1048576`` if it is not set or invalid.
+        """
+        return self.get_int('maximum_lag_on_failover', 1048576)
+
+    @property
+    def maximum_lag_on_syncnode(self) -> int:
+        """Currently configured value of ``maximum_lag_on_syncnode`` from the global configuration.
+
+        Assume ``-1`` if it is not set or invalid.
+    @property
+    def use_slots(self) -> bool:
+        """``True`` if cluster is configured to use replication slots."""
+        return bool(parse_bool((self.get('postgresql') or EMPTY_DICT).get('use_slots', True)))
+
+    @property
+    def permanent_slots(self) -> Dict[str, Any]:
+        """Dictionary of permanent slots information from the global configuration."""
+        return deepcopy(self.get('permanent_replication_slots')
+                        or self.get('permanent_slots')
+                        or self.get('slots')
+                        or EMPTY_DICT.copy())
+

@@ -1,0 +1,83 @@
+{
+  "backup": {
+    "detail": "Official CronJob-derived Job, WAL-G listing and S3 objects verified",
+    "duration_seconds": 3.21,
+    "status": "PASS",
+    "timestamp": "2026-10-03T10:04:01.552420+00:00"
+  },
+  "backup_during_writes": {
+    "detail": "Concurrent writes and backup completion verified; restore of this second backup NOT RUN",
+    "status": "PASS",
+    "timestamp": "2026-10-03T10:06:14.047709+00:00"
+  },
+  "connectivity": {
+    "detail": "kube-proxy/CoreDNS available; API ready",
+    "status": "PASS",
+    "timestamp": "2026-10-03T10:01:30.981932+00:00"
+  },
+  "network_policy": {
+    "detail": "Default kind CNI does not enforce policy; policies remain disabled",
+    "status": "NOT APPLICABLE",
+    "timestamp": "2026-10-03T10:06:14.783566+00:00"
+  },
+  "node_drain": {
+    "detail": "Single-node kind; no multi-worker drain model",
+    "status": "NOT APPLICABLE",
+    "timestamp": "2026-10-03T10:06:14.783279+00:00"
+  },
+  "patroni": {
+    "detail": "Exactly one primary and one streaming replica; role endpoints match",
+    "status": "PASS",
+    "timestamp": "2026-10-03T10:03:55.062471+00:00"
+  },
+  "pgcat": {
+    "detail": "Independent client authenticated through PgCat Service; backend observations recorded",
+    "status": "PASS",
+    "timestamp": "2026-10-03T10:03:57.438324+00:00"
+  },
+  "pgcat_restart": {
+    "detail": "Prior committed test rows verified; new write and stable membership verified",
+    "duration_seconds": 3.942,
+    "status": "PASS",
+    "timestamp": "2026-10-03T10:06:09.796446+00:00"
+  },
+  "pitr": {
+    "detail": "A present, B absent, new C write verified on primary/replica/PgCat",
+    "duration_seconds": 67.481,
+    "status": "PASS",
+    "timestamp": "2026-10-03T10:05:14.639436+00:00"
+  },
+  "postgresql": {
+    "detail": "Readiness observation after API completion; not total bootstrap time",
+    "duration_seconds": 0.205,
+    "status": "PASS",
+    "timestamp": "2026-10-03T10:03:54.546189+00:00"
+  },
+  "primary_failover": {
+    "detail": "Prior committed test rows verified; new write and stable membership verified",
+    "duration_seconds": 38.248,
+    "status": "PASS",
+    "timestamp": "2026-10-03T10:05:53.266086+00:00"
+  },
+  "provisioning": {
+    "duration_seconds": 143.205,
+    "status": "PASS",
+    "timestamp": "2026-10-03T10:03:54.187288+00:00"
+  },
+  "replica_failure": {
+    "detail": "Prior committed test rows verified; new write and stable membership verified",
+    "duration_seconds": 12.06,
+    "status": "PASS",
+    "timestamp": "2026-10-03T10:06:05.614701+00:00"
+  },
+  "sql": {
+    "detail": "Baseline row matches through PgCat, primary and replica",
+    "status": "PASS",
+    "timestamp": "2026-10-03T10:03:58.176215+00:00"
+  },
+  "wal": {
+    "detail": "Switched segment observed in pg_stat_archiver and object storage",
+    "status": "PASS",
+    "timestamp": "2026-10-03T10:04:07.010492+00:00"
+  }
+}

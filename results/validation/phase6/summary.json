@@ -1,0 +1,88 @@
+{
+  "phase": 6,
+  "package_date": "2026-10-04",
+  "classification": "STATICALLY VALIDATED",
+  "python_tests_passed": 79,
+  "node_tests_passed": 7,
+  "pgcat_readiness_cases_passed": 4,
+  "helm_lints_passed": 6,
+  "helm_templates_passed": 6,
+  "rendered_yaml_documents": 48,
+  "built_images": 7,
+  "npm_ci": "PASS; locked offline cache install",
+  "static_parser_counts": {
+    "yaml": 46,
+    "json": 299,
+    "python": 43,
+    "shell": 14,
+    "javascript": 6,
+    "toml": 1
+  },
+  "mermaid_sources": 20,
+  "architecture_svg": 20,
+  "architecture_png": 20,
+  "final_chart_svg": 8,
+  "final_chart_png": 8,
+  "documentation": {
+    "markdown_files": 65,
+    "internal_links_checked": 658,
+    "external_links_skipped": 31,
+    "errors": []
+  },
+  "historical_files_preserved": 419,
+  "new_live_experiments": 0,
+  "new_benchmarks": 0,
+  "historical_replica_failure": "UNRESOLVED HISTORICAL FAILURE + NOT REPRODUCED IN SUBSEQUENT CLEAN RUNS",
+  "offsite_recovery": "NOT VALIDATED",
+  "cluster_mutations": false,
+  "commit_or_push": false,
+  "tool_versions": {
+    "python": "3.13.7",
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "helm": "3.20.0",
+    "mermaid_cli": "11.12.0",
+    "matplotlib": "3.10.7"
+  },
+  "security_scans": {
+    "gitleaks_version": "8.24.3",
+    "scans": [
+      {
+        "scope": "worktree",
+        "findings": 0,
+        "log": "gitleaks-worktree.txt"
+      },
+      {
+        "scope": "history",
+        "findings": 0,
+        "log": "gitleaks-history.txt"
+      },
+      {
+        "scope": "generated-results",
+        "findings": 0,
+        "log": "gitleaks-generated-results.txt"
+      },
+      {
+        "scope": "reports",
+        "findings": 0,
+        "log": "gitleaks-reports.txt"
+      },
+      {
+        "scope": "phase6 artifacts and extracted image metadata",
+        "findings": 0,
+        "log": "gitleaks-metadata.txt"
+      }
+    ],
+    "history_commits": 148,
+    "tracked_paths": 77,
+    "tracked_credential_field_references": 412,
+    "tracked_high_confidence_signature_hits": 0,
+    "generated_asset_pairs_parsed": 28,
+    "metadata_scan": "PASS; no leaks found",
+    "limits": [
+      "Signature scans are not proof of absence of every credential",
+      "No dependency or image vulnerability assessment",
+      "Image tags and IDs recorded without environment values"
+    ]
+  }
+}

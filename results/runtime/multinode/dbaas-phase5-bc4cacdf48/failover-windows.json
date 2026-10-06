@@ -1,0 +1,137 @@
+{
+  "attempt-1": {
+    "classification": "EXPERIMENTALLY MEASURED",
+    "clients": 1,
+    "configured_interval_seconds": 0.1,
+    "windows": [
+      {
+        "name": "before",
+        "start": "2026-10-03T12:47:42.357487+00:00",
+        "end": "2026-10-03T12:47:52.370843+00:00",
+        "seconds": 10.013356,
+        "acknowledged": 99,
+        "failed": 0,
+        "tps": 9.886795196335774
+      },
+      {
+        "name": "during",
+        "start": "2026-10-03T12:47:52.370843+00:00",
+        "end": "2026-10-03T12:48:32.298779+00:00",
+        "seconds": 39.927936,
+        "acknowledged": 1,
+        "failed": 9,
+        "tps": 0.025045121290516992
+      },
+      {
+        "name": "after",
+        "start": "2026-10-03T12:48:32.298779+00:00",
+        "end": "2026-10-03T12:49:16.873397+00:00",
+        "seconds": 44.574618,
+        "acknowledged": 238,
+        "failed": 142,
+        "tps": 5.3393615173550115
+      }
+    ],
+    "server_promotion_observed_seconds": 31.640148698934354,
+    "independent_sql_probe_seconds": 39.927936239982955,
+    "first_acknowledged_write_after_observed_promotion_seconds": 60.482785,
+    "failed_transactions": 151,
+    "reconnects": 146,
+    "transaction_retries": 0,
+    "acknowledged_transactions": 338,
+    "missing_acknowledged_ids": [],
+    "longest_per_client_success_gap_seconds": 60.463049,
+    "automatic_recovery": "LIVE VALIDATED",
+    "limitations": "One host; UTC completion inferred from client start timestamp plus measured latency. During window ends at independent SQL probe, not exact outage end. Failed operations may have committed and are not retried."
+  },
+  "attempt-2": {
+    "classification": "EXPERIMENTALLY MEASURED",
+    "clients": 1,
+    "configured_interval_seconds": 0.1,
+    "windows": [
+      {
+        "name": "before",
+        "start": "2026-10-03T12:51:52.261771+00:00",
+        "end": "2026-10-03T12:52:02.274274+00:00",
+        "seconds": 10.012503,
+        "acknowledged": 99,
+        "failed": 0,
+        "tps": 9.88763748685019
+      },
+      {
+        "name": "during",
+        "start": "2026-10-03T12:52:02.274274+00:00",
+        "end": "2026-10-03T12:52:31.685274+00:00",
+        "seconds": 29.411,
+        "acknowledged": 35,
+        "failed": 8,
+        "tps": 1.190030940804461
+      },
+      {
+        "name": "after",
+        "start": "2026-10-03T12:52:31.685274+00:00",
+        "end": "2026-10-03T12:53:13.120566+00:00",
+        "seconds": 41.435292,
+        "acknowledged": 410,
+        "failed": 0,
+        "tps": 9.894946559083015
+      }
+    ],
+    "server_promotion_observed_seconds": 24.247123673092574,
+    "independent_sql_probe_seconds": 29.411000249092467,
+    "first_acknowledged_write_after_observed_promotion_seconds": 25.87364,
+    "failed_transactions": 8,
+    "reconnects": 8,
+    "transaction_retries": 0,
+    "acknowledged_transactions": 544,
+    "missing_acknowledged_ids": [],
+    "longest_per_client_success_gap_seconds": 25.930414,
+    "automatic_recovery": "LIVE VALIDATED",
+    "limitations": "One host; UTC completion inferred from client start timestamp plus measured latency. During window ends at independent SQL probe, not exact outage end. Failed operations may have committed and are not retried."
+  },
+  "attempt-3": {
+    "classification": "EXPERIMENTALLY MEASURED",
+    "clients": 4,
+    "configured_interval_seconds": 0.01,
+    "windows": [
+      {
+        "name": "before",
+        "start": "2026-10-03T14:14:18.569313+00:00",
+        "end": "2026-10-03T14:14:34.911158+00:00",
+        "seconds": 16.341845,
+        "acknowledged": 4768,
+        "failed": 0,
+        "tps": 291.76632136701824
+      },
+      {
+        "name": "during",
+        "start": "2026-10-03T14:14:34.911158+00:00",
+        "end": "2026-10-03T14:14:59.465099+00:00",
+        "seconds": 24.553941,
+        "acknowledged": 12,
+        "failed": 28,
+        "tps": 0.488719916692803
+      },
+      {
+        "name": "after",
+        "start": "2026-10-03T14:14:59.465099+00:00",
+        "end": "2026-10-03T14:15:49.608944+00:00",
+        "seconds": 50.143845,
+        "acknowledged": 15844,
+        "failed": 6,
+        "tps": 315.97098307878065
+      }
+    ],
+    "server_promotion_observed_seconds": 24.377800142974593,
+    "independent_sql_probe_seconds": 24.55394112295471,
+    "first_acknowledged_write_after_observed_promotion_seconds": 29.150037,
+    "failed_transactions": 34,
+    "reconnects": 19,
+    "transaction_retries": 0,
+    "acknowledged_transactions": 20624,
+    "missing_acknowledged_ids": [],
+    "longest_per_client_success_gap_seconds": 32.131352,
+    "automatic_recovery": "LIVE VALIDATED",
+    "limitations": "One host; UTC completion inferred from client start timestamp plus measured latency. During window ends at independent SQL probe, not exact outage end. Failed operations may have committed and are not retried."
+  }
+}

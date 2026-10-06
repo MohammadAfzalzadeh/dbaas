@@ -1,0 +1,20 @@
+{
+  "classification": "LIVE VALIDATED",
+  "existing_session_samples": {
+    "lab-pgcat-proxy-service": {
+      "failed": 0,
+      "success": 171
+    },
+    "patronimvp-master-lab-patroni": {
+      "failed": 0,
+      "success": 170
+    }
+  },
+  "mechanism": "Projected Secret -> watcher atomic file replacement -> PgCat 15-second autoreload",
+  "new_connections": "ACCEPTED",
+  "old_new_connections": "REJECTED",
+  "postgres_restart": false,
+  "propagation_seconds": 73.65769797295798,
+  "proxy_restart": false,
+  "replication_rotation": "NOT VALIDATED"
+}

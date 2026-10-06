@@ -1,0 +1,53 @@
+{
+  "acknowledged_probe_writes": 3,
+  "action": "pgcat_restart",
+  "deleted_proxy": "smoke-pgcat-proxy-deployment-6fb7bfdf55-w6v8t",
+  "failed_samples": 3,
+  "first_success_after_failure_seconds": 2.579,
+  "injected_at": "2026-10-03T10:06:05.854880+00:00",
+  "missing_acknowledged_probe_ids": [],
+  "observed_failure_span_seconds": 1.431,
+  "old_primary": "smoke-patroni-patronimvp-1",
+  "patroni_detection_time": "NOT OBSERVED separately; promotion polling is an upper-bound observation",
+  "sampling_interval_seconds": 0.5,
+  "sql_available_observed_seconds": 2.53,
+  "sql_samples": [
+    {
+      "elapsed": -0.148,
+      "latency_seconds": 0.148,
+      "success": true,
+      "timestamp": "2026-10-03T10:06:05.707245+00:00"
+    },
+    {
+      "elapsed": 0.5,
+      "latency_seconds": 0.148,
+      "success": false,
+      "timestamp": "2026-10-03T10:06:06.354942+00:00"
+    },
+    {
+      "elapsed": 1.148,
+      "latency_seconds": 0.147,
+      "success": false,
+      "timestamp": "2026-10-03T10:06:07.003015+00:00"
+    },
+    {
+      "elapsed": 1.795,
+      "latency_seconds": 0.136,
+      "success": false,
+      "timestamp": "2026-10-03T10:06:07.649853+00:00"
+    },
+    {
+      "elapsed": 2.431,
+      "latency_seconds": 0.148,
+      "success": true,
+      "timestamp": "2026-10-03T10:06:08.286243+00:00"
+    },
+    {
+      "elapsed": 3.08,
+      "latency_seconds": 0.155,
+      "success": true,
+      "timestamp": "2026-10-03T10:06:08.934784+00:00"
+    }
+  ],
+  "stable_observed_seconds": 2.747
+}
