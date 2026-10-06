@@ -1,0 +1,6 @@
+title = "DBaaS secret scanning"
+[extend]
+useDefault = true
+[allowlist]
+description = "Local dependency/cache directories only; source and tests remain scanned"
+paths = ['''(^|/)\.venv/''', '''(^|/)node_modules/''', '''(^|/)\.git/''']

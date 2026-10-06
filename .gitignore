@@ -1,2 +1,16 @@
 Test/*
 *.local.yaml
+.env
+.env.*
+!.env.example
+*.secret.yaml
+*.secrets.yaml
+values.generated*.yaml
+*.pem
+*.key
+__pycache__/
+.venv/
+node_modules/
+*.tmp
+*.log
+!**/values.example.yaml

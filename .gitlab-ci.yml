@@ -1,0 +1,11 @@
+stages: [security]
+secret-scan:
+  stage: security
+  image:
+    name: ghcr.io/gitleaks/gitleaks:v8.24.3
+    entrypoint: [""]
+  variables:
+    GIT_DEPTH: "0"
+  script:
+    - gitleaks dir --redact --config .gitleaks.toml .
+    - gitleaks git --redact --config .gitleaks.toml --log-opts="--all" .
