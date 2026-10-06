@@ -101,7 +101,21 @@
         <ul id="validationList"></ul>
       </div>
 
-      <form id="postgresqlConfigForm">
+      <form id="postgresqlConfigForm" novalidate>
+      <fieldset>
+        <legend>API authentication and existing Secrets</legend>
+        <label for="apiToken">API Bearer token</label>
+        <input id="apiToken" type="password" autocomplete="off" placeholder="Operator-provided token">
+        <p>Token stays in this page only. Provision Secrets before deploying. Empty Secret names use release-derived defaults.</p>
+        <label><input id="inlineSecretsMode" type="checkbox"> Development inline credentials (requires server opt-in)</label>
+        <label>PostgreSQL Secret <input name="secretPostgres" autocomplete="off"></label>
+        <label>WAL-G Secret <input name="secretWalg" autocomplete="off"></label>
+        <label>PgCat config Secret <input name="secretPgcat" autocomplete="off"></label>
+        <label>pgAdmin Secret <input name="secretPgadmin" autocomplete="off"></label>
+        <label>MinIO Secret <input name="secretMinio" autocomplete="off"></label>
+        <p>In the default mode, credentials, database pools and users come from those Secrets. The credential fields below apply only to development mode.</p>
+      </fieldset>
+
         <!-- Project -->
         <div class="config-section" data-section="project">
           <div class="section-header">
@@ -158,17 +172,33 @@
           <div class="section-content">
             <div class="form-grid">
               <div class="form-group">
-                <label for="pgReplicas">Number of Replicas <span class="required">*</span>
-                  <span class="help-icon">?<span class="tooltip">Number of read replicas</span></span>
+                <label for="pgReplicas">PostgreSQL Pods <span class="required">*</span>
+                  <span class="help-icon">?<span class="tooltip">Total database pods, including the primary</span></span>
                 </label>
-                <input type="number" id="pgReplicas" name="pgReplicas" class="form-input" min="0" max="10" value="1" required>
-                <span class="error-message">Number of replicas must be between 0 and 10</span>
+                <input type="number" id="pgReplicas" name="pgReplicas" class="form-input" min="1" max="10" value="1" required>
+                <span class="error-message">Number of pods must be between 1 and 10</span>
               </div>
 
               <div class="form-group">
-                <label for="pgStorageCapacity">Storage Capacity (GB) <span class="required">*</span></label>
+                <label for="pgStorageCapacity">Storage Capacity (GiB) <span class="required">*</span></label>
                 <input type="number" id="pgStorageCapacity" name="pgStorageCapacity" class="form-input" min="1" value="20" required>
-                <span class="error-message">Storage capacity must be at least 1 GB</span>
+                <span class="error-message">Storage capacity must be at least 1 GiB</span>
+              </div>
+              <div class="form-group">
+                <label for="superuserUsername">PostgreSQL administrator (optional)</label>
+                <input type="text" id="superuserUsername" name="superuserUsername" class="form-input">
+              </div>
+              <div class="form-group">
+                <label for="superuserPassword">Administrator password</label>
+                <input type="password" id="superuserPassword" name="superuserPassword" class="form-input">
+              </div>
+              <div class="form-group">
+                <label for="replicationUsername">Replication user (optional)</label>
+                <input type="text" id="replicationUsername" name="replicationUsername" class="form-input">
+              </div>
+              <div class="form-group">
+                <label for="replicationPassword">Replication password</label>
+                <input type="password" id="replicationPassword" name="replicationPassword" class="form-input">
               </div>
             </div>
           </div>
@@ -177,7 +207,7 @@
         <!-- DB & Users -->
         <div class="config-section" data-section="database-management">
           <div class="section-header">
-            <h3>Database & User Management</h3>
+            <h3>PgCat Database & User Configuration</h3>
             <span class="section-toggle">▼</span>
           </div>
           <div class="section-content">
@@ -209,11 +239,11 @@
 
             <div class="sub-section">
               <h4>Access Management</h4>
-              <div class="warning-note"><strong>Note:</strong> Create databases and users first, then grant access.</div>
+              <div class="warning-note"><strong>Planned:</strong> SQL database/user creation and access grants are not implemented. PgCat entries must reference existing PostgreSQL databases and users.</div>
               <div class="item-list">
                 <div class="item-list-header">
                   <h4>User Database Access</h4>
-                  <button type="button" class="add-btn" id="addAccessBtn">+ Add Access Rule</button>
+                  <button type="button" class="add-btn" id="addAccessBtn" disabled title="Planned: SQL grants are not implemented">+ Add Access Rule</button>
                 </div>
                 <div id="databaseAccessList">
                   <div class="empty-list">No access rules configured. Click "Add Access Rule" to grant users access to databases.</div>
@@ -243,9 +273,9 @@
                 <small class="field-hint">MinIO requires at least 8 characters.</small>
               </div>
               <div class="form-group">
-                <label for="minioStorageCapacity">Storage Capacity (GB) <span class="required">*</span></label>
+                <label for="minioStorageCapacity">Storage Capacity (GiB) <span class="required">*</span></label>
                 <input type="number" id="minioStorageCapacity" name="minioStorageCapacity" class="form-input" min="1">
-                <span class="error-message">Storage capacity must be at least 1 GB</span>
+                <span class="error-message">Storage capacity must be at least 1 GiB</span>
               </div>
               <div class="form-group">
                 <label for="minioBackupUser">Backup User <span class="required">*</span></label>
@@ -318,10 +348,10 @@
               <div class="form-grid">
                 <div class="form-group">
                   <label>Enable Point-in-Time Recovery (PITR)
-                    <span class="help-icon">?<span class="tooltip">Recover to any point in time within retention</span></span>
+                    <span class="help-icon">?<span class="tooltip">Experimental: recovery is available only through the operator script; provisioning does not restore data</span></span>
                   </label>
                   <div class="switch-container">
-                    <div class="switch" data-input="enablePITR"><div class="switch-handle"></div></div>
+                    <div class="switch" data-input="enablePITR" aria-disabled="true" title="Experimental: use the operator recovery script"><div class="switch-handle"></div></div>
                     <span class="switch-label">Disabled</span>
                   </div>
                   <input type="hidden" id="enablePITR" name="enablePITR" value="false">
@@ -361,7 +391,7 @@
               <div class="form-group">
                 <label>Enable Log Monitoring</label>
                 <div class="switch-container">
-                  <div class="switch" data-input="enableLogMonitoring"><div class="switch-handle"></div></div>
+                  <div class="switch" data-input="enableLogMonitoring" aria-disabled="true" title="Planned: configure monitoring separately"><div class="switch-handle"></div></div>
                   <span class="switch-label">Disabled</span>
                 </div>
                 <input type="hidden" id="enableLogMonitoring" name="enableLogMonitoring" value="false">
@@ -369,7 +399,7 @@
               <div class="form-group">
                 <label>Enable System Monitoring</label>
                 <div class="switch-container">
-                  <div class="switch" data-input="enableSystemMonitoring"><div class="switch-handle"></div></div>
+                  <div class="switch" data-input="enableSystemMonitoring" aria-disabled="true" title="Planned: configure monitoring separately"><div class="switch-handle"></div></div>
                   <span class="switch-label">Disabled</span>
                 </div>
                 <input type="hidden" id="enableSystemMonitoring" name="enableSystemMonitoring" value="false">
@@ -377,7 +407,7 @@
               <div class="form-group">
                 <label>Monitoring Documentation Provided</label>
                 <div class="switch-container">
-                  <div class="switch" data-input="monitoringDocsProvided"><div class="switch-handle"></div></div>
+                  <div class="switch" data-input="monitoringDocsProvided" aria-disabled="true" title="Planned: configure monitoring separately"><div class="switch-handle"></div></div>
                   <span class="switch-label">No</span>
                 </div>
                 <input type="hidden" id="monitoringDocsProvided" name="monitoringDocsProvided" value="false">
@@ -417,8 +447,8 @@
       document.querySelectorAll('#databaseAccessList .access-item').forEach(item=>{
         const u=item.querySelector('select[name*="[username]"]');
         const d=item.querySelector('select[name*="[database]"]');
-        if(u){ const cur=u.value; u.innerHTML='<option value="">Select User</option>'+us.map(x=>`<option value="${x}" ${x===cur?'selected':''}>${x}</option>`).join(''); }
-        if(d){ const cur=d.value; d.innerHTML='<option value="">Select Database</option>'+dbs.map(x=>`<option value="${x}" ${x===cur?'selected':''}>${x}</option>`).join(''); }
+        if(u){ const cur=u.value; u.innerHTML='<option value="">Select User</option>'+us.map(x=>`<option value="${escapeHTML(x)}" ${x===cur?'selected':''}>${escapeHTML(x)}</option>`).join(''); }
+        if(d){ const cur=d.value; d.innerHTML='<option value="">Select Database</option>'+dbs.map(x=>`<option value="${escapeHTML(x)}" ${x===cur?'selected':''}>${escapeHTML(x)}</option>`).join(''); }
       });
     }
 
@@ -457,6 +487,7 @@
     // ---- switches ----
     document.querySelectorAll('.switch').forEach(sw=>{
       sw.addEventListener('click',()=>{
+        if (sw.getAttribute("aria-disabled") === "true") return;
         const name=sw.dataset.input, hidden=document.getElementById(name), label=sw.parentElement.querySelector('.switch-label');
         sw.classList.toggle('active'); const on=sw.classList.contains('active'); hidden.value=String(on);
         label.textContent = (name==='monitoringDocsProvided') ? (on?'Yes':'No') : (on?'Enabled':'Disabled');
@@ -494,7 +525,7 @@
             <option value="">Default</option>
             <option value="session">Session</option>
             <option value="transaction">Transaction</option>
-            <option value="statement">Statement</option>
+
           </select>
         </div>
         <div class="input-group pgcat-dependent" style="display:${pgcatOn?'block':'none'}">
@@ -545,13 +576,13 @@
         <div class="input-group">
           <label>User <span class="required">*</span></label>
           <select name="databaseAccess[${accessCounter}][username]" required>
-            <option value="">Select User</option>${us.map(u=>`<option value="${u}">${u}</option>`).join('')}
+            <option value="">Select User</option>${us.map(u=>`<option value="${escapeHTML(u)}">${escapeHTML(u)}</option>`).join('')}
           </select>
         </div>
         <div class="input-group">
           <label>Database <span class="required">*</span></label>
           <select name="databaseAccess[${accessCounter}][database]" required>
-            <option value="">Select Database</option>${dbs.map(d=>`<option value="${d}">${d}</option>`).join('')}
+            <option value="">Select Database</option>${dbs.map(d=>`<option value="${escapeHTML(d)}">${escapeHTML(d)}</option>`).join('')}
           </select>
         </div>
         <div class="input-group">
@@ -583,8 +614,8 @@
 
     // ---- validation ----
     function validateCrontab(cron){
-      const rx=/^(\*|([0-5]?\d)) (\*|([01]?\d|2[0-3])) (\*|([01]?\d|[12]\d|3[01])) (\*|([1-9]|1[0-2])) (\*|([0-6]))$/;
-      return rx.test(cron.trim());
+      return cron.trim().split(/\s+/).length === 5 && /^[0-9*,/\-\s]+$/.test(cron);
+
     }
     function validateForm(){
       const errs=[]; let ok=true;
@@ -613,6 +644,11 @@
         backupUserInput.classList.add('error');
         errs.push('MinIO backup user must be different from the root user'); ok=false;
       }
+      for (const kind of ['superuser', 'replication']) {
+        const user = document.getElementById(kind + 'Username').value;
+        const password = document.getElementById(kind + 'Password').value;
+        if (!!user !== !!password) { errs.push('Provide both username and password for ' + kind); ok=false; }
+      }
       const cron=document.getElementById('backupSchedule');
       if(cron.value && !validateCrontab(cron.value)){ cron.classList.add('error'); errs.push('Backup schedule must be in valid crontab format'); ok=false; }
       document.querySelectorAll('input[type="number"]').forEach(f=>{
@@ -630,7 +666,7 @@
         try{ new URL(ep.value);}catch{ ep.classList.add('error'); errs.push('S3 Endpoint must be a valid URL'); ok=false; }
       }
       const summary=document.getElementById('validationSummary'), list=document.getElementById('validationList');
-      if(!ok){ list.innerHTML=errs.map(x=>`<li>${x}</li>`).join(''); summary.classList.add('show'); summary.scrollIntoView({behavior:'smooth',block:'center'}); }
+      if(!ok){ list.innerHTML=errs.map(x=>`<li>${escapeHTML(x)}</li>`).join(''); summary.classList.add('show'); summary.scrollIntoView({behavior:'smooth',block:'center'}); }
       else summary.classList.remove('show');
       return ok;
     }
@@ -652,6 +688,9 @@
     });
 
     // ---- build payload ----
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
     function buildNestedConfig(fd){
       const cfg={project:{},postgresql:{},databases:[],users:[],databaseAccess:[],minio:{},walg:{s3:{},backup:{}},monitoring:{}};
       for(let [k,v] of fd.entries()){
@@ -661,6 +700,14 @@
         switch(k){
           case 'releaseName': case 'storageClass': cfg.project[k]=v; break;
           case 'enablePgCat': case 'enableMinio': cfg.project[k]=(v==='true'); break;
+          case 'superuserUsername': case 'superuserPassword':
+          case 'replicationUsername': case 'replicationPassword': {
+            const kind = k.startsWith('superuser') ? 'superuser' : 'replication';
+            const field = k.endsWith('Username') ? 'username' : 'password';
+            cfg.postgresql[kind] ??= {};
+            cfg.postgresql[kind][field] = v;
+            break;
+          }
           case 'pgReplicas': case 'pgStorageCapacity': cfg.postgresql[k]=parseInt(v,10); break;
           case 'minioRootUser': case 'minioRootPassword': case 'minioStorageCapacity':
           case 'minioBackupUser': case 'minioBackupPassword': case 'minioBackupBucket': {
@@ -677,80 +724,23 @@
           default: cfg[k]=v; break;
         }
       }
+      for (const kind of ['superuser', 'replication']) {
+        const creds = cfg.postgresql[kind];
+        if (creds && !creds.username && !creds.password) delete cfg.postgresql[kind];
+      }
       cfg.databases=cfg.databases.filter(x=>x&&x.name);
       cfg.users=cfg.users.filter(x=>x&&x.username);
       cfg.databaseAccess=cfg.databaseAccess.filter(x=>x&&x.username&&x.database);
       return cfg;
     }
-      if (cfg.project.enableMinio) {
-    payload.minio = {
-      rootUser: cfg.minio.rootUser,
-      rootPassword: cfg.minio.rootPassword,
-      storageCapacity: Number(cfg.minio.storageCapacity || 10),
-      backupUser: cfg.minio.backupUser,
-      backupPassword: cfg.minio.backupPassword,
-      backupBucket: cfg.minio.backupBucket
-    };
-    }
-    // ---- smart response parser (fixes your JSON bug) ----
-    async function readBodySmart(res){
-      const ct=res.headers.get('content-type')||'';
-      if(ct.includes('application/json')){
-        try { return await res.json(); } catch {}
-      }
-      return await res.text();
-    }
-
-    // ---- submit ----
-    document.getElementById('postgresqlConfigForm').addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      if(!validateForm()) return;
-
-      const output=document.getElementById('output');
-      output.textContent='Deploying…';
-
-      const fd=new FormData(e.target);
-      const cfg=buildNestedConfig(fd);
-
-      const payload={
-        namespace:(cfg.namespace||'dbaas').trim(),
-        project:{ releaseName:cfg.project.releaseName, enableMinio:!!cfg.project.enableMinio, enablePgCat:!!cfg.project.enablePgCat },
-        postgresql:{ pgReplicas:Number(cfg.postgresql.pgReplicas||1), pgStorageCapacity:Number(cfg.postgresql.pgStorageCapacity||20) },
-        databases:cfg.databases||[],
-        users:cfg.users||[],
-        databaseAccess:cfg.databaseAccess||[],
-        walg:(cfg.walg && (Object.keys(cfg.walg.s3||{}).length || Object.keys(cfg.walg.backup||{}).length)) ? cfg.walg : null
-      };
-
-      try{
-        const res=await fetch('/api/deploy',{ method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
-        const body=await readBodySmart(res);
-
-        if(!res.ok){
-          let msg = (typeof body==='string') ? body : (body && body.detail) || res.statusText;
-          if(msg && msg.length>4000) msg = msg.slice(0,4000)+'…';
-          throw new Error(msg || 'Deployment failed');
-        }
-
-        const data=(typeof body==='string')?{ ok:true, message:body }:body;
-        output.textContent = `✅ Release ${data.release || payload.project.releaseName} in namespace ${data.namespace || payload.namespace} created/updated.\n\n` + (data.output || data.message || '');
-      }catch(err){
-        output.textContent = '❌ ' + (err.message || String(err));
-      }
-    });
-
-    // ---- init ----
-    function init(){ updateS3Fields(false); updatePgCatDependentFields(false); }
-    init();
-  </script>
- <script>
-function handleSubmit(e){
+async function handleSubmit(e){
   e.preventDefault();                      // stop native form submit
   const form = e.currentTarget;
+  if (form.dataset.submitting === "true") return;
   const output = document.getElementById('output');
 
   // client-side validation
-  if (typeof validateForm === "function" && !validateForm()) {
+  if (document.getElementById("inlineSecretsMode").checked && typeof validateForm === "function" && !validateForm()) {
     return;
   }
 
@@ -771,10 +761,13 @@ function handleSubmit(e){
     postgresql: {
       pgReplicas: Number(cfg.postgresql?.pgReplicas ?? cfg.pgReplicas ?? 1),
       pgStorageCapacity: Number(cfg.postgresql?.pgStorageCapacity ?? cfg.pgStorageCapacity ?? 20),
+      superuser: cfg.postgresql?.superuser || null,
+      replication: cfg.postgresql?.replication || null,
     },
     databases: Array.isArray(cfg.databases) ? cfg.databases : [],
     users: Array.isArray(cfg.users) ? cfg.users : [],
     databaseAccess: Array.isArray(cfg.databaseAccess) ? cfg.databaseAccess : [],
+    monitoring: cfg.monitoring || null,
     // include wal-g if present
     walg: (cfg.walg && (Object.keys(cfg.walg.s3||{}).length || Object.keys(cfg.walg.backup||{}).length)) ? cfg.walg : null,
     // include minio only when enabled and provided
@@ -790,8 +783,19 @@ function handleSubmit(e){
       : null
   };
 
-  // quick sanity logs in browser console
-  console.log("Submitting payload:", payload);
+  payload.existingSecrets = Object.fromEntries(['Postgres','Walg','Pgcat','Pgadmin','Minio'].map(k => [k.toLowerCase(), cfg['secret'+k] || '']));
+  if (!document.getElementById('inlineSecretsMode').checked) {
+    payload.postgresql.superuser = null;
+    payload.postgresql.replication = null;
+    payload.users = [];
+    payload.databases = [];
+    if (payload.walg) payload.walg.s3 = null;
+    if (payload.minio) payload.minio = {storageCapacity: payload.minio.storageCapacity};
+  }
+  const token = document.getElementById('apiToken').value;
+  if (!token) { output.textContent = '❌ Enter an API token'; return; }
+
+
 
   // robust body reader (json or text)
   async function readBodySmart(res){
@@ -802,30 +806,38 @@ function handleSubmit(e){
     return await res.text();
   }
 
-  (async () => {
+  form.dataset.submitting = "true";
+  await (async () => {
     output.textContent = "Deploying…";
     try{
       const res = await fetch("/api/deploy", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
         body: JSON.stringify(payload)
       });
 
+      if (res.status === 401) throw new Error('Authentication failed; check the API token');
+      if (res.status === 403) throw new Error('This namespace is not authorized');
       const body = await readBodySmart(res);
 
-      if (!res.ok) {
+      if (!res.ok || (typeof body === "object" && body?.ok === false)) {
         let msg = (typeof body === "string") ? body : (body && body.detail) || res.statusText;
+        if (typeof msg !== "string") msg = JSON.stringify(msg);
         if (msg && msg.length > 4000) msg = msg.slice(0, 4000) + "…";
         throw new Error(msg || "Deployment failed");
       }
 
-      const data = (typeof body === "string") ? { ok: true, message: body } : body;
+      if (!body || typeof body !== "object" || body.ok !== true) throw new Error("Unexpected provisioning response");
+      const data = body;
       output.textContent =
         `✅ Release ${data.release || payload.project.releaseName} in namespace ${data.namespace || payload.namespace} created/updated.\n\n` +
         (data.output || data.message || "");
+      for (const field of form.querySelectorAll('input[type="password"]')) field.value = '';
     }catch(err){
       output.textContent = "❌ " + (err.message || String(err));
-      console.error(err);
+
+    } finally {
+      form.dataset.submitting = "false";
     }
   })();
 }
@@ -834,8 +846,10 @@ function handleSubmit(e){
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("postgresqlConfigForm");
   if (!form) return console.error("postgresqlConfigForm not found");
+  updateS3Fields(document.getElementById("enableMinio").value === "true");
+  updatePgCatDependentFields(document.getElementById("enablePgCat").value === "true");
   form.addEventListener("submit", handleSubmit);
-  console.log("submit handler attached");
+
 });
 </script>
 

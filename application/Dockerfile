@@ -1,10 +1,15 @@
-FROM python:3.12-slim
+FROM python:3.12.7-slim-bookworm
 
 # install helm + kubectl (as root)
 RUN apt-get update && apt-get install -y curl ca-certificates gnupg && \
-    curl -sSL https://get.helm.sh/helm-v3.15.4-linux-amd64.tar.gz | tar zx && \
+    curl -fsSLO https://get.helm.sh/helm-v3.15.4-linux-amd64.tar.gz && \
+    curl -fsSLO https://get.helm.sh/helm-v3.15.4-linux-amd64.tar.gz.sha256sum && \
+    sha256sum -c helm-v3.15.4-linux-amd64.tar.gz.sha256sum && \
+    tar zxf helm-v3.15.4-linux-amd64.tar.gz && rm helm-v3.15.4-linux-amd64.tar.gz* && \
     mv linux-amd64/helm /usr/local/bin/helm && rm -rf linux-amd64 && \
-    curl -sSL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.30.0/bin/linux/amd64/kubectl && \
+    curl -fsSL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.30.0/bin/linux/amd64/kubectl && \
+    curl -fsSL -o /tmp/kubectl.sha256 https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl.sha256 && \
+    echo "$(cat /tmp/kubectl.sha256)  /usr/local/bin/kubectl" | sha256sum -c - && rm /tmp/kubectl.sha256 && \
     chmod +x /usr/local/bin/kubectl && \
     apt-get purge -y curl gnupg && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 

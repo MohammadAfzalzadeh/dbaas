@@ -10,18 +10,30 @@ metadata:
   name: dbaas-backend-helm
   namespace: dbaas
 rules:
+  - apiGroups: ["networking.k8s.io"]
+    resources: ["networkpolicies"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
   - apiGroups: [""]
-    resources: ["configmaps","secrets","services","persistentvolumeclaims","pods"]
-    verbs: ["get","list","watch","create","update","patch","delete"]
+    resources: ["configmaps","secrets","services","persistentvolumeclaims","pods","serviceaccounts","endpoints"]
+    verbs: ["get","list","watch","create","update","patch","delete","deletecollection"]
+  - apiGroups: [""]
+    resources: ["pods/exec"]
+    verbs: ["get", "list", "create"]
+  - apiGroups: ["rbac.authorization.k8s.io"]
+    resources: ["roles", "rolebindings"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: ["traefik.io"]
+    resources: ["ingressroutes"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
   - apiGroups: ["apps"]
     resources: ["deployments","statefulsets","daemonsets","replicasets"]
-    verbs: ["get","list","watch","create","update","patch","delete"]
+    verbs: ["get","list","watch","create","update","patch","delete","deletecollection"]
   - apiGroups: ["batch"]
     resources: ["jobs","cronjobs"]
-    verbs: ["get","list","watch","create","update","patch","delete"]
+    verbs: ["get","list","watch","create","update","patch","delete","deletecollection"]
   - apiGroups: ["policy"]
     resources: ["poddisruptionbudgets"]
-    verbs: ["get","list","watch","create","update","patch","delete"]
+    verbs: ["get","list","watch","create","update","patch","delete","deletecollection"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding

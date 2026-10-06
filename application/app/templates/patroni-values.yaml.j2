@@ -1,17 +1,20 @@
+security:
+  allowInlineSecrets: {{ inlineSecrets | lower }}
+{% if inlineSecrets %}
 postgres:
   # images/ports from your chart defaults; override only what UI controls
   replicaCount: {{ postgresql.pgReplicas | int }}
   storageCapacity: "{{ postgresql.pgStorageCapacity }}Gi"
   {% if postgresql.superuser %}
-  SUPERUSER_USERNAME: "{{ postgresql.superuser.username }}"
-  SUPERUSER_PASSWORD: "{{ postgresql.superuser.password }}"
+  SUPERUSER_USERNAME: {{ postgresql.superuser.username | tojson }}
+  SUPERUSER_PASSWORD: {{ postgresql.superuser.password | tojson }}
   {% endif %}
   {% if postgresql.replication %}
-  REPLICATION_USERNAME: "{{ postgresql.replication.username }}"
-  REPLICATION_PASSWORD: "{{ postgresql.replication.password }}"
+  REPLICATION_USERNAME: {{ postgresql.replication.username | tojson }}
+  REPLICATION_PASSWORD: {{ postgresql.replication.password | tojson }}
   {% endif %}
-  BACKUP_ENABLE: {{ 'true' if walg and walg.backup and walg.backup.enablePITR else 'false' }}
-  DATABASE: "{{ (databases[0].name if databases and databases[0].name else 'postgres') }}"
+  BACKUP_ENABLE: false
+  DATABASE: postgres
 
 {% if walg or (project.enableMinio and minio) %}
 walg:
@@ -36,12 +39,23 @@ walg:
   WALG_S3_PREFIX: {{ ('s3://' ~ walg.s3.bucketName) | tojson }}
 {% endif %}
 {% endif %}
-{% if walg.backup %}
+{% if walg and walg.backup %}
   WALG_COMPRESSION_METHOD: "{{ walg.backup.compressionMethod | default('brotli') }}"
 {% endif %}
 {% endif %}
 
 backup:
   BACKUP_PERIOD: "{{ (walg.backup.backupSchedule if walg and walg.backup and walg.backup.backupSchedule else '0 2 * * *') }}"
-  IMAGE_NAME: docker.arvancloud.ir/bitnami/kubectl:latest
+  IMAGE_NAME: dbaas/kubectl:1.30.0
   IMAGE_PULL_POLICY: IfNotPresent
+
+{% else %}
+postgres:
+  existingSecret: {{ existingSecrets.postgres | tojson }}
+  replicaCount: {{ postgresql.pgReplicas }}
+  storageCapacity: "{{ postgresql.pgStorageCapacity }}Gi"
+walg:
+  existingSecret: {{ existingSecrets.walg | tojson }}
+backup:
+  BACKUP_PERIOD: {{ (walg.backup.backupSchedule if walg and walg.backup else '0 2 * * *') | tojson }}
+{% endif %}

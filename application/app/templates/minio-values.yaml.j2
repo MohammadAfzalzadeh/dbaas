@@ -1,3 +1,6 @@
+security:
+  allowInlineSecrets: {{ inlineSecrets | lower }}
+{% if inlineSecrets %}
 {% if minio %}
 minio:
   rootUser: {{ minio.rootUser | tojson }}
@@ -9,4 +12,10 @@ minioInit:
   backupBucketName: {{ minio.backupBucket | tojson }}
 {% else %}
 # MinIO disabled or not provided
+{% endif %}
+
+{% else %}
+minio:
+  existingSecret: {{ existingSecrets.minio | tojson }}
+  storageCapacity: "{{ minio.storageCapacity }}Gi"
 {% endif %}

@@ -11,14 +11,32 @@ spec:
     metadata:
       labels: { app: dbaas-backend }
     spec:
+      terminationGracePeriodSeconds: 720
       serviceAccountName: dbaas-backend
       containers:
         - name: api
           image: YOUR_REGISTRY/dbaas-backend:0.1.0
+          resources:
+            requests: {cpu: 100m, memory: 128Mi}
+            limits: {}
+          args: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--timeout-graceful-shutdown", "690"]
+          env:
+            - name: DBAAS_API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: dbaas-api-auth
+                  key: token
+            - name: DBAAS_ALLOWED_NAMESPACES
+              value: dbaas
           ports:
             - containerPort: 8000
-          readinessProbe:
+          startupProbe:
             httpGet: { path: "/healthz", port: 8000 }
+            periodSeconds: 5
+            failureThreshold: 30
+          readinessProbe:
+            httpGet: { path: "/readyz", port: 8000 }
+            timeoutSeconds: 3
           livenessProbe:
             httpGet: { path: "/healthz", port: 8000 }
           securityContext:
