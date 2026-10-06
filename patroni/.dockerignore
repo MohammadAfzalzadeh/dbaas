@@ -1,0 +1,11 @@
+
+.git
+.venv
+node_modules
+.env
+.env.*
+*.local.yaml
+*.secret.yaml
+*.secrets.yaml
+__pycache__
+*.log

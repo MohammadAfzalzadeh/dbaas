@@ -1,6 +1,5 @@
 # Ignore node modules (always!)
 node_modules
-package-lock.json
 
 # Ignore logs
 logs
@@ -14,3 +13,5 @@ logs
 *.tmp
 *.swp
 
+
+!.env.example

@@ -1,6 +1,5 @@
 # Ignore node modules (always!)
 node_modules
-package-lock.json
 
 # Ignore logs
 logs
@@ -22,3 +21,14 @@ logs
 Dockerfile
 docker-compose.yml
 .dockerignore
+
+.git
+.venv
+node_modules
+.env
+.env.*
+*.local.yaml
+*.secret.yaml
+*.secrets.yaml
+__pycache__
+*.log

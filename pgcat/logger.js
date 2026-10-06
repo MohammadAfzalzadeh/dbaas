@@ -2,7 +2,7 @@ const { createLogger, format, transports } = require('winston');
 const DailyRotateFile = require('winston-daily-rotate-file');
 const path = require('path');
 
-const LOG_PATH = process.env.LOG_PATH || '/var/log';
+const LOG_PATH = process.env.LOG_PATH || '/tmp';
 const LOG_LEVEL = process.env.LOG_LEVEL || 'info';
 const LOG_MAX_SIZE = process.env.LOG_MAX_SIZE || '20m';
 const LOG_MAX_FILES = process.env.LOG_MAX_FILES || '30d';
@@ -37,4 +37,11 @@ function log(level, message, extra = {}) {
     });
   }
 
-module.exports = {log};
+function closeLogger() {
+  return new Promise(resolve => {
+    logger.once('finish', resolve);
+    logger.end();
+  });
+}
+
+module.exports = {log, closeLogger};

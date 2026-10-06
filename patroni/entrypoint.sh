@@ -1,4 +1,5 @@
 #!/bin/bash
+umask 077
 
 if [[ $UID -ge 10000 ]]; then
     GID=$(id -g)
@@ -14,6 +15,9 @@ else
   BOOTSTRAP_METHOD="initdb"
 fi
 
+# Escape YAML single-quoted scalars without changing the stored passwords.
+SUPERUSER_YAML=${PATRONI_SUPERUSER_PASSWORD//\'/\'\'}
+REPLICATION_YAML=${PATRONI_REPLICATION_PASSWORD//\'/\'\'}
 cat > /home/postgres/patroni.yml <<__EOF__
 bootstrap:
   dcs:
@@ -45,9 +49,9 @@ postgresql:
 $(echo -e "$PATRONI_POSTGRESQL_PARAMETERS" | sed 's/^/    /')
   authentication:
     superuser:
-      password: '${PATRONI_SUPERUSER_PASSWORD}'
+      password: '${SUPERUSER_YAML}'
     replication:
-      password: '${PATRONI_REPLICATION_PASSWORD}'
+      password: '${REPLICATION_YAML}'
 __EOF__
 
 unset PATRONI_SUPERUSER_PASSWORD PATRONI_REPLICATION_PASSWORD
