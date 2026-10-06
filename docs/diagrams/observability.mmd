@@ -1,0 +1,11 @@
+flowchart LR
+  sm["ServiceMonitors"] --> op["Prometheus Operator with TLS admission"]
+  op --> prom["Prometheus scrape and rule evaluation"]
+  patroni["Patroni member metrics Service: includes unready members"] --> prom
+  pgcat["PgCat exporter"] --> prom
+  minio["MinIO metrics"] --> prom
+  ksm["kube-state-metrics"] --> prom
+  kubelet["Kubelet / cAdvisor"] --> prom
+  prom --> grafana["Five source-controlled Grafana dashboards"]
+  prom --> alerts["Observed local alert transitions"]
+  gaps["Recorded gap: seven refused control-plane scrape targets"]

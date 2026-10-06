@@ -1,0 +1,14 @@
+flowchart TD
+  failure["Pod unavailable"] --> type{"Voluntary eviction?"}
+  type -->|"Yes"| pdb["PDB admission when configured"]
+  type -->|"No"| unready["Readiness and endpoints change"]
+  pdb -->|"Allowed"| unready
+  pdb -->|"Denied"| repair["Restore healthy capacity before drain"]
+  unready --> role{"Primary lost?"}
+  role -->|"Yes"| patroni["Patroni evaluates leader lock and eligible replicas"]
+  role -->|"No"| recreate["Controller recreates pod with its retained PVC"]
+  patroni --> dcs["Election depends on Kubernetes DCS and eligible replica"]
+  dcs --> service["Role labels and Service routing update"]
+  recreate --> ready["Startup and readiness gates"]
+  service --> retry["Client reconnect and data validation required"]
+  ready --> retry

@@ -1,0 +1,26 @@
+{
+  "tps-vs-concurrency": {
+    "status": "EXPERIMENTALLY MEASURED",
+    "source": "results/benchmarks/dbaas-phase5-8a3ad9f385/pgbench.json"
+  },
+  "latency-vs-concurrency": {
+    "status": "EXPERIMENTALLY MEASURED",
+    "source": "results/benchmarks/dbaas-phase5-8a3ad9f385/pgbench.json"
+  },
+  "direct-vs-pgcat": {
+    "status": "EXPERIMENTALLY MEASURED",
+    "source": "results/benchmarks/dbaas-phase5-8a3ad9f385/pgbench.json"
+  },
+  "backup-impact": {
+    "status": "EXPERIMENTALLY MEASURED",
+    "source": "results/benchmarks/dbaas-phase5-8a3ad9f385/backup-impact.json"
+  },
+  "failover-timeline": {
+    "status": "EXPERIMENTALLY MEASURED",
+    "source": "results/runtime/multinode/dbaas-phase5-8a3ad9f385"
+  },
+  "restore-duration": {
+    "status": "EXPERIMENTALLY MEASURED",
+    "source": "results/benchmarks/dbaas-phase5-8a3ad9f385/restore-sizes.json"
+  }
+}

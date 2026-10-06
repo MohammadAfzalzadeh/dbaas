@@ -1,0 +1,52 @@
+[
+  {
+    "chart": "tps-vs-concurrency",
+    "sources": [
+      "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/pgbench.json"
+    ]
+  },
+  {
+    "chart": "latency-vs-concurrency",
+    "sources": [
+      "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/pgbench.json"
+    ]
+  },
+  {
+    "chart": "direct-vs-pgcat",
+    "sources": [
+      "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/pgbench.json"
+    ]
+  },
+  {
+    "chart": "failover-timeline",
+    "sources": [
+      "results/runtime/multinode/dbaas-phase5-bc4cacdf48/failover-windows.json"
+    ]
+  },
+  {
+    "chart": "persistent-clients",
+    "sources": [
+      "results/runtime/multinode/dbaas-phase5-bc4cacdf48/failover-windows.json"
+    ]
+  },
+  {
+    "chart": "backup-impact",
+    "sources": [
+      "results/benchmarks/dbaas-phase5-bc4cacdf48/matrix/attempt-1/backup-impact.json"
+    ]
+  },
+  {
+    "chart": "restore-duration",
+    "sources": [
+      "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-1/result.json",
+      "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-2/result.json"
+    ]
+  },
+  {
+    "chart": "pitr-recovery",
+    "sources": [
+      "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-1/result.json",
+      "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-2/result.json"
+    ]
+  }
+]

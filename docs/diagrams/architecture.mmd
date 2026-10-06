@@ -1,0 +1,18 @@
+flowchart LR
+  subgraph control["Provisioning control plane"]
+    direction TB
+    ui["Browser UI / trusted operator"] -->|"Bearer token"| api["FastAPI"]
+    api -->|"Validate and render private values"| helm["Helm subprocess"]
+    helm -->|"ServiceAccount and namespaced RBAC"| kube["Kubernetes API"]
+  end
+  subgraph data["Data plane: validated multi-node lab profile"]
+    direction TB
+    client["SQL clients"] --> svc["PgCat Service"]
+    svc --> proxy["Two PgCat pods with independent watchers"]
+    proxy --> roles["Primary and replica Services"]
+    roles --> pg["Three Patroni / PostgreSQL members; Kubernetes DCS"]
+    pg --> pvc["Per-member node-affine PVCs"]
+    pg -->|"WAL-G base backups and WAL"| store["MinIO with local PVC"]
+  end
+  control -->|"Deploy resources"| data
+  scope["All kind nodes and storage share one physical host"]

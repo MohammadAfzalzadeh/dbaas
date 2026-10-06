@@ -1,0 +1,16 @@
+sequenceDiagram
+  participant harness as Owned-lab harness
+  participant client as Persistent SQL client
+  participant proxy as Two PgCat replicas
+  participant primary as Current primary
+  participant replica as Replica
+  participant dcs as Kubernetes DCS
+  client->>proxy: Continuous committed-ID transactions
+  proxy->>primary: Writes
+  primary->>dcs: Leader lock heartbeat
+  harness->>primary: Inject primary loss in owned lab
+  replica->>dcs: Observe leadership expiry / acquire lock
+  replica->>replica: Promote
+  proxy->>replica: Route new primary connections
+  client->>proxy: Reconnect after failures
+  client->>replica: Compare all acknowledged IDs

@@ -1,0 +1,12 @@
+flowchart LR
+  client["Persistent or reconnecting SQL client"] --> service["PgCat ClusterIP Service"]
+  service --> p1["PgCat pod 1 + watcher"]
+  service --> p2["PgCat pod 2 + watcher"]
+  secret["External pgcat.yaml Secret"] -->|"Independent emptyDir TOML"| p1
+  secret -->|"Independent emptyDir TOML"| p2
+  p1 --> primary["Primary Service"]
+  p2 --> primary
+  p1 --> replica["Replica Service"]
+  p2 --> replica
+  primary --> writer["Current PostgreSQL primary"]
+  replica --> readers["Streaming replicas"]

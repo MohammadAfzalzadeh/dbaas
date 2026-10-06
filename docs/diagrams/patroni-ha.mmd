@@ -1,0 +1,11 @@
+flowchart LR
+  dcs["Kubernetes Endpoints DCS"]
+  a["Worker A: Patroni + primary"] -->|"Renews leader lock"| dcs
+  b["Worker B: Patroni + replica"] -->|"Observes lock"| dcs
+  c["Worker C: Patroni + replica"] -->|"Observes lock"| dcs
+  a -->|"Asynchronous WAL streaming"| b
+  a -->|"Asynchronous WAL streaming"| c
+  a --> va["Node-affine PVC A"]
+  b --> vb["Node-affine PVC B"]
+  c --> vc["Node-affine PVC C"]
+  caveat["One physical host: independent production failure domains NOT VALIDATED"]

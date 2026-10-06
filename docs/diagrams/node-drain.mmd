@@ -1,0 +1,15 @@
+sequenceDiagram
+  participant test as Owned-lab harness
+  participant kube as Kubernetes eviction API
+  participant pdb as PodDisruptionBudget
+  participant pg as Patroni members
+  participant disk as Node-affine PVC
+  test->>kube: Cordon and drain selected worker
+  kube->>pdb: Check voluntary disruption budget
+  kube->>pg: Evict selected member
+  pg->>pg: Promote eligible replica if primary leaves
+  kube->>disk: Replacement requires original volume node
+  disk-->>kube: Replacement may remain Pending
+  test->>kube: Uncordon original worker
+  kube->>pg: Schedule member on retained PVC
+  test->>pg: Verify streaming and acknowledged writes

@@ -1,0 +1,28 @@
+flowchart LR
+  subgraph cp ["Control-plane container"]
+    api["Kubernetes API / etcd"]
+    operator["FastAPI + independent clients"]
+    obs["Lab monitoring"]
+  end
+  subgraph wa ["Worker A"]
+    pg1["Patroni member 1 + local PVC"]
+    pool1["PgCat replica"]
+  end
+  subgraph wb ["Worker B"]
+    pg2["Patroni member 2 + local PVC"]
+    pool2["PgCat replica"]
+  end
+  subgraph wc ["Worker C"]
+    pg3["Patroni member 3 + local PVC"]
+    store["MinIO + local PVC"]
+  end
+  api -->|"Schedules with required anti-affinity"| pg1
+  api --> pg2
+  api --> pg3
+  pool1 --> roles["Primary / replica role Services"]
+  pool2 --> roles
+  roles --> pg1
+  roles --> pg2
+  roles --> pg3
+  pg1 -->|"WAL-G"| store
+  caveat["Illustrative placement; actual pod/node mapping is recorded in evidence"]

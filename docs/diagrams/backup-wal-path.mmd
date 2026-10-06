@@ -1,0 +1,7 @@
+flowchart LR
+  cron["Backup CronJob / manual derived Job"] -->|"Scoped primary discovery and exec"| pg["PostgreSQL primary"]
+  pg -->|"WAL-G base backup"| store["Configured S3-compatible prefix"]
+  pg -->|"archive_command / WAL-G wal-push"| store
+  store --> catalog["Backup catalog + object listing + WAL segment evidence"]
+  store -->|"backup-fetch / wal-fetch"| restore["Restore bootstrap"]
+  boundary["Local MinIO is not an off-site failure domain"]

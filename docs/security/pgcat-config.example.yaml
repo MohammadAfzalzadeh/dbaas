@@ -1,0 +1,23 @@
+# Schema skeleton for the pgcat.yaml key of an external Secret.
+# Empty credentials deliberately fail the watcher. Fill only in a private file.
+general:
+  PGCAT_PORT: 5432
+  ENABLE_PROMETHEUS: true
+  PROMETHEUS_EXPORTER_PORT: 9930
+  PGCAT_SUPERUSER_USERNAME: postgres
+  PGCAT_SUPERUSER_PASSWORD: ""
+DBS:
+  - NAME: postgres
+    POOL_MODE: session
+    PRIMARY_READ: true
+    users:
+      - USER_NAME: postgres
+        PASSWORD: ""
+        POOL_SIZE: 10
+        STATEMENT_TIMEOUT: 0
+    shards:
+      - MASTER_HOST: patronimvp-master-example-patroni
+        MASTER_PORT: 5432
+        INCLUDE_REPLICA: false
+        REPLICA_HOST: patronimvp-replica-example-patroni
+        REPLICA_PORT: 5432

@@ -1,0 +1,22 @@
+sequenceDiagram
+  participant kubelet as Kubelet
+  participant patroni as Patroni PID 1
+  participant postgres as PostgreSQL
+  participant dcs as Kubernetes DCS
+  kubelet->>patroni: SIGTERM with 180-second default grace
+  patroni->>postgres: Patroni-managed shutdown
+  patroni->>dcs: HA shutdown and leader-lock coordination
+  postgres-->>patroni: Database stopped
+  patroni-->>kubelet: Process exit
+  participant pgcat as PgCat
+  kubelet->>pgcat: Image stop signal SIGINT
+  pgcat->>pgcat: Drain clients up to 60-second config timeout
+  pgcat-->>kubelet: Exit within 90-second pod grace
+  participant watcher as Configuration watcher
+  kubelet->>watcher: SIGTERM
+  watcher->>watcher: Stop watching, finish write, flush logger
+  watcher-->>kubelet: Exit 0 with 5-second bound
+  participant api as FastAPI and Uvicorn
+  kubelet->>api: SIGTERM
+  api->>api: Wait for in-flight work up to 690 seconds
+  api-->>kubelet: Exit before 720-second pod deadline

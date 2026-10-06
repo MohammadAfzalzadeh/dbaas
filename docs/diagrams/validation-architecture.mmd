@@ -1,0 +1,12 @@
+flowchart TB
+  source["Charts, API, scripts and watcher"] --> static["Python, Node, Helm and syntax checks"]
+  source --> builds["Pinned image build recipes"]
+  builds --> lab["Identity-checked disposable kind lab"]
+  lab --> checks["SQL, backup, PITR and network checks"]
+  lab --> faults["Pod deletion, drain and worker loss"]
+  lab --> measure["Persistent clients, pgbench and restore samples"]
+  checks --> evidence["Sanitized artifacts in separate attempts"]
+  faults --> evidence
+  measure --> evidence
+  evidence --> reports["Claims register, reports and measured charts"]
+  lab --> cleanup["Delete owned cluster and restore temporary host setting"]

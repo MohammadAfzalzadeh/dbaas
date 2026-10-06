@@ -1,0 +1,24 @@
+[
+  {
+    "chart": "failover-reruns",
+    "sources": [
+      {
+        "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/failover-windows.json",
+        "sha256": "4d0dd044ebf51748b7b62476ebf05b990fe47eb43113c6ee1c14a0d4d1efd74a"
+      }
+    ]
+  },
+  {
+    "chart": "restore-samples",
+    "sources": [
+      {
+        "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-1/result.json",
+        "sha256": "1e3aacae5e085d9b2df53252749c469318f1300a661b02c6a8bdf99cd376586b"
+      },
+      {
+        "path": "results/runtime/multinode/dbaas-phase5-bc4cacdf48/restore-size/attempt-2/result.json",
+        "sha256": "7d790165e19483904a69b3477b72b95a0944fa64022f3d4664b2a07f64318444"
+      }
+    ]
+  }
+]

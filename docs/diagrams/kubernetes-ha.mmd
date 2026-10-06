@@ -1,0 +1,29 @@
+flowchart LR
+  client["Application clients"] --> proxyService["PgCat Service"]
+  subgraph nodeA["Node A — example preferred placement"]
+    proxyA["PgCat and watcher"]
+    primary["Patroni and PostgreSQL primary"]
+    pvcA["Primary PVC"]
+    primary --> pvcA
+  end
+  subgraph nodeB["Node B — example preferred placement"]
+    proxyB["Optional second PgCat pod"]
+    replica["Patroni and PostgreSQL replica"]
+    pvcB["Replica PVC"]
+    replica --> pvcB
+  end
+  proxyService --> proxyA
+  proxyService --> proxyB
+  proxyA --> roles["Primary / replica role Services"]
+  proxyB --> roles
+  roles --> primary
+  roles --> replica
+  primary -->|"Streaming replication"| replica
+  primary -.->|"DCS API"| kubeApi["Kubernetes control plane"]
+  replica -.->|"DCS API"| kubeApi
+  backupJob["Scheduled kubectl exec Job"] -->|"WAL-G inside primary"| primary
+  primary -->|"WAL and base backups"| s3["MinIO with local PVC"]
+  scheduling["Preferred anti-affinity; optional topology spread; release scoped"] -.-> primary
+  scheduling -.-> replica
+  pdb["PDB maxUnavailable 1 when replicas exceed 1"] -.-> primary
+  pdb -.-> proxyA

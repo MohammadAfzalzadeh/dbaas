@@ -1,0 +1,16 @@
+flowchart LR
+  subgraph ns["Resilience namespace with Calico policies"]
+    client["Allowed SQL client"] -->|"5432"| proxy["PgCat"]
+    proxy -->|"5432"| db["Source Patroni members"]
+    db -->|"Streaming and Patroni API"| db
+    db -->|"9000"| store["MinIO"]
+    monitor["Monitoring pods"] -->|"8008"| db
+    monitor -->|"9930"| proxy
+    restore["Isolated restore release"] -->|"Archive bootstrap"| store
+    denied["Unrelated probe"] -.->|"TCP denied"| db
+    denied -.->|"TCP denied"| store
+    restore -.->|"Source SQL denied"| db
+  end
+  api["FastAPI ServiceAccount"] -->|"HTTPS with CA and RBAC"| kube["Kubernetes API"]
+  db -->|"DCS"| kube
+  dns["Cluster DNS: explicitly allowed"]

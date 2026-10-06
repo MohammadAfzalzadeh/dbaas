@@ -1,0 +1,10 @@
+flowchart LR
+  source["Source release + original PVCs"] -->|"Official backup + WAL"| store["Explicit backup prefix"]
+  store -->|"Selected backup + target UTC"| target["New Patroni release + new PVCs"]
+  target --> promote["Reach target and promote"]
+  promote --> detach["Empty restore_command; archive_mode off"]
+  detach --> checks["A present / B absent / writable C"]
+  source --> unchanged["Source identities and data compared"]
+  checks --> decision["Operator cutover decision — not automatic"]
+  checks --> restart["Graceful and abrupt restart; A and C retained; B and future D absent"]
+  target --> guard["Archiving and scheduled backups disabled until independent destination configured"]

@@ -1,0 +1,21 @@
+sequenceDiagram
+  participant user as Browser / operator
+  participant api as FastAPI
+  participant disk as Private temporary directory
+  participant helm as Helm
+  participant kube as Kubernetes API
+  user->>api: POST /api/deploy with Bearer token
+  api->>api: Authenticate, validate namespace and request
+  api->>disk: Write generated values with private permissions
+  api->>helm: Lint all selected charts
+  loop MinIO, Patroni, PgCat when enabled
+    api->>helm: Upgrade/install and wait
+    helm->>kube: Apply namespaced resources
+    api->>kube: Confirm dependent StatefulSet readiness
+  end
+  api->>disk: Remove temporary files on success or failure
+  alt All stages completed
+    api-->>user: Success and release identity
+  else Provisioning failed
+    api-->>user: Error and completedReleases, inspect partial state
+  end

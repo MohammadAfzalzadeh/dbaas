@@ -1,0 +1,15 @@
+sequenceDiagram
+  participant test as Validation client
+  participant source as Source PostgreSQL
+  participant store as WAL-G object storage
+  participant recover as Recovery workflow
+  test->>source: Commit A
+  source->>store: Base backup and archived WAL
+  test->>source: Record UTC target T
+  test->>source: Commit B after T
+  source->>store: Archive post-target WAL
+  test->>recover: Explicit opt-in restore to T
+  recover->>store: Fetch selected base backup and WAL
+  recover->>source: Recover until T and promote
+  test->>source: Assert A present and B absent
+  test->>source: Commit C and compare replica data

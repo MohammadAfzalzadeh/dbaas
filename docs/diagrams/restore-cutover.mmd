@@ -1,0 +1,12 @@
+sequenceDiagram
+  participant owner as Application owner
+  participant source as Source database
+  participant recovery as Isolated recovery target
+  participant app as Application
+  owner->>source: Establish consistency point / freeze writes if required
+  source->>recovery: Selected backup and WAL through object storage
+  owner->>recovery: Validate target data, credentials, backups and health
+  owner->>app: Planned endpoint switch and reconnect decision
+  app->>recovery: New authoritative writes
+  owner->>source: Retain isolated source for rollback window
+  owner->>owner: Reconcile target writes before any rollback

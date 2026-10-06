@@ -1,0 +1,11 @@
+flowchart LR
+  install["Helm install"] --> sts["StatefulSet claim templates"]
+  sts --> claim["Per-member PVC and PV"]
+  claim --> deletion{"Removal path"}
+  deletion -->|"Normal uninstall or scale down"| retain["PVC retained by default"]
+  deletion -->|"Explicit recovery execute"| preflight["Ownership, UID, consumer and backup preflight"]
+  preflight --> stop["Stop pool and database; journal stages"]
+  stop --> remove["Delete only reviewed PostgreSQL PVCs"]
+  remove --> reclaim["PV reclaim policy may destroy storage"]
+  reclaim --> restore["New claims; WAL-G restore; verify target data"]
+  minio["Retain backup storage independently"] --> restore
