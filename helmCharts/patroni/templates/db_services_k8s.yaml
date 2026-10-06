@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: patronimvp-replica-{{ .Release.Name }}
   labels:
+    type: monitoring
+    release-name: {{ .Release.Name }}
     application: patroni
     cluster-name:  &cluster_name {{ .Release.Name }}-patronimvp
     role: replica
@@ -28,6 +30,8 @@ kind: Service
 metadata:
   name: patronimvp-master-{{ .Release.Name }}
   labels:
+    type: monitoring
+    release-name: {{ .Release.Name }}
     application: patroni
     cluster-name:  &cluster_name {{ .Release.Name }}-patronimvp
     role: primary

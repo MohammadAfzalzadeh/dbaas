@@ -1,15 +1,18 @@
+{{- $secret := default (printf "%s-pgadmin" .Release.Name) .Values.pgadmin.existingSecret -}}
+{{- if and .Values.security.allowInlineSecrets (not .Values.pgadmin.existingSecret) }}
 apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
- name: pgadmin
+ name: {{ $secret }}
 stringData:
-  pgadmin-password: {{.Values.pgadmin.pass}}
+  pgadmin-password: {{ required "development mode requires pgadmin.pass" .Values.pgadmin.pass | quote }}
+{{- end }}
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
- name: pgadmin-config
+ name: {{ .Release.Name }}-pgadmin-config
 data:
  servers.json: |
    {
@@ -28,7 +31,7 @@ data:
            "Group": "Servers",
            "Port": 5432,
            "Username": "postgres",
-           "Host": "patronimvp-master-{{ .Values.patroniReleaseName }}",
+           "Host": "patronimvp-replica-{{ .Values.patroniReleaseName }}",
            "SSLMode": "prefer",
            "MaintenanceDB": "postgres"
          },
@@ -53,33 +56,44 @@ spec:
   selector:
     matchLabels:
       app: pgadmin
+      release-name: {{ .Release.Name }}
   template:
     metadata:
       labels:
         app: pgadmin
+        release-name: {{ .Release.Name }}
     spec:
+      {{- include "dbaas.scheduling" (dict "settings" .Values.pgadmin.scheduling "labels" (dict "app" "pgadmin" "release-name" .Release.Name)) | nindent 6 }}
       containers:
-        - name: pgadmin
-          image: dpage/pgadmin4
+        - name: {{ $secret }}
+          image: dpage/pgadmin4:9.3
+          resources: {{ toYaml .Values.pgadmin.resources | nindent 12 }}
+          startupProbe:
+            httpGet: {path: /misc/ping, port: 80}
+            periodSeconds: 10
+            failureThreshold: 60
+          readinessProbe:
+            httpGet: {path: /misc/ping, port: 80}
+            timeoutSeconds: 5
           ports:
             - containerPort: 80
           env:
             - name: PGADMIN_DEFAULT_EMAIL
-              value: {{.Values.pgadmin.email}}
+              value: {{ .Values.pgadmin.email | quote }}
             - name: PGADMIN_DEFAULT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: pgadmin
+                  name: {{ $secret }}
                   key: pgadmin-password
           volumeMounts:
-          - name: pgadmin-config
+          - name: {{ .Release.Name }}-pgadmin-config
             mountPath: /pgadmin4/servers.json
             subPath: servers.json
             readOnly: true
       volumes:
-      - name: pgadmin-config
+      - name: {{ .Release.Name }}-pgadmin-config
         configMap:
-          name: pgadmin-config
+          name: {{ .Release.Name }}-pgadmin-config
 ---
 apiVersion: v1
 kind: Service
@@ -88,11 +102,13 @@ metadata:
 spec:
   selector:
     app: pgadmin
+    release-name: {{ .Release.Name }}
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
   type: ClusterIP
+{{- if .Values.pgadminIngress.enabled }}
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
@@ -102,8 +118,10 @@ spec:
   entryPoints:
     - web
   routes:
-  - match: Host(`pgadmin.dbaas.site`)
+  - match: Host(`{{ required "pgadminIngress.host is required when enabled" .Values.pgadminIngress.host }}`)
     kind: Rule
     services:
     - name:  {{ .Release.Name }}-pgadmin-service
       port: 80
+
+{{- end }}

@@ -1,3 +1,5 @@
+{{- $pgSecret := default (printf "%s-postgres-credentials" .Release.Name) .Values.postgres.existingSecret -}}
+{{- $walgSecret := default (printf "%s-wal-g-credentials" .Release.Name) .Values.walg.existingSecret -}}
 # headless service to avoid deletion of patronimvp-config endpoint
 apiVersion: v1
 kind: Service
@@ -10,26 +12,41 @@ metadata:
 spec:
   clusterIP: None
 ---
+{{- if and .Values.security.allowInlineSecrets (not .Values.postgres.existingSecret) }}
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ .Release.Name }}-wal-g-credentials
+  name: {{ $pgSecret }}
+type: Opaque
+stringData:
+  superuser-username: {{ .Values.postgres.SUPERUSER_USERNAME | quote }}
+  superuser-password: {{ required "development mode requires postgres.SUPERUSER_PASSWORD" .Values.postgres.SUPERUSER_PASSWORD | quote }}
+  replication-username: {{ .Values.postgres.REPLICATION_USERNAME | quote }}
+  replication-password: {{ required "development mode requires postgres.REPLICATION_PASSWORD" .Values.postgres.REPLICATION_PASSWORD | quote }}
+---
+{{- end }}
+{{- if and .Values.security.allowInlineSecrets (not .Values.walg.existingSecret) }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ $walgSecret }}
 type: Opaque
 stringData:
   .walg.env: |
     PGHOST=localhost
     PGPORT={{ .Values.postgres.pg_port }}
     PGUSER={{ .Values.postgres.SUPERUSER_USERNAME }}
-    PGPASSWORD={{ .Values.postgres.SUPERUSER_PASSWORD }}
+    PGPASSWORD={{ .Values.postgres.SUPERUSER_PASSWORD | quote }}
     PGDATABASE={{ .Values.postgres.DATABASE }}
 
-    AWS_ACCESS_KEY_ID={{ .Values.walg.AWS_ACCESS_KEY_ID }}
-    AWS_SECRET_ACCESS_KEY={{ .Values.walg.AWS_SECRET_ACCESS_KEY }}
+    AWS_ACCESS_KEY_ID={{ .Values.walg.AWS_ACCESS_KEY_ID | quote }}
+    AWS_SECRET_ACCESS_KEY={{ .Values.walg.AWS_SECRET_ACCESS_KEY | quote }}
     WALG_S3_PREFIX={{ .Values.walg.WALG_S3_PREFIX }}
     AWS_REGION={{ .Values.walg.AWS_REGION }}
     WALG_COMPRESSION_METHOD={{ .Values.walg.WALG_COMPRESSION_METHOD }}
     AWS_ENDPOINT={{ .Values.walg.AWS_ENDPOINT }}
     AWS_S3_FORCE_PATH_STYLE={{ .Values.walg.AWS_S3_FORCE_PATH_STYLE }}
+{{- end }}
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -40,6 +57,13 @@ metadata:
     cluster-name: patronimvp
     release-name: {{ .Release.Name }}
 spec:
+  podManagementPolicy: OrderedReady
+  updateStrategy:
+    type: {{ .Values.postgres.updateStrategy }}
+  {{- if .Values.postgres.explicitRetainPolicy }}
+  {{- if not (semverCompare ">=1.27-0" .Capabilities.KubeVersion.Version) }}{{ fail "Explicit PVC retention requires Kubernetes >=1.27" }}{{ end }}
+  persistentVolumeClaimRetentionPolicy: {whenDeleted: Retain, whenScaled: Retain}
+  {{- end }}
   replicas: {{ .Values.postgres.replicaCount }}
   serviceName: {{ .Release.Name }}-patronimvp
   selector:
@@ -54,51 +78,54 @@ spec:
         cluster-name: {{ .Release.Name }}-patronimvp
         release-name: {{ .Release.Name }}
     spec:
+      {{- include "dbaas.scheduling" (dict "settings" .Values.postgres.scheduling "labels" (dict "application" "patroni" "release-name" .Release.Name "cluster-name" (printf "%s-patronimvp" .Release.Name))) | nindent 6 }}
       serviceAccountName: {{ .Release.Name }}-patronimvp
       securityContext:
-        fsGroup: 999 
-      initContainers: 
+        fsGroup: 999
+      initContainers:
       - name: wal-g
         image: {{ .Values.walg.imageName }}
         imagePullPolicy: {{ .Values.walg.imagePullPolicy }}
+        resources: {{ toYaml .Values.walg.resources | nindent 10 }}
         volumeMounts:
         - name: wal-g-bin
           mountPath: /usr/local/bin
         command: ["/bin/sh", "-c" ]
-        args: 
-        - | 
-          cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && chmod +x /usr/local/bin/wal-g && mkdir -p /usr/local/bin/commands && touch /usr/local/bin/commands/restore_backup.sh && chmod +x /usr/local/bin/commands/restore_backup.sh && cat > /usr/local/bin/commands/restore_backup.sh <<EOF
-          #!/bin/bash 
-          set -x                         
-          PGDATA=\${1:-/var/lib/postgresql/data}
-          BACKUP_ENABLE=\${2:-false}
-
-          while getopts ":-:" optchar; do
-            [[ "${optchar}" == "-" ]] || continue
-            case "${OPTARG}" in
-              scope=* )
-                  SCOPE=${OPTARG#*=}
-                  ;;
-            esac
-          done
-
-          echo "Trying to fetch latest WAL-G backup..."
-          if \$BACKUP_ENABLE ;then                                                                   
-              exec /wal-g/wal-g backup-fetch "\$PGDATA" --config /wal-g-credentials/.walg.env LATEST;
-              echo "Backup restored successfully."
-          else                                   
-              echo "Initializing new database..."
-              exit 1
-          fi
+        args:
+        - |
+          set -eu
+          cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g
+          chmod +x /usr/local/bin/wal-g
+          mkdir -p /usr/local/bin/commands
+          cat > /usr/local/bin/commands/restore_backup.sh <<'EOF'
+          #!/bin/bash
+          set -euo pipefail
+          PGDATA="${1:?data directory required}"
+          [[ "${2:-false}" == "true" ]] || exit 1
+          : "${BASE_BACKUP_NAME:?backup name required for restore}"
+          echo "Fetching selected WAL-G base backup: $BASE_BACKUP_NAME"
+          exec /wal-g/wal-g backup-fetch "$PGDATA" "$BASE_BACKUP_NAME" --config /wal-g-credentials/.walg.env
           EOF
+          chmod +x /usr/local/bin/commands/restore_backup.sh
       containers:
       - name: patronimvp
-        image: {{ .Values.postgres.imageName }}  
+        image: {{ .Values.postgres.imageName }}
         imagePullPolicy: {{ .Values.postgres.imagePullPolicy }}
+        resources: {{ toYaml .Values.postgres.resources | nindent 10 }}
+        {{- if .Values.postgres.startupProbe.enabled }}
+        startupProbe:
+          httpGet: {path: /health, port: {{ .Values.postgres.patroni_port }}}
+          {{- toYaml (omit .Values.postgres.startupProbe "enabled") | nindent 10 }}
+        {{- end }}
+        {{- if .Values.postgres.livenessProbe.enabled }}
+        livenessProbe:
+          httpGet: {path: /liveness, port: {{ .Values.postgres.patroni_port }}}
+          {{- toYaml (omit .Values.postgres.livenessProbe "enabled") | nindent 10 }}
+        {{- end }}
         readinessProbe:
           httpGet:
             scheme: HTTP
-            path: /readiness
+            path: /read-only
             port: {{ .Values.postgres.patroni_port }}
           initialDelaySeconds: 3
           periodSeconds: 10
@@ -127,20 +154,32 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
         - name: PATRONI_KUBERNETES_BYPASS_API_SERVICE
-          value: 'true'
+          value: {{ .Values.kubernetes.bypassApiService | quote }}
         - name: PATRONI_KUBERNETES_USE_ENDPOINTS
           value: 'true'
         - name: PATRONI_KUBERNETES_LABELS
           # value: '{{ dict "application" "patroni" "cluster-name" "patronimvp" "release-name" .Release.Name | toJson }}'
           value: '{{ dict "application" "patroni" "cluster-name" (printf "%s-patronimvp" .Release.Name) "release-name" .Release.Name | toJson }}'
         - name: PATRONI_SUPERUSER_USERNAME
-          value: {{ .Values.postgres.SUPERUSER_USERNAME }}
+          valueFrom:
+            secretKeyRef:
+              name: {{ $pgSecret }}
+              key: superuser-username
         - name: PATRONI_SUPERUSER_PASSWORD
-          value: {{ .Values.postgres.SUPERUSER_PASSWORD }}
+          valueFrom:
+            secretKeyRef:
+              name: {{ $pgSecret }}
+              key: superuser-password
         - name: PATRONI_REPLICATION_USERNAME
-          value: {{ .Values.postgres.REPLICATION_USERNAME }}
+          valueFrom:
+            secretKeyRef:
+              name: {{ $pgSecret }}
+              key: replication-username
         - name: PATRONI_REPLICATION_PASSWORD
-          value: {{ .Values.postgres.REPLICATION_PASSWORD }}
+          valueFrom:
+            secretKeyRef:
+              name: {{ $pgSecret }}
+              key: replication-password
         - name: PATRONI_SCOPE
           value: {{ .Release.Name }}-patronimvp
         - name: PATRONI_NAME
@@ -153,34 +192,34 @@ spec:
           value: /tmp/pgpass
         - name: PATRONI_POSTGRESQL_LISTEN
           value: '0.0.0.0:{{ .Values.postgres.pg_port }}'
-        - name: PATRONI_RESTAPI_LISTEN  
+        - name: PATRONI_RESTAPI_LISTEN
           value: '0.0.0.0:{{ .Values.postgres.patroni_port }}'
 
         # PostgreSQL archiving
         - name: PATRONI_POSTGRESQL_PARAMETERS
           value: |
             wal_level: replica
-            archive_mode: on
+            archive_mode: {{ ternary "on" "off" .Values.walg.archiveEnabled }}
             archive_timeout: 60
             archive_command: '/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p'
-            restore_command: '/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p'
+            restore_command: '{{ if .Values.walg.restoreEnabled }}/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p{{ end }}'
 
         - name: BACKUP_ENABLE
           value: {{ .Values.postgres.BACKUP_ENABLE | quote}}
 
         - name: BASE_BACKUP_NAME
-          value: {{ .Values.postgres.BASE_BACKUP_NAME }}
+          value: {{ .Values.postgres.BASE_BACKUP_NAME | default "LATEST" | quote }}
 
         - name: RECOVERY_TARGET_TIME
-          value: {{ .Values.postgres.RECOVERY_TARGET_TIME }} 
+          value: {{ .Values.postgres.RECOVERY_TARGET_TIME | default "" | quote }}
 
-      terminationGracePeriodSeconds: 30
+      terminationGracePeriodSeconds: {{ .Values.postgres.terminationGracePeriodSeconds }}
       volumes:
       - name: wal-g-bin
         emptyDir: {}
       - name: wal-g-credentials
         secret:
-          secretName: {{ .Release.Name }}-wal-g-credentials
+          secretName: {{ $walgSecret }}
   volumeClaimTemplates:
   - metadata:
       labels:
@@ -191,8 +230,7 @@ spec:
       name: pgdata
     spec:
       storageClassName: {{ .Values.postgres.storageClass }}
-      accessModes:
-      - ReadWriteOnce
+      accessModes: {{ toYaml .Values.postgres.accessModes | nindent 8 }}
       resources:
         requests:
           storage: {{ .Values.postgres.storageCapacity }}
@@ -269,7 +307,9 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: {{ .Release.Name }}-patronimvp
+  namespace: {{ .Release.Namespace }}
 
+{{- if .Values.kubernetes.bypassApiService }}
 # Following privileges are only required if deployed not in the "default"
 # namespace and you want Patroni to bypass kubernetes service
 # (PATRONI_KUBERNETES_BYPASS_API_SERVICE=true)
@@ -303,3 +343,18 @@ subjects:
 # The namespace must be specified explicitly.
 # If deploying to the different namespace you have to change it.
   namespace: {{ .Release.Namespace }}
+
+{{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-patronimvp
+spec:
+  clusterIP: None
+  # Patroni owns the same-name leader Endpoints. A selector would let the
+  # Kubernetes Endpoints controller overwrite Patroni's primary address.
+  ports:
+  - name: pg
+    port: {{ .Values.postgres.pg_port }}
+    targetPort: {{ .Values.postgres.pg_port }}

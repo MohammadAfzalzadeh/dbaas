@@ -1,0 +1,7 @@
+# Reference-only example. Create these Secrets in the release namespace first.
+security:
+  allowInlineSecrets: false
+existingSecret: example-pgcat-config
+patroniReleaseName: example-patroni
+pgadmin:
+  existingSecret: example-pgadmin

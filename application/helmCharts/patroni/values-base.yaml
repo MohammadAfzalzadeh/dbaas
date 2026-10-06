@@ -1,38 +1,39 @@
 postgres:
-  imageName: afzalzademohammad/patroni:2.0.0
+  imageName: dbaas/patroni:2.1.0
   imagePullPolicy: IfNotPresent
   pg_port: 5432
   patroni_port: 8008
   SUPERUSER_USERNAME: postgres
-  SUPERUSER_PASSWORD: mmm
+  SUPERUSER_PASSWORD: ''
   REPLICATION_USERNAME: standby
-  REPLICATION_PASSWORD: mmm
+  REPLICATION_PASSWORD: ''
   BACKUP_ENABLE: false
   storageCapacity: 5Gi
   storageClass: standard
   DATABASE: postgres
   replicaCount: 2
-  # BASE_BACKUP_NAME: 'base_000000010000000000000006'
-  # RECOVERY_TARGET_TIME: '2025-07-14 12:27:11' #date "+%Y-%m-%d %H:%M:%S"
-
-
+  existingSecret: ''
 walg:
-  imageName: docker.arvancloud.ir/afzalzademohammad/wal-g:2.0.0
-  imagePullPolicy: IfNotPresent 
-  AWS_ACCESS_KEY_ID: mamamd
-  AWS_SECRET_ACCESS_KEY: 'adminadmin123'
+  imageName: dbaas/wal-g:3.0.7
+  imagePullPolicy: IfNotPresent
+  AWS_ACCESS_KEY_ID: ''
+  AWS_SECRET_ACCESS_KEY: ''
   WALG_S3_PREFIX: s3://backup
   AWS_REGION: UnitedStates
   WALG_COMPRESSION_METHOD: brotli
   AWS_ENDPOINT: http://minio-mvp-minio:9000
   AWS_S3_FORCE_PATH_STYLE: true
-
+  existingSecret: ''
 backup:
-  BACKUP_PERIOD: "0 0 * * *"
-  IMAGE_NAME: docker.arvancloud.ir/bitnami/kubectl:latest
+  BACKUP_PERIOD: 0 0 * * *
+  IMAGE_NAME: dbaas/kubectl:1.30.0
   IMAGE_PULL_POLICY: IfNotPresent
   LABEL_SELECTOR: application=patroni,role=primary
   CONTAINER_NAME: patronimvp
   PG_DATA_DIR: /home/postgres/pgdata/pgroot/data
   BACKOFF_LIMIT: 1
   RESTART_POLICY: OnFailure
+kubernetes:
+  bypassApiService: false
+security:
+  allowInlineSecrets: false

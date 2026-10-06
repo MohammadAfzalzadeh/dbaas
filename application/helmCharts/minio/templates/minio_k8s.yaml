@@ -1,15 +1,19 @@
+{{- if ne (int .Values.minio.replicaCount) 1 }}{{ fail "This MinIO chart supports one single-server instance only; use external S3 for HA" }}{{ end }}
+{{- $secret := default (printf "%s-minio-credentials" .Release.Name) .Values.minio.existingSecret -}}
+{{- if and .Values.security.allowInlineSecrets (not .Values.minio.existingSecret) }}
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ .Release.Name }}-minio-credentials
+  name: {{ $secret }}
 type: Opaque
 stringData:
   root-user: {{ .Values.minio.rootUser | quote }}
-  root-password: {{ .Values.minio.rootPassword | quote }}
+  root-password: {{ required "development mode requires minio.rootPassword" (coalesce .Values.minio.rootPassword .Values.minio.rootPasword) | quote }}
   backup-user: {{ .Values.minioInit.backupUser | quote }}
-  backup-password: {{ .Values.minioInit.backupPassword | quote }}
+  backup-password: {{ required "development mode requires minioInit.backupPassword" .Values.minioInit.backupPassword | quote }}
   backup-bucket: {{ .Values.minioInit.backupBucketName | quote }}
 
+{{- end }}
 ---
 
 apiVersion: apps/v1
@@ -17,21 +21,44 @@ kind: StatefulSet
 metadata:
   name: {{ .Release.Name }}-minio-statefulset
 spec:
-  serviceName: minio
+  updateStrategy:
+    type: {{ .Values.minio.updateStrategy }}
+  {{- if .Values.minio.explicitRetainPolicy }}
+  {{- if not (semverCompare ">=1.27-0" .Capabilities.KubeVersion.Version) }}{{ fail "Explicit PVC retention requires Kubernetes >=1.27" }}{{ end }}
+  persistentVolumeClaimRetentionPolicy: {whenDeleted: Retain, whenScaled: Retain}
+  {{- end }}
+  serviceName: {{ .Release.Name }}-minio
   replicas: {{ .Values.minio.replicaCount }}
   selector:
     matchLabels:
       app: minio
+      release-name: {{ .Release.Name }}
   template:
     metadata:
       labels:
         app: minio
+        release-name: {{ .Release.Name }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
+      terminationGracePeriodSeconds: {{ .Values.minio.terminationGracePeriodSeconds }}
+      {{- include "dbaas.scheduling" (dict "settings" .Values.minio.scheduling "labels" (dict "app" "minio" "release-name" .Release.Name)) | nindent 6 }}
       containers:
       - name: minio
         image: {{ .Values.minio.imageName }}
         imagePullPolicy: {{ .Values.minio.imagePullPolicy }}
+        resources: {{ toYaml .Values.minio.resources | nindent 10 }}
+        startupProbe:
+          httpGet: {path: /minio/health/live, port: 9000}
+          periodSeconds: 10
+          failureThreshold: {{ .Values.minio.startupFailureThreshold }}
+        readinessProbe:
+          httpGet: {path: /minio/health/ready, port: 9000}
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet: {path: /minio/health/live, port: 9000}
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 6
         args:
           - server
           - /data
@@ -41,12 +68,12 @@ spec:
         - name: MINIO_ROOT_USER
           valueFrom:
             secretKeyRef:
-              name: {{ .Release.Name }}-minio-credentials
+              name: {{ $secret }}
               key: root-user
         - name: MINIO_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: {{ .Release.Name }}-minio-credentials
+              name: {{ $secret }}
               key: root-password
         - name: MINIO_PROMETHEUS_AUTH_TYPE
           value: "public"
@@ -65,7 +92,7 @@ spec:
           volume.alpha.kubernetes.io/storage-class: {{ .Values.minio.storageClass }}
     spec:
       storageClassName: {{ .Values.minio.storageClass }}
-      accessModes: [ "ReadWriteOnce" ]
+      accessModes: {{ toYaml .Values.minio.accessModes | nindent 8 }}
       resources:
         requests:
           storage: {{ .Values.minio.storageCapacity }}
@@ -87,6 +114,7 @@ spec:
     name: console
   clusterIP: None
   selector:
+    release-name: {{ .Release.Name }}
     app: minio
     app.kubernetes.io/instance: {{ .Release.Name }}
 
@@ -101,19 +129,30 @@ data:
     #!/bin/sh
     set -e
 
+    # Do not expose credential-bearing diagnostics in Job logs.
+    mc_safe() {
+      stage="$1"; shift
+      attempt=0
+      until timeout 10s mc "$@" >/dev/null 2>&1; do
+        attempt=$((attempt + 1))
+        [ "$attempt" -lt 5 ] || { echo "MinIO initialization failed at $stage" >&2; exit 1; }
+        sleep 2
+      done
+      echo "MinIO initialization completed: $stage"
+    }
     # Set mc alias
-    mc alias set myminio http://{{ .Release.Name }}-minio:9000 "$MINIO_ROOT_USER" "$MINIO_ROOT_PASSWORD"
+    mc_safe alias alias set myminio http://{{ .Release.Name }}-minio:9000 "$MINIO_ROOT_USER" "$MINIO_ROOT_PASSWORD"
 
     # Create new user
     if ! mc admin user info myminio "$MINIO_BACKUP_USER" >/dev/null 2>&1; then
-      mc admin user add myminio "$MINIO_BACKUP_USER" "$MINIO_BACKUP_PASSWORD"
+      mc_safe user admin user add myminio "$MINIO_BACKUP_USER" "$MINIO_BACKUP_PASSWORD"
     fi
 
     # Create bucket
-    mc mb "myminio/$MINIO_BACKUP_BUCKET" --ignore-existing
+    mc_safe bucket mb "myminio/$MINIO_BACKUP_BUCKET" --ignore-existing
 
     # Attach readwrite policy to user
-    mc admin policy attach myminio readwrite --user "$MINIO_BACKUP_USER"
+    mc_safe policy admin policy attach myminio readwrite --user "$MINIO_BACKUP_USER"
 
     echo "✅ MinIO setup complete"
 
@@ -127,11 +166,18 @@ metadata:
     "helm.sh/hook": post-install,post-upgrade
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 spec:
+  activeDeadlineSeconds: {{ .Values.minioInit.activeDeadlineSeconds }}
+  backoffLimit: {{ .Values.minioInit.backoffLimit }}
   template:
+    metadata:
+      labels:
+        release-name: {{ .Release.Name }}
+        app: minio-init
     spec:
       containers:
       - name: init-minio
         image: {{ .Values.minio.mcImageName }}
+        resources: {{ toYaml .Values.minioInit.resources | nindent 10 }}
         command: ["/bin/sh", "-c"]
         args:
           - sh /scripts/init-minio.sh
@@ -139,32 +185,32 @@ spec:
         - name: MINIO_ROOT_USER
           valueFrom:
             secretKeyRef:
-              name: {{ .Release.Name }}-minio-credentials
+              name: {{ $secret }}
               key: root-user
         - name: MINIO_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: {{ .Release.Name }}-minio-credentials
+              name: {{ $secret }}
               key: root-password
         - name: MINIO_BACKUP_USER
           valueFrom:
             secretKeyRef:
-              name: {{ .Release.Name }}-minio-credentials
+              name: {{ $secret }}
               key: backup-user
         - name: MINIO_BACKUP_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: {{ .Release.Name }}-minio-credentials
+              name: {{ $secret }}
               key: backup-password
         - name: MINIO_BACKUP_BUCKET
           valueFrom:
             secretKeyRef:
-              name: {{ .Release.Name }}-minio-credentials
+              name: {{ $secret }}
               key: backup-bucket
         volumeMounts:
         - name: script-volume
           mountPath: /scripts
-      restartPolicy: OnFailure
+      restartPolicy: Never
       volumes:
       - name: script-volume
         configMap:

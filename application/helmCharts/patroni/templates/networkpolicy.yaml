@@ -1,0 +1,14 @@
+{{- if .Values.networkPolicy.enabled }}
+{{- if or (not .Values.networkPolicy.ingress) (not .Values.networkPolicy.egress) }}{{ fail "NetworkPolicy opt-in requires explicit ingress and egress rules; see docs/operations/reliability.md" }}{{ end }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ .Release.Name }}-workloads
+spec:
+  podSelector:
+    matchLabels:
+      release-name: {{ .Release.Name }}
+  policyTypes: [Ingress, Egress]
+  ingress: {{ toYaml .Values.networkPolicy.ingress | nindent 4 }}
+  egress: {{ toYaml .Values.networkPolicy.egress | nindent 4 }}
+{{- end }}

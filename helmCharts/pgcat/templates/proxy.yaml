@@ -1,11 +1,24 @@
+{{- $secret := default (printf "%s-pgcat-config" .Release.Name) .Values.existingSecret -}}
+{{- $config := deepCopy .Values.pgcatconfig -}}
+{{- $patroni := required "patroniReleaseName is required" .Values.patroniReleaseName -}}
+{{- if not $config.DBS -}}{{ fail "pgcatconfig.DBS must contain at least one database" }}{{- end -}}
+{{- range $db := $config.DBS -}}
+{{- if not $db.users -}}{{ fail "Each PgCat database requires at least one user" }}{{- end -}}
+{{- range $shard := $db.shards -}}
+{{- if not $shard.MASTER_HOST -}}{{- $_ := set $shard "MASTER_HOST" (printf "patronimvp-master-%s" $patroni) -}}{{- end -}}
+{{- if and (not $shard.REPLICA_HOST) (or (not (hasKey $shard "INCLUDE_REPLICA")) $shard.INCLUDE_REPLICA) -}}{{- $_ := set $shard "REPLICA_HOST" (printf "patronimvp-replica-%s" $patroni) -}}{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- if and .Values.security.allowInlineSecrets (not .Values.existingSecret) }}
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ .Release.Name }}-pgcat-config
+  name: {{ $secret }}
 type: Opaque
 stringData:
   pgcat.yaml: |
-{{ .Values.pgcatconfig | toYaml | indent 4 }}
+{{ $config | toYaml | indent 4 }}
+{{- end }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -19,24 +32,53 @@ spec:
   selector:
     matchLabels:
       app: proxy
+      release-name: {{ .Release.Name }}
   template:
     metadata:
       labels:
         app: proxy
+        release-name: {{ .Release.Name }}
     spec:
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+      {{- include "dbaas.scheduling" (dict "settings" .Values.scheduling "labels" (dict "app" "proxy" "release-name" .Release.Name)) | nindent 6 }}
+      initContainers:
+        - name: pgcat-config-init
+          image: {{ .Values.pgcatConfigWatcherImageName }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          resources: {{ toYaml .Values.watcherResources | nindent 12 }}
+          command: ["node", "pgcat-config-watcher.js", "--once"]
+          volumeMounts:
+            - name: pgcat-config
+              mountPath: /config
+              readOnly: true
+            - name: pgcat-data
+              mountPath: /etc/pgcat
       containers:
         - name: proxy
           image: {{ .Values.pgcatImageName }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
+          resources: {{ toYaml .Values.resources | nindent 12 }}
           ports:
-            - containerPort: {{ .Values.pgcatconfig.general.PGCAT_PORT }}
+            - name: postgres
+              containerPort: {{ .Values.pgcatconfig.general.PGCAT_PORT | int }}
               protocol: TCP
+            {{- if .Values.pgcatconfig.general.ENABLE_PROMETHEUS }}
+            - name: metrics
+              containerPort: {{ .Values.pgcatconfig.general.PROMETHEUS_EXPORTER_PORT | int }}
+            {{- end }}
           volumeMounts:
             - name: pgcat-data
               mountPath: /etc/pgcat
         - name: pgcat-config-watcher
           image: {{ .Values.pgcatConfigWatcherImageName }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
+          resources: {{ toYaml .Values.watcherResources | nindent 12 }}
+          readinessProbe:
+            exec:
+              command: ["node", "pgcat-health.js"]
+            periodSeconds: 10
+            timeoutSeconds: 8
+            failureThreshold: 3
           env:
             - name: PGCAT_CONFIG_SOURCE
               value: "/config/pgcat.yaml"
@@ -51,7 +93,7 @@ spec:
       volumes:
         - name: pgcat-config
           secret:
-            secretName: {{ .Release.Name }}-pgcat-config
+            secretName: {{ $secret }}
             items:
               - key: pgcat.yaml
                 path: pgcat.yaml
@@ -63,15 +105,23 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-proxy-service
   labels:
+    application: pgcat
+    type: monitoring
     app: proxy
     release-name: {{ .Release.Name }}
 spec:
   ports:
     - name: pgcat
       port: 5432
-      targetPort: {{ .Values.pgcatconfig.general.PGCAT_PORT }}
+      targetPort: postgres
       protocol: TCP
+    {{- if .Values.pgcatconfig.general.ENABLE_PROMETHEUS }}
+    - name: metrics
+      port: {{ .Values.pgcatconfig.general.PROMETHEUS_EXPORTER_PORT | int }}
+      targetPort: metrics
+    {{- end }}
   selector:
     app: proxy
+    release-name: {{ .Release.Name }}
 
 

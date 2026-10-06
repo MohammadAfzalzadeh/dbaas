@@ -1,31 +1,4 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: pgcat-config
-data:
-  pgcat.yaml: |
-    general:
-      PGCAT_PORT: '5432'
-      PGCAT_SUPERUSER_USERNAME: postgres
-      PGCAT_SUPERUSER_PASSWORD: mmm
-      ENABLE_PROMETHEUS: false
-      PROMETHEUS_EXPORTER_PORT: 9930
-    DBS:
-      - NAME: postgres
-        POOL_MODE: session
-        PRIMARY_READ: false
-        SHARDING_FUNCTION: pg_bigint_hash
-        users:
-          - USER_NAME: postgres
-            PASSWORD: mmm
-            POOL_SIZE: 9
-            STATEMENT_TIMEOUT: 0
-        shards:
-          - MASTER_HOST: patronidemo-master
-            MASTER_PORT: '5432'
-            REPLICA_HOST: patronidemo-replica
-            REPLICA_PORT: '5432'
----
+# Legacy manual path; provision referenced Secrets before use. See docs/security/secrets-management.md.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -43,35 +16,32 @@ spec:
         app: proxy
     spec:
       containers:
-        - name: proxy
-          image: ghcr.io/postgresml/pgcat
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 5432
-              protocol: TCP
-          volumeMounts:
-            - name: pgcat-data
-              mountPath: /etc/pgcat
-        - name: pgcat-config-watcher
-          image: pgcat-config-watcher
-          imagePullPolicy: IfNotPresent
-          env:
-            - name: PGCAT_CONFIG_SOURCE
-              value: "/config/pgcat.yaml"
-            - name: PGCAT_CONFIG_DEST
-              value: "/etc/pgcat/pgcat.toml"
-          volumeMounts:
-            - name: pgcat-config
-              mountPath: /config  # Read-only source
-              readOnly: true
-            - name: pgcat-data
-              mountPath: /etc/pgcat # Writable target
-      volumes:
-        - name: pgcat-config
-          configMap:
-            name: pgcat-config
-            items:
-              - key: pgcat.yaml
-                path: pgcat.yaml
+      - name: proxy
+        image: ghcr.io/postgresml/pgcat:v1.2.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5432
+          protocol: TCP
+        volumeMounts:
         - name: pgcat-data
-          emptyDir: {}
+          mountPath: /etc/pgcat
+      - name: pgcat-config-watcher
+        image: dbaas/pgcat-config-watcher:1.1.1
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: PGCAT_CONFIG_SOURCE
+          value: /config/pgcat.yaml
+        - name: PGCAT_CONFIG_DEST
+          value: /etc/pgcat/pgcat.toml
+        volumeMounts:
+        - name: pgcat-config
+          mountPath: /config
+          readOnly: true
+        - name: pgcat-data
+          mountPath: /etc/pgcat
+      volumes:
+      - name: pgcat-config
+        secret:
+          secretName: pgcat-config
+      - name: pgcat-data
+        emptyDir: {}

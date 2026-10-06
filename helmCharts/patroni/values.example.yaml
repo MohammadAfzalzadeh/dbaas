@@ -1,0 +1,7 @@
+# Reference-only example. Create these Secrets in the release namespace first.
+security:
+  allowInlineSecrets: false
+postgres:
+  existingSecret: example-postgres-credentials
+walg:
+  existingSecret: example-wal-g-credentials

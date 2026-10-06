@@ -1,0 +1,5 @@
+# Reference-only example. Create these Secrets in the release namespace first.
+security:
+  allowInlineSecrets: false
+minio:
+  existingSecret: example-minio-credentials

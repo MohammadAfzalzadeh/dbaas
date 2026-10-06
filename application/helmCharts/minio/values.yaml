@@ -1,16 +1,47 @@
-minio: 
+minio:
   replicaCount: 1
-  imageName: docker.arvancloud.ir/minio/minio:latest
-  mcImageName: docker.arvancloud.ir/minio/mc
+  imageName: dbaas/minio:RELEASE.2025-04-22T22-12-26Z
+  mcImageName: dbaas/mc:RELEASE.2025-04-16T18-13-26Z
   imagePullPolicy: IfNotPresent
   rootUser: root
-  rootPassword: 'adminadmin123'
+  rootPassword: ''
   storageCapacity: 5Gi
   storageClass: standard
   consolePort: 9001
   adminPort: 9000
-minioInit: 
-  backupUser: mamamd
-  backupPassword: 'adminadmin123'
+  existingSecret: ''
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits: {}
+  scheduling:
+    antiAffinity: none
+    topologyKey: kubernetes.io/hostname
+    nodeSelector: {}
+    tolerations: []
+    affinity: {}
+    topologySpreadConstraints: []
+  terminationGracePeriodSeconds: 90
+  updateStrategy: OnDelete
+  accessModes:
+  - ReadWriteOnce
+  explicitRetainPolicy: false
+  startupFailureThreshold: 60
+minioInit:
+  backupUser: backup
+  backupPassword: ''
   backupBucketName: backup
-
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits: {}
+  activeDeadlineSeconds: 600
+  backoffLimit: 3
+security:
+  allowInlineSecrets: false
+networkPolicy:
+  enabled: false
+  ingress: []
+  egress: []

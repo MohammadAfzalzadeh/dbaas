@@ -1,3 +1,5 @@
+{{- if .Values.backup.enabled }}
+{{- if ge (int .Values.backup.remoteTimeoutSeconds) (sub (int .Values.backup.activeDeadlineSeconds) 60) }}{{ fail "backup activeDeadlineSeconds must exceed remoteTimeoutSeconds by more than 60 seconds" }}{{ end }}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -19,6 +21,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: {{ .Release.Name }}-exec-script-sa
+  namespace: {{ .Release.Namespace }}
 roleRef:
   kind: Role
   name: {{ .Release.Name }}-pod-exec-role
@@ -31,7 +34,9 @@ metadata:
 data:
   script.sh: |
     #!/bin/bash
-    /wal-g/wal-g backup-push  {{ .Values.backup.PG_DATA_DIR }} --config /wal-g-credentials/.walg.env 
+    set -euo pipefail
+    [[ "$(PGPASSWORD="$PATRONI_SUPERUSER_PASSWORD" psql -h 127.0.0.1 -U "$PATRONI_SUPERUSER_USERNAME" -d postgres -Atqc 'SELECT pg_is_in_recovery()')" == "f" ]] || { echo "Target is not primary" >&2; exit 1; }
+    exec timeout --signal=TERM --kill-after=60s {{ .Values.backup.remoteTimeoutSeconds }}s /wal-g/wal-g backup-push {{ .Values.backup.PG_DATA_DIR | quote }} --config /wal-g-credentials/.walg.env
 
 ---
 apiVersion: batch/v1
@@ -39,14 +44,26 @@ kind: CronJob
 metadata:
   name: {{ .Release.Name }}-exec-script-cronjob
 spec:
-  schedule: {{ .Values.backup.BACKUP_PERIOD }}
+  concurrencyPolicy: {{ .Values.backup.concurrencyPolicy }}
+  successfulJobsHistoryLimit: {{ .Values.backup.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.backup.failedJobsHistoryLimit }}
+  startingDeadlineSeconds: {{ .Values.backup.startingDeadlineSeconds }}
+  schedule: {{ .Values.backup.BACKUP_PERIOD | quote }}
   jobTemplate:
-    spec: 
+    spec:
+      activeDeadlineSeconds: {{ .Values.backup.activeDeadlineSeconds }}
+      ttlSecondsAfterFinished: {{ .Values.backup.ttlSecondsAfterFinished }}
       backoffLimit: {{ .Values.backup.BACKOFF_LIMIT }}
       template:
+        metadata:
+          labels:
+            release-name: {{ .Release.Name }}
+            app: backup
         spec:
+          {{- include "dbaas.scheduling" (dict "settings" .Values.backup.scheduling "labels" (dict "app" "backup" "release-name" .Release.Name)) | nindent 10 }}
           containers:
           - name: backup
+            resources: {{ toYaml .Values.backup.resources | nindent 14 }}
             image: {{ .Values.backup.IMAGE_NAME }}
             imagePullPolicy: {{ .Values.backup.IMAGE_PULL_POLICY }}
             command:
@@ -54,19 +71,28 @@ spec:
             - -c
             - |
               #!/bin/bash
-              SCRIPT_PATH="/scripts/script.sh"
-
-              pods=$(kubectl get pods -l "${LABEL_SELECTOR}" -o jsonpath='{.items[*].metadata.name}')
-              for pod in $pods; do
-                echo "Running script in pod: $pod"
-                kubectl exec $pod -c $CONTAINER_NAME -- bash -c "$(cat $SCRIPT_PATH)"
-              done
+              set -euo pipefail
+              : "${LABEL_SELECTOR:?LABEL_SELECTOR is required}"
+              pods=$(kubectl get pods -n "$POD_NAMESPACE" -l "$LABEL_SELECTOR" -o jsonpath='{.items[*].metadata.name}')
+              read -r -a targets <<< "$pods"
+              if [[ ${#targets[@]} -ne 1 ]]; then
+                echo "Expected exactly one primary for $LABEL_SELECTOR; found ${#targets[@]}" >&2
+                exit 1
+              fi
+              target="${targets[0]}"
+              echo "Backing up PostgreSQL target $POD_NAMESPACE/$target"
+              kubectl exec -i -n "$POD_NAMESPACE" "$target" -c "$CONTAINER_NAME" -- bash -s < /scripts/script.sh
+              echo "Backup command completed for $POD_NAMESPACE/$target"
             volumeMounts:
             - name: script-volume
               mountPath: /scripts
-            env: 
+            env:
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
             - name: LABEL_SELECTOR
-              value: '{{ .Values.backup.RESTART_POLICY }},release-name={{ .Release.Name }}'
+              value: {{ printf "%s,application=patroni,role=primary,cluster-name=%s-patronimvp,release-name=%s" (required "backup.LABEL_SELECTOR is required" .Values.backup.LABEL_SELECTOR) .Release.Name .Release.Name | quote }}
 
             - name: CONTAINER_NAME
               value: '{{ .Values.backup.CONTAINER_NAME }}'
@@ -77,5 +103,7 @@ spec:
           - name: script-volume
             configMap:
               name: {{ .Release.Name }}-my-script
-  
 
+
+
+{{- end }}

@@ -1,0 +1,10 @@
+{{- if and .Values.pdb.enabled (gt (int .Values.replicaCount) 1) }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ .Release.Name }}-pgcat
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels: {{ toYaml (dict "release-name" .Release.Name "app" "proxy") | nindent 6 }}
+{{- end }}

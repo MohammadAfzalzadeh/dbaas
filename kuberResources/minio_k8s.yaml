@@ -1,3 +1,4 @@
+# Legacy manual path; provision referenced Secrets before use. See docs/security/secrets-management.md.
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -15,18 +16,24 @@ spec:
     spec:
       containers:
       - name: minio
-        image: quay.io/minio/minio
+        image: dbaas/minio:RELEASE.2025-04-22T22-12-26Z
         imagePullPolicy: Never
         args:
-          - server
-          - /data
-          - --console-address
-          - ":9001"
+        - server
+        - /data
+        - --console-address
+        - :9001
         env:
         - name: MINIO_ROOT_USER
-          value: minioadmin
+          valueFrom:
+            secretKeyRef:
+              name: minio-credentials
+              key: root-user
         - name: MINIO_ROOT_PASSWORD
-          value: minioadmin
+          valueFrom:
+            secretKeyRef:
+              name: minio-credentials
+              key: root-password
         ports:
         - containerPort: 9000
         - containerPort: 9001
@@ -37,13 +44,12 @@ spec:
   - metadata:
       name: data
     spec:
-      accessModes: [ "ReadWriteOnce" ]
+      accessModes:
+      - ReadWriteOnce
       resources:
         requests:
           storage: 5Gi
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -57,43 +63,27 @@ spec:
   clusterIP: None
   selector:
     app: minio
-
 ---
-
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: init-minio-scripts
 data:
-  init-minio.sh: |
-    #!/bin/sh
-    set -e
+  init-minio.sh: '#!/bin/sh
 
-    # Define root credentials
-    ROOT_ACCESS_KEY=minioadmin
-    ROOT_SECRET_KEY=minioadmin
+    set -eu
 
-    # Define new user credentials
-    NEW_USER=newuser
-    NEW_PASS=newpassword
-    BUCKET_NAME=mybucket
+    mc alias set myminio http://minio:9000 "$MINIO_ROOT_USER" "$MINIO_ROOT_PASSWORD"
+    >/dev/null
 
-    # Set mc alias
-    mc alias set myminio http://minio:9000 $ROOT_ACCESS_KEY $ROOT_SECRET_KEY
+    mc admin user add myminio "$MINIO_BACKUP_USER" "$MINIO_BACKUP_PASSWORD" >/dev/null
 
-    # Create new user
-    mc admin user add myminio $NEW_USER $NEW_PASS || echo "User may already exist"
+    mc mb "myminio/$MINIO_BACKUP_BUCKET" --ignore-existing >/dev/null
 
-    # Create bucket
-    mc mb myminio/$BUCKET_NAME --ignore-existing
+    mc admin policy attach myminio readwrite --user "$MINIO_BACKUP_USER" >/dev/null
 
-    # Attach readwrite policy to user
-    mc admin policy attach myminio readwrite --user $NEW_USER || echo "Policy may already be attached"
-
-    echo "✅ MinIO setup complete"
-
+    '
 ---
-
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -103,16 +93,43 @@ spec:
     spec:
       containers:
       - name: init-minio
-        image: minio/mc
-        command: ["/bin/sh", "-c"]
+        image: dbaas/mc:RELEASE.2025-04-16T18-13-26Z
+        command:
+        - /bin/sh
+        - -c
         args:
-          - sh /scripts/init-minio.sh
+        - sh /scripts/init-minio.sh
         volumeMounts:
         - name: script-volume
           mountPath: /scripts
+        env:
+        - name: MINIO_ROOT_USER
+          valueFrom:
+            secretKeyRef:
+              name: minio-credentials
+              key: root-user
+        - name: MINIO_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: minio-credentials
+              key: root-password
+        - name: MINIO_BACKUP_USER
+          valueFrom:
+            secretKeyRef:
+              name: minio-credentials
+              key: backup-user
+        - name: MINIO_BACKUP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: minio-credentials
+              key: backup-password
+        - name: MINIO_BACKUP_BUCKET
+          valueFrom:
+            secretKeyRef:
+              name: minio-credentials
+              key: backup-bucket
       restartPolicy: OnFailure
       volumes:
       - name: script-volume
         configMap:
           name: init-minio-scripts
-

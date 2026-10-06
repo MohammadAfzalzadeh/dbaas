@@ -1,4 +1,4 @@
-# headless service to avoid deletion of patronidemo-config endpoint
+# Legacy manual path; provision referenced Secrets before use. See docs/security/secrets-management.md.
 apiVersion: v1
 kind: Service
 metadata:
@@ -9,62 +9,44 @@ metadata:
 spec:
   clusterIP: None
 ---
-apiVersion: v1
-kind: Secret
-metadata:
-  name: wal-g-credentials
-type: Opaque
-stringData:
-  .walg.env: |
-    PGHOST=localhost
-    PGPORT=5432
-    PGUSER=postgres
-    PGPASSWORD=mmm
-    PGDATABASE=postgres
-
-    AWS_ACCESS_KEY_ID=minioadmin
-    AWS_SECRET_ACCESS_KEY=minioadmin
-    WALG_S3_PREFIX=s3://mybucket
-    AWS_REGION=UnitedStates
-    WALG_COMPRESSION_METHOD=brotli
-    AWS_ENDPOINT=http://minio:9000
-    AWS_S3_FORCE_PATH_STYLE=true
----
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: &cluster_name patronidemo
+  name: patronidemo
   labels:
     application: patroni
-    cluster-name: *cluster_name
+    cluster-name: patronidemo
 spec:
   replicas: 3
-  serviceName: *cluster_name
+  serviceName: patronidemo
   selector:
     matchLabels:
       application: patroni
-      cluster-name: *cluster_name
+      cluster-name: patronidemo
   template:
     metadata:
       labels:
         application: patroni
-        cluster-name: *cluster_name
+        cluster-name: patronidemo
     spec:
       serviceAccountName: patronidemo
-      initContainers: 
+      initContainers:
       - name: wal-g
-        image: wal-g
+        image: dbaas/wal-g:3.0.7
         imagePullPolicy: Never
         volumeMounts:
         - name: wal-g-bin
           mountPath: /usr/local/bin
-        command: ["/bin/sh", "-c" ]
-        args: 
-        - | 
-          cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && cp -r /commands /usr/local/bin/ && chmod +x /usr/local/bin/wal-g && chmod +x /usr/local/bin/commands/*.sh 
+        command:
+        - /bin/sh
+        - -c
+        args:
+        - "cp wal-g-pg-ubuntu-20.04-amd64 /usr/local/bin/wal-g && cp -r /commands\
+          \ /usr/local/bin/ && chmod +x /usr/local/bin/wal-g && chmod +x /usr/local/bin/commands/*.sh\
+          \ \n"
       containers:
-      - name: *cluster_name
-        image: patroni  
+      - name: patronidemo
+        image: dbaas/patroni:2.1.0
         imagePullPolicy: IfNotPresent
         readinessProbe:
           httpGet:
@@ -104,15 +86,27 @@ spec:
         - name: PATRONI_KUBERNETES_LABELS
           value: '{application: patroni, cluster-name: patronidemo}'
         - name: PATRONI_SUPERUSER_USERNAME
-          value: postgres
+          valueFrom:
+            secretKeyRef:
+              name: patroni-credentials
+              key: superuser-username
         - name: PATRONI_SUPERUSER_PASSWORD
-          value: mmm
+          valueFrom:
+            secretKeyRef:
+              name: patroni-credentials
+              key: superuser-password
         - name: PATRONI_REPLICATION_USERNAME
-          value: standby
+          valueFrom:
+            secretKeyRef:
+              name: patroni-credentials
+              key: replication-username
         - name: PATRONI_REPLICATION_PASSWORD
-          value: mmm
+          valueFrom:
+            secretKeyRef:
+              name: patroni-credentials
+              key: replication-password
         - name: PATRONI_SCOPE
-          value: *cluster_name
+          value: patronidemo
         - name: PATRONI_NAME
           valueFrom:
             fieldRef:
@@ -122,32 +116,25 @@ spec:
         - name: PATRONI_POSTGRESQL_PGPASS
           value: /tmp/pgpass
         - name: PATRONI_POSTGRESQL_LISTEN
-          value: '0.0.0.0:5432'
-        - name: PATRONI_RESTAPI_LISTEN  
-          value: '0.0.0.0:8008'
-
-        # PostgreSQL archiving
+          value: 0.0.0.0:5432
+        - name: PATRONI_RESTAPI_LISTEN
+          value: 0.0.0.0:8008
         - name: PATRONI_POSTGRESQL_PARAMETERS
-          value: |
-            wal_level: replica
+          value: 'wal_level: replica
+
             archive_mode: on
+
             archive_timeout: 60
-            archive_command: '/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env %p'
-            restore_command: '/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env %f %p'
 
+            archive_command: ''/wal-g/wal-g wal-push  --config /wal-g-credentials/.walg.env
+            %p''
+
+            restore_command: ''/wal-g/wal-g wal-fetch --config /wal-g-credentials/.walg.env
+            %f %p''
+
+            '
         - name: BACKUP_ENABLE
-          value: "false"
-        
-        # - name: RECOVERY_TARGET_TIME
-        #   value: ''
-
-        # - name: PATRONI_BOOTSTRAP
-        #   value: | 
-        #     method: wal-g
-        #     wal-g:
-        #         command: /wal-g/wal-g backup-fetch --config /wal-g-credentials/.walg.env /home/postgres/pgdata/pgroot/data LATEST
-
-
+          value: 'false'
       terminationGracePeriodSeconds: 30
       volumes:
       - name: wal-g-bin
@@ -159,7 +146,7 @@ spec:
   - metadata:
       labels:
         application: spilo
-        spilo-cluster: *cluster_name
+        spilo-cluster: patronidemo
       annotations:
         volume.alpha.kubernetes.io/storage-class: anything
       name: pgdata
@@ -181,7 +168,7 @@ metadata:
   name: patronidemo
 rules:
 - apiGroups:
-  - ""
+  - ''
   resources:
   - configmaps
   verbs:
@@ -191,26 +178,23 @@ rules:
   - patch
   - update
   - watch
-  # delete and deletecollection are required only for 'patronictl remove'
   - delete
   - deletecollection
 - apiGroups:
-  - ""
+  - ''
   resources:
   - endpoints
   verbs:
   - get
   - patch
   - update
-  # the following three privileges are necessary only when using endpoints
   - create
   - list
   - watch
-  # delete and deletecollection are required only for for 'patronictl remove'
   - delete
   - deletecollection
 - apiGroups:
-  - ""
+  - ''
   resources:
   - pods
   verbs:
@@ -219,17 +203,12 @@ rules:
   - patch
   - update
   - watch
-# The following privilege is only necessary for creation of headless service
-# for patronidemo-config endpoint, in order to prevent cleaning it up by the
-# k8s master. You can avoid giving this privilege by explicitly creating the
-# service like it is done in this manifest (lines 2..10)
 - apiGroups:
-  - ""
+  - ''
   resources:
   - services
   verbs:
   - create
-
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -242,10 +221,6 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: patronidemo
-
-# Following privileges are only required if deployed not in the "default"
-# namespace and you want Patroni to bypass kubernetes service
-# (PATRONI_KUBERNETES_BYPASS_API_SERVICE=true)
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -253,14 +228,13 @@ metadata:
   name: patroni-k8s-ep-access
 rules:
 - apiGroups:
-  - ""
+  - ''
   resources:
   - endpoints
   resourceNames:
   - kubernetes
   verbs:
   - get
-
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -273,6 +247,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: patronidemo
-# The namespace must be specified explicitly.
-# If deploying to the different namespace you have to change it.
   namespace: default

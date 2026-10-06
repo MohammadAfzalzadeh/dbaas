@@ -1,38 +1,100 @@
 postgres:
-  imageName: afzalzademohammad/patroni:2.0.0
+  imageName: dbaas/patroni:2.1.0
   imagePullPolicy: IfNotPresent
   pg_port: 5432
   patroni_port: 8008
   SUPERUSER_USERNAME: postgres
-  SUPERUSER_PASSWORD: mmm
+  SUPERUSER_PASSWORD: ''
   REPLICATION_USERNAME: standby
-  REPLICATION_PASSWORD: mmm
+  REPLICATION_PASSWORD: ''
   BACKUP_ENABLE: false
   storageCapacity: 5Gi
   storageClass: standard
   DATABASE: postgres
   replicaCount: 2
-  # BASE_BACKUP_NAME: 'base_000000010000000000000006'
-  # RECOVERY_TARGET_TIME: '2025-07-14 12:27:11' #date "+%Y-%m-%d %H:%M:%S"
-
-
+  existingSecret: ''
+  resources:
+    requests:
+      cpu: 250m
+      memory: 512Mi
+    limits: {}
+  scheduling:
+    antiAffinity: preferred
+    topologyKey: kubernetes.io/hostname
+    nodeSelector: &id001 {}
+    tolerations: &id002 []
+    affinity: &id003 {}
+    topologySpreadConstraints: &id004 []
+  terminationGracePeriodSeconds: 180
+  updateStrategy: OnDelete
+  accessModes:
+  - ReadWriteOnce
+  explicitRetainPolicy: false
+  startupProbe:
+    enabled: true
+    failureThreshold: 360
+    periodSeconds: 10
+    timeoutSeconds: 5
+  livenessProbe:
+    enabled: false
+    failureThreshold: 6
+    periodSeconds: 10
+    timeoutSeconds: 5
+  pdb:
+    enabled: true
 walg:
-  imageName: docker.arvancloud.ir/afzalzademohammad/wal-g:2.0.0
-  imagePullPolicy: IfNotPresent 
-  AWS_ACCESS_KEY_ID: mamamd
-  AWS_SECRET_ACCESS_KEY: 'adminadmin123'
+  archiveEnabled: true
+  # Disable after isolated bootstrap: source timelines can diverge from this clone.
+  restoreEnabled: true
+  imageName: dbaas/wal-g:3.0.7
+  imagePullPolicy: IfNotPresent
+  AWS_ACCESS_KEY_ID: ''
+  AWS_SECRET_ACCESS_KEY: ''
   WALG_S3_PREFIX: s3://backup
   AWS_REGION: UnitedStates
   WALG_COMPRESSION_METHOD: brotli
   AWS_ENDPOINT: http://minio-mvp-minio:9000
   AWS_S3_FORCE_PATH_STYLE: true
-
+  existingSecret: ''
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits: {}
 backup:
-  BACKUP_PERIOD: "0 0 * * *"
-  IMAGE_NAME: docker.arvancloud.ir/bitnami/kubectl:latest
+  enabled: true
+  BACKUP_PERIOD: 0 0 * * *
+  IMAGE_NAME: dbaas/kubectl:1.30.0
   IMAGE_PULL_POLICY: IfNotPresent
   LABEL_SELECTOR: application=patroni,role=primary
   CONTAINER_NAME: patronimvp
   PG_DATA_DIR: /home/postgres/pgdata/pgroot/data
   BACKOFF_LIMIT: 1
   RESTART_POLICY: OnFailure
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  startingDeadlineSeconds: 3600
+  activeDeadlineSeconds: 21600
+  remoteTimeoutSeconds: 21000
+  ttlSecondsAfterFinished: 86400
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits: {}
+  scheduling:
+    antiAffinity: none
+    topologyKey: kubernetes.io/hostname
+    nodeSelector: *id001
+    tolerations: *id002
+    affinity: *id003
+    topologySpreadConstraints: *id004
+kubernetes:
+  bypassApiService: false
+security:
+  allowInlineSecrets: false
+networkPolicy:
+  enabled: false
+  ingress: []
+  egress: []

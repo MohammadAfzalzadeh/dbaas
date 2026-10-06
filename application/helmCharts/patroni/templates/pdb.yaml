@@ -1,0 +1,10 @@
+{{- if and .Values.postgres.pdb.enabled (gt (int .Values.postgres.replicaCount) 1) }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ .Release.Name }}-patroni
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels: {{ toYaml (dict "release-name" .Release.Name "application" "patroni" "cluster-name" (printf "%s-patronimvp" .Release.Name)) | nindent 6 }}
+{{- end }}

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgmetrics-{{ .Release.Name }}
+  labels:
+    application: patroni
+    type: monitoring
+    monitoring-role: member
+    release-name: {{ .Release.Name }}
+spec:
+  # Metrics must remain discoverable when SQL readiness fails. This Service
+  # exposes only Patroni's API port, never a not-ready SQL endpoint.
+  clusterIP: None
+  publishNotReadyAddresses: true
+  selector:
+    application: patroni
+    cluster-name: {{ .Release.Name }}-patronimvp
+    release-name: {{ .Release.Name }}
+  ports:
+    - name: patroni
+      port: 8008
+      targetPort: 8008
