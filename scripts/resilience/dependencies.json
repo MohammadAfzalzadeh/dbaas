@@ -1,0 +1,10 @@
+{
+  "calico.yaml": {
+    "url": "https://raw.githubusercontent.com/projectcalico/calico/v3.28.2/manifests/calico.yaml",
+    "sha256": "be59408bf990e96276f631d2f9285c2a0f9802194c0ad1cecdb6d9c52623a1c8"
+  },
+  "kube-prometheus-stack-58.7.2.tgz": {
+    "url": "https://github.com/prometheus-community/helm-charts/releases/download/kube-prometheus-stack-58.7.2/kube-prometheus-stack-58.7.2.tgz",
+    "sha256": "1deb147756be125000fe3027ebc0cc1c4bc49b9f85ea0a4490d10b80e667c3ae"
+  }
+}

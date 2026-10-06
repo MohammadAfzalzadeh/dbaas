@@ -1,0 +1,25 @@
+rule_files:
+  - /tmp/dbaas-rules.yaml
+evaluation_interval: 10s
+tests:
+  - name: A stopped primary must not count as an available leader
+    interval: 10s
+    input_series:
+      - series: 'patroni_primary{scope="stopped",instance="one"}'
+        values: '1x30'
+      - series: 'patroni_postgres_running{scope="stopped",instance="one"}'
+        values: '0x30'
+      - series: 'patroni_primary{scope="healthy",instance="two"}'
+        values: '1x30'
+      - series: 'patroni_postgres_running{scope="healthy",instance="two"}'
+        values: '1x30'
+    alert_rule_test:
+      - eval_time: 3m
+        alertname: PatroniNoLeader
+        exp_alerts:
+          - exp_labels:
+              scope: stopped
+              severity: critical
+            exp_annotations:
+              summary: No running primary among scraped members
+              runbook_url: docs/operations/monitoring-runbooks.md
