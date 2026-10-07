@@ -12,6 +12,12 @@ FastAPI serves the browser UI and executes a synchronous Helm provisioning workf
 
 The UI submits a deployment request with an operator-supplied Bearer token. All `/api/` operations authenticate, apart from CORS preflight. Missing/short server tokens fail closed; incorrect credentials are rejected. The token stays out of URLs and committed values. A shared token does not identify individual tenants. [Authentication implementation](app/main.py) · [Regression tests](../tests/test_security.py).
 
+## Panel guidance
+
+The responsive provisioning panel includes Persian section explanations and field help alongside technical field names. Each `?` help button works with hover, click or keyboard focus; Escape dismisses the tooltip. Section headers and component switches also support keyboard activation.
+
+Existing Secret references remain the default. Direct credential fields and PgCat pool/user editors are shown only when the operator selects development inline mode; the server must independently allow that mode. Help text distinguishes an API token from database credentials, names the default Secrets, explains per-member storage and marks unimplemented SQL grants, role expiry, monitoring installation and UI recovery controls. The panel does not create missing Secrets or change the API's provisioning contract.
+
 ## API lifecycle
 
 | Route | Behavior |

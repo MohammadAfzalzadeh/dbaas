@@ -1,161 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PostgreSQL Database Configuration</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;padding:20px}
-    .dashboard-container{max-width:1200px;margin:0 auto;background:#fff;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.1);overflow:hidden}
-    .dashboard-header{background:linear-gradient(135deg,#2c3e50 0%,#34495e 100%);color:#fff;padding:30px;text-align:center}
-    .dashboard-header h1{font-size:2.5rem;font-weight:300;margin-bottom:10px}
-    .dashboard-header p{opacity:.9;font-size:1.1rem}
-    .form-container{padding:40px}
-    .config-section{margin-bottom:30px;border:1px solid #e1e8ed;border-radius:8px;overflow:hidden;transition:all .3s ease}
-    .config-section.collapsed{border-color:#f1f3f4}
-    .config-section.disabled{opacity:.6;pointer-events:none}
-    .section-header{background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);padding:20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e1e8ed;transition:all .3s ease}
-    .section-header:hover{background:linear-gradient(135deg,#e9ecef 0%,#dee2e6 100%)}
-    .section-header h3{color:#2c3e50;font-size:1.3rem;font-weight:600}
-    .section-toggle{font-size:1.2rem;color:#6c757d;transition:transform .3s ease}
-    .config-section.collapsed .section-toggle{transform:rotate(-90deg)}
-    .section-content{padding:30px;display:block;transition:all .3s ease}
-    .config-section.collapsed .section-content{display:none}
-    .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:25px}
-    .form-group{display:flex;flex-direction:column}
-    .form-group label{font-weight:600;color:#2c3e50;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-    .required{color:#e74c3c}
-    .help-icon{width:16px;height:16px;background:#6c757d;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;cursor:help;position:relative}
-    .tooltip{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);background:#2c3e50;color:#fff;padding:8px 12px;border-radius:4px;font-size:12px;white-space:normal;text-align:center;opacity:0;visibility:hidden;transition:all .3s ease;z-index:1000;max-width:200px}
-    .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#2c3e50}
-    .help-icon:hover .tooltip{opacity:1;visibility:visible}
-    .form-input{padding:12px 16px;border:2px solid #e1e8ed;border-radius:6px;font-size:14px;transition:all .3s ease;background:#fff}
-    .form-input:focus{outline:none;border-color:#667eea;box-shadow:0 0 0 3px rgba(102,126,234,.1)}
-    .form-input.error{border-color:#e74c3c;box-shadow:0 0 0 3px rgba(231,76,60,.1)}
-    .form-input:disabled{background:#f8f9fa;color:#6c757d;cursor:not-allowed}
-    .error-message{color:#e74c3c;font-size:12px;margin-top:5px;display:none}
-    .form-input.error + .error-message{display:block}
-    .field-hint{color:#6c757d;font-size:12px;margin-top:5px}
-    .switch-container{display:flex;align-items:center;gap:12px}
-    .switch{position:relative;width:50px;height:24px;background:#ccc;border-radius:12px;cursor:pointer;transition:all .3s ease}
-    .switch.active{background:#667eea}
-    .switch-handle{position:absolute;top:2px;left:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:all .3s ease;box-shadow:0 2px 4px rgba(0,0,0,.2)}
-    .switch.active .switch-handle{transform:translateX(26px)}
-    .switch-label{font-size:14px;color:#6c757d}
-    .submit-section{margin-top:40px;padding-top:30px;border-top:2px solid #e1e8ed;text-align:center}
-    .submit-btn{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:15px 40px;border:none;border-radius:8px;font-size:16px;font-weight:600;cursor:pointer;transition:all .3s ease;box-shadow:0 4px 15px rgba(102,126,234,.3)}
-    .submit-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(102,126,234,.4)}
-    .submit-btn:active{transform:translateY(0)}
-    .item-list{border:1px solid #e1e8ed;border-radius:6px;background:#f8f9fa;padding:20px;margin-top:15px}
-    .item-list-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
-    .item-list-header h4{color:#2c3e50;font-size:1.1rem}
-    .add-btn{background:#28a745;color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;font-size:14px;transition:all .3s ease}
-    .add-btn:hover{background:#218838}
-    .item{background:#fff;border:1px solid #dee2e6;border-radius:6px;padding:15px;margin-bottom:10px;display:grid;gap:15px;align-items:center;overflow:hidden}
-    .db-item{grid-template-columns:3fr 1fr 1fr auto}
-    .user-item{grid-template-columns:2fr 2fr 1fr 1.5fr auto}
-    .access-item{grid-template-columns:2fr 2fr 2fr 1fr auto}
-    .item:last-child{margin-bottom:0}
-    .input-group{display:flex;flex-direction:column;min-width:0}
-    .input-group label{font-size:12px;color:#6c757d;margin-bottom:4px;font-weight:500}
-    .input-group input,.input-group select{padding:8px 12px;border:1px solid #ced4da;border-radius:4px;font-size:14px;min-width:0;width:100%}
-    .input-group input:disabled,.input-group select:disabled{background:#f8f9fa;color:#6c757d;cursor:not-allowed}
-    .remove-btn{background:#dc3545;color:#fff;border:none;padding:8px 12px;border-radius:4px;cursor:pointer;font-size:12px;transition:all .3s ease;white-space:nowrap}
-    .remove-btn:hover{background:#c82333}
-    .empty-list{text-align:center;color:#6c757d;font-style:italic;padding:20px}
-    .info-note{background:#e3f2fd;border:1px solid #bbdefb;border-radius:6px;padding:12px;margin-bottom:20px;color:#1565c0;font-size:14px;white-space:pre-wrap}
-    .info-note strong{color:#0d47a1}
-    .sub-section{background:#f8f9fa;border:1px solid #e9ecef;border-radius:6px;padding:20px;margin-bottom:20px}
-    .sub-section h4{color:#495057;font-size:1.1rem;margin-bottom:15px;font-weight:600}
-    .warning-note{background:#fff3cd;border:1px solid #ffeaa7;border-radius:6px;padding:12px;margin-bottom:15px;color:#856404;font-size:14px}
-    .validation-summary{background:#fff3cd;border:1px solid #ffeaa7;border-radius:6px;padding:15px;margin-bottom:20px;display:none}
-    .validation-summary.show{display:block}
-    .validation-summary h4{color:#856404;margin-bottom:10px}
-    .validation-summary ul{color:#856404;margin-left:20px}
-    @media(max-width:1024px){
-      .db-item{grid-template-columns:1fr 1fr 1fr;gap:10px}
-      .user-item{grid-template-columns:1fr 1fr;gap:10px}
-      .access-item{grid-template-columns:1fr 1fr;gap:10px}
-    }
-    @media(max-width:768px){
-      .dashboard-header{padding:20px}
-      .dashboard-header h1{font-size:2rem}
-      .form-container{padding:20px}
-      .form-grid{grid-template-columns:1fr;gap:20px}
-      .section-content{padding:20px}
-      .db-item,.user-item,.access-item{grid-template-columns:1fr;gap:10px}
-    }
-  </style>
+  <title>DBaaS • ساخت کلاستر PostgreSQL</title>
+  <link rel="stylesheet" href="/static/panel.css">
 </head>
 <body>
   <div class="dashboard-container">
-    <div class="dashboard-header">
-      <h1>PostgreSQL Database Configuration</h1>
-      <p>Configure and provision your PostgreSQL database system with backup and monitoring capabilities</p>
-    </div>
+    <header class="dashboard-header">
+      <a class="brand" href="/" aria-label="DBaaS home"><span class="brand-mark">D</span> DBaaS <span class="brand-sub">/ PostgreSQL platform</span></a>
+      <span class="environment-badge">پنل راه‌اندازی</span>
+    </header>
+    <div class="workspace-heading" dir="rtl"><div><span class="eyebrow">مدیریت زیرساخت PostgreSQL</span><h1>راه‌اندازی کلاستر PostgreSQL</h1><p>مشخصات کلاستر، منابع موردنیاز و تنظیمات پشتیبان‌گیری را تعیین کنید.</p></div><span class="version-tag">نسخهٔ پژوهشی</span></div>
+    <div class="workspace-layout">
+    <aside class="sidebar" dir="rtl" aria-label="راهنمای ساخت">
+      <p class="nav-caption">مراحل پیکربندی</p>
+      <nav><a href="#section-auth"><b>01</b> دسترسی و Secretها</a><a href="#section-project"><b>02</b> مشخصات کلاستر</a><a href="#section-postgresql"><b>03</b> منابع PostgreSQL</a><a href="#section-walg"><b>04</b> ذخیره‌سازی و بکاپ</a><a href="#section-monitoring"><b>05</b> قابلیت‌های تکمیلی</a></nav>
+      <div class="sidebar-note"><span class="mini-label">قبل از شروع</span><h2>پیش‌نیازهای راه‌اندازی</h2><ol><li>توکن دسترسی اپراتور</li><li>فضای نام موجود و مجاز در Kubernetes</li><li>Secretهای موردنیاز در فضای نام مقصد</li></ol><p>با این فرم، کلاستر PostgreSQL راه‌اندازی می‌شود. ایجاد دیتابیس و کاربر دلخواه پس از راه‌اندازی و از طریق SQL انجام می‌شود.</p></div>
+      <div class="sidebar-tip">برای آشنایی با هر گزینه، علامت <b>?</b> کنار آن را انتخاب کنید.</div>
+    </aside>
 
     <div class="form-container">
       <div class="validation-summary" id="validationSummary">
-        <h4>Please fix the following errors:</h4>
+        <h4>لطفاً موارد زیر را اصلاح کنید:</h4>
         <ul id="validationList"></ul>
       </div>
 
       <form id="postgresqlConfigForm" novalidate>
-      <fieldset>
-        <legend>API authentication and existing Secrets</legend>
-        <label for="apiToken">API Bearer token</label>
-        <input id="apiToken" type="password" autocomplete="off" placeholder="Operator-provided token">
-        <p>Token stays in this page only. Provision Secrets before deploying. Empty Secret names use release-derived defaults.</p>
-        <label><input id="inlineSecretsMode" type="checkbox"> Development inline credentials (requires server opt-in)</label>
-        <label>PostgreSQL Secret <input name="secretPostgres" autocomplete="off"></label>
-        <label>WAL-G Secret <input name="secretWalg" autocomplete="off"></label>
-        <label>PgCat config Secret <input name="secretPgcat" autocomplete="off"></label>
-        <label>pgAdmin Secret <input name="secretPgadmin" autocomplete="off"></label>
-        <label>MinIO Secret <input name="secretMinio" autocomplete="off"></label>
-        <p>In the default mode, credentials, database pools and users come from those Secrets. The credential fields below apply only to development mode.</p>
-      </fieldset>
+      <section class="config-section" data-section="auth" id="section-auth">
+        <div class="section-header"><h3>دسترسی و Secretها</h3><span class="section-toggle">⌄</span></div>
+        <div class="section-content">
+          <p class="section-description" dir="rtl">برای تأیید دسترسی، توکن API را وارد کنید. سپس نام Secretهای حاوی اطلاعات اتصال سرویس‌ها را مشخص کنید.</p>
+          <div class="form-group token-field"><label for="apiToken">توکن دسترسی API <span class="required">*</span></label><input class="form-input" id="apiToken" type="password" autocomplete="off" placeholder="توکن دسترسی را وارد کنید"><small class="field-hint" dir="rtl">از مقدار DBAAS_API_TOKEN استفاده کنید. توکن فقط در حافظهٔ همین صفحه نگهداری می‌شود.</small></div>
+          <div class="mode-control"><label for="inlineSecretsMode"><input id="inlineSecretsMode" type="checkbox"> ورود مستقیم رمزها برای محیط توسعه</label><p dir="rtl">فقط با فعال بودن DBAAS_ALLOW_INLINE_SECRETS در سرور قابل استفاده است.</p></div>
+          <div class="form-grid secret-grid"><div class="form-group"><label for="secretPostgres">نام Secret مربوط به PostgreSQL</label><input class="form-input" id="secretPostgres" name="secretPostgres" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض"></div><div class="form-group"><label for="secretWalg">نام Secret مربوط به WAL-G</label><input class="form-input" id="secretWalg" name="secretWalg" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض"></div><div class="form-group"><label for="secretPgcat">نام Secret تنظیمات PgCat</label><input class="form-input" id="secretPgcat" name="secretPgcat" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض"></div><div class="form-group"><label for="secretPgadmin">نام Secret مربوط به pgAdmin</label><input class="form-input" id="secretPgadmin" name="secretPgadmin" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض"></div><div class="form-group"><label for="secretMinio">نام Secret مربوط به MinIO</label><input class="form-input" id="secretMinio" name="secretMinio" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض"></div></div><p class="info-note" dir="rtl">در این فیلدها <strong>نام Secret موجود</strong> را وارد کنید. با خالی گذاشتن فیلد، نام پیش‌فرض استفاده می‌شود؛ Secret باید پیش از راه‌اندازی ساخته شده باشد.</p></div></section>
 
         <!-- Project -->
-        <div class="config-section" data-section="project">
+        <div class="config-section" data-section="project" id="section-project">
           <div class="section-header">
-            <h3>Project Information</h3>
+            <h3>مشخصات کلاستر</h3>
             <span class="section-toggle">▼</span>
           </div>
           <div class="section-content">
+<p class="section-description" dir="rtl">نام کلاستر و فضای نام مقصد را مشخص کنید. در صورت نیاز، MinIO را برای ذخیرهٔ بکاپ و PgCat را برای مدیریت اتصال‌ها فعال کنید.</p>
             <div class="form-grid">
               <div class="form-group">
-                <label for="releaseName">Project Name <span class="required">*</span>
-                  <span class="help-icon">?<span class="tooltip">Unique identifier for your database release</span></span>
+                <label for="releaseName">نام کلاستر <span class="required">*</span>
                 </label>
-                <input type="text" id="releaseName" name="releaseName" class="form-input" required>
+                <input type="text" id="releaseName" name="releaseName" placeholder="my-project" maxlength="35" pattern="[a-z0-9]([-a-z0-9]*[a-z0-9])?" class="form-input" required>
                 <span class="error-message">Release name is required</span>
               </div>
 
               <div class="form-group">
-                <label for="namespace">Namespace <span class="required">*</span></label>
+                <label for="namespace">فضای نام (Namespace) <span class="required">*</span></label>
                 <input type="text" id="namespace" name="namespace" class="form-input" value="dbaas" required>
                 <span class="error-message">Namespace is required</span>
               </div>
 
               <div class="form-group">
-                <label>Enable MinIO Storage
-                  <span class="help-icon">?<span class="tooltip">Enable MinIO object storage for backups and file storage</span></span>
+                <label>راه‌اندازی فضای بکاپ MinIO
                 </label>
                 <div class="switch-container">
                   <div class="switch" data-input="enableMinio" data-section-toggle="minio"><div class="switch-handle"></div></div>
-                  <span class="switch-label">Disabled</span>
+                  <span class="switch-label">غیرفعال</span>
                 </div>
                 <input type="hidden" id="enableMinio" name="enableMinio" value="false">
               </div>
 
               <div class="form-group">
-                <label>Enable PgCat
-                  <span class="help-icon">?<span class="tooltip">Enables PostgreSQL connection pooler and proxy</span></span>
+                <label>راه‌اندازی PgCat
                 </label>
                 <div class="switch-container">
                   <div class="switch" data-input="enablePgCat"><div class="switch-handle"></div></div>
-                  <span class="switch-label">Disabled</span>
+                  <span class="switch-label">غیرفعال</span>
                 </div>
                 <input type="hidden" id="enablePgCat" name="enablePgCat" value="false">
               </div>
@@ -164,40 +82,40 @@
         </div>
 
         <!-- PostgreSQL -->
-        <div class="config-section" data-section="postgresql">
+        <div class="config-section" data-section="postgresql" id="section-postgresql">
           <div class="section-header">
-            <h3>PostgreSQL Configuration</h3>
+            <h3>منابع PostgreSQL</h3>
             <span class="section-toggle">▼</span>
           </div>
           <div class="section-content">
+<p class="section-description" dir="rtl">تعداد اعضای PostgreSQL و فضای دیسک هر عضو را تعیین کنید. تعداد اعضا شامل primary و replicaهاست؛ کلاستر تک‌عضوی، replica ندارد.</p>
             <div class="form-grid">
               <div class="form-group">
-                <label for="pgReplicas">PostgreSQL Pods <span class="required">*</span>
-                  <span class="help-icon">?<span class="tooltip">Total database pods, including the primary</span></span>
+                <label for="pgReplicas">تعداد اعضای PostgreSQL <span class="required">*</span>
                 </label>
                 <input type="number" id="pgReplicas" name="pgReplicas" class="form-input" min="1" max="10" value="1" required>
                 <span class="error-message">Number of pods must be between 1 and 10</span>
               </div>
 
               <div class="form-group">
-                <label for="pgStorageCapacity">Storage Capacity (GiB) <span class="required">*</span></label>
+                <label for="pgStorageCapacity">حجم دیسک (GiB) <span class="required">*</span></label>
                 <input type="number" id="pgStorageCapacity" name="pgStorageCapacity" class="form-input" min="1" value="20" required>
                 <span class="error-message">Storage capacity must be at least 1 GiB</span>
               </div>
-              <div class="form-group">
-                <label for="superuserUsername">PostgreSQL administrator (optional)</label>
+              <div class="form-group" data-inline-only>
+                <label for="superuserUsername">نام کاربری مدیر PostgreSQL (اختیاری)</label>
                 <input type="text" id="superuserUsername" name="superuserUsername" class="form-input">
               </div>
-              <div class="form-group">
-                <label for="superuserPassword">Administrator password</label>
+              <div class="form-group" data-inline-only>
+                <label for="superuserPassword">رمز مدیر PostgreSQL</label>
                 <input type="password" id="superuserPassword" name="superuserPassword" class="form-input">
               </div>
-              <div class="form-group">
-                <label for="replicationUsername">Replication user (optional)</label>
+              <div class="form-group" data-inline-only>
+                <label for="replicationUsername">نام کاربری replication (اختیاری)</label>
                 <input type="text" id="replicationUsername" name="replicationUsername" class="form-input">
               </div>
-              <div class="form-group">
-                <label for="replicationPassword">Replication password</label>
+              <div class="form-group" data-inline-only>
+                <label for="replicationPassword">رمز replication</label>
                 <input type="password" id="replicationPassword" name="replicationPassword" class="form-input">
               </div>
             </div>
@@ -205,48 +123,49 @@
         </div>
 
         <!-- DB & Users -->
-        <div class="config-section" data-section="database-management">
+        <div class="config-section" data-section="database-management" id="section-database-management">
           <div class="section-header">
-            <h3>PgCat Database & User Configuration</h3>
+            <h3>تنظیمات پیشرفتهٔ PgCat</h3>
             <span class="section-toggle">▼</span>
           </div>
           <div class="section-content">
+<p class="section-description" dir="rtl">در حالت توسعه، poolهای اتصال PgCat را برای دیتابیس‌ها و کاربران موجود تعریف کنید. این تنظیمات، دیتابیس یا کاربر SQL ایجاد نمی‌کنند.</p>
             <div class="sub-section">
-              <h4>Database Definitions</h4>
+              <h4>دیتابیس‌های مورد استفاده</h4>
               <div class="item-list">
                 <div class="item-list-header">
-                  <h4>Database Definitions</h4>
-                  <button type="button" class="add-btn" id="addDbBtn">+ Add Database</button>
+                  <h4>دیتابیس‌های مورد استفاده</h4>
+                  <button type="button" class="add-btn" id="addDbBtn">+ افزودن دیتابیس</button>
                 </div>
                 <div id="databaseList">
-                  <div class="empty-list">No databases configured. Click "Add Database" to create database definitions.</div>
+                  <div class="empty-list">هنوز دیتابیسی برای اتصال PgCat تعریف نشده است. برای افزودن، «افزودن دیتابیس» را انتخاب کنید.</div>
                 </div>
               </div>
             </div>
 
             <div class="sub-section">
-              <h4>User Definitions</h4>
+              <h4>کاربران اتصال</h4>
               <div class="item-list">
                 <div class="item-list-header">
-                  <h4>User Definitions</h4>
-                  <button type="button" class="add-btn" id="addUserBtn">+ Add User</button>
+                  <h4>کاربران اتصال</h4>
+                  <button type="button" class="add-btn" id="addUserBtn">+ افزودن کاربر</button>
                 </div>
                 <div id="userList">
-                  <div class="empty-list">No users configured. Click "Add User" to create user definitions.</div>
+                  <div class="empty-list">هنوز کاربری برای اتصال PgCat تعریف نشده است. برای افزودن، «افزودن کاربر» را انتخاب کنید.</div>
                 </div>
               </div>
             </div>
 
             <div class="sub-section">
-              <h4>Access Management</h4>
-              <div class="warning-note"><strong>Planned:</strong> SQL database/user creation and access grants are not implemented. PgCat entries must reference existing PostgreSQL databases and users.</div>
+              <h4>مدیریت دسترسی</h4>
+              <div class="warning-note"><strong>برنامهٔ توسعه (Planned):</strong> ایجاد دیتابیس، کاربر و مجوزهای SQL هنوز پیاده‌سازی نشده است. تنظیمات PgCat باید به دیتابیس‌ها و کاربران موجود اشاره کنند.</div>
               <div class="item-list">
                 <div class="item-list-header">
-                  <h4>User Database Access</h4>
-                  <button type="button" class="add-btn" id="addAccessBtn" disabled title="Planned: SQL grants are not implemented">+ Add Access Rule</button>
+                  <h4>دسترسی کاربران به دیتابیس‌ها</h4>
+                  <button type="button" class="add-btn" id="addAccessBtn" disabled title="Planned: SQL grants are not implemented">+ افزودن قاعدهٔ دسترسی</button>
                 </div>
                 <div id="databaseAccessList">
-                  <div class="empty-list">No access rules configured. Click "Add Access Rule" to grant users access to databases.</div>
+                  <div class="empty-list">Planned: create PostgreSQL roles and grants separately with SQL.</div>
                 </div>
               </div>
             </div>
@@ -256,41 +175,42 @@
         <!-- MinIO -->
         <div class="config-section" data-section="minio" id="minioFields" style="display:none;">
           <div class="section-header">
-            <h3>MinIO Configuration</h3>
+            <h3>فضای ذخیره‌سازی MinIO</h3>
             <span class="section-toggle">▼</span>
           </div>
           <div class="section-content">
+<p class="section-description" dir="rtl">MinIO فضای سازگار با S3 را برای نگهداری بکاپ فراهم می‌کند. حجم دیسک آن را مشخص کنید؛ در حالت پیش‌فرض، اطلاعات ورود از Secret خوانده می‌شوند.</p>
             <div class="form-grid" style="margin-top:20px;">
-              <div class="form-group">
-                <label for="minioRootUser">Root User <span class="required">*</span></label>
+              <div class="form-group" data-inline-only>
+                <label for="minioRootUser">نام کاربری مدیر MinIO <span class="required">*</span></label>
                 <input type="text" id="minioRootUser" name="minioRootUser" class="form-input">
                 <span class="error-message">Root user is required when MinIO is enabled</span>
               </div>
-              <div class="form-group">
-                <label for="minioRootPassword">Root Password <span class="required">*</span></label>
+              <div class="form-group" data-inline-only>
+                <label for="minioRootPassword">رمز مدیر MinIO <span class="required">*</span></label>
                 <input type="password" id="minioRootPassword" name="minioRootPassword" class="form-input" minlength="8">
                 <span class="error-message">Root password must be at least 8 characters</span>
                 <small class="field-hint">MinIO requires at least 8 characters.</small>
               </div>
               <div class="form-group">
-                <label for="minioStorageCapacity">Storage Capacity (GiB) <span class="required">*</span></label>
-                <input type="number" id="minioStorageCapacity" name="minioStorageCapacity" class="form-input" min="1">
+                <label for="minioStorageCapacity">حجم دیسک (GiB) <span class="required">*</span></label>
+                <input type="number" id="minioStorageCapacity" name="minioStorageCapacity" value="10" class="form-input" min="1">
                 <span class="error-message">Storage capacity must be at least 1 GiB</span>
               </div>
-              <div class="form-group">
-                <label for="minioBackupUser">Backup User <span class="required">*</span></label>
+              <div class="form-group" data-inline-only>
+                <label for="minioBackupUser">نام کاربری بکاپ <span class="required">*</span></label>
                 <input type="text" id="minioBackupUser" name="minioBackupUser" class="form-input">
                 <span class="error-message">Backup user must be different from the MinIO root user</span>
                 <small class="field-hint">Use a separate account; WAL-G will use this user and its password.</small>
               </div>
-              <div class="form-group">
-                <label for="minioBackupPassword">Backup Password <span class="required">*</span></label>
+              <div class="form-group" data-inline-only>
+                <label for="minioBackupPassword">رمز کاربر بکاپ <span class="required">*</span></label>
                 <input type="password" id="minioBackupPassword" name="minioBackupPassword" class="form-input" minlength="8">
                 <span class="error-message">Backup password must be at least 8 characters</span>
                 <small class="field-hint">MinIO requires at least 8 characters.</small>
               </div>
-              <div class="form-group">
-                <label for="minioBackupBucket">Backup Bucket Name <span class="required">*</span></label>
+              <div class="form-group" data-inline-only>
+                <label for="minioBackupBucket">نام bucket بکاپ <span class="required">*</span></label>
                 <input type="text" id="minioBackupBucket" name="minioBackupBucket" class="form-input">
                 <span class="error-message">Backup bucket name is required when MinIO is enabled</span>
               </div>
@@ -299,43 +219,40 @@
         </div>
 
         <!-- WAL-G -->
-        <div class="config-section" data-section="walg">
+        <div class="config-section" data-section="walg" id="section-walg">
           <div class="section-header">
-            <h3>WAL-G Configuration</h3>
+            <h3>بکاپ و بازیابی</h3>
             <span class="section-toggle">▼</span>
           </div>
           <div class="section-content">
+<p class="section-description" dir="rtl">زمان‌بندی پشتیبان‌گیری را مشخص کنید. WAL-G بکاپ‌ها و فایل‌های WAL را در مقصد تعیین‌شده ذخیره می‌کند؛ در حالت Secret، اطلاعات اتصال از Secret مربوط به WAL-G خوانده می‌شوند.</p>
             <div id="minioEnabledNote" class="info-note" style="display:none;">
-              <strong>Note:</strong> MinIO is enabled above. S3 credentials will use MinIO settings automatically.
+              <strong>MinIO انتخاب شده است.</strong> در حالت Secret، اطلاعات اتصال همین MinIO را در Secret مربوط به WAL-G تنظیم کنید. در حالت توسعه، اطلاعات واردشده در فرم استفاده می‌شوند.
             </div>
 
             <div class="sub-section" id="s3ConfigSection" style="display:none;">
-              <h4>S3 Storage Credentials</h4>
+              <h4>اطلاعات اتصال فضای S3</h4>
               <div class="form-grid">
                 <div class="form-group" id="s3UserGroup">
-                  <label for="s3AccessKey">S3 Access Key / User <span class="required">*</span>
-                    <span class="help-icon">?<span class="tooltip">AWS Access Key ID or MinIO user</span></span>
+                  <label for="s3AccessKey">شناسهٔ دسترسی S3 <span class="required">*</span>
                   </label>
                   <input type="text" id="s3AccessKey" name="s3AccessKey" required class="form-input">
                   <span class="error-message">S3 access key is required</span>
                 </div>
                 <div class="form-group" id="s3PasswordGroup">
-                  <label for="s3SecretKey">S3 Secret Key / Password <span class="required">*</span>
-                    <span class="help-icon">?<span class="tooltip">AWS Secret Key or MinIO password</span></span>
+                  <label for="s3SecretKey">کلید محرمانهٔ S3 <span class="required">*</span>
                   </label>
                   <input type="password" id="s3SecretKey" name="s3SecretKey" required class="form-input">
                   <span class="error-message">S3 secret key is required</span>
                 </div>
                 <div class="form-group" id="s3EndpointGroup">
-                  <label for="s3Endpoint">S3 Endpoint <span class="required">*</span>
-                    <span class="help-icon">?<span class="tooltip">e.g., https://s3.amazonaws.com or https://minio.example.com</span></span>
+                  <label for="s3Endpoint">آدرس سرویس S3 <span class="required">*</span>
                   </label>
                   <input type="url" id="s3Endpoint" name="s3Endpoint" class="form-input" placeholder="https://s3.amazonaws.com" required>
                   <span class="error-message">Valid S3 endpoint URL is required</span>
                 </div>
                 <div class="form-group">
-                  <label for="s3BucketName">Backup Bucket Name <span class="required">*</span>
-                    <span class="help-icon">?<span class="tooltip">Bucket where WAL-G backups will be stored</span></span>
+                  <label for="s3BucketName">نام bucket بکاپ <span class="required">*</span>
                   </label>
                   <input type="text" id="s3BucketName" name="s3BucketName" required class="form-input">
                   <span class="error-message">Backup bucket name is required</span>
@@ -344,21 +261,19 @@
             </div>
 
             <div class="sub-section">
-              <h4>Backup Configuration</h4>
+              <h4>تنظیمات پشتیبان‌گیری</h4>
               <div class="form-grid">
                 <div class="form-group">
-                  <label>Enable Point-in-Time Recovery (PITR)
-                    <span class="help-icon">?<span class="tooltip">Experimental: recovery is available only through the operator script; provisioning does not restore data</span></span>
+                  <label>بازیابی تا زمان مشخص (PITR)
                   </label>
                   <div class="switch-container">
                     <div class="switch" data-input="enablePITR" aria-disabled="true" title="Experimental: use the operator recovery script"><div class="switch-handle"></div></div>
-                    <span class="switch-label">Disabled</span>
+                    <span class="switch-label">غیرفعال</span>
                   </div>
                   <input type="hidden" id="enablePITR" name="enablePITR" value="false">
                 </div>
-                <div class="form-group">
-                  <label for="compressionMethod">Compression Method <span class="required">*</span>
-                    <span class="help-icon">?<span class="tooltip">Compression algorithm for backup files</span></span>
+                <div class="form-group" data-inline-only>
+                  <label for="compressionMethod">روش فشرده‌سازی <span class="required">*</span>
                   </label>
                   <select id="compressionMethod" name="compressionMethod" class="form-input" required>
                     <option value="lzma">lzma (slow, best ratio)</option>
@@ -369,10 +284,9 @@
                   <span class="error-message">Compression method is required</span>
                 </div>
                 <div class="form-group">
-                  <label for="backupSchedule">Automatic Backup Schedule <span class="required">*</span>
-                    <span class="help-icon">?<span class="tooltip">Cron: min hour day month weekday (e.g., 0 2 * * *)</span></span>
+                  <label for="backupSchedule">زمان‌بندی خودکار بکاپ <span class="required">*</span>
                   </label>
-                  <input type="text" id="backupSchedule" name="backupSchedule" class="form-input" placeholder="0 2 * * *" required>
+                  <input type="text" id="backupSchedule" name="backupSchedule" class="form-input" placeholder="0 2 * * *" value="0 2 * * *" required>
                   <span class="error-message">Valid crontab format required (e.g., 0 2 * * *)</span>
                 </div>
               </div>
@@ -381,34 +295,35 @@
         </div>
 
         <!-- Monitoring -->
-        <div class="config-section" data-section="monitoring">
+        <div class="config-section" data-section="monitoring" id="section-monitoring">
           <div class="section-header">
-            <h3>Monitoring</h3>
+            <h3>قابلیت‌های تکمیلی</h3>
             <span class="section-toggle">▼</span>
           </div>
           <div class="section-content">
+<p class="section-description" dir="rtl">راه‌اندازی مانیتورینگ از طریق این فرم در برنامهٔ شماسعه قرار دارد. گزینه‌های این بخش فعلاً غیرفعال‌اند؛ مانیتورینگ باید جداگانه نصب شود.</p>
             <div class="form-grid">
               <div class="form-group">
-                <label>Enable Log Monitoring</label>
+                <label>جمع‌آوری و پایش لاگ‌ها</label>
                 <div class="switch-container">
                   <div class="switch" data-input="enableLogMonitoring" aria-disabled="true" title="Planned: configure monitoring separately"><div class="switch-handle"></div></div>
-                  <span class="switch-label">Disabled</span>
+                  <span class="switch-label">غیرفعال</span>
                 </div>
                 <input type="hidden" id="enableLogMonitoring" name="enableLogMonitoring" value="false">
               </div>
               <div class="form-group">
-                <label>Enable System Monitoring</label>
+                <label>پایش منابع سیستم</label>
                 <div class="switch-container">
                   <div class="switch" data-input="enableSystemMonitoring" aria-disabled="true" title="Planned: configure monitoring separately"><div class="switch-handle"></div></div>
-                  <span class="switch-label">Disabled</span>
+                  <span class="switch-label">غیرفعال</span>
                 </div>
                 <input type="hidden" id="enableSystemMonitoring" name="enableSystemMonitoring" value="false">
               </div>
               <div class="form-group">
-                <label>Monitoring Documentation Provided</label>
+                <label>مستندات مانیتورینگ</label>
                 <div class="switch-container">
                   <div class="switch" data-input="monitoringDocsProvided" aria-disabled="true" title="Planned: configure monitoring separately"><div class="switch-handle"></div></div>
-                  <span class="switch-label">No</span>
+                  <span class="switch-label">خیر</span>
                 </div>
                 <input type="hidden" id="monitoringDocsProvided" name="monitoringDocsProvided" value="false">
               </div>
@@ -418,13 +333,15 @@
 
         <!-- Submit -->
         <div class="submit-section">
-          <button type="submit" class="submit-btn" id="submitBtn">Deploy PostgreSQL Configuration</button>
-          <pre id="output" class="info-note" style="margin-top:16px;"></pre>
+          <div class="submit-copy" dir="rtl"><h3>ثبت درخواست راه‌اندازی</h3><p>با ثبت درخواست، منابع کلاستر در فضای نام انتخاب‌شده ایجاد یا به‌روزرسانی می‌شوند.</p></div><button type="submit" class="submit-btn" id="submitBtn">راه‌اندازی کلاستر <span aria-hidden="true">↗</span></button>
+          <pre id="output" class="info-note" role="status" aria-live="polite" tabindex="-1"></pre>
         </div>
       </form>
     </div>
   </div>
 
+  </div>
+  <div id="fieldTooltip" class="field-tooltip" role="tooltip" dir="rtl" hidden></div>
   <script>
     // ---- counters ----
     let dbCounter = 0, userCounter = 0, accessCounter = 0;
@@ -432,7 +349,7 @@
     // ---- collapsible ----
     document.addEventListener('click', (e) => {
       const header = e.target.closest('.section-header');
-      if (header) header.parentElement.classList.toggle('collapsed');
+      if (header) { const collapsed=header.parentElement.classList.toggle('collapsed'); header.setAttribute('aria-expanded',String(!collapsed)); }
     });
 
     // ---- DB/User helpers ----
@@ -489,8 +406,8 @@
       sw.addEventListener('click',()=>{
         if (sw.getAttribute("aria-disabled") === "true") return;
         const name=sw.dataset.input, hidden=document.getElementById(name), label=sw.parentElement.querySelector('.switch-label');
-        sw.classList.toggle('active'); const on=sw.classList.contains('active'); hidden.value=String(on);
-        label.textContent = (name==='monitoringDocsProvided') ? (on?'Yes':'No') : (on?'Enabled':'Disabled');
+        sw.classList.toggle('active'); const on=sw.classList.contains('active'); hidden.value=String(on); sw.setAttribute('aria-checked',String(on));
+        label.textContent = (name==='monitoringDocsProvided') ? (on?'بله':'خیر') : (on?'فعال':'غیرفعال');
         if(name==='enableMinio'){
           const m=document.getElementById('minioFields');
           if(on){ m.style.display='grid'; m.querySelectorAll('input').forEach(i=>{if(i.type!=='hidden') i.setAttribute('required','required');}); }
@@ -498,6 +415,7 @@
           updateS3Fields(on);
         }
         if(name==='enablePgCat'){ updatePgCatDependentFields(on); }
+        updateCredentialMode();
       });
     });
 
@@ -516,11 +434,11 @@
       const item=document.createElement('div'); item.className='db-item item';
       item.innerHTML=`
         <div class="input-group">
-          <label>Database Name <span class="required">*</span></label>
+          <label>نام دیتابیس <span class="required">*</span></label>
           <input type="text" name="databases[${dbCounter}][name]" placeholder="e.g., myapp_db" required>
         </div>
         <div class="input-group pgcat-dependent" style="display:${pgcatOn?'block':'none'}">
-          <label>Pool Mode</label>
+          <label>حالت pool اتصال</label>
           <select name="databases[${dbCounter}][poolMode]" ${pgcatOn?'':'disabled'}>
             <option value="">Default</option>
             <option value="session">Session</option>
@@ -529,21 +447,21 @@
           </select>
         </div>
         <div class="input-group pgcat-dependent" style="display:${pgcatOn?'block':'none'}">
-          <label>Primary Read Mode</label>
+          <label>خواندن از primary</label>
           <select name="databases[${dbCounter}][primaryReadMode]" ${pgcatOn?'':'disabled'}>
             <option value="false">Disabled</option>
             <option value="true">Enabled</option>
           </select>
         </div>
-        <button type="button" class="remove-btn">Remove</button>
+        <button type="button" class="remove-btn">حذف</button>
       `;
       item.querySelector('.remove-btn').addEventListener('click',()=>{
         item.remove();
-        if(!container.children.length) container.innerHTML='<div class="empty-list">No databases configured. Click "Add Database" to create database definitions.</div>';
+        if(!container.children.length) container.innerHTML='<div class="empty-list">هنوز دیتابیسی برای اتصال PgCat تعریف نشده است. برای افزودن، «افزودن دیتابیس» را انتخاب کنید.</div>';
         updateAccessDropdowns();
       });
       item.querySelector('input[name*="[name]"]').addEventListener('input', updateAccessDropdowns);
-      container.appendChild(item); dbCounter++; updateAccessDropdowns();
+      container.appendChild(item); installFieldHelp(item); dbCounter++; updateAccessDropdowns();
     }
 
     // ---- add/remove User ----
@@ -551,19 +469,19 @@
       const container=document.getElementById('userList'); const empty=container.querySelector('.empty-list'); if(empty) empty.remove();
       const item=document.createElement('div'); item.className='user-item item';
       item.innerHTML=`
-        <div class="input-group"><label>Username <span class="required">*</span></label><input type="text" name="users[${userCounter}][username]" placeholder="e.g., app_user" required></div>
-        <div class="input-group"><label>Password <span class="required">*</span></label><input type="password" name="users[${userCounter}][password]" required></div>
-        <div class="input-group"><label>Connection Limit</label><input type="number" name="users[${userCounter}][connectionLimit]" placeholder="10" min="1"></div>
-        <div class="input-group"><label>Valid Until</label><input type="date" name="users[${userCounter}][validUntil]"></div>
-        <button type="button" class="remove-btn">Remove</button>
+        <div class="input-group"><label>نام کاربری <span class="required">*</span></label><input type="text" name="users[${userCounter}][username]" placeholder="e.g., app_user" required></div>
+        <div class="input-group"><label>رمز عبور <span class="required">*</span></label><input type="password" name="users[${userCounter}][password]" required></div>
+        <div class="input-group"><label>اندازهٔ pool اتصال</label><input type="number" name="users[${userCounter}][connectionLimit]" placeholder="10" min="1"></div>
+        <div class="input-group"><label>تاریخ انقضا (برنامهٔ توسعه)</label><input type="date" name="users[${userCounter}][validUntil]"></div>
+        <button type="button" class="remove-btn">حذف</button>
       `;
       item.querySelector('.remove-btn').addEventListener('click',()=>{
         item.remove();
-        if(!container.children.length) container.innerHTML='<div class="empty-list">No users configured. Click "Add User" to create user definitions.</div>';
+        if(!container.children.length) container.innerHTML='<div class="empty-list">هنوز کاربری برای اتصال PgCat تعریف نشده است. برای افزودن، «افزودن کاربر» را انتخاب کنید.</div>';
         updateAccessDropdowns();
       });
       item.querySelector('input[name*="[username]"]').addEventListener('input', updateAccessDropdowns);
-      container.appendChild(item); userCounter++; updateAccessDropdowns();
+      container.appendChild(item); installFieldHelp(item); userCounter++; updateAccessDropdowns();
     }
 
     // ---- add/remove Access Rule ----
@@ -574,19 +492,19 @@
       const item=document.createElement('div'); item.className='access-item item';
       item.innerHTML=`
         <div class="input-group">
-          <label>User <span class="required">*</span></label>
+          <label>کاربر <span class="required">*</span></label>
           <select name="databaseAccess[${accessCounter}][username]" required>
             <option value="">Select User</option>${us.map(u=>`<option value="${escapeHTML(u)}">${escapeHTML(u)}</option>`).join('')}
           </select>
         </div>
         <div class="input-group">
-          <label>Database <span class="required">*</span></label>
+          <label>دیتابیس <span class="required">*</span></label>
           <select name="databaseAccess[${accessCounter}][database]" required>
             <option value="">Select Database</option>${dbs.map(d=>`<option value="${escapeHTML(d)}">${escapeHTML(d)}</option>`).join('')}
           </select>
         </div>
         <div class="input-group">
-          <label>Access Level <span class="required">*</span></label>
+          <label>سطح دسترسی <span class="required">*</span></label>
           <select name="databaseAccess[${accessCounter}][accessLevel]" required>
             <option value="read" selected>Read Only</option>
             <option value="read_exec">Read Only + Execute Functions</option>
@@ -595,16 +513,16 @@
           </select>
         </div>
         <div class="input-group pgcat-dependent" style="display:${pgcatOn?'block':'none'}">
-          <label>Max Connections</label>
+          <label>حداکثر اتصال‌ها</label>
           <input type="number" name="databaseAccess[${accessCounter}][maxConnections]" placeholder="10" min="1" ${pgcatOn?'':'disabled'}>
         </div>
-        <button type="button" class="remove-btn">Remove</button>
+        <button type="button" class="remove-btn">حذف</button>
       `;
       item.querySelector('.remove-btn').addEventListener('click',()=>{
         item.remove();
-        if(!container.children.length) container.innerHTML='<div class="empty-list">No access rules configured. Click "Add Access Rule" to grant users access to databases.</div>';
+        if(!container.children.length) container.innerHTML='<div class="empty-list">Planned: create PostgreSQL roles and grants separately with SQL.</div>';
       });
-      container.appendChild(item); accessCounter++;
+      container.appendChild(item); installFieldHelp(item); accessCounter++;
     }
 
     // buttons
@@ -807,6 +725,7 @@ async function handleSubmit(e){
   }
 
   form.dataset.submitting = "true";
+  document.getElementById("submitBtn").disabled = true;
   await (async () => {
     output.textContent = "Deploying…";
     try{
@@ -838,6 +757,7 @@ async function handleSubmit(e){
 
     } finally {
       form.dataset.submitting = "false";
+      document.getElementById("submitBtn").disabled = false;
     }
   })();
 }
@@ -851,6 +771,122 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", handleSubmit);
 
 });
+// Help text describes the current API contract, including controls that are planned.
+const fieldHelp = {
+  apiToken:'رمز دسترسی به پنل مدیریت است، نه رمز دیتابیس. مقدار DBAAS_API_TOKEN سرور را وارد کنید. توکن همراه درخواست فرستاده می‌شود و در مرورگر ذخیرهٔ دائمی نمی‌شود.',
+  inlineSecretsMode:'حالت توسعه: به‌جای Secret موجود، رمزها را در فرم وارد می‌کنید. سرور باید DBAAS_ALLOW_INLINE_SECRETS=true داشته باشد. این مقادیر در تاریخچهٔ Helm باقی می‌مانند.',
+  secretPostgres:'نام Secret دارای نام کاربری و رمز مدیر PostgreSQL و replication. نام پیش‌فرض: <project>-patroni-postgres-credentials. Secret باید از قبل در namespace مقصد ساخته شده باشد.',
+  secretWalg:'نام Secret شامل فایل .walg.env برای اتصال WAL-G به دیتابیس و فضای بکاپ. پیش‌فرض: <project>-patroni-wal-g-credentials. رمزهای آن باید با PostgreSQL و object storage مطابقت داشته باشند.',
+  secretPgcat:'نام Secret شامل pgcat.yaml؛ میزبان‌ها، poolها و رمز کاربران را تعیین می‌کند. پیش‌فرض: <project>-pgcat-pgcat-config. وقتی PgCat فعال است استفاده می‌شود.',
+  secretPgadmin:'نام Secret دارای کلید pgadmin-password برای ورود pgAdmin. پیش‌فرض: <project>-pgcat-pgadmin. توکن API کاربرد متفاوتی دارد.',
+  secretMinio:'نام Secret حساب مدیر، حساب بکاپ و bucket مربوط به MinIO. پیش‌فرض: <project>-minio-minio-credentials. فقط هنگام نصب MinIO استفاده می‌شود.',
+  releaseName:'نام کلاستر و پیشوند منابع آن. حروف کوچک انگلیسی، عدد و خط تیره؛ حداکثر ۳۵ کاراکتر. استفادهٔ دوباره از همان نام می‌تواند منابع موجود را به‌روزرسانی کند.',
+  namespace:'فضای مقصد منابع در Kubernetes. باید از قبل وجود داشته باشد و در DBAAS_ALLOWED_NAMESPACES سرور مجاز باشد. مقدار پیش‌فرض dbaas است.',
+  enableMinio:'یک سرویس MinIO برای ذخیرهٔ بکاپ نصب می‌کند. خاموش بودن آن یعنی فضای S3 سازگار دیگری را در Secret مربوط به WAL-G تنظیم می‌کنید. نصب محلی به‌تنهایی بکاپ خارج از سایت نیست.',
+  enablePgCat:'PgCat بین برنامهٔ شما و PostgreSQL قرار می‌گیرد و اتصال‌ها را pool و مسیریابی می‌کند. رمز و مقصدهای آن از Secret پیکربندی خوانده می‌شوند.',
+  pgReplicas:'تعداد کل Podهای PostgreSQL، شامل یک primary و replicaهای باقی‌مانده. مقدار ۱ یعنی فقط یک عضو؛ افزایش تعداد به‌تنهایی تضمین دسترس‌پذیری نیست.',
+  pgStorageCapacity:'حجم PVC هر عضو PostgreSQL بر حسب GiB؛ حجم مجموع کلاستر نیست. مثلاً ۳ عضو با مقدار ۲۰، سه درخواست دیسک ۲۰ GiB دارند.',
+  superuserUsername:'نام کاربر مدیر PostgreSQL در حالت توسعه. نام و رمز را با هم وارد کنید. در حالت Secret این فیلد استفاده نمی‌شود.',
+  superuserPassword:'رمز مدیر PostgreSQL؛ با API token متفاوت است. فقط در حالت ورود مستقیم رمزها استفاده می‌شود.',
+  replicationUsername:'حساب مورد استفاده برای کپی تغییرات primary به replicaها. فقط حالت توسعه؛ در حالت عادی از Secret خوانده می‌شود.',
+  replicationPassword:'رمز حساب replication که باید همراه نام کاربر آن تنظیم شود. این رمز برای ورود به پنل نیست.',
+  minioRootUser:'نام حساب مدیر MinIO در حالت توسعه. برای کاربر بکاپ یک حساب جدا انتخاب کنید.',
+  minioRootPassword:'رمز مدیر MinIO، حداقل ۸ کاراکتر در این فرم. در حالت Secret از Secret مربوط به MinIO خوانده می‌شود.',
+  minioStorageCapacity:'حجم دیسک MinIO بر حسب GiB برای نگهداری فایل‌های بکاپ و WAL؛ از دیسک PostgreSQL جداست.',
+  minioBackupUser:'حساب جداگانه‌ای برای دسترسی WAL-G به بکاپ‌ها. نباید با حساب مدیر MinIO یکی باشد.',
+  minioBackupPassword:'رمز حساب بکاپ MinIO. اطلاعات object storage در WAL-G باید همین حساب را استفاده کند.',
+  minioBackupBucket:'نام bucket محل ذخیرهٔ بکاپ و WAL در MinIO. نام و اطلاعات اتصال باید با تنظیمات WAL-G هماهنگ باشند.',
+  s3AccessKey:'شناسهٔ حساب فضای S3 سازگار در حالت توسعه. در حالت Secret این مقدار از .walg.env می‌آید.',
+  s3SecretKey:'رمز یا کلید محرمانهٔ همان حساب S3. در حالت توسعه همراه access key ارسال می‌شود.',
+  s3Endpoint:'آدرس HTTP یا HTTPS فضای بکاپ که از داخل Pod دیتابیس قابل دسترسی باشد. نام کاربری و رمز را در URL قرار ندهید.',
+  s3BucketName:'bucket موجود در فضای S3 سازگار برای ذخیرهٔ بکاپ. این فرم bucket سرویس خارجی را ایجاد نمی‌کند.',
+  enablePITR:'بازیابی تا زمان مشخص با base backup و WAL انجام می‌شود. Experimental: این فرم بازیابی اجرا نمی‌کند؛ باید از ابزار عملیاتی جدا استفاده شود.',
+  compressionMethod:'روش فشرده‌سازی بکاپ در حالت توسعه. در حالت Secret، مقدار WALG_COMPRESSION_METHOD داخل .walg.env تعیین‌کننده است؛ این فیلد Secret موجود را تغییر نمی‌دهد.',
+  backupSchedule:'زمان‌بندی Cron با پنج بخش: دقیقه، ساعت، روز ماه، ماه، روز هفته. 0 2 * * * یعنی هر روز ساعت ۲ طبق منطقهٔ زمانی کنترل‌کنندهٔ Kubernetes؛ لزوماً ساعت مرورگر شما نیست.',
+  enableLogMonitoring:'Planned: نصب جمع‌آوری لاگ از این فرم پیاده‌سازی نشده؛ این کلید فعلاً قابل فعال‌سازی نیست.',
+  enableSystemMonitoring:'Planned: نصب مانیتورینگ منابع از این فرم پیاده‌سازی نشده است. پشتهٔ مانیتورینگ باید جداگانه راه‌اندازی شود.',
+  monitoringDocsProvided:'Planned: این گزینه در API یک قابلیت اجرایی برای نصب یا بررسی مستندات مانیتورینگ ندارد.',
+  name:'نام دیتابیس موجود در PostgreSQL که PgCat به آن متصل می‌شود. اضافه کردن این سطر دستور CREATE DATABASE اجرا نمی‌کند.',
+  poolMode:'Session اتصال backend را برای کل نشست نگه می‌دارد؛ Transaction آن را پس از هر تراکنش آزاد می‌کند. سازگاری برنامه با transaction pooling را بررسی کنید.',
+  primaryReadMode:'اجازهٔ اجرای خواندن روی primary. برای کلاستر تک‌عضوی خواندن باید مسیر قابل استفاده به primary داشته باشد؛ تنظیمات نهایی در PgCat تعیین می‌شوند.',
+  username:'نام کاربر موجود در PostgreSQL برای ورود از طریق PgCat. این فرم نقش SQL ایجاد نمی‌کند.',
+  password:'رمز کاربر موجود در PostgreSQL برای احراز هویت PgCat؛ تعریف این سطر رمز نقش PostgreSQL را تغییر نمی‌دهد.',
+  connectionLimit:'اندازهٔ pool کاربر در پیکربندی PgCat. این مقدار محدودیت CONNECTION LIMIT نقش PostgreSQL را تنظیم نمی‌کند.',
+  validUntil:'Planned: تاریخ انقضای نقش SQL توسط این API اعمال نمی‌شود. در صورت نیاز جداگانه در PostgreSQL تنظیم کنید.',
+  accessLevel:'Planned: ایجاد GRANTهای SQL از این فرم پیاده‌سازی نشده است.',
+  maxConnections:'Planned: قواعد دسترسی و محدودیت اتصال در این قسمت توسط API اعمال نمی‌شوند.',
+  database:'نام دیتابیس موجود برای قاعدهٔ دسترسی. اعمال مجوزهای SQL از این فرم هنوز پیاده‌سازی نشده است.'
+};
+let helpOwner = null;
+function closeFieldHelp(){
+  document.getElementById('fieldTooltip').hidden=true;
+  if(helpOwner) helpOwner.setAttribute('aria-expanded','false');
+  helpOwner=null;
+}
+function showFieldHelp(button,text){
+  closeFieldHelp();
+  const tip=document.getElementById('fieldTooltip');
+  tip.textContent=text;tip.hidden=false;helpOwner=button;
+  button.setAttribute('aria-expanded','true');
+  const r=button.getBoundingClientRect();
+  const width=tip.offsetWidth,height=tip.offsetHeight;
+  tip.style.left=Math.max(12,Math.min(r.left,window.innerWidth-width-12))+'px';
+  tip.style.top=Math.max(12,r.bottom+height+14>window.innerHeight?r.top-height-8:r.bottom+8)+'px';
+}
+function installFieldHelp(root=document){
+  root.querySelectorAll('.form-group,.input-group,.mode-control').forEach(group=>{
+    const input=group.querySelector('input,select');
+    const label=group.querySelector('label');
+    if(!input||!label||group.querySelector('.help-button'))return;
+    const key=input.id||input.name.match(/\[([^\]]+)\]$/)?.[1];
+    const text=fieldHelp[key];if(!text)return;
+    if(!input.id)input.id='field-'+input.name.replace(/[^a-zA-Z0-9]/g,'-');
+    if(input.type!=='hidden')label.setAttribute('for',input.id);
+    const button=document.createElement('button');button.type='button';button.className='help-button';button.textContent='?';
+    button.setAttribute('aria-label','راهنمای '+label.textContent.trim());
+    button.setAttribute('aria-describedby','fieldTooltip');button.setAttribute('aria-expanded','false');
+    // Outside the label so touching help never toggles its checkbox or field.
+    label.insertAdjacentElement('afterend',button);
+    const row=document.createElement('div');row.className='field-label-row';label.before(row);row.append(label,button);
+    button.addEventListener('mouseenter',()=>showFieldHelp(button,text));
+    button.addEventListener('focus',()=>showFieldHelp(button,text));
+    button.addEventListener('click',e=>{e.stopPropagation();showFieldHelp(button,text);});
+    button.addEventListener('blur',closeFieldHelp);
+  });
+}
+function updateCredentialMode(){
+  const inline=document.getElementById('inlineSecretsMode').checked;
+  document.querySelectorAll('[data-inline-only]').forEach(group=>{
+    group.hidden=!inline;
+    group.querySelectorAll('input,select').forEach(field=>field.disabled=!inline);
+  });
+  const section=document.getElementById('section-database-management');
+  section.hidden=!inline;
+  const minio=document.getElementById('enableMinio').value==='true';
+  document.getElementById('s3ConfigSection').style.display=inline&&!minio?'block':'none';
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  installFieldHelp();updateCredentialMode();
+  document.getElementById('inlineSecretsMode').addEventListener('change',updateCredentialMode);
+  document.querySelectorAll('.section-header').forEach((header,index)=>{
+    const content=header.parentElement.querySelector('.section-content');content.id='section-content-'+index;
+    header.setAttribute('role','button');header.tabIndex=0;header.setAttribute('aria-expanded','true');header.setAttribute('aria-controls',content.id);
+    header.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();header.click();}});
+  });
+  document.querySelectorAll('.switch').forEach(sw=>{
+    sw.setAttribute('role','switch');sw.tabIndex=0;sw.setAttribute('aria-checked',String(sw.classList.contains('active')));
+    const label=sw.closest('.form-group').querySelector('label');sw.setAttribute('aria-label',label.textContent.trim());
+    sw.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();sw.click();}});
+  });
+  document.querySelectorAll('.sidebar nav a').forEach(link=>link.addEventListener('click',()=>{
+    const section=document.getElementById(link.getAttribute('href').slice(1));
+    if(section){section.classList.remove('collapsed');section.querySelector('.section-header').setAttribute('aria-expanded','true');}
+  }));
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeFieldHelp();});
+document.addEventListener('click',e=>{if(!e.target.closest('.help-button,#fieldTooltip'))closeFieldHelp();});
+document.addEventListener('scroll',closeFieldHelp,true);
+
 </script>
 
 </body>
