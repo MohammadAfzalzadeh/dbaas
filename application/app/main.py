@@ -40,7 +40,7 @@ async def authenticate(request: Request, call_next):
         # Only preflight is public; the subsequent operation still authenticates.
         if request.method != "OPTIONS":
             expected = os.getenv("DBAAS_API_TOKEN", "")
-            if len(expected) < 32:
+            if len(expected) < 8:
                 return JSONResponse(status_code=503, content={"detail": "API authentication is not configured"})
             header = request.headers.get("Authorization", "")
             scheme, _, token = header.partition(" ")
@@ -458,7 +458,7 @@ def deploy(spec: DeploySpec):
             for component in values:
                 release = f"{spec.project.releaseName}-{component}"
                 output = run(["helm", "upgrade", "--install", release, charts[component],
-                              "--namespace", spec.namespace, "-f", files[component],
+                              "--namespace", spec.namespace, "-f", files[component], "--create-namespace",
                               "--wait", "--wait-for-jobs", "--timeout", "10m0s" if component == "patroni" else "5m0s"])
                 # Helm treats OnDelete StatefulSets as ready without waiting for pods.
                 # Wait explicitly for the desired member count before the next component.

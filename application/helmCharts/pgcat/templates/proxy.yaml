@@ -40,19 +40,7 @@ spec:
         release-name: {{ .Release.Name }}
     spec:
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
-      {{- include "dbaas.scheduling" (dict "settings" .Values.scheduling "labels" (dict "app" "proxy" "release-name" .Release.Name)) | nindent 6 }}
-      initContainers:
-        - name: pgcat-config-init
-          image: {{ .Values.pgcatConfigWatcherImageName }}
-          imagePullPolicy: {{ .Values.imagePullPolicy }}
-          resources: {{ toYaml .Values.watcherResources | nindent 12 }}
-          command: ["node", "pgcat-config-watcher.js", "--once"]
-          volumeMounts:
-            - name: pgcat-config
-              mountPath: /config
-              readOnly: true
-            - name: pgcat-data
-              mountPath: /etc/pgcat
+      {{- include "dbaas.scheduling" (dict "settings" .Values.scheduling "labels" (dict "app" "proxy" "release-name" .Release.Name)) | nindent 6 }}        
       containers:
         - name: proxy
           image: {{ .Values.pgcatImageName }}

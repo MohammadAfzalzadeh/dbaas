@@ -1,0 +1,241 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-db-setup-script
+data:
+  init-db.sh: |
+    #!/bin/bash
+
+    ############################
+    ### Needed ENVs
+    # - PG_HOST
+    # - PG_PORT
+    # - PG_USER
+    # - PG_PASSWORD
+    # - YAML_FILE_PATH
+    ### package dependencies
+    # - bash 
+    # - postgresql-client 
+    # - yq
+    ############################
+
+    set -euo pipefail
+
+    FAILED=0
+
+    # === Logging functions ===
+    log_info() {
+        local msg="$1"
+        echo "{\"service\": \"db-setup\", \"level\": \"info\", \"time\": \"$(date --iso-8601=seconds)\", \"message\": \"$msg\"}" >&1
+    }
+
+    log_fatal() {
+        local msg="$1"
+        echo "{\"service\": \"db-setup\", \"level\": \"fatal\", \"time\": \"$(date --iso-8601=seconds)\", \"message\": \"$msg\"}" >&2
+        exit 1
+    }
+
+    log_error() {
+        FAILED=1
+        local msg="$1"
+        local reason="$2"
+        reason=$(echo "$reason" | sed 's/"/\\"/g'); \
+        echo "{\"service\": \"db-setup\",\"level\": \"error\", \"time\": \"$(date --iso-8601=seconds)\", \"message\": \"$msg\", \"reason\": \"$reason\"}" >&2
+    }
+
+    # === set my envs ===
+    error=false
+    env_vars=("PG_PASSWORD" "PG_HOST" "PG_PORT" "PG_USER" "YAML_FILE_PATH" )
+
+    for var in "${env_vars[@]}"; do
+        if [ -z "${!var-}" ]; then
+            log_error "Warning: Environment variable '$var' is not set." ""
+        error=true
+        fi
+    done
+
+    if [ "$error" = true ]; then
+        log_fatal "One or more required environment variables are missing. Exiting."
+    fi
+
+    export PGPASSWORD=$PG_PASSWORD
+
+    PSQL="psql -h $PG_HOST -p $PG_PORT -U $PG_USER -v ON_ERROR_STOP=1"
+
+    # === Waiting for PostgreSQL to become ready ===
+
+    log_info "Waiting for PostgreSQL to become ready at $PG_HOST:$PG_PORT..."
+
+    # Loop until pg_isready succeeds
+    until pg_isready -h "$PG_HOST" -p "$PG_PORT" -U "$PG_USER" > /dev/null 2>&1; do
+        log_info "INFO  PostgreSQL is unavailable - sleeping 10 sec"
+        sleep 10
+    done
+
+    log_info "PostgreSQL is ready!"
+
+    # === Create databases and roles ===
+    databases=$(yq -r '.databases[].name' "$YAML_FILE_PATH")
+    for db in $databases; do
+        log_info "Creating database and roles for $db..."
+
+        output=$($PSQL -d postgres -c "CREATE DATABASE $db;" 2>&1) || log_error "Database $db may already exist" "$output"
+
+        for role in readonly readonly_exec readwrite dbadmin; do
+        output=$($PSQL -d postgres -c "CREATE ROLE ${role}_${db} NOLOGIN;" 2>&1) \
+            || log_error "Role ${role}_${db} may already exist" "$output"
+        done
+        output=$($PSQL -d $db -c "GRANT CONNECT ON DATABASE ${db} TO readonly_${db}; GRANT USAGE ON SCHEMA public TO readonly_${db}; GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly_${db}; ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO readonly_${db}; ALTER DEFAULT PRIVILEGES FOR ROLE dbadmin_${db} IN SCHEMA public GRANT SELECT ON TABLES TO readonly_${db};" 2>&1) \
+            || log_error "Role readonly_${db} can not set access" "$output"
+            
+        output=$($PSQL -d $db -c "GRANT CONNECT ON DATABASE ${db} TO readonly_exec_${db}; GRANT USAGE ON SCHEMA public TO readonly_exec_${db}; GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly_exec_${db}; ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO readonly_exec_${db}; GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO readonly_exec_${db}; ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT EXECUTE ON FUNCTIONS TO readonly_exec_${db}; ALTER DEFAULT PRIVILEGES FOR ROLE dbadmin_${db} IN SCHEMA public GRANT EXECUTE ON FUNCTIONS TO readonly_exec_${db};" 2>&1) \
+            || log_error "Role readonly_exec_${db} can not set access" "$output"
+            
+        output=$($PSQL -d $db -c "GRANT CONNECT ON DATABASE ${db} TO readwrite_${db}; GRANT USAGE ON SCHEMA public TO readwrite_${db}; GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO readwrite_${db}; GRANT USAGE, SELECT, UPDATE ON ALL SEQUENCES IN SCHEMA public TO readwrite_${db}; ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO readwrite_${db}; ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO readwrite_${db}; ALTER DEFAULT PRIVILEGES FOR ROLE dbadmin_${db} IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO readwrite_${db}; ALTER DEFAULT PRIVILEGES FOR ROLE dbadmin_${db} IN SCHEMA public GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO readwrite_${db};" 2>&1) \
+            || log_error "Role readwrite_${db} can not set access" "$output"
+            
+        output=$($PSQL -d $db -c "GRANT CONNECT, CREATE, TEMP ON DATABASE ${db} TO dbadmin_${db}; GRANT USAGE, CREATE ON SCHEMA public TO dbadmin_${db}; GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO dbadmin_${db}; GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO dbadmin_${db}; GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO dbadmin_${db}; ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL PRIVILEGES ON TABLES TO dbadmin_${db}; ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL PRIVILEGES ON SEQUENCES TO dbadmin_${db}; ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL PRIVILEGES ON FUNCTIONS TO dbadmin_${db};" 2>&1) \
+            || log_error "Role dbadmin_${db} can not set access" "$output"
+    done
+
+    # === Create users ===
+    user_count=$(yq '.users | length' "$YAML_FILE_PATH")
+    for ((i=0; i<user_count; i++)); do
+        username=$(yq -r ".users[$i].username" "$YAML_FILE_PATH")
+        password=$(yq -r ".users[$i].password" "$YAML_FILE_PATH")
+        connectionLimit=$(yq -r ".users[$i].connectionLimit // \"-1\"" "$YAML_FILE_PATH")
+        validUntil=$(yq -r ".users[$i].validUntil // \"infinity\"" "$YAML_FILE_PATH")
+
+        [[ "$connectionLimit" == "null" || -z "$connectionLimit" ]] && connectionLimit="-1"
+        [[ "$validUntil" == "null" || -z "$validUntil" ]] && validUntil="infinity"
+
+        log_info "Creating user $username..."
+
+        output=$($PSQL -d postgres -c "DO \$\$
+        BEGIN
+        IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = '$username') THEN
+            EXECUTE format(
+            'CREATE USER %I WITH PASSWORD %L CONNECTION LIMIT %s VALID UNTIL %L',
+            '$username',
+            '$password',
+            '$connectionLimit',
+            '$validUntil'
+            );
+        END IF;
+        END
+        \$\$;" 2>&1) || log_error "Failed to create user $username" "$output"
+    done
+
+    # === Assign privileges ===
+    access_count=$(yq '.databaseAccess | length' "$YAML_FILE_PATH")
+    for ((i=0; i<access_count; i++)); do
+        username=$(yq -r ".databaseAccess[$i].username" "$YAML_FILE_PATH")
+        db=$(yq -r ".databaseAccess[$i].database" "$YAML_FILE_PATH")
+        access=$(yq -r ".databaseAccess[$i].accessLevel" "$YAML_FILE_PATH")
+
+        log_info "Granting $access access on $db to $username..."
+
+        case $access in
+        read)
+            output=$($PSQL -d postgres -c "GRANT readonly_${db} TO $username;" 2>&1) \
+            || log_error "Failed granting readonly_${db} to $username" "$output"
+            ;;
+        read_exec)
+            output=$($PSQL -d postgres -c "GRANT readonly_exec_${db} TO $username;" 2>&1) \
+            || log_error "Failed granting readonly_exec_${db} to $username" "$output"
+            ;;
+        write)
+            output=$($PSQL -d postgres -c "GRANT readwrite_${db} TO $username;" 2>&1) \
+            || log_error "Failed granting readwrite_${db} to $username" "$output"
+            ;;
+        admin)
+            output=$($PSQL -d postgres -c "GRANT dbadmin_${db} TO $username; ALTER ROLE $username IN DATABASE $db SET ROLE dbadmin_${db};" 2>&1) \
+            || log_error "Failed granting dbadmin_${db} to $username" "$output"
+            ;;
+        *)
+            log_error "Unknown access level: $access" ""
+            ;;
+        esac
+    done
+
+    # ===== Final Exit Handling =====
+    if [[ $FAILED -ne 0 ]]; then
+        log_fatal "One or more operations failed"
+    else
+        log_info "All operations completed successfully"
+    fi
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Release.Name }}-db-config-secret
+type: Opaque
+stringData:
+  db-config.yaml: |
+{{ toYaml .Values.postgres.initDbConfig | indent 4 }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Release.Name }}-pg-env-secret
+type: Opaque
+stringData:
+  PG_HOST: patronimvp-master-{{ .Release.Name }}
+  PG_PORT: "{{ .Values.postgres.pg_port }}"
+  PG_USER: {{ .Values.postgres.SUPERUSER_USERNAME }}
+  PG_PASSWORD: {{ .Values.postgres.SUPERUSER_PASSWORD }}
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Release.Name }}-db-setup-job
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: db-setup
+          image: debian:bookworm-slim
+          env:
+            - name: PG_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-pg-env-secret
+                  key: PG_HOST
+            - name: PG_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-pg-env-secret
+                  key: PG_PORT
+            - name: PG_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-pg-env-secret
+                  key: PG_USER
+            - name: PG_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-pg-env-secret
+                  key: PG_PASSWORD
+            - name: YAML_FILE_PATH
+              value: "/config/db-config.yaml"
+          volumeMounts:
+            - name: script-volume
+              mountPath: /scripts
+              readOnly: true
+            - name: config-volume
+              mountPath: /config
+              readOnly: true
+          command:
+            - /bin/bash
+            - -c
+            - |
+              apt-get update -y && apt-get install -y bash postgresql-client yq \
+              && cat /scripts/init-db.sh | bash
+      volumes:
+        - name: script-volume
+          configMap:
+            name: {{ .Release.Name }}-db-setup-script
+        - name: config-volume
+          secret:
+            secretName: {{ .Release.Name }}-db-config-secret
