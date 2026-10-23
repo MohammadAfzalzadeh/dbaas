@@ -69,6 +69,23 @@ class SecurityTests(unittest.TestCase):
         for key,value in [('namespace','../../escape'),('namespace','other')]:
             body=self.spec();body[key]=value
             self.assertIn(asyncio.run(request('/api/deploy',TOKEN,body))[0],[403,422])
+    def test_validation_errors_identify_fields_without_exposing_values(self):
+        body = self.spec()
+        body['project']['releaseName'] = 'SENSITIVE-INVALID-NAME'
+        body['existingSecrets'] = {'postgres': 'SENSITIVE-INVALID-SECRET'}
+        body['postgresql']['superuser'] = {'username': 'owner', 'password': {'private': 'SENSITIVE-PASSWORD'}}
+        with patch.object(api, 'run') as run:
+            status, raw = asyncio.run(request('/api/deploy', TOKEN, body))
+            run.assert_not_called()
+        self.assertEqual(status, 422)
+        self.assertNotIn(b'SENSITIVE', raw)
+        result = json.loads(raw)
+        fields = {item['field'] for item in result['errors']}
+        self.assertIn('project.releaseName', fields)
+        self.assertIn('existingSecrets.postgres', fields)
+        self.assertIn('postgresql.superuser.password', fields)
+        self.assertTrue(all(set(item) == {'field', 'message'} for item in result['errors']))
+
     def test_external_secret_values_and_inline_rejection(self):
         body=self.spec();body['project']['enablePgCat']=True;body['existingSecrets']={'postgres':'db-auth','pgcat':'pool-auth'}
         values=api.generated_values(api.DeploySpec(**body))

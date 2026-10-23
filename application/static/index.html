@@ -741,6 +741,32 @@ async function handleSubmit(e){
 
       if (!res.ok || (typeof body === "object" && body?.ok === false)) {
         let msg = (typeof body === "string") ? body : (body && body.detail) || res.statusText;
+        if (res.status === 422 && Array.isArray(body?.errors)) {
+          const fields = {
+            'project.releaseName': ['releaseName', 'نام کلاستر'],
+            'namespace': ['namespace', 'فضای نام'],
+            'postgresql.pgReplicas': ['pgReplicas', 'تعداد اعضای PostgreSQL'],
+            'postgresql.pgStorageCapacity': ['pgStorageCapacity', 'حجم دیسک PostgreSQL'],
+            'minio.storageCapacity': ['minioStorageCapacity', 'حجم دیسک MinIO'],
+            'walg.backup.backupSchedule': ['backupSchedule', 'زمان‌بندی بکاپ'],
+            'walg.backup.compressionMethod': ['compressionMethod', 'روش فشرده‌سازی'],
+            ...Object.fromEntries(['Postgres','Walg','Pgcat','Pgadmin','Minio'].map(k =>
+              ['existingSecrets.'+k.toLowerCase(), ['secret'+k, 'نام Secret مربوط به '+k]]))
+          };
+          msg = 'لطفاً تنظیمات زیر را اصلاح کنید:\n' + body.errors.map(error => {
+            const entry = fields[error.field];
+            if (entry) {
+              const input = document.getElementById(entry[0]);
+              input.classList.add('error');
+              const section = input.closest('.config-section');
+              if (section) {
+                section.classList.remove('collapsed');
+                section.querySelector('.section-header').setAttribute('aria-expanded','true');
+              }
+            }
+            return (entry ? entry[1] : error.field) + ': ' + error.message;
+          }).join('\n');
+        }
         if (typeof msg !== "string") msg = JSON.stringify(msg);
         if (msg && msg.length > 4000) msg = msg.slice(0, 4000) + "…";
         throw new Error(msg || "Deployment failed");

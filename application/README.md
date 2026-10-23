@@ -36,6 +36,8 @@ The backend image packages `helmCharts/`; CLI scripts use the repository's root 
 
 ## Errors and temporary files
 
+Invalid request schemas return HTTP 422 with a bounded `errors` list of field paths and fixed guidance. Submitted values and validator exception context are omitted. The panel displays those field errors and highlights recognized inputs.
+
 Generated values live in a per-request private temporary directory; files have private permissions and are removed on success or failure. All selected charts are linted before deployment starts. Subprocess failures propagate as sanitized API errors rather than success messages. A partial failure includes `completedReleases`; previous successful releases are retained for inspection and are not automatically rolled back. Concurrent operations have no durable per-release lock. [Implementation](app/main.py) · [Correctness regressions](../tests/test_phase1.py).
 
 ## Configuration

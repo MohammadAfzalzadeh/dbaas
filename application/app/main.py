@@ -331,8 +331,33 @@ CHART_PGCAT   = find_chart("pgcat")
 # ----------------------------
 @app.exception_handler(RequestValidationError)
 async def invalid_request(request: Request, exc: RequestValidationError):
-    # Pydantic errors include submitted values, including passwords.
-    return JSONResponse(status_code=422, content={"detail": "Invalid deployment specification"})
+    # Return only schema-owned field names and fixed hints. Never echo input,
+    # validator exception text, or Pydantic context (which may contain secrets).
+    models = (DeploySpec, Project, Postgres, DB, User, AccessRule, WalG,
+              WalGS3, WalGBackup, Monitoring, MinioSpec, SecretReferences, PostgresCreds)
+    allowed = {name for model in models for name in model.model_fields}
+    hints = {
+        "project.releaseName": "Use 1–35 lowercase letters, digits or hyphens; start and end with a letter or digit.",
+        "namespace": "Use 1–63 lowercase letters, digits or hyphens; start and end with a letter or digit.",
+        "postgresql.pgReplicas": "Enter a whole number from 1 to 100.",
+        "postgresql.pgStorageCapacity": "Enter a whole number from 1 to 1048576 GiB.",
+        "minio.storageCapacity": "Enter a whole number from 1 to 1048576 GiB.",
+        "walg.backup.backupSchedule": "Enter five valid cron fields, for example: 0 2 * * *.",
+        "walg.backup.compressionMethod": "Choose brotli, lz4, lzma or zstd.",
+    }
+    errors = []
+    for error in exc.errors()[:20]:
+        parts = [str(part) for part in error.get("loc", ())
+                 if isinstance(part, int) or (isinstance(part, str) and part in allowed)]
+        field = ".".join(parts) or "request"
+        message = hints.get(field, "Check this field's format and required values.")
+        if parts and parts[0] == "existingSecrets":
+            message = "Enter a Kubernetes Secret name, not its password; use lowercase letters, digits, dots or hyphens."
+        elif error.get("type") == "missing":
+            message = "This field is required."
+        errors.append({"field": field, "message": message})
+    return JSONResponse(status_code=422, content={
+        "detail": "Invalid deployment specification", "errors": errors})
 
 @app.exception_handler(Exception)
 async def unhandled(request: Request, exc: Exception):
