@@ -433,7 +433,7 @@ def deploy(spec: DeploySpec):
             for component in values:
                 release = f"{spec.project.releaseName}-{component}"
                 output = run(["helm", "upgrade", "--install", release, charts[component],
-                              "--namespace", spec.namespace, "-f", files[component],
+                              "--namespace", spec.namespace, "-f", files[component], "--create-namespace",
                               "--wait", "--wait-for-jobs", "--timeout", "10m0s" if component == "patroni" else "5m0s"])
                 # Helm treats OnDelete StatefulSets as ready without waiting for pods.
                 # Wait explicitly for the desired member count before the next component.
