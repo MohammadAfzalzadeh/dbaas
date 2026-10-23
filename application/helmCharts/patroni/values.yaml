@@ -1,5 +1,5 @@
 postgres:
-  imageName: dbaas/patroni:2.1.0
+  imageName: docker.arvancloud.ir/afzalzademohammad/patroni:2.0.0
   imagePullPolicy: IfNotPresent
   pg_port: 5432
   patroni_port: 8008
@@ -78,7 +78,7 @@ walg:
   archiveEnabled: true
   # Disable after isolated bootstrap: source timelines can diverge from this clone.
   restoreEnabled: true
-  imageName: dbaas/wal-g:3.0.7
+  imageName: docker.arvancloud.ir/afzalzademohammad/wal-g:2.0.0
   imagePullPolicy: IfNotPresent
   AWS_ACCESS_KEY_ID: ''
   AWS_SECRET_ACCESS_KEY: ''
@@ -96,7 +96,7 @@ walg:
 backup:
   enabled: true
   BACKUP_PERIOD: 0 0 * * *
-  IMAGE_NAME: dbaas/kubectl:1.30.0
+  IMAGE_NAME: docker.arvancloud.ir/bitnami/kubectl:1.30.0
   IMAGE_PULL_POLICY: IfNotPresent
   LABEL_SELECTOR: application=patroni,role=primary
   CONTAINER_NAME: patronimvp

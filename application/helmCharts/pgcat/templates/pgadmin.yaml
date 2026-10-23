@@ -66,7 +66,7 @@ spec:
       {{- include "dbaas.scheduling" (dict "settings" .Values.pgadmin.scheduling "labels" (dict "app" "pgadmin" "release-name" .Release.Name)) | nindent 6 }}
       containers:
         - name: {{ $secret }}
-          image: dpage/pgadmin4:9.3
+          image: docker-mirror.liara.ir/dpage/pgadmin4:9.3
           resources: {{ toYaml .Values.pgadmin.resources | nindent 12 }}
           startupProbe:
             httpGet: {path: /misc/ping, port: 80}
