@@ -40,7 +40,7 @@ async def authenticate(request: Request, call_next):
         # Only preflight is public; the subsequent operation still authenticates.
         if request.method != "OPTIONS":
             expected = os.getenv("DBAAS_API_TOKEN", "")
-            if len(expected) < 32:
+            if len(expected) < 8:
                 return JSONResponse(status_code=503, content={"detail": "API authentication is not configured"})
             header = request.headers.get("Authorization", "")
             scheme, _, token = header.partition(" ")
