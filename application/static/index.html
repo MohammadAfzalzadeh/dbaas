@@ -34,7 +34,32 @@
           <p class="section-description" dir="rtl">برای تأیید دسترسی، توکن API را وارد کنید. سپس نام Secretهای حاوی اطلاعات اتصال سرویس‌ها را مشخص کنید.</p>
           <div class="form-group token-field"><label for="apiToken">توکن دسترسی API <span class="required">*</span></label><input class="form-input" id="apiToken" type="password" autocomplete="off" placeholder="توکن دسترسی را وارد کنید"><small class="field-hint" dir="rtl">از مقدار DBAAS_API_TOKEN استفاده کنید. توکن فقط در حافظهٔ همین صفحه نگهداری می‌شود.</small></div>
           <div class="mode-control"><label for="inlineSecretsMode"><input id="inlineSecretsMode" type="checkbox"> ورود مستقیم رمزها برای محیط توسعه</label><p dir="rtl">فقط با فعال بودن DBAAS_ALLOW_INLINE_SECRETS در سرور قابل استفاده است.</p></div>
-          <div class="form-grid secret-grid"><div class="form-group"><label for="secretPostgres">نام Secret مربوط به PostgreSQL</label><input class="form-input" id="secretPostgres" name="secretPostgres" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض"></div><div class="form-group"><label for="secretWalg">نام Secret مربوط به WAL-G</label><input class="form-input" id="secretWalg" name="secretWalg" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض"></div><div class="form-group"><label for="secretPgcat">نام Secret تنظیمات PgCat</label><input class="form-input" id="secretPgcat" name="secretPgcat" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض"></div><div class="form-group"><label for="secretPgadmin">نام Secret مربوط به pgAdmin</label><input class="form-input" id="secretPgadmin" name="secretPgadmin" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض"></div><div class="form-group"><label for="secretMinio">نام Secret مربوط به MinIO</label><input class="form-input" id="secretMinio" name="secretMinio" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض"></div></div><p class="info-note" dir="rtl">در این فیلدها <strong>نام Secret موجود</strong> را وارد کنید. با خالی گذاشتن فیلد، نام پیش‌فرض استفاده می‌شود؛ Secret باید پیش از راه‌اندازی ساخته شده باشد.</p></div></section>
+<!--           
+          <div class="form-grid secret-grid">
+            <div class="form-group">
+              <label for="secretPostgres">نام Secret مربوط به PostgreSQL</label>
+              <input class="form-input" id="secretPostgres" name="secretPostgres" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض">
+            </div>
+              <div class="form-group">
+                <label for="secretWalg">نام Secret مربوط به WAL-G</label>
+                <input class="form-input" id="secretWalg" name="secretWalg" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض">
+              </div>
+              <div class="form-group">
+                <label for="secretPgcat">نام Secret تنظیمات PgCat</label>
+                <input class="form-input" id="secretPgcat" name="secretPgcat" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض">
+              </div>
+              <div class="form-group">
+                <label for="secretPgadmin">نام Secret مربوط به pgAdmin</label>
+                <input class="form-input" id="secretPgadmin" name="secretPgadmin" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض">
+              </div>
+              <div class="form-group">
+                <label for="secretMinio">نام Secret مربوط به MinIO</label>
+                <input class="form-input" id="secretMinio" name="secretMinio" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض">
+              </div>
+            </div>
+            <p class="info-note" dir="rtl">در این فیلدها <strong>نام Secret موجود</strong> را وارد کنید. با خالی گذاشتن فیلد، نام پیش‌فرض استفاده می‌شود؛ Secret باید پیش از راه‌اندازی ساخته شده باشد.</p> -->
+            </div>
+            </section>
 
         <!-- Project -->
         <div class="config-section" data-section="project" id="section-project">
@@ -158,14 +183,13 @@
 
             <div class="sub-section">
               <h4>مدیریت دسترسی</h4>
-              <div class="warning-note"><strong>برنامهٔ توسعه (Planned):</strong> ایجاد دیتابیس، کاربر و مجوزهای SQL هنوز پیاده‌سازی نشده است. تنظیمات PgCat باید به دیتابیس‌ها و کاربران موجود اشاره کنند.</div>
               <div class="item-list">
                 <div class="item-list-header">
                   <h4>دسترسی کاربران به دیتابیس‌ها</h4>
                   <button type="button" class="add-btn" id="addAccessBtn" disabled title="Planned: SQL grants are not implemented">+ افزودن قاعدهٔ دسترسی</button>
                 </div>
                 <div id="databaseAccessList">
-                  <div class="empty-list">Planned: create PostgreSQL roles and grants separately with SQL.</div>
+                  <div class="empty-list">هنوز قاعدهٔ دسترسی ای تعریف نشده است. برای افزودن، «افزودن قاعدهٔ دسترسی» را انتخاب کنید.</div>
                 </div>
               </div>
             </div>
@@ -263,7 +287,7 @@
             <div class="sub-section">
               <h4>تنظیمات پشتیبان‌گیری</h4>
               <div class="form-grid">
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label>بازیابی تا زمان مشخص (PITR)
                   </label>
                   <div class="switch-container">
@@ -271,7 +295,7 @@
                     <span class="switch-label">غیرفعال</span>
                   </div>
                   <input type="hidden" id="enablePITR" name="enablePITR" value="false">
-                </div>
+                </div> -->
                 <div class="form-group" data-inline-only>
                   <label for="compressionMethod">روش فشرده‌سازی <span class="required">*</span>
                   </label>
