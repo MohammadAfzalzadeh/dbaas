@@ -1,0 +1,64 @@
+cluster:
+  name: dbaas cluster 
+
+destinations:
+  - name: mimir-metrics
+    type: prometheus
+    url: http://mimir-gateway.monitoring.svc.cluster.local/api/v1/push
+    auth:
+      type: none
+  - name: loki-logs
+    type: loki
+    url: http://loki-gateway.monitoring.svc.cluster.local/loki/api/v1/push
+    tenantId: "1"
+    auth:
+      type: none
+  - name: tempo-traces
+    type: otlp
+    url: tempo-distributor.monitoring.svc.cluster.local:4317
+    traces: { enabled: true }
+    # Using OTLP for traces; no auth, uses gRPC on default OTLP port.
+
+clusterMetrics:
+  enabled: true
+  metricsSource: mimir-metrics        # Send cluster metrics to our Mimir destination:contentReference[oaicite:21]{index=21}:contentReference[oaicite:22]{index=22}
+
+podLogs:
+  enabled: true
+  collector: alloy-logs
+  gatherMethod: kubernetesApi         # Use Kubernetes API to get pod logs (no need to mount files; alternatively 'volumes' for file tailing)
+  namespaces:
+    - monitoring
+    - default
+    - dbaas
+    - prod                            # List all namespaces from which to collect pod logs
+nodeLogs:
+  enabled: true
+  collector: alloy-logs
+  # gatherMethod defaults to journald; ensure nodes use systemd if enabling
+clusterEvents:
+  enabled: true
+  collector: alloy-logs
+
+# Enable the Alloy collector instances:
+alloy-metrics:
+  enabled: true
+alloy-logs:
+  enabled: true
+  alloy:
+    mounts:
+      varlog: true   # needed if using volumes/journald for node logs (mount /var/log)
+    clustering:
+      enabled: true  # allow pod logs collection across the cluster:contentReference[oaicite:23]{index=23}
+alloy-receiver:
+  enabled: true     # (for receiving external OTLP data – not needed unless you want to send app metrics/traces to Alloy)
+alloy-singleton:
+  enabled: true      # a single instance (often handles cluster-level scraping like events)
+applicationObservability:
+  enabled: true
+  receivers:
+    otlp:
+      grpc:
+        enabled: true
+      http:
+        enabled: true

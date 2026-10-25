@@ -1,0 +1,8 @@
+
+global:
+  dnsService: kube-dns #coredns
+minio:
+  enabled: true
+  persistence:
+    storageClass: standard
+    size: 1Gi
