@@ -3,8 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="msapplication-TileImage" content="/static/favicon.ico">
   <title>DBaaS • ساخت کلاستر PostgreSQL</title>
   <link rel="stylesheet" href="/static/panel.css">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon.ico">
+
+  <link rel="stylesheet" href="https://www.arvancloud.ir/css/fonts-yekanbakh.css?id=246b8edbbfe429edcefcd78ce6873022">
+  <link rel="preload" href="https://www.arvancloud.ir/fonts/Yekan Bakh/Yekan Bakh EN 05 Medium.woff?v=970802" as="font" type="font/woff" crossorigin="">
+  <link rel="preload" href="https://www.arvancloud.ir/fonts/Yekan Bakh/Yekan Bakh EN 06 Bold.woff?v=970802" as="font" type="font/woff" crossorigin="">
+  <link rel="preload" href="https://www.arvancloud.ir/fonts/Yekan Bakh/Yekan Bakh EN 03 Light.woff?v=970802" as="font" type="font/woff" crossorigin="">
+  <link rel="preload" href="https://www.arvancloud.ir/fonts/Yekan Bakh/Yekan Bakh EN 03 Light.woff?v=970802" as="font" type="font/woff" crossorigin="">
+  <link rel="preload" href="https://www.arvancloud.ir/fonts/Yekan Bakh/Yekan Bakh EN 08 Fat.woff?v=970802" as="font" type="font/woff" crossorigin="">
 </head>
 <body>
   <div class="dashboard-container">
@@ -16,8 +26,8 @@
     <div class="workspace-layout">
     <aside class="sidebar" dir="rtl" aria-label="راهنمای ساخت">
       <p class="nav-caption">مراحل پیکربندی</p>
-      <nav><a href="#section-auth"><b>01</b> دسترسی و Secretها</a><a href="#section-project"><b>02</b> مشخصات کلاستر</a><a href="#section-postgresql"><b>03</b> منابع PostgreSQL</a><a href="#section-walg"><b>04</b> ذخیره‌سازی و بکاپ</a><a href="#section-monitoring"><b>05</b> قابلیت‌های تکمیلی</a></nav>
-      <div class="sidebar-note"><span class="mini-label">قبل از شروع</span><h2>پیش‌نیازهای راه‌اندازی</h2><ol><li>توکن دسترسی اپراتور</li><li>فضای نام موجود و مجاز در Kubernetes</li><li>Secretهای موردنیاز در فضای نام مقصد</li></ol><p>با این فرم، کلاستر PostgreSQL راه‌اندازی می‌شود. ایجاد دیتابیس و کاربر دلخواه پس از راه‌اندازی و از طریق SQL انجام می‌شود.</p></div>
+      <nav><a href="#section-auth"><b>01</b> دسترسی </a><a href="#section-project"><b>02</b> مشخصات کلاستر</a><a href="#section-postgresql"><b>03</b> منابع PostgreSQL</a><a href="#section-walg"><b>04</b> ذخیره‌سازی و بکاپ</a><a href="#section-monitoring"><b>05</b> قابلیت‌های تکمیلی</a></nav>
+      <div class="sidebar-note"><span class="mini-label">قبل از شروع</span><h2>پیش‌نیازهای راه‌اندازی</h2><ol><li> داشتن کلاستر کوبرنتیز </li><li>توکن دسترسی اپراتور</li></ol><p>با این فرم، کلاستر PostgreSQL راه‌اندازی می‌شود. ایجاد دیتابیس و کاربر دلخواه پس از راه‌اندازی و از طریق SQL انجام می‌شود.</p></div>
       <div class="sidebar-tip">برای آشنایی با هر گزینه، علامت <b>?</b> کنار آن را انتخاب کنید.</div>
     </aside>
 
@@ -29,37 +39,12 @@
 
       <form id="postgresqlConfigForm" novalidate>
       <section class="config-section" data-section="auth" id="section-auth">
-        <div class="section-header"><h3>دسترسی و Secretها</h3><span class="section-toggle">⌄</span></div>
+        <div class="section-header"><h3>دسترسی</h3><span class="section-toggle">▼</span></div>
         <div class="section-content">
           <p class="section-description" dir="rtl">برای تأیید دسترسی، توکن API را وارد کنید. سپس نام Secretهای حاوی اطلاعات اتصال سرویس‌ها را مشخص کنید.</p>
           <div class="form-group token-field"><label for="apiToken">توکن دسترسی API <span class="required">*</span></label><input class="form-input" id="apiToken" type="password" autocomplete="off" placeholder="توکن دسترسی را وارد کنید"><small class="field-hint" dir="rtl">از مقدار DBAAS_API_TOKEN استفاده کنید. توکن فقط در حافظهٔ همین صفحه نگهداری می‌شود.</small></div>
-          <div class="mode-control"><label for="inlineSecretsMode"><input id="inlineSecretsMode" type="checkbox"> ورود مستقیم رمزها برای محیط توسعه</label><p dir="rtl">فقط با فعال بودن DBAAS_ALLOW_INLINE_SECRETS در سرور قابل استفاده است.</p></div>
-<!--           
-          <div class="form-grid secret-grid">
-            <div class="form-group">
-              <label for="secretPostgres">نام Secret مربوط به PostgreSQL</label>
-              <input class="form-input" id="secretPostgres" name="secretPostgres" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض">
-            </div>
-              <div class="form-group">
-                <label for="secretWalg">نام Secret مربوط به WAL-G</label>
-                <input class="form-input" id="secretWalg" name="secretWalg" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض">
-              </div>
-              <div class="form-group">
-                <label for="secretPgcat">نام Secret تنظیمات PgCat</label>
-                <input class="form-input" id="secretPgcat" name="secretPgcat" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض">
-              </div>
-              <div class="form-group">
-                <label for="secretPgadmin">نام Secret مربوط به pgAdmin</label>
-                <input class="form-input" id="secretPgadmin" name="secretPgadmin" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض">
-              </div>
-              <div class="form-group">
-                <label for="secretMinio">نام Secret مربوط به MinIO</label>
-                <input class="form-input" id="secretMinio" name="secretMinio" autocomplete="off" placeholder="خالی: استفاده از نام پیش‌فرض">
-              </div>
-            </div>
-            <p class="info-note" dir="rtl">در این فیلدها <strong>نام Secret موجود</strong> را وارد کنید. با خالی گذاشتن فیلد، نام پیش‌فرض استفاده می‌شود؛ Secret باید پیش از راه‌اندازی ساخته شده باشد.</p> -->
-            </div>
-            </section>
+          </div>
+      </section>
 
         <!-- Project -->
         <div class="config-section" data-section="project" id="section-project">
@@ -186,7 +171,7 @@
               <div class="item-list">
                 <div class="item-list-header">
                   <h4>دسترسی کاربران به دیتابیس‌ها</h4>
-                  <button type="button" class="add-btn" id="addAccessBtn" disabled title="Planned: SQL grants are not implemented">+ افزودن قاعدهٔ دسترسی</button>
+                  <button type="button" class="add-btn" id="addAccessBtn" title="Planned: SQL grants are not implemented">+ افزودن قاعدهٔ دسترسی</button>
                 </div>
                 <div id="databaseAccessList">
                   <div class="empty-list">هنوز قاعدهٔ دسترسی ای تعریف نشده است. برای افزودن، «افزودن قاعدهٔ دسترسی» را انتخاب کنید.</div>
@@ -287,15 +272,6 @@
             <div class="sub-section">
               <h4>تنظیمات پشتیبان‌گیری</h4>
               <div class="form-grid">
-                <!-- <div class="form-group">
-                  <label>بازیابی تا زمان مشخص (PITR)
-                  </label>
-                  <div class="switch-container">
-                    <div class="switch" data-input="enablePITR" aria-disabled="true" title="Experimental: use the operator recovery script"><div class="switch-handle"></div></div>
-                    <span class="switch-label">غیرفعال</span>
-                  </div>
-                  <input type="hidden" id="enablePITR" name="enablePITR" value="false">
-                </div> -->
                 <div class="form-group" data-inline-only>
                   <label for="compressionMethod">روش فشرده‌سازی <span class="required">*</span>
                   </label>
@@ -312,6 +288,15 @@
                   </label>
                   <input type="text" id="backupSchedule" name="backupSchedule" class="form-input" placeholder="0 2 * * *" value="0 2 * * *" required>
                   <span class="error-message">Valid crontab format required (e.g., 0 2 * * *)</span>
+                </div>
+                <div class="form-group">
+                  <label>بازیابی تا زمان مشخص (PITR)
+                  </label>
+                  <div class="switch-container">
+                    <div class="switch" data-input="enablePITR" aria-disabled="true" title="Experimental: use the operator recovery script"><div class="switch-handle"></div></div>
+                    <span class="switch-label">غیرفعال</span>
+                  </div>
+                  <input type="hidden" id="enablePITR" name="enablePITR" value="false">
                 </div>
               </div>
             </div>
@@ -681,8 +666,9 @@ async function handleSubmit(e){
   if (form.dataset.submitting === "true") return;
   const output = document.getElementById('output');
 
-  // client-side validation
-  if (document.getElementById("inlineSecretsMode").checked && typeof validateForm === "function" && !validateForm()) {
+  // client-side validation 
+  // document.getElementById("inlineSecretsMode").checked &&
+  if ( typeof validateForm === "function" && !validateForm()) {
     return;
   }
 
@@ -726,14 +712,6 @@ async function handleSubmit(e){
   };
 
   payload.existingSecrets = Object.fromEntries(['Postgres','Walg','Pgcat','Pgadmin','Minio'].map(k => [k.toLowerCase(), cfg['secret'+k] || '']));
-  if (!document.getElementById('inlineSecretsMode').checked) {
-    payload.postgresql.superuser = null;
-    payload.postgresql.replication = null;
-    payload.users = [];
-    payload.databases = [];
-    if (payload.walg) payload.walg.s3 = null;
-    if (payload.minio) payload.minio = {storageCapacity: payload.minio.storageCapacity};
-  }
   const token = document.getElementById('apiToken').value;
   if (!token) { output.textContent = '❌ Enter an API token'; return; }
 
@@ -824,7 +802,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // Help text describes the current API contract, including controls that are planned.
 const fieldHelp = {
   apiToken:'رمز دسترسی به پنل مدیریت است، نه رمز دیتابیس. مقدار DBAAS_API_TOKEN سرور را وارد کنید. توکن همراه درخواست فرستاده می‌شود و در مرورگر ذخیرهٔ دائمی نمی‌شود.',
-  inlineSecretsMode:'حالت توسعه: به‌جای Secret موجود، رمزها را در فرم وارد می‌کنید. سرور باید DBAAS_ALLOW_INLINE_SECRETS=true داشته باشد. این مقادیر در تاریخچهٔ Helm باقی می‌مانند.',
   secretPostgres:'نام Secret دارای نام کاربری و رمز مدیر PostgreSQL و replication. نام پیش‌فرض: <project>-patroni-postgres-credentials. Secret باید از قبل در namespace مقصد ساخته شده باشد.',
   secretWalg:'نام Secret شامل فایل .walg.env برای اتصال WAL-G به دیتابیس و فضای بکاپ. پیش‌فرض: <project>-patroni-wal-g-credentials. رمزهای آن باید با PostgreSQL و object storage مطابقت داشته باشند.',
   secretPgcat:'نام Secret شامل pgcat.yaml؛ میزبان‌ها، poolها و رمز کاربران را تعیین می‌کند. پیش‌فرض: <project>-pgcat-pgcat-config. وقتی PgCat فعال است استفاده می‌شود.',
@@ -905,19 +882,12 @@ function installFieldHelp(root=document){
   });
 }
 function updateCredentialMode(){
-  const inline=document.getElementById('inlineSecretsMode').checked;
-  document.querySelectorAll('[data-inline-only]').forEach(group=>{
-    group.hidden=!inline;
-    group.querySelectorAll('input,select').forEach(field=>field.disabled=!inline);
-  });
-  const section=document.getElementById('section-database-management');
-  section.hidden=!inline;
   const minio=document.getElementById('enableMinio').value==='true';
   document.getElementById('s3ConfigSection').style.display=inline&&!minio?'block':'none';
 }
 document.addEventListener('DOMContentLoaded',()=>{
   installFieldHelp();updateCredentialMode();
-  document.getElementById('inlineSecretsMode').addEventListener('change',updateCredentialMode);
+  // document.getElementById('inlineSecretsMode').addEventListener('change',updateCredentialMode);
   document.querySelectorAll('.section-header').forEach((header,index)=>{
     const content=header.parentElement.querySelector('.section-content');content.id='section-content-'+index;
     header.setAttribute('role','button');header.tabIndex=0;header.setAttribute('aria-expanded','true');header.setAttribute('aria-controls',content.id);
